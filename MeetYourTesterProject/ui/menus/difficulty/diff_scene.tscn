@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://doqt2siiqyb2a"]
+
+[ext_resource type="Texture2D" uid="uid://bc7s65ssh3cgh" path="res://assets/images/start-scene/btn-label-easy.svg" id="1_bqnr1"]
+[ext_resource type="Script" path="res://scripts/handle_difficulty.gd" id="2_dko5q"]
+[ext_resource type="Texture2D" uid="uid://dfyql346x7kwp" path="res://assets/images/start-scene/btn-label-medium.svg" id="2_ggpfl"]
+[ext_resource type="Texture2D" uid="uid://dt5pa0n2lmbrh" path="res://assets/images/start-scene/btn-label-hard.svg" id="3_m4dx8"]
+[ext_resource type="Texture2D" uid="uid://b67femqvsaggk" path="res://assets/images/start-scene/btn-label-cancel.svg" id="4_w18dt"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+vertical = true
+
+[node name="EasyDiffBtn" type="TextureButton" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("1_bqnr1")
+script = ExtResource("2_dko5q")
+difficulty_level = 1
+next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
+
+[node name="MediumDiffBtn" type="TextureButton" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("2_ggpfl")
+script = ExtResource("2_dko5q")
+difficulty_level = 2
+next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
+
+[node name="HardDiffBtn" type="TextureButton" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("3_m4dx8")
+script = ExtResource("2_dko5q")
+difficulty_level = 3
+next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
+
+[node name="CancelBtn" type="TextureButton" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("4_w18dt")
