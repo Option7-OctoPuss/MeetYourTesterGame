@@ -9,28 +9,17 @@ Game in godot
 ​
 
 ```
-
-├── MeetYourTesterProject
-
-│   ├── addons
-
-│   ├── Audio
-
-│   ├── Images
-
-│   ├── project.godot
-
-│   └── UI
-
-│       ├── MainScreen
-
-│       └── Menus
-
-│           ├── Difficulty
-
-│           ├── MainMenu
-
-│           └── PauseMenu
+.
+├── addons
+├── audio
+├── images
+├── project.godot
+└── ui
+    ├── main_screen
+    └── menus
+        ├── difficulty
+        ├── main_menu
+        └── pause_menu
 
 ```
 
@@ -42,7 +31,7 @@ Game in godot
 
 - `images` shared images between scenes of the Game
 
-- `UI` contains all sceene of the Game
+- `ui` contains all sceene of the Game
 
     - `main_screen` scenes related to the map of the Game
 
