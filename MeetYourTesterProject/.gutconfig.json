@@ -1,0 +1,18 @@
+{
+	"dirs": [
+	  "res://test/"
+	],
+	"disable_colors": false,
+	"errors_do_not_cause_failure": false,
+	"gut_on_top": true,
+	"ignore_pause": true,
+	"include_subdirs": true,
+	"log_level": 1,
+	"post_run_script": "",
+	"pre_run_script": "",
+	"prefix": "test_",
+	"should_exit": true,
+	"should_exit_on_success": true,
+	"should_maximize": false,
+	"suffix": ".gd"
+}
