@@ -11,8 +11,14 @@ config_version=5
 [application]
 
 config/name="MeetYourTesterProject"
+run/main_scene="res://ui/menus/difficulty/diff_scene.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+diff_store="*res://scripts/stores/diff_store.gd"
+globals="*res://scripts/stores/globals.gd"
 
 [rendering]
 
