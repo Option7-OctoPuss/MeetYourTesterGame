@@ -1,0 +1,36 @@
+---
+name: Running Pipeline
+
+# push directly if branch is not main
+# pull request only on branches:
+# - main
+# - dev
+on:
+  push:
+    branches-ignore: ['main', 'dev']
+  pull_request:
+    branches: ['main', 'dev']
+
+# change godot version if needed
+env:
+  GODOT_VERSION: 4.2
+
+# start actions in case of:
+# - pushing
+# - executing pull request
+jobs:
+  tests:
+    name: Executing pipeline's steps
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run checkout on current branch
+        uses: actions/checkout@v3.3.0
+      - name: Execute GUT tests
+        if: github.event.pull_request.base.ref != 'main'
+        uses: croconut/godot-tester@v5.1
+        with:
+          version: '${{ env.GODOT_VERSION }}'
+          import-time: 30
+          custom-godot-dl-url: 'https://downloads.tuxfamily.org/godotengine/${{ env.GODOT_VERSION }}/Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64.zip'
+          path: "./MeetYourTesterProject/"
+    
