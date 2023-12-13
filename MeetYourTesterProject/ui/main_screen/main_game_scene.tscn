@@ -1,3 +1,15 @@
 [gd_scene format=3 uid="uid://dpyn1enbx4w7u"]
 
 [node name="MainGameScene" type="Node2D"]
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+offset_right = 570.0
+offset_bottom = 211.0
+alignment = 1
+
+[node name="Label" type="Label" parent="BoxContainer"]
+layout_mode = 2
+text = "This is the placeholder for main scene game ;>
+"
+horizontal_alignment = 1
+vertical_alignment = 1
