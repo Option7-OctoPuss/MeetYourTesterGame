@@ -1,16 +1,35 @@
-[gd_scene load_steps=6 format=3 uid="uid://doqt2siiqyb2a"]
+[gd_scene load_steps=16 format=3 uid="uid://doqt2siiqyb2a"]
 
 [ext_resource type="Texture2D" uid="uid://bc7s65ssh3cgh" path="res://assets/images/start-scene/btn-label-easy.svg" id="1_bqnr1"]
 [ext_resource type="Script" path="res://scripts/handle_difficulty.gd" id="2_dko5q"]
 [ext_resource type="Texture2D" uid="uid://dfyql346x7kwp" path="res://assets/images/start-scene/btn-label-medium.svg" id="2_ggpfl"]
 [ext_resource type="Texture2D" uid="uid://dt5pa0n2lmbrh" path="res://assets/images/start-scene/btn-label-hard.svg" id="3_m4dx8"]
 [ext_resource type="Texture2D" uid="uid://b67femqvsaggk" path="res://assets/images/start-scene/btn-label-cancel.svg" id="4_w18dt"]
+[ext_resource type="VideoStream" path="res://assets/images/background/purple-nebula-background.ogv" id="6_1pbb3"]
+[ext_resource type="Texture2D" uid="uid://bqr3h3k41im03" path="res://assets/images/start-scene/menu-title.svg" id="7_mp5u8"]
+[ext_resource type="Texture2D" uid="uid://dn7esiiyigatj" path="res://assets/images/start-scene/btn-icon-start-select.svg" id="8_ts36x"]
+[ext_resource type="Texture2D" uid="uid://qt4q5cgcfi1t" path="res://assets/images/start-scene/btn-label-start-select.svg" id="9_wijc0"]
+[ext_resource type="Texture2D" uid="uid://p1vy17eaqdmg" path="res://assets/images/start-scene/btn-icon-tutorial.svg" id="10_ue55r"]
+[ext_resource type="Texture2D" uid="uid://cri1xp862ppn2" path="res://assets/images/start-scene/btn-label-tutorial.svg" id="11_jfers"]
+[ext_resource type="Texture2D" uid="uid://3mhgjnmj42ky" path="res://assets/images/start-scene/btn-icon-options.svg" id="12_815ib"]
+[ext_resource type="Texture2D" uid="uid://cwpnfaaj1k4ew" path="res://assets/images/start-scene/btn-label-options.svg" id="13_ubmd5"]
+[ext_resource type="Texture2D" uid="uid://dx1cqjapo6r06" path="res://assets/images/start-scene/btn-icon-exit.svg" id="14_1dtwd"]
+[ext_resource type="Texture2D" uid="uid://cguax1fbaiecp" path="res://assets/images/start-scene/btn-label-quit.svg" id="15_gctwy"]
 
 [node name="Node2D" type="Node2D"]
 
+[node name="Background" type="VideoStreamPlayer" parent="."]
+offset_right = 3840.0
+offset_bottom = 2160.0
+stream = ExtResource("6_1pbb3")
+autoplay = true
+loop = true
+
 [node name="BoxContainer" type="BoxContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 1300.0
+offset_top = 500.0
+offset_right = 1770.0
+offset_bottom = 876.0
 vertical = true
 
 [node name="EasyDiffBtn" type="TextureButton" parent="BoxContainer"]
@@ -41,3 +60,66 @@ next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
 layout_mode = 2
 size_flags_horizontal = 8
 texture_normal = ExtResource("4_w18dt")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_top = 50.0
+offset_right = 1920.0
+offset_bottom = 90.0
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+layout_mode = 2
+texture = ExtResource("7_mp5u8")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 556.0
+offset_right = 608.0
+offset_bottom = 1080.0
+grow_vertical = 0
+columns = 2
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = ExtResource("8_ts36x")
+
+[node name="CenterContainer" type="CenterContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("9_wijc0")
+
+[node name="TextureRect2" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = ExtResource("10_ue55r")
+
+[node name="CenterContainer2" type="CenterContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/CenterContainer2"]
+layout_mode = 2
+texture = ExtResource("11_jfers")
+
+[node name="TextureRect3" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = ExtResource("12_815ib")
+
+[node name="CenterContainer3" type="CenterContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/CenterContainer3"]
+layout_mode = 2
+texture = ExtResource("13_ubmd5")
+
+[node name="TextureRect4" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = ExtResource("14_1dtwd")
+
+[node name="CenterContainer4" type="CenterContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/CenterContainer4"]
+layout_mode = 2
+texture = ExtResource("15_gctwy")
