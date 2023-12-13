@@ -1,31 +1,32 @@
-[gd_scene load_steps=6 format=3 uid="uid://doqt2siiqyb2a"]
+[gd_scene load_steps=7 format=3 uid="uid://doqt2siiqyb2a"]
 
 [ext_resource type="Texture2D" uid="uid://bc7s65ssh3cgh" path="res://images/start-scene/btn-label-easy.svg" id="1_bqnr1"]
-[ext_resource type="Script" path="res://scripts/handle_difficulty.gd" id="2_dko5q"]
 [ext_resource type="Texture2D" uid="uid://dfyql346x7kwp" path="res://images/start-scene/btn-label-medium.svg" id="2_ggpfl"]
+[ext_resource type="Script" path="res://ui/menus/difficulty/handle_difficulty.gd" id="2_ty5a8"]
 [ext_resource type="Texture2D" uid="uid://dt5pa0n2lmbrh" path="res://images/start-scene/btn-label-hard.svg" id="3_m4dx8"]
 [ext_resource type="Texture2D" uid="uid://b67femqvsaggk" path="res://images/start-scene/btn-label-cancel.svg" id="4_w18dt"]
+[ext_resource type="Script" path="res://ui/menus/difficulty/player_name_input.gd" id="6_ifxn4"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 436.0
+offset_right = 906.0
+offset_bottom = 376.0
 vertical = true
 
 [node name="EasyDiffBtn" type="TextureButton" parent="BoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 texture_normal = ExtResource("1_bqnr1")
-script = ExtResource("2_dko5q")
-difficulty_level = 1
+script = ExtResource("2_ty5a8")
 next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
 
 [node name="MediumDiffBtn" type="TextureButton" parent="BoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 texture_normal = ExtResource("2_ggpfl")
-script = ExtResource("2_dko5q")
+script = ExtResource("2_ty5a8")
 difficulty_level = 2
 next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
 
@@ -33,7 +34,7 @@ next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
 layout_mode = 2
 size_flags_horizontal = 8
 texture_normal = ExtResource("3_m4dx8")
-script = ExtResource("2_dko5q")
+script = ExtResource("2_ty5a8")
 difficulty_level = 3
 next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
 
@@ -41,3 +42,21 @@ next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
 layout_mode = 2
 size_flags_horizontal = 8
 texture_normal = ExtResource("4_w18dt")
+
+[node name="BoxContainer2" type="BoxContainer" parent="."]
+custom_minimum_size = Vector2(11, 11)
+anchors_preset = -1
+offset_right = 178.0
+offset_bottom = 35.0
+scale = Vector2(1.88, 1.88)
+theme_override_constants/separation = 1
+vertical = true
+
+[node name="PlayerInputNode" type="LineEdit" parent="BoxContainer2"]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 2
+placeholder_text = "Enter your name here"
+max_length = 15
+expand_to_text_length = true
+caret_blink = true
+script = ExtResource("6_ifxn4")
