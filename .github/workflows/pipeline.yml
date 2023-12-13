@@ -1,13 +1,10 @@
 ---
 name: Running Pipeline
 
-# push directly if branch is not main
 # pull request only on branches:
 # - main
 # - dev
 on:
-  push:
-    branches-ignore: ['main', 'dev']
   pull_request:
     branches: ['main', 'dev']
 
