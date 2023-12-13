@@ -9,13 +9,6 @@
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Background" type="VideoStreamPlayer" parent="."]
-offset_right = 3840.0
-offset_bottom = 2160.0
-stream = ExtResource("6_1pbb3")
-autoplay = true
-loop = true
-
 [node name="BoxContainer" type="BoxContainer" parent="."]
 offset_left = 436.0
 offset_right = 906.0
@@ -52,7 +45,6 @@ texture_normal = ExtResource("4_w18dt")
 
 [node name="BoxContainer2" type="BoxContainer" parent="."]
 custom_minimum_size = Vector2(11, 11)
-anchors_preset = -1
 offset_right = 178.0
 offset_bottom = 35.0
 scale = Vector2(1.88, 1.88)
