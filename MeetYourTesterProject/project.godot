@@ -13,6 +13,7 @@ config_version=5
 config/name="MeetYourTesterProject"
 run/main_scene="res://ui/menus/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+boot_splash/fullsize=false
 config/icon="res://icon.svg"
 
 [autoload]
@@ -22,8 +23,8 @@ globals="*res://scripts/stores/globals.gd"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=1400
+window/size/viewport_height=900
 
 [editor_plugins]
 
