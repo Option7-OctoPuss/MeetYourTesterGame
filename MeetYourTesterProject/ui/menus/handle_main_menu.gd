@@ -35,5 +35,5 @@ func _on_start_icon_mouse_exited():
 	startLabel.texture_normal = ResourceLoader.load("res://images/start-scene/btn-label-start.svg")
 	
 func _debug_print(msg):
-	if globals.DEBUG_MODE:
+	if Globals.DEBUG_MODE:
 		print(msg)
