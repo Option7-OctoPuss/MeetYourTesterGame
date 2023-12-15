@@ -95,22 +95,23 @@ layout_mode = 2
 layout_mode = 2
 texture = ExtResource("10_ldfsg")
 
-[node name="BoxContainer" type="BoxContainer" parent="."]
+[node name="DiffBtns" type="BoxContainer" parent="."]
 offset_left = 920.0
 offset_top = 512.0
 offset_right = 1390.0
 offset_bottom = 888.0
 vertical = true
 
-[node name="EasyDiffBtn" type="TextureButton" parent="BoxContainer"]
+[node name="EasyDiffBtn" type="TextureButton" parent="DiffBtns"]
 layout_mode = 2
 size_flags_horizontal = 8
 texture_normal = ExtResource("1_bqnr1")
 texture_hover = ExtResource("12_no2cg")
 script = ExtResource("2_ty5a8")
+difficulty_level = 1
 next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
 
-[node name="MediumDiffBtn" type="TextureButton" parent="BoxContainer"]
+[node name="MediumDiffBtn" type="TextureButton" parent="DiffBtns"]
 layout_mode = 2
 size_flags_horizontal = 8
 texture_normal = ExtResource("2_ggpfl")
@@ -119,7 +120,7 @@ script = ExtResource("2_ty5a8")
 difficulty_level = 2
 next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
 
-[node name="HardDiffBtn" type="TextureButton" parent="BoxContainer"]
+[node name="HardDiffBtn" type="TextureButton" parent="DiffBtns"]
 layout_mode = 2
 size_flags_horizontal = 8
 texture_normal = ExtResource("3_m4dx8")
@@ -128,7 +129,7 @@ script = ExtResource("2_ty5a8")
 difficulty_level = 3
 next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
 
-[node name="CancelBtn" type="TextureButton" parent="BoxContainer"]
+[node name="CancelBtn" type="TextureButton" parent="DiffBtns"]
 layout_mode = 2
 size_flags_horizontal = 8
 texture_normal = ExtResource("4_w18dt")
@@ -157,3 +158,5 @@ shortcut_keys_enabled = false
 drag_and_drop_selection_enabled = false
 caret_blink = true
 script = ExtResource("6_ifxn4")
+
+[connection signal="pressed" from="DiffBtns/EasyDiffBtn" to="DiffBtns/EasyDiffBtn" method="_on_Button_pressed"]

@@ -1,5 +1,5 @@
 {
- "background_color": "262626ff",
+ "background_color": "4f4f4fff",
  "compact_mode": false,
  "config_file": "res://.gutconfig.json",
  "dirs": [
@@ -23,7 +23,7 @@
  "paint_after": 0.1,
  "panel_options": {
   "font_name": "CourierPrime",
-  "font_size": 30,
+  "font_size": 16,
   "hide_output_text": false,
   "hide_result_tree": false,
   "hide_settings": false,
