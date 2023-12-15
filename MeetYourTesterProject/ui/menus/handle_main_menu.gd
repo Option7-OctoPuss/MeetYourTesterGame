@@ -20,19 +20,19 @@ func _on_start_game_icon_pressed():
 
 func _on_start_label_mouse_entered():
 	_debug_print("Start Game Button (label) on hover entered")
-	startIcon.texture_normal = ResourceLoader.load("res://assets/images/start-scene/btn-icon-start-select.svg")
+	startIcon.texture_normal = ResourceLoader.load("res://images/start-scene/btn-icon-start-select.svg")
 
 func _on_start_label_mouse_exited():
 	_debug_print("Start Game Button (label) on hover exited")
-	startIcon.texture_normal = ResourceLoader.load("res://assets/images/start-scene/btn-icon-start.svg")
+	startIcon.texture_normal = ResourceLoader.load("res://images/start-scene/btn-icon-start.svg")
 
 func _on_start_icon_mouse_entered():
 	_debug_print("Start Game Button (icon) on hover entered")
-	startLabel.texture_normal = ResourceLoader.load("res://assets/images/start-scene/btn-label-start-select.svg")
+	startLabel.texture_normal = ResourceLoader.load("res://images/start-scene/btn-label-start-select.svg")
 
 func _on_start_icon_mouse_exited():
 	_debug_print("Start Game Button (icon) on hover exited")
-	startLabel.texture_normal = ResourceLoader.load("res://assets/images/start-scene/btn-label-start.svg")
+	startLabel.texture_normal = ResourceLoader.load("res://images/start-scene/btn-label-start.svg")
 	
 func _debug_print(msg):
 	if globals.DEBUG_MODE:
