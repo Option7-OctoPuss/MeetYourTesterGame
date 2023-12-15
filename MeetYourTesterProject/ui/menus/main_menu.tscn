@@ -18,10 +18,11 @@
 script = ExtResource("5_wor2r")
 
 [node name="Background" type="VideoStreamPlayer" parent="."]
-offset_right = 3840.0
-offset_bottom = 2160.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 stream = ExtResource("1_latmh")
 autoplay = true
+expand = true
 loop = true
 
 [node name="CenterTitle" type="CenterContainer" parent="."]
