@@ -46,6 +46,8 @@ class TestDiffScenePO:
 		var diff_btns = diff_scene.find_child(diff_btns_node_name)
 		var child_count = diff_btns.get_child_count()
 		var global_diff = DiffStore.player_difficulty
+		var test_scene_path = "res://test/test_scene.tscn"
+		var main_scene_path = "res://ui/main_screen/main_game_scene.tscn"
 		gut.p("Global difficulty is {diff}".format({"diff": global_diff}), 2)
 		for i in range(child_count):
 			var diff_btn_instance = diff_btns.get_child(i)
@@ -56,6 +58,10 @@ class TestDiffScenePO:
 			assert_eq(DiffStore.player_difficulty, diff_btn_instance_level, "Global difficulty should be {diff}".format({"diff": diff_btn_instance_level}))
 			# TODO Check if the scene is changed
 			if i == child_count :
-				SceneManager.change_scene("res://test/test_scene.tscn")
+				# Not change scene, but instanciate it instead
+				SceneManager.change_scene(test_scene_path)
+				assert_same(SceneManager.current_scene_path, test_scene_path, "Scene should be changed to {scene}".format({"scene": test_scene_path}))
+				gut.p("Scene should be changed to {scene}".format({"scene": get_tree().current_scene.name}), 0)
 			else:
 				SceneManager.go_back()
+				assert_same(SceneManager.current_scene_path, main_scene_path, "Scene should be changed to {scene}".format({"scene": main_scene_path}))
