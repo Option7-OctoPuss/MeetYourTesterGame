@@ -1,4 +1,4 @@
-# diff_store.gd
+# DiffStore.gd
 extends Node
 
 var player_difficulty = 10
