@@ -26,6 +26,8 @@ class TestDiffScenePO:
 	func test_diff_btns_count():
 		gut.p("Testing if the buttons are initialized and have correct names")
 		var diff_btns = diff_scene.find_child(diff_btns_node_name)
+		if diff_btns == null:
+			gut.p("DiffButtons is null")
 		var child_count = diff_btns.get_child_count()
 		var child_names= ["EasyDiffBtn", "MediumDiffBtn", "HardDiffBtn", "CancelBtn"]
 		if child_count < 4:
@@ -33,6 +35,7 @@ class TestDiffScenePO:
 			gut.p(fmt_str)
 			for child in child_count:
 				gut.p(diff_btns.get_child(child).get_name())
+		# TODO this should check for individiual nodes init
 		assert_not_null(diff_btns, "DiffButtons should be initialized")
 		assert_eq(diff_btns.get_child_count(), 4, "DiffButtons should have 3 children and not {count}".format({"count": child_count}))
 		for i in range(child_count):
@@ -42,17 +45,16 @@ class TestDiffScenePO:
 		gut.p("Testing if the buttons have correct difficulty values")
 		var diff_btns = diff_scene.find_child(diff_btns_node_name)
 		var child_count = diff_btns.get_child_count()
-		var child_names= ["EasyDiffBtn", "MediumDiffBtn", "HardDiffBtn", "CancelBtn"]
 		var global_diff = DiffStore.player_difficulty
-		gut.p("Global difficulty is {diff}".format({"diff": global_diff}))
+		gut.p("Global difficulty is {diff}".format({"diff": global_diff}), 2)
 		for i in range(child_count):
 			var diff_btn_instance = diff_btns.get_child(i)
 			var diff_btn_instance_level = diff_btn_instance.difficulty_level
-			gut.p("Difficulty of a node {node} is {diff}".format({"node": diff_btns.get_child(i).get_name(), "diff": diff_btn_instance_level}))
-			assert_eq(diff_btns.get_child(i).get_name(), child_names[i], "Child {i} should be {name}".format({"i": i, "name": child_names[i]}))
+			gut.p("Difficulty of a node {node} is {diff}".format({"node": diff_btns.get_child(i).get_name(), "diff": diff_btn_instance_level}), 2)
 			diff_btn_instance._on_Button_pressed()
-			gut.p("Global difficulty is set to {diff} now".format({"diff": DiffStore.player_difficulty}))
+			gut.p("Global difficulty is set to {diff} now".format({"diff": DiffStore.player_difficulty}), 2)
 			assert_eq(DiffStore.player_difficulty, diff_btn_instance_level, "Global difficulty should be {diff}".format({"diff": diff_btn_instance_level}))
+			# TODO Check if the scene is changed
 			if i == child_count :
 				SceneManager.change_scene("res://test/test_scene.tscn")
 			else:
