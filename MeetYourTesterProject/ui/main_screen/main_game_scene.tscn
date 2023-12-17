@@ -1,10 +1,18 @@
-[gd_scene format=3 uid="uid://dpyn1enbx4w7u"]
+[gd_scene load_steps=6 format=3 uid="uid://dpyn1enbx4w7u"]
+
+[ext_resource type="Texture2D" uid="uid://wgpfvhfu1oi6" path="res://images/game-map/time/timer.svg" id="1_lc3b6"]
+[ext_resource type="Texture2D" uid="uid://svsqskokvpwx" path="res://images/game-map/time/pause.svg" id="2_1jfsg"]
+[ext_resource type="Texture2D" uid="uid://b46cjpn0dkvib" path="res://images/game-map/time/speed.svg" id="3_ps3v0"]
+[ext_resource type="Script" path="res://ui/main_screen/timer_btns.gd" id="3_svwg2"]
+[ext_resource type="Script" path="res://ui/main_screen/timer.gd" id="5_bt7jo"]
 
 [node name="MainGameScene" type="Node2D"]
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
-offset_right = 570.0
-offset_bottom = 211.0
+offset_left = 250.0
+offset_top = 117.0
+offset_right = 820.0
+offset_bottom = 328.0
 alignment = 1
 
 [node name="Label" type="Label" parent="BoxContainer"]
@@ -13,3 +21,41 @@ text = "This is the placeholder for main scene game ;>
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_lc3b6")
+centered = false
+
+[node name="TimerContainer" type="HBoxContainer" parent="Sprite2D"]
+offset_left = 24.0
+offset_top = 8.0
+offset_right = 146.0
+offset_bottom = 62.0
+
+[node name="PlayPauseBtn" type="TextureButton" parent="Sprite2D/TimerContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+texture_normal = ExtResource("2_1jfsg")
+script = ExtResource("3_svwg2")
+
+[node name="SpeedUpBtn" type="TextureButton" parent="Sprite2D/TimerContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_ps3v0")
+script = ExtResource("3_svwg2")
+
+[node name="TimerLabel" type="RichTextLabel" parent="Sprite2D/TimerContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "00:00
+"
+fit_content = true
+autowrap_mode = 0
+script = ExtResource("5_bt7jo")
+
+[node name="TimerNode" type="Timer" parent="Sprite2D/TimerContainer/TimerLabel"]
+autostart = true
+
+[connection signal="pause_game" from="Sprite2D/TimerContainer/PlayPauseBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_pause"]
+[connection signal="unpause_game" from="Sprite2D/TimerContainer/PlayPauseBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_unpause"]
+[connection signal="speed_up_game" from="Sprite2D/TimerContainer/SpeedUpBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_speed_change"]
+[connection signal="timeout" from="Sprite2D/TimerContainer/TimerLabel/TimerNode" to="Sprite2D/TimerContainer/TimerLabel" method="_on_timer_node_timeout"]
