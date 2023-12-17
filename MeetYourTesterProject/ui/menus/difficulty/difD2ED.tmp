@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://doqt2siiqyb2a"]
+[gd_scene load_steps=12 format=3 uid="uid://doqt2siiqyb2a"]
 
 [ext_resource type="Script" path="res://ui/menus/difficulty/handle_difficulty_menu.gd" id="1_5jier"]
 [ext_resource type="Texture2D" uid="uid://bc7s65ssh3cgh" path="res://images/start-scene/btn-label-easy.svg" id="1_bqnr1"]
@@ -10,31 +10,12 @@
 [ext_resource type="Script" path="res://ui/menus/difficulty/player_name_input.gd" id="6_ifxn4"]
 [ext_resource type="Texture2D" uid="uid://dna006taf11ie" path="res://images/start-scene/btn-icon-medium.svg" id="7_j6g5n"]
 [ext_resource type="Texture2D" uid="uid://cr7g7ytvi6pw1" path="res://images/start-scene/btn-icon-hard.svg" id="11_kw371"]
-[ext_resource type="VideoStream" path="res://images/background/purple-nebula-background.ogv" id="12_d3j0m"]
-[ext_resource type="Texture2D" uid="uid://dn7esiiyigatj" path="res://images/start-scene/btn-icon-start-select.svg" id="14_jh1pw"]
 [ext_resource type="Texture2D" uid="uid://qqqi7myb5fbl" path="res://images/start-scene/btn-icon-cancel.svg" id="15_aikcy"]
-[ext_resource type="Texture2D" uid="uid://qt4q5cgcfi1t" path="res://images/start-scene/btn-label-start-select.svg" id="16_o0pe2"]
-[ext_resource type="Texture2D" uid="uid://p1vy17eaqdmg" path="res://images/start-scene/btn-icon-tutorial.svg" id="17_wunmd"]
-[ext_resource type="Texture2D" uid="uid://cri1xp862ppn2" path="res://images/start-scene/btn-label-tutorial.svg" id="18_qjqc2"]
-[ext_resource type="Texture2D" uid="uid://3mhgjnmj42ky" path="res://images/start-scene/btn-icon-options.svg" id="19_b620r"]
-[ext_resource type="Texture2D" uid="uid://cwpnfaaj1k4ew" path="res://images/start-scene/btn-label-options.svg" id="20_yiane"]
-[ext_resource type="Texture2D" uid="uid://dx1cqjapo6r06" path="res://images/start-scene/btn-icon-exit.svg" id="21_0acia"]
-[ext_resource type="Texture2D" uid="uid://cguax1fbaiecp" path="res://images/start-scene/btn-label-quit.svg" id="22_vim2x"]
-[ext_resource type="Texture2D" uid="uid://bqr3h3k41im03" path="res://images/start-scene/menu-title.svg" id="23_f0m7b"]
 
 [node name="DifficultyMenu" type="Node2D"]
 clip_children = 2
 use_parent_material = true
 script = ExtResource("1_5jier")
-
-[node name="Background" type="VideoStreamPlayer" parent="."]
-z_as_relative = false
-offset_right = 1920.0
-offset_bottom = 1080.0
-stream = ExtResource("12_d3j0m")
-autoplay = true
-expand = true
-loop = true
 
 [node name="BoxContainer2" type="BoxContainer" parent="."]
 custom_minimum_size = Vector2(11, 11)
@@ -45,7 +26,6 @@ theme_override_constants/separation = 1
 vertical = true
 
 [node name="PlayerInputNode" type="LineEdit" parent="BoxContainer2"]
-visible = false
 custom_minimum_size = Vector2(100, 200)
 layout_mode = 2
 placeholder_text = "Enter your name here"
@@ -71,7 +51,6 @@ layout_mode = 2
 texture_normal = ExtResource("2_mnuxq")
 script = ExtResource("2_ty5a8")
 difficulty_level = 1
-next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
 
 [node name="CenterEasyLabel" type="CenterContainer" parent="GridContainer"]
 layout_mode = 2
@@ -86,9 +65,6 @@ next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
 [node name="MediumIcon" type="TextureButton" parent="GridContainer"]
 layout_mode = 2
 texture_normal = ExtResource("7_j6g5n")
-script = ExtResource("2_ty5a8")
-difficulty_level = 2
-next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
 
 [node name="CenterMediumLabel" type="CenterContainer" parent="GridContainer"]
 layout_mode = 2
@@ -104,9 +80,6 @@ next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
 [node name="HardIcon" type="TextureButton" parent="GridContainer"]
 layout_mode = 2
 texture_normal = ExtResource("11_kw371")
-script = ExtResource("2_ty5a8")
-difficulty_level = 3
-next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
 
 [node name="CenterHardLabel" type="CenterContainer" parent="GridContainer"]
 layout_mode = 2
@@ -131,76 +104,6 @@ layout_mode = 2
 size_flags_horizontal = 8
 texture_normal = ExtResource("4_w18dt")
 
-[node name="GridContainer2" type="GridContainer" parent="."]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 54.0
-offset_top = 515.0
-offset_right = 662.0
-offset_bottom = 1039.0
-grow_vertical = 0
-columns = 2
-
-[node name="StartIcon" type="TextureButton" parent="GridContainer2"]
-layout_mode = 2
-texture_normal = ExtResource("14_jh1pw")
-
-[node name="CenterStartLabel" type="CenterContainer" parent="GridContainer2"]
-layout_mode = 2
-
-[node name="StartLabel" type="TextureButton" parent="GridContainer2/CenterStartLabel"]
-layout_mode = 2
-texture_normal = ExtResource("16_o0pe2")
-
-[node name="TutorialIcon" type="TextureButton" parent="GridContainer2"]
-modulate = Color(1, 1, 1, 0.627451)
-layout_mode = 2
-texture_normal = ExtResource("17_wunmd")
-
-[node name="CenterTutorialLabel" type="CenterContainer" parent="GridContainer2"]
-layout_mode = 2
-
-[node name="TutorialLabel" type="TextureButton" parent="GridContainer2/CenterTutorialLabel"]
-modulate = Color(1, 1, 1, 0.627451)
-layout_mode = 2
-texture_normal = ExtResource("18_qjqc2")
-
-[node name="OptionsIcon" type="TextureButton" parent="GridContainer2"]
-modulate = Color(1, 1, 1, 0.627451)
-layout_mode = 2
-texture_normal = ExtResource("19_b620r")
-
-[node name="CenterOptionsLabel" type="CenterContainer" parent="GridContainer2"]
-layout_mode = 2
-
-[node name="OptionsLabel" type="TextureButton" parent="GridContainer2/CenterOptionsLabel"]
-modulate = Color(1, 1, 1, 0.627451)
-layout_mode = 2
-texture_normal = ExtResource("20_yiane")
-
-[node name="QuitIcon" type="TextureButton" parent="GridContainer2"]
-modulate = Color(1, 1, 1, 0.627451)
-layout_mode = 2
-texture_normal = ExtResource("21_0acia")
-
-[node name="CenterQuitLabel" type="CenterContainer" parent="GridContainer2"]
-layout_mode = 2
-
-[node name="QuitLabel" type="TextureButton" parent="GridContainer2/CenterQuitLabel"]
-modulate = Color(1, 1, 1, 0.627451)
-layout_mode = 2
-texture_normal = ExtResource("22_vim2x")
-
-[node name="CenterTitle" type="CenterContainer" parent="."]
-offset_top = 50.0
-offset_right = 1920.0
-offset_bottom = 436.0
-
-[node name="Title" type="TextureRect" parent="CenterTitle"]
-layout_mode = 2
-texture = ExtResource("23_f0m7b")
-
 [connection signal="mouse_entered" from="GridContainer/EasyIcon" to="." method="_on_diff_btn_mouse_entered" binds= [1]]
 [connection signal="mouse_exited" from="GridContainer/EasyIcon" to="." method="_on_diff_btn_mouse_exited" binds= [1]]
 [connection signal="mouse_entered" from="GridContainer/CenterEasyLabel/EasyDiffBtn" to="." method="_on_diff_btn_mouse_entered" binds= [1]]
@@ -215,7 +118,5 @@ texture = ExtResource("23_f0m7b")
 [connection signal="mouse_exited" from="GridContainer/CenterHardLabel/HardDiffBtn" to="." method="_on_diff_btn_mouse_exited" binds= [3]]
 [connection signal="mouse_entered" from="GridContainer/CancelIcon" to="." method="_on_cancel_btn_mouse_entered"]
 [connection signal="mouse_exited" from="GridContainer/CancelIcon" to="." method="_on_cancel_btn_mouse_exited"]
-[connection signal="pressed" from="GridContainer/CancelIcon" to="." method="_on_cancel_btn_pressed"]
 [connection signal="mouse_entered" from="GridContainer/CenterCancelLabel/CancelBtn" to="." method="_on_cancel_btn_mouse_entered"]
 [connection signal="mouse_exited" from="GridContainer/CenterCancelLabel/CancelBtn" to="." method="_on_cancel_btn_mouse_exited"]
-[connection signal="pressed" from="GridContainer/CenterCancelLabel/CancelBtn" to="." method="_on_cancel_btn_pressed"]

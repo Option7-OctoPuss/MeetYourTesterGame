@@ -38,9 +38,10 @@ texture = ExtResource("2_7cxd6")
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = 556.0
-offset_right = 608.0
-offset_bottom = 1080.0
+offset_left = 54.0
+offset_top = 515.0
+offset_right = 662.0
+offset_bottom = 1039.0
 grow_vertical = 0
 columns = 2
 
