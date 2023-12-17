@@ -42,7 +42,6 @@ class homePageTestPO:
 		gut.p("Testing if the buttons have correct difficulty values")
 		var home_btns = home_scene.find_child(home_btns_node_name)
 		var child_count = home_btns.get_child_count()
-		var global_diff = DiffStore.player_difficulty
 		var test_scene_path = "res://test/test_scene.tscn"
 		var main_scene_path = "res://ui/main_screen/main_game_scene.tscn"
 		var home_btn_instance = home_btns.get_child(0)
