@@ -92,7 +92,7 @@ texture_normal = ExtResource("10_ew0m2")
 
 [connection signal="mouse_entered" from="GridContainer/StartIcon" to="." method="_on_start_icon_mouse_entered"]
 [connection signal="mouse_exited" from="GridContainer/StartIcon" to="." method="_on_start_icon_mouse_exited"]
-[connection signal="pressed" from="GridContainer/StartIcon" to="." method="_on_start_game_icon_pressed"]
+[connection signal="pressed" from="GridContainer/StartIcon" to="." method="_on_start_game_label_pressed"]
 [connection signal="mouse_entered" from="GridContainer/CenterStartLabel/StartLabel" to="." method="_on_start_label_mouse_entered"]
 [connection signal="mouse_exited" from="GridContainer/CenterStartLabel/StartLabel" to="." method="_on_start_label_mouse_exited"]
 [connection signal="pressed" from="GridContainer/CenterStartLabel/StartLabel" to="." method="_on_start_game_label_pressed"]
