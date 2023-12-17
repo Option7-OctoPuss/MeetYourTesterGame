@@ -1,9 +1,9 @@
 extends GutTest
-class homePageTest:
+class homePageTestPO:
 	extends GutTest
 	var scene_instance = null
 	var home_scene = null
-	var home_btns_node_name = "HomeBtns"
+	var home_btns_node_name = "GridContainer"
 	
 	func before_all():
 		gut.p('TestHomeScenePO:  pre-run')
@@ -18,7 +18,7 @@ class homePageTest:
 	func after_all():
 		gut.p('TestHomeScenePO:  post-run')	
 
-	func test_home_scene_initialization():
+	func homepage_scene_tester_initialization():
 		assert_not_null(home_scene, "Scene instance should be initialized")
 
 	func test_home_btns_count():
@@ -46,9 +46,10 @@ class homePageTest:
 		var test_scene_path = "res://test/test_scene.tscn"
 		var main_scene_path = "res://ui/main_screen/main_game_scene.tscn"
 		var home_btn_instance = home_btns.get_child(0)
-		var scene1 = get_tree().current_scene;
+		var scene1 = get_tree().current_scene
 		home_btn_instance._on_Button_pressed()
-		var scene2 = get_tree().current_scene;
+		var scene2 = get_tree().current_scene
+		assert_not_same(scene1, scene2)
 		if (scene1 != scene2):
 			gut.p("Scene successfully changed")
 		else:
