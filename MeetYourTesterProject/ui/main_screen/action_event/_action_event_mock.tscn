@@ -1,0 +1,43 @@
+[gd_scene load_steps=10 format=3 uid="uid://d3ukx38wpxfkr"]
+
+[ext_resource type="Shader" uid="uid://bcolia5sc522u" path="res://ui/main_screen/action_event/_action_event_mock_normal.tres" id="1_2mmvv"]
+[ext_resource type="Texture2D" uid="uid://bmlybrtxl8cum" path="res://images/game-map/simple-hex/hex-cell-ui-ux.svg" id="1_lcp04"]
+[ext_resource type="Script" path="res://ui/main_screen/action_event/action_event_communication.gd" id="1_ydvu0"]
+[ext_resource type="Shader" uid="uid://co57l7wecaq2s" path="res://ui/main_screen/action_event/_action_event_mock_disabled.tres" id="4_i8rw0"]
+[ext_resource type="Script" path="res://ui/main_screen/action_event/action_event_btn_manager.gd" id="4_tl3rt"]
+[ext_resource type="Script" path="res://ui/main_screen/action_event/handle_countdown.gd" id="6_fdhgc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8xxaj"]
+shader = ExtResource("1_2mmvv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_33cs7"]
+shader = ExtResource("1_2mmvv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6a6yl"]
+shader = ExtResource("4_i8rw0")
+
+[node name="ActionEventMock" type="Node2D"]
+script = ExtResource("1_ydvu0")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+material = SubResource("ShaderMaterial_8xxaj")
+offset_right = 134.0
+offset_bottom = 128.0
+toggle_mode = true
+texture_normal = ExtResource("1_lcp04")
+script = ExtResource("4_tl3rt")
+normal_shader = SubResource("ShaderMaterial_33cs7")
+disabled_shader = SubResource("ShaderMaterial_6a6yl")
+message = "Test message 1"
+
+[node name="CountdownLabel" type="Label" parent="TextureButton"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 16.0
+offset_right = 168.0
+offset_bottom = 39.0
+
+[node name="Timer" type="Timer" parent="TextureButton/CountdownLabel"]
+script = ExtResource("6_fdhgc")
+
+[connection signal="timeout" from="TextureButton/CountdownLabel/Timer" to="TextureButton" method="on_Timer_timeout"]
