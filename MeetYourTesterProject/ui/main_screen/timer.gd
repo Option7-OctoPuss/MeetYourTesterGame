@@ -1,12 +1,7 @@
 extends Node
 
-var timerObj = null
-var dateTime = null
-
 func _ready():
-	timerObj = $TimerNode
-	timerObj.wait_time = 1
-	timerObj.start()
+	pass
 
 func float_to_time(seconds_float: float = 0) -> String:
 	# var hours = int(seconds_float / 3600)
@@ -24,11 +19,10 @@ func _on_timer_node_timeout() -> void:
 	self.text = float_to_time(Globals.gameTime)
 
 func catch_pause() -> void:
-	timerObj.paused = true
+	$TimerNode.paused = true
 	
 func catch_unpause() -> void:
-	timerObj.paused = false
+	$TimerNode.paused = false
 
 func catch_speed_change() -> void:
-	print("Speed change")
-	timerObj.wait_time = float(1) / Globals.gameSpeed
+	$TimerNode.wait_time = float(1) / Globals.gameSpeed
