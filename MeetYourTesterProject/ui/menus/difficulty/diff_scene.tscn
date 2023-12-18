@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://doqt2siiqyb2a"]
+[gd_scene load_steps=30 format=3 uid="uid://doqt2siiqyb2a"]
 
 [ext_resource type="VideoStream" path="res://images/background/purple-nebula-background.ogv" id="1_3kalu"]
+[ext_resource type="Script" path="res://ui/menus/difficulty/handle_hover.gd" id="1_bbe6y"]
 [ext_resource type="Texture2D" uid="uid://bc7s65ssh3cgh" path="res://images/start-scene/btn-label-easy.svg" id="1_bqnr1"]
 [ext_resource type="Texture2D" uid="uid://bqr3h3k41im03" path="res://images/start-scene/menu-title.svg" id="2_fc8du"]
 [ext_resource type="Texture2D" uid="uid://dfyql346x7kwp" path="res://images/start-scene/btn-label-medium.svg" id="2_ggpfl"]
@@ -17,11 +18,20 @@
 [ext_resource type="Texture2D" uid="uid://dx1cqjapo6r06" path="res://images/start-scene/btn-icon-exit.svg" id="9_26hu5"]
 [ext_resource type="Texture2D" uid="uid://cguax1fbaiecp" path="res://images/start-scene/btn-label-quit.svg" id="10_ldfsg"]
 [ext_resource type="Texture2D" uid="uid://di8bfpm8h5cmc" path="res://images/start-scene/btn-label-easy-select.svg" id="12_no2cg"]
+[ext_resource type="Texture2D" uid="uid://7o5q1rpboy3w" path="res://images/start-scene/btn-icon-easy.svg" id="14_dq0en"]
+[ext_resource type="Texture2D" uid="uid://cvnnejtbebexf" path="res://images/start-scene/btn-icon-easy-select.svg" id="15_ut5l8"]
 [ext_resource type="Texture2D" uid="uid://gmxfwl3ot7gf" path="res://images/start-scene/btn-label-medium-select.svg" id="15_wq4ma"]
 [ext_resource type="Texture2D" uid="uid://bmkhgm6af0q5u" path="res://images/start-scene/btn-label-hard-select.svg" id="17_mirdy"]
+[ext_resource type="Texture2D" uid="uid://dna006taf11ie" path="res://images/start-scene/btn-icon-medium.svg" id="18_iipwc"]
+[ext_resource type="Texture2D" uid="uid://cpmylowhvlkrq" path="res://images/start-scene/btn-icon-medium-select.svg" id="19_8bsq2"]
 [ext_resource type="Texture2D" uid="uid://c6lxhouimgjln" path="res://images/start-scene/btn-label-cancel-select.svg" id="19_lumyy"]
+[ext_resource type="Texture2D" uid="uid://cr7g7ytvi6pw1" path="res://images/start-scene/btn-icon-hard.svg" id="22_qwtw8"]
+[ext_resource type="Texture2D" uid="uid://chlwath7ixf16" path="res://images/start-scene/btn-icon-hard-select.svg" id="23_b40fn"]
+[ext_resource type="Texture2D" uid="uid://qqqi7myb5fbl" path="res://images/start-scene/btn-icon-cancel.svg" id="26_v3pdp"]
+[ext_resource type="Texture2D" uid="uid://c2o4dtfywhxtp" path="res://images/start-scene/btn-icon-cancel-select.svg" id="27_nhedt"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_bbe6y")
 
 [node name="Background" type="VideoStreamPlayer" parent="."]
 offset_right = 1920.0
@@ -31,9 +41,9 @@ autoplay = true
 loop = true
 
 [node name="CenterTitle" type="CenterContainer" parent="."]
-offset_top = 8.0
-offset_right = 1408.0
-offset_bottom = 344.0
+offset_top = 50.0
+offset_right = 1920.0
+offset_bottom = 386.0
 
 [node name="Title" type="TextureRect" parent="CenterTitle"]
 layout_mode = 2
@@ -45,9 +55,10 @@ stretch_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = 376.0
-offset_right = 608.0
-offset_bottom = 900.0
+offset_left = 50.0
+offset_top = 506.0
+offset_right = 658.0
+offset_bottom = 1030.0
 grow_vertical = 0
 columns = 2
 
@@ -95,14 +106,24 @@ layout_mode = 2
 layout_mode = 2
 texture = ExtResource("10_ldfsg")
 
-[node name="DiffBtns" type="BoxContainer" parent="."]
-offset_left = 920.0
-offset_top = 512.0
-offset_right = 1390.0
-offset_bottom = 888.0
-vertical = true
+[node name="GridContainer2" type="GridContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1262.0
+offset_top = 506.0
+offset_right = 1870.0
+offset_bottom = 1030.0
+grow_horizontal = 0
+grow_vertical = 0
+columns = 2
 
-[node name="EasyDiffBtn" type="TextureButton" parent="DiffBtns"]
+[node name="CenterContainer" type="CenterContainer" parent="GridContainer2"]
+layout_mode = 2
+
+[node name="EasyDiffBtn" type="TextureButton" parent="GridContainer2/CenterContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 texture_normal = ExtResource("1_bqnr1")
@@ -111,7 +132,17 @@ script = ExtResource("2_ty5a8")
 difficulty_level = 1
 next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
 
-[node name="MediumDiffBtn" type="TextureButton" parent="DiffBtns"]
+[node name="EasyDiffIcon" type="TextureButton" parent="GridContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("14_dq0en")
+texture_hover = ExtResource("15_ut5l8")
+script = ExtResource("2_ty5a8")
+next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
+
+[node name="CenterContainer2" type="CenterContainer" parent="GridContainer2"]
+layout_mode = 2
+
+[node name="MediumDiffBtn" type="TextureButton" parent="GridContainer2/CenterContainer2"]
 layout_mode = 2
 size_flags_horizontal = 8
 texture_normal = ExtResource("2_ggpfl")
@@ -120,7 +151,18 @@ script = ExtResource("2_ty5a8")
 difficulty_level = 2
 next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
 
-[node name="HardDiffBtn" type="TextureButton" parent="DiffBtns"]
+[node name="MediumDiffIcon" type="TextureButton" parent="GridContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("18_iipwc")
+texture_hover = ExtResource("19_8bsq2")
+script = ExtResource("2_ty5a8")
+difficulty_level = 2
+next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
+
+[node name="CenterContainer3" type="CenterContainer" parent="GridContainer2"]
+layout_mode = 2
+
+[node name="HardDiffBtn" type="TextureButton" parent="GridContainer2/CenterContainer3"]
 layout_mode = 2
 size_flags_horizontal = 8
 texture_normal = ExtResource("3_m4dx8")
@@ -129,7 +171,18 @@ script = ExtResource("2_ty5a8")
 difficulty_level = 3
 next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
 
-[node name="CancelBtn" type="TextureButton" parent="DiffBtns"]
+[node name="HardDiffIcon" type="TextureButton" parent="GridContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("22_qwtw8")
+texture_hover = ExtResource("23_b40fn")
+script = ExtResource("2_ty5a8")
+difficulty_level = 3
+next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
+
+[node name="CenterContainer4" type="CenterContainer" parent="GridContainer2"]
+layout_mode = 2
+
+[node name="CancelBtn" type="TextureButton" parent="GridContainer2/CenterContainer4"]
 layout_mode = 2
 size_flags_horizontal = 8
 texture_normal = ExtResource("4_w18dt")
@@ -137,12 +190,18 @@ texture_hover = ExtResource("19_lumyy")
 script = ExtResource("2_ty5a8")
 next_scene_path = "res://ui/menus/main_menu.tscn"
 
+[node name="CancelIcon" type="TextureButton" parent="GridContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("26_v3pdp")
+texture_hover = ExtResource("27_nhedt")
+script = ExtResource("2_ty5a8")
+next_scene_path = "res://ui/menus/main_menu.tscn"
+
 [node name="BoxContainer2" type="BoxContainer" parent="."]
-custom_minimum_size = Vector2(11, 11)
-offset_left = 912.0
-offset_top = 376.0
-offset_right = 1382.0
-offset_bottom = 576.0
+offset_left = 700.0
+offset_top = 600.0
+offset_right = 1170.0
+offset_bottom = 800.0
 scale = Vector2(1, 0.5)
 theme_override_constants/separation = 1
 vertical = true
@@ -159,4 +218,20 @@ drag_and_drop_selection_enabled = false
 caret_blink = true
 script = ExtResource("6_ifxn4")
 
-[connection signal="pressed" from="DiffBtns/EasyDiffBtn" to="DiffBtns/EasyDiffBtn" method="_on_Button_pressed"]
+[connection signal="mouse_entered" from="GridContainer2/CenterContainer/EasyDiffBtn" to="." method="_on_easy_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer2/CenterContainer/EasyDiffBtn" to="." method="_on_easy_mouse_exited"]
+[connection signal="pressed" from="GridContainer2/CenterContainer/EasyDiffBtn" to="GridContainer2/CenterContainer/EasyDiffBtn" method="_on_Button_pressed"]
+[connection signal="mouse_entered" from="GridContainer2/EasyDiffIcon" to="." method="_on_easy_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer2/EasyDiffIcon" to="." method="_on_easy_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer2/CenterContainer2/MediumDiffBtn" to="." method="_on_medium_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer2/CenterContainer2/MediumDiffBtn" to="." method="_on_medium_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer2/MediumDiffIcon" to="." method="_on_medium_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer2/MediumDiffIcon" to="." method="_on_medium_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer2/CenterContainer3/HardDiffBtn" to="." method="_on_hard_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer2/CenterContainer3/HardDiffBtn" to="." method="_on_hard_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer2/HardDiffIcon" to="." method="_on_hard_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer2/HardDiffIcon" to="." method="_on_hard_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer2/CenterContainer4/CancelBtn" to="." method="_on_cancel_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer2/CenterContainer4/CancelBtn" to="." method="_on_cancel_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer2/CancelIcon" to="." method="_on_cancel_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer2/CancelIcon" to="." method="_on_cancel_mouse_exited"]

@@ -24,8 +24,8 @@ Globals="*res://scripts/stores/globals.gd"
 
 [display]
 
-window/size/viewport_width=1400
-window/size/viewport_height=900
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [editor_plugins]
 
