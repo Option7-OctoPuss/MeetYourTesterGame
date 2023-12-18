@@ -1,36 +1,64 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpyn1enbx4w7u"]
+[gd_scene load_steps=23 format=3 uid="uid://dpyn1enbx4w7u"]
 
 [ext_resource type="Texture2D" uid="uid://wgpfvhfu1oi6" path="res://images/game-map/time/timer.svg" id="1_lc3b6"]
+[ext_resource type="VideoStream" path="res://images/background/purple-nebula-background.ogv" id="1_tp77f"]
 [ext_resource type="Texture2D" uid="uid://svsqskokvpwx" path="res://images/game-map/time/pause.svg" id="2_1jfsg"]
 [ext_resource type="Texture2D" uid="uid://b46cjpn0dkvib" path="res://images/game-map/time/speed.svg" id="3_ps3v0"]
 [ext_resource type="Script" path="res://ui/main_screen/timer_btns.gd" id="3_svwg2"]
 [ext_resource type="Script" path="res://ui/main_screen/timer.gd" id="5_bt7jo"]
+[ext_resource type="Texture2D" uid="uid://beevq6x3iexl0" path="res://images/main-game/hex-cell-small.svg" id="7_cf20c"]
+[ext_resource type="Texture2D" uid="uid://c8d3le8nttgse" path="res://images/game-map/simple-hex/hex-cell-database.svg" id="8_8qqeu"]
+[ext_resource type="Texture2D" uid="uid://d4im2hnqve1s3" path="res://images/game-map/selected-hex/hex-cell-database-selected.svg" id="9_54p3a"]
+[ext_resource type="Texture2D" uid="uid://cyt3nwyrvf3bs" path="res://images/game-map/simple-hex/hex-cell-delivery.svg" id="10_htyl8"]
+[ext_resource type="Texture2D" uid="uid://djxp3n13q5pn" path="res://images/game-map/selected-hex/hex-cell-delivery-selected.svg" id="11_medfd"]
+[ext_resource type="Texture2D" uid="uid://bmdtbh61rtdwa" path="res://images/game-map/simple-hex/hex-cell-business.svg" id="12_l01y6"]
+[ext_resource type="Texture2D" uid="uid://cqul3fdpbrlv2" path="res://images/game-map/selected-hex/hex-cel-buisness-logic-selected.svg" id="13_vejf5"]
+[ext_resource type="Texture2D" uid="uid://dlpx4hjfysmbd" path="res://images/game-map/simple-hex/hex-cell-backend.svg" id="14_0eftj"]
+[ext_resource type="Texture2D" uid="uid://bascpiay0qrgh" path="res://images/game-map/selected-hex/hex-cell-backend-selected.svg" id="15_8ck7c"]
+[ext_resource type="Texture2D" uid="uid://bmlybrtxl8cum" path="res://images/game-map/simple-hex/hex-cell-ui-ux.svg" id="16_ir080"]
+[ext_resource type="Texture2D" uid="uid://dk8drfc0yhdjy" path="res://images/game-map/selected-hex/hex-cell-ui-ux-selected.svg" id="17_udybg"]
+[ext_resource type="Texture2D" uid="uid://ciww7iw8ke16u" path="res://images/game-map/question-page/frame.svg" id="18_fv22d"]
+[ext_resource type="Texture2D" uid="uid://cvqi3i4m1h0tk" path="res://images/game-map/question-page/scrollbar-bar.svg" id="19_5s3ei"]
+[ext_resource type="Texture2D" uid="uid://b3qtmgu3dhpmb" path="res://images/game-map/question-page/scrollbar-pointer.svg" id="20_6ffka"]
+[ext_resource type="Texture2D" uid="uid://clm5abjqsvfy2" path="res://images/main-game/dev-progress-bar.svg" id="21_pfpek"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_e8khc"]
 
 [node name="MainGameScene" type="Node2D"]
 
-[node name="BoxContainer" type="BoxContainer" parent="."]
-offset_left = 250.0
-offset_top = 117.0
-offset_right = 820.0
-offset_bottom = 328.0
-alignment = 1
-
-[node name="Label" type="Label" parent="BoxContainer"]
-layout_mode = 2
-text = "This is the placeholder for main scene game ;>
-"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Background" type="VideoStreamPlayer" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+stream = ExtResource("1_tp77f")
+autoplay = true
+expand = true
+loop = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_lc3b6")
 centered = false
 
 [node name="TimerContainer" type="HBoxContainer" parent="Sprite2D"]
-offset_left = 24.0
-offset_top = 8.0
-offset_right = 146.0
-offset_bottom = 62.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.5
+offset_top = -27.0
+offset_right = 89.5
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TimerLabel" type="Label" parent="Sprite2D/TimerContainer"]
+layout_mode = 2
+text = "00:00
+"
+script = ExtResource("5_bt7jo")
+
+[node name="TimerNode" type="Timer" parent="Sprite2D/TimerContainer/TimerLabel"]
+autostart = true
 
 [node name="PlayPauseBtn" type="TextureButton" parent="Sprite2D/TimerContainer"]
 custom_minimum_size = Vector2(40, 0)
@@ -43,19 +71,196 @@ layout_mode = 2
 texture_normal = ExtResource("3_ps3v0")
 script = ExtResource("3_svwg2")
 
-[node name="TimerLabel" type="RichTextLabel" parent="Sprite2D/TimerContainer"]
-layout_mode = 2
-bbcode_enabled = true
-text = "00:00
-"
-fit_content = true
-autowrap_mode = 0
-script = ExtResource("5_bt7jo")
+[node name="MainControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 110.0
+offset_right = 830.0
+offset_bottom = 774.0
 
-[node name="TimerNode" type="Timer" parent="Sprite2D/TimerContainer/TimerLabel"]
-autostart = true
+[node name="EmptyHex2" type="TextureButton" parent="MainControl"]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 144.0
+offset_right = 583.0
+offset_bottom = 272.0
+texture_normal = ExtResource("7_cf20c")
 
+[node name="EmptyHex" type="TextureButton" parent="MainControl"]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 364.0
+offset_right = 391.0
+offset_bottom = 492.0
+texture_normal = ExtResource("7_cf20c")
+
+[node name="EmptyHex3" type="TextureButton" parent="MainControl"]
+layout_mode = 0
+offset_left = 353.0
+offset_top = 419.0
+offset_right = 487.0
+offset_bottom = 547.0
+texture_normal = ExtResource("7_cf20c")
+
+[node name="EmptyHex4" type="TextureButton" parent="MainControl"]
+layout_mode = 0
+offset_left = 353.0
+offset_top = 199.0
+offset_right = 487.0
+offset_bottom = 327.0
+texture_normal = ExtResource("7_cf20c")
+
+[node name="EmptyHex5" type="TextureButton" parent="MainControl"]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 254.0
+offset_right = 583.0
+offset_bottom = 382.0
+texture_normal = ExtResource("7_cf20c")
+
+[node name="EmptyHex6" type="TextureButton" parent="MainControl"]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 254.0
+offset_right = 391.0
+offset_bottom = 382.0
+texture_normal = ExtResource("7_cf20c")
+
+[node name="EmptyHex7" type="TextureButton" parent="MainControl"]
+layout_mode = 0
+offset_left = 353.0
+offset_top = 89.0
+offset_right = 487.0
+offset_bottom = 217.0
+texture_normal = ExtResource("7_cf20c")
+
+[node name="Database" type="TextureButton" parent="MainControl"]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 470.0
+offset_right = 634.0
+offset_bottom = 666.0
+texture_normal = ExtResource("8_8qqeu")
+texture_pressed = ExtResource("9_54p3a")
+texture_hover = ExtResource("9_54p3a")
+
+[node name="Delivery" type="TextureButton" parent="MainControl"]
+layout_mode = 0
+offset_left = 353.0
+offset_top = 309.0
+offset_right = 487.0
+offset_bottom = 437.0
+texture_normal = ExtResource("10_htyl8")
+texture_pressed = ExtResource("11_medfd")
+texture_hover = ExtResource("11_medfd")
+
+[node name="BusinessLogic" type="TextureButton" parent="MainControl"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 245.0
+offset_right = 295.0
+offset_bottom = 501.0
+texture_normal = ExtResource("12_l01y6")
+texture_pressed = ExtResource("13_vejf5")
+texture_hover = ExtResource("13_vejf5")
+
+[node name="Backend" type="TextureButton" parent="MainControl"]
+layout_mode = 0
+offset_left = 545.0
+offset_top = 135.0
+offset_right = 807.0
+offset_bottom = 391.0
+texture_normal = ExtResource("14_0eftj")
+texture_pressed = ExtResource("15_8ck7c")
+texture_hover = ExtResource("15_8ck7c")
+
+[node name="UI_UX" type="TextureButton" parent="MainControl"]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 144.0
+offset_right = 391.0
+offset_bottom = 272.0
+texture_normal = ExtResource("16_ir080")
+texture_pressed = ExtResource("17_udybg")
+texture_hover = ExtResource("17_udybg")
+
+[node name="SideControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="QuestionBackground" type="TextureRect" parent="SideControl"]
+modulate = Color(0, 0, 0, 0.588235)
+layout_mode = 0
+offset_left = 916.0
+offset_top = 45.0
+offset_right = 1390.0
+offset_bottom = 882.0
+texture = SubResource("CanvasTexture_e8khc")
+
+[node name="QuestionBorder" type="TextureRect" parent="SideControl"]
+layout_mode = 0
+offset_left = 888.0
+offset_top = 40.0
+offset_right = 1400.0
+offset_bottom = 900.0
+texture = ExtResource("18_fv22d")
+expand_mode = 1
+
+[node name="ScrollBar" type="TextureRect" parent="SideControl"]
+layout_mode = 0
+offset_left = 1353.0
+offset_top = 95.0
+offset_right = 1369.0
+offset_bottom = 845.0
+texture = ExtResource("19_5s3ei")
+expand_mode = 1
+
+[node name="ScrollPointer" type="TextureButton" parent="SideControl"]
+layout_mode = 0
+offset_left = 1355.0
+offset_top = 169.0
+offset_right = 1367.0
+offset_bottom = 181.0
+texture_normal = ExtResource("20_6ffka")
+
+[node name="ProgressBarControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="TextureRect" parent="ProgressBarControl"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 796.0
+offset_right = 871.0
+offset_bottom = 881.0
+texture = ExtResource("21_pfpek")
+
+[node name="PercentageValue" type="Label" parent="ProgressBarControl"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 80.0
+offset_top = 805.0
+offset_right = 115.0
+offset_bottom = 853.0
+scale = Vector2(1.5, 1.5)
+text = "50%"
+vertical_alignment = 1
+
+[node name="TimerValue" type="Label" parent="ProgressBarControl"]
+layout_mode = 0
+offset_left = 742.0
+offset_top = 806.0
+offset_right = 783.0
+offset_bottom = 854.0
+scale = Vector2(1.5, 1.5)
+text = "05:19"
+vertical_alignment = 1
+
+[connection signal="timeout" from="Sprite2D/TimerContainer/TimerLabel/TimerNode" to="Sprite2D/TimerContainer/TimerLabel" method="_on_timer_node_timeout"]
 [connection signal="pause_game" from="Sprite2D/TimerContainer/PlayPauseBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_pause"]
 [connection signal="unpause_game" from="Sprite2D/TimerContainer/PlayPauseBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_unpause"]
 [connection signal="speed_up_game" from="Sprite2D/TimerContainer/SpeedUpBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_speed_change"]
-[connection signal="timeout" from="Sprite2D/TimerContainer/TimerLabel/TimerNode" to="Sprite2D/TimerContainer/TimerLabel" method="_on_timer_node_timeout"]
