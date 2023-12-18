@@ -1,6 +1,5 @@
 extends Node2D
 
-#const next_scene = preload(next_scene_path)
 var easyIcon : TextureButton
 var easyLabel : TextureButton
 var mediumIcon : TextureButton
@@ -27,6 +26,9 @@ func _process(delta):
 
 func _on_diff_btn_mouse_entered(difficulty_level:int):
 	match difficulty_level:
+		0:
+			cancelIcon.texture_normal = ResourceLoader.load("res://images/start-scene/btn-icon-cancel-select.svg")
+			cancelLabel.texture_normal = ResourceLoader.load("res://images/start-scene/btn-label-cancel-select.svg")
 		1:
 			easyIcon.texture_normal = ResourceLoader.load("res://images/start-scene/btn-icon-easy-select.svg")
 			easyLabel.texture_normal = ResourceLoader.load("res://images/start-scene/btn-label-easy-select.svg")
@@ -39,6 +41,9 @@ func _on_diff_btn_mouse_entered(difficulty_level:int):
 	
 func _on_diff_btn_mouse_exited(difficulty_level:int):
 	match difficulty_level:
+		0:
+			cancelIcon.texture_normal = ResourceLoader.load("res://images/start-scene/btn-icon-cancel.svg")
+			cancelLabel.texture_normal = ResourceLoader.load("res://images/start-scene/btn-label-cancel.svg")
 		1:
 			easyIcon.texture_normal = ResourceLoader.load("res://images/start-scene/btn-icon-easy.svg")
 			easyLabel.texture_normal = ResourceLoader.load("res://images/start-scene/btn-label-easy.svg")
@@ -49,13 +54,6 @@ func _on_diff_btn_mouse_exited(difficulty_level:int):
 			hardIcon.texture_normal = ResourceLoader.load("res://images/start-scene/btn-icon-hard.svg")
 			hardLabel.texture_normal = ResourceLoader.load("res://images/start-scene/btn-label-hard.svg")
 
-func _on_cancel_btn_mouse_entered():
-	cancelIcon.texture_normal = ResourceLoader.load("res://images/start-scene/btn-icon-cancel-select.svg")
-	cancelLabel.texture_normal = ResourceLoader.load("res://images/start-scene/btn-label-cancel-select.svg")
-
-func _on_cancel_btn_mouse_exited():
-	cancelIcon.texture_normal = ResourceLoader.load("res://images/start-scene/btn-icon-cancel.svg")
-	cancelLabel.texture_normal = ResourceLoader.load("res://images/start-scene/btn-label-cancel.svg")
 
 func _on_cancel_btn_pressed():
 	get_tree().change_scene_to_file("res://ui/menus/main_menu.tscn")

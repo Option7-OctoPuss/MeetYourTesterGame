@@ -37,15 +37,17 @@ expand = true
 loop = true
 
 [node name="BoxContainer2" type="BoxContainer" parent="."]
+visible = false
 custom_minimum_size = Vector2(11, 11)
-offset_right = 178.0
-offset_bottom = 35.0
+offset_left = 790.0
+offset_top = 598.0
+offset_right = 968.0
+offset_bottom = 633.0
 scale = Vector2(1.88, 1.88)
 theme_override_constants/separation = 1
 vertical = true
 
 [node name="PlayerInputNode" type="LineEdit" parent="BoxContainer2"]
-visible = false
 custom_minimum_size = Vector2(100, 200)
 layout_mode = 2
 placeholder_text = "Enter your name here"
@@ -122,6 +124,8 @@ next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
 [node name="CancelIcon" type="TextureButton" parent="GridContainer"]
 layout_mode = 2
 texture_normal = ExtResource("15_aikcy")
+script = ExtResource("2_ty5a8")
+next_scene_path = "res://ui/menus/main_menu.tscn"
 
 [node name="CenterCancelLabel" type="CenterContainer" parent="GridContainer"]
 layout_mode = 2
@@ -130,6 +134,8 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 8
 texture_normal = ExtResource("4_w18dt")
+script = ExtResource("2_ty5a8")
+next_scene_path = "res://ui/menus/main_menu.tscn"
 
 [node name="GridContainer2" type="GridContainer" parent="."]
 anchors_preset = 2
@@ -213,9 +219,9 @@ texture = ExtResource("23_f0m7b")
 [connection signal="mouse_exited" from="GridContainer/HardIcon" to="." method="_on_diff_btn_mouse_exited" binds= [3]]
 [connection signal="mouse_entered" from="GridContainer/CenterHardLabel/HardDiffBtn" to="." method="_on_diff_btn_mouse_entered" binds= [3]]
 [connection signal="mouse_exited" from="GridContainer/CenterHardLabel/HardDiffBtn" to="." method="_on_diff_btn_mouse_exited" binds= [3]]
-[connection signal="mouse_entered" from="GridContainer/CancelIcon" to="." method="_on_cancel_btn_mouse_entered"]
-[connection signal="mouse_exited" from="GridContainer/CancelIcon" to="." method="_on_cancel_btn_mouse_exited"]
-[connection signal="pressed" from="GridContainer/CancelIcon" to="." method="_on_cancel_btn_pressed"]
-[connection signal="mouse_entered" from="GridContainer/CenterCancelLabel/CancelBtn" to="." method="_on_cancel_btn_mouse_entered"]
-[connection signal="mouse_exited" from="GridContainer/CenterCancelLabel/CancelBtn" to="." method="_on_cancel_btn_mouse_exited"]
-[connection signal="pressed" from="GridContainer/CenterCancelLabel/CancelBtn" to="." method="_on_cancel_btn_pressed"]
+[connection signal="mouse_entered" from="GridContainer/CancelIcon" to="." method="_on_diff_btn_mouse_entered" binds= [0]]
+[connection signal="mouse_exited" from="GridContainer/CancelIcon" to="." method="_on_diff_btn_mouse_exited" binds= [0]]
+[connection signal="pressed" from="GridContainer/CancelIcon" to="GridContainer/CancelIcon" method="_on_Button_pressed"]
+[connection signal="mouse_entered" from="GridContainer/CenterCancelLabel/CancelBtn" to="." method="_on_diff_btn_mouse_entered" binds= [0]]
+[connection signal="mouse_exited" from="GridContainer/CenterCancelLabel/CancelBtn" to="." method="_on_diff_btn_mouse_exited" binds= [0]]
+[connection signal="pressed" from="GridContainer/CenterCancelLabel/CancelBtn" to="GridContainer/CenterCancelLabel/CancelBtn" method="_on_Button_pressed"]
