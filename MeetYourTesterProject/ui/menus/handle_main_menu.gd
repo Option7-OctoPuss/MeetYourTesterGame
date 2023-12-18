@@ -21,10 +21,6 @@ func _on_start_game_label_pressed():
 	#scene.show()
 	get_tree().change_scene_to_file("res://ui/menus/difficulty/diff_scene.tscn")
 
-func _on_start_game_icon_pressed():
-	_debug_print("Start Game Button (icon) pressed")
-	get_tree().change_scene_to_file("res://ui/menus/difficulty/diff_scene.tscn")
-
 func _on_start_label_mouse_entered():
 	_debug_print("Start Game Button (label) on hover entered")
 	startIcon.texture_normal = ResourceLoader.load("res://images/start-scene/btn-icon-start-select.svg")
@@ -42,5 +38,5 @@ func _on_start_icon_mouse_exited():
 	startLabel.texture_normal = ResourceLoader.load("res://images/start-scene/btn-label-start.svg")
 	
 func _debug_print(msg):
-	if globals.DEBUG_MODE:
+	if Globals.DEBUG_MODE:
 		print(msg)

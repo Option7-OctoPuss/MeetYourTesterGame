@@ -48,11 +48,14 @@ theme_override_constants/separation = 1
 vertical = true
 
 [node name="PlayerInputNode" type="LineEdit" parent="BoxContainer2"]
-custom_minimum_size = Vector2(100, 200)
+custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
 placeholder_text = "Enter your name here"
 max_length = 15
 expand_to_text_length = true
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+drag_and_drop_selection_enabled = false
 caret_blink = true
 script = ExtResource("6_ifxn4")
 

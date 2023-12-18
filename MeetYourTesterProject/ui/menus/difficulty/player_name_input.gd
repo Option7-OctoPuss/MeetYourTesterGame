@@ -11,7 +11,7 @@ func _on_line_edit_text_entered(new_text):
 		escaped_text = "Player"
 	else:
 		emit_signal("empty_name", false)
-	diff_store.player_name = escaped_text
+	DiffStore.player_name = escaped_text
 
 func _ready():
 	self.connect("text_changed", _on_line_edit_text_entered)

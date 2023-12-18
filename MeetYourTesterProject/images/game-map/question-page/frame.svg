@@ -1,0 +1,6 @@
+<svg width="769" height="1060" viewBox="0 0 769 1060" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M761 1032V1060H8L28 1032H761Z" fill="#401127"/>
+<path d="M28 22V1032H46V33L53 26H742V1032H761V8H42L28 22Z" fill="#401127"/>
+<path d="M740 1030H48V33.8284L53.8284 28H740V1030Z" stroke="#8F1B42" stroke-opacity="0.6" stroke-width="4"/>
+<path d="M0 1060H8L28 1032V22L42 8H761V1060H769V0H38L20 18V22V1032L0 1060Z" fill="#8F1B42" fill-opacity="0.8"/>
+</svg>
