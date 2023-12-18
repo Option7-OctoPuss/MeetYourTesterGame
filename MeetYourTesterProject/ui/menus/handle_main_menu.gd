@@ -12,6 +12,13 @@ func _process(delta):
 
 func _on_start_game_label_pressed():
 	_debug_print("Start Game Button (label) pressed")
+	# TODO instead of changing scene, we can render it on top of the current one, but 
+	# it requires logic to disable other buttons
+	#var layer = CanvasLayer.new()
+	#add_child(layer)
+	#var scene = load("res://ui/menus/difficulty/diff_scene.tscn").instantiate()
+	#layer.add_child(scene)
+	#scene.show()
 	get_tree().change_scene_to_file("res://ui/menus/difficulty/diff_scene.tscn")
 
 func _on_start_label_mouse_entered():

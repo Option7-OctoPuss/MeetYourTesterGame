@@ -2,12 +2,13 @@ extends TextureButton
 
 # Exported variable for setting difficulty in the Editor
 @export_category("Difficulty")
-@export_enum("Easy:1", "Medium:2", "Hard:3", "Back:0") var difficulty_level = 0
+@export_enum("Cancel:0","Easy:1", "Medium:2", "Hard:3") var difficulty_level = 0
 
 @export_category("Next scene path")
 @export_file("*.tscn") var next_scene_path = ""
 
 #const next_scene = preload(next_scene_path)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.pressed.connect(self._on_Button_pressed)
