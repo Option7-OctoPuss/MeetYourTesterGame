@@ -1,0 +1,257 @@
+[gd_scene load_steps=21 format=3 uid="uid://breqgth604u0w"]
+
+[ext_resource type="VideoStream" path="res://images/background/purple-nebula-background.ogv" id="1_abn0v"]
+[ext_resource type="Texture2D" uid="uid://beevq6x3iexl0" path="res://images/main-game/hex-cell-small.svg" id="2_lrudm"]
+[ext_resource type="Texture2D" uid="uid://c8d3le8nttgse" path="res://images/game-map/simple-hex/hex-cell-database.svg" id="3_rwyn5"]
+[ext_resource type="Texture2D" uid="uid://d4im2hnqve1s3" path="res://images/game-map/selected-hex/hex-cell-database-selected.svg" id="4_tjt5g"]
+[ext_resource type="Texture2D" uid="uid://bmdtbh61rtdwa" path="res://images/game-map/simple-hex/hex-cell-business.svg" id="5_ulfmx"]
+[ext_resource type="Texture2D" uid="uid://cqul3fdpbrlv2" path="res://images/game-map/selected-hex/hex-cel-buisness-logic-selected.svg" id="6_xlikd"]
+[ext_resource type="Texture2D" uid="uid://cyt3nwyrvf3bs" path="res://images/game-map/simple-hex/hex-cell-delivery.svg" id="7_kngmr"]
+[ext_resource type="Texture2D" uid="uid://djxp3n13q5pn" path="res://images/game-map/selected-hex/hex-cell-delivery-selected.svg" id="8_swway"]
+[ext_resource type="Texture2D" uid="uid://dlpx4hjfysmbd" path="res://images/game-map/simple-hex/hex-cell-backend.svg" id="9_3ndfx"]
+[ext_resource type="Texture2D" uid="uid://bascpiay0qrgh" path="res://images/game-map/selected-hex/hex-cell-backend-selected.svg" id="10_vbelc"]
+[ext_resource type="Texture2D" uid="uid://bmlybrtxl8cum" path="res://images/game-map/simple-hex/hex-cell-ui-ux.svg" id="11_8vcna"]
+[ext_resource type="Texture2D" uid="uid://dk8drfc0yhdjy" path="res://images/game-map/selected-hex/hex-cell-ui-ux-selected.svg" id="12_2f360"]
+[ext_resource type="Texture2D" uid="uid://ciww7iw8ke16u" path="res://images/game-map/question-page/frame.svg" id="13_ts203"]
+[ext_resource type="Texture2D" uid="uid://cvqi3i4m1h0tk" path="res://images/game-map/question-page/scrollbar-bar.svg" id="14_hpsby"]
+[ext_resource type="Texture2D" uid="uid://b3qtmgu3dhpmb" path="res://images/game-map/question-page/scrollbar-pointer.svg" id="15_uc8uv"]
+[ext_resource type="Texture2D" uid="uid://wgpfvhfu1oi6" path="res://images/game-map/time/timer.svg" id="16_82gdv"]
+[ext_resource type="Texture2D" uid="uid://svsqskokvpwx" path="res://images/game-map/time/pause.svg" id="17_1xx56"]
+[ext_resource type="Texture2D" uid="uid://b46cjpn0dkvib" path="res://images/game-map/time/speed.svg" id="18_7qglq"]
+[ext_resource type="Texture2D" uid="uid://clm5abjqsvfy2" path="res://images/main-game/dev-progress-bar.svg" id="19_jq8ic"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_jylrm"]
+
+[node name="landpage" type="Node2D"]
+
+[node name="Background" type="VideoStreamPlayer" parent="."]
+offset_right = 1400.0
+offset_bottom = 896.0
+stream = ExtResource("1_abn0v")
+autoplay = true
+expand = true
+loop = true
+
+[node name="MainControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 110.0
+offset_right = 830.0
+offset_bottom = 774.0
+
+[node name="EmptyHex2" type="TextureButton" parent="MainControl"]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 144.0
+offset_right = 583.0
+offset_bottom = 272.0
+texture_normal = ExtResource("2_lrudm")
+
+[node name="EmptyHex" type="TextureButton" parent="MainControl"]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 364.0
+offset_right = 391.0
+offset_bottom = 492.0
+texture_normal = ExtResource("2_lrudm")
+
+[node name="EmptyHex3" type="TextureButton" parent="MainControl"]
+layout_mode = 0
+offset_left = 353.0
+offset_top = 419.0
+offset_right = 487.0
+offset_bottom = 547.0
+texture_normal = ExtResource("2_lrudm")
+
+[node name="EmptyHex4" type="TextureButton" parent="MainControl"]
+layout_mode = 0
+offset_left = 353.0
+offset_top = 199.0
+offset_right = 487.0
+offset_bottom = 327.0
+texture_normal = ExtResource("2_lrudm")
+
+[node name="EmptyHex5" type="TextureButton" parent="MainControl"]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 254.0
+offset_right = 583.0
+offset_bottom = 382.0
+texture_normal = ExtResource("2_lrudm")
+
+[node name="EmptyHex6" type="TextureButton" parent="MainControl"]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 254.0
+offset_right = 391.0
+offset_bottom = 382.0
+texture_normal = ExtResource("2_lrudm")
+
+[node name="EmptyHex7" type="TextureButton" parent="MainControl"]
+layout_mode = 0
+offset_left = 353.0
+offset_top = 89.0
+offset_right = 487.0
+offset_bottom = 217.0
+texture_normal = ExtResource("2_lrudm")
+
+[node name="Database" type="TextureButton" parent="MainControl"]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 470.0
+offset_right = 634.0
+offset_bottom = 666.0
+texture_normal = ExtResource("3_rwyn5")
+texture_pressed = ExtResource("4_tjt5g")
+texture_hover = ExtResource("4_tjt5g")
+
+[node name="Delivery" type="TextureButton" parent="MainControl"]
+layout_mode = 0
+offset_left = 353.0
+offset_top = 309.0
+offset_right = 487.0
+offset_bottom = 437.0
+texture_normal = ExtResource("7_kngmr")
+texture_pressed = ExtResource("8_swway")
+texture_hover = ExtResource("8_swway")
+
+[node name="BusinessLogic" type="TextureButton" parent="MainControl"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 245.0
+offset_right = 295.0
+offset_bottom = 501.0
+texture_normal = ExtResource("5_ulfmx")
+texture_pressed = ExtResource("6_xlikd")
+texture_hover = ExtResource("6_xlikd")
+
+[node name="Backend" type="TextureButton" parent="MainControl"]
+layout_mode = 0
+offset_left = 545.0
+offset_top = 135.0
+offset_right = 807.0
+offset_bottom = 391.0
+texture_normal = ExtResource("9_3ndfx")
+texture_pressed = ExtResource("10_vbelc")
+texture_hover = ExtResource("10_vbelc")
+
+[node name="UI_UX" type="TextureButton" parent="MainControl"]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 144.0
+offset_right = 391.0
+offset_bottom = 272.0
+texture_normal = ExtResource("11_8vcna")
+texture_pressed = ExtResource("12_2f360")
+texture_hover = ExtResource("12_2f360")
+
+[node name="SideControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="QuestionBackground" type="TextureRect" parent="SideControl"]
+modulate = Color(0, 0, 0, 0.588235)
+layout_mode = 0
+offset_left = 916.0
+offset_top = 45.0
+offset_right = 1390.0
+offset_bottom = 882.0
+texture = SubResource("CanvasTexture_jylrm")
+
+[node name="QuestionBorder" type="TextureRect" parent="SideControl"]
+layout_mode = 0
+offset_left = 888.0
+offset_top = 40.0
+offset_right = 1400.0
+offset_bottom = 900.0
+texture = ExtResource("13_ts203")
+expand_mode = 1
+
+[node name="ScrollBar" type="TextureRect" parent="SideControl"]
+layout_mode = 0
+offset_left = 1353.0
+offset_top = 95.0
+offset_right = 1369.0
+offset_bottom = 845.0
+texture = ExtResource("14_hpsby")
+expand_mode = 1
+
+[node name="ScrollPointer" type="TextureButton" parent="SideControl"]
+layout_mode = 0
+offset_left = 1355.0
+offset_top = 169.0
+offset_right = 1367.0
+offset_bottom = 181.0
+texture_normal = ExtResource("15_uc8uv")
+
+[node name="TimerControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TimerContainer" type="TextureRect" parent="TimerControl"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("16_82gdv")
+
+[node name="PauseButton" type="TextureButton" parent="TimerControl"]
+layout_mode = 0
+offset_left = 72.0
+offset_right = 118.0
+offset_bottom = 54.0
+texture_normal = ExtResource("17_1xx56")
+
+[node name="SpeedButton" type="TextureButton" parent="TimerControl"]
+layout_mode = 0
+offset_left = 122.0
+offset_right = 170.0
+offset_bottom = 54.0
+texture_normal = ExtResource("18_7qglq")
+
+[node name="CurrentTimer" type="Label" parent="TimerControl"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 10.0
+offset_right = 67.0
+offset_bottom = 33.0
+scale = Vector2(1.4, 1.4)
+text = "16:27"
+
+[node name="ProgressBarControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="TextureRect" parent="ProgressBarControl"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 796.0
+offset_right = 871.0
+offset_bottom = 881.0
+texture = ExtResource("19_jq8ic")
+
+[node name="PercentageValue" type="Label" parent="ProgressBarControl"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 80.0
+offset_top = 805.0
+offset_right = 115.0
+offset_bottom = 853.0
+scale = Vector2(1.5, 1.5)
+text = "50%"
+vertical_alignment = 1
+
+[node name="TimerValue" type="Label" parent="ProgressBarControl"]
+layout_mode = 0
+offset_left = 742.0
+offset_top = 806.0
+offset_right = 783.0
+offset_bottom = 854.0
+scale = Vector2(1.5, 1.5)
+text = "05:19"
+vertical_alignment = 1
