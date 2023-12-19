@@ -142,9 +142,11 @@ offset_left = 432.0
 offset_top = 470.0
 offset_right = 634.0
 offset_bottom = 666.0
-texture_normal = ExtResource("8_8qqeu")
+disabled = true
+texture_normal = ExtResource("9_54p3a")
 texture_pressed = ExtResource("9_54p3a")
 texture_hover = ExtResource("9_54p3a")
+texture_disabled = ExtResource("8_8qqeu")
 
 [node name="Delivery" type="TextureButton" parent="MainControl"]
 layout_mode = 0
@@ -152,9 +154,11 @@ offset_left = 353.0
 offset_top = 309.0
 offset_right = 487.0
 offset_bottom = 437.0
-texture_normal = ExtResource("10_htyl8")
+disabled = true
+texture_normal = ExtResource("11_medfd")
 texture_pressed = ExtResource("11_medfd")
 texture_hover = ExtResource("11_medfd")
+texture_disabled = ExtResource("10_htyl8")
 
 [node name="BusinessLogic" type="TextureButton" parent="MainControl"]
 layout_mode = 0
@@ -162,9 +166,11 @@ offset_left = 33.0
 offset_top = 245.0
 offset_right = 295.0
 offset_bottom = 501.0
-texture_normal = ExtResource("12_l01y6")
+disabled = true
+texture_normal = ExtResource("13_vejf5")
 texture_pressed = ExtResource("13_vejf5")
 texture_hover = ExtResource("13_vejf5")
+texture_disabled = ExtResource("12_l01y6")
 
 [node name="Backend" type="TextureButton" parent="MainControl"]
 layout_mode = 0
@@ -172,9 +178,11 @@ offset_left = 545.0
 offset_top = 135.0
 offset_right = 807.0
 offset_bottom = 391.0
-texture_normal = ExtResource("14_0eftj")
+disabled = true
+texture_normal = ExtResource("15_8ck7c")
 texture_pressed = ExtResource("15_8ck7c")
 texture_hover = ExtResource("15_8ck7c")
+texture_disabled = ExtResource("14_0eftj")
 
 [node name="UI_UX" type="TextureButton" parent="MainControl"]
 layout_mode = 0
@@ -182,7 +190,9 @@ offset_left = 257.0
 offset_top = 144.0
 offset_right = 391.0
 offset_bottom = 272.0
+disabled = true
 texture_normal = ExtResource("17_udybg")
+texture_pressed = ExtResource("17_udybg")
 texture_hover = ExtResource("17_udybg")
 texture_disabled = ExtResource("16_ir080")
 script = ExtResource("18_nwfow")
