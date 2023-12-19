@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dpyn1enbx4w7u"]
+[gd_scene load_steps=30 format=3 uid="uid://dpyn1enbx4w7u"]
 
 [ext_resource type="Texture2D" uid="uid://wgpfvhfu1oi6" path="res://images/game-map/time/timer.svg" id="1_lc3b6"]
 [ext_resource type="VideoStream" path="res://images/background/purple-nebula-background.ogv" id="1_tp77f"]
@@ -7,19 +7,26 @@
 [ext_resource type="Script" path="res://ui/main_screen/timer_btns.gd" id="3_svwg2"]
 [ext_resource type="Script" path="res://ui/main_screen/timer.gd" id="5_bt7jo"]
 [ext_resource type="Texture2D" uid="uid://beevq6x3iexl0" path="res://images/main-game/hex-cell-small.svg" id="7_cf20c"]
+[ext_resource type="Texture2D" uid="uid://cggemgu6mwcp" path="res://images/game-map/notification-hex/hex-cell-database-notifiaction.svg" id="8_5sr2y"]
 [ext_resource type="Texture2D" uid="uid://c8d3le8nttgse" path="res://images/game-map/simple-hex/hex-cell-database.svg" id="8_8qqeu"]
 [ext_resource type="Texture2D" uid="uid://d4im2hnqve1s3" path="res://images/game-map/selected-hex/hex-cell-database-selected.svg" id="9_54p3a"]
 [ext_resource type="Texture2D" uid="uid://cyt3nwyrvf3bs" path="res://images/game-map/simple-hex/hex-cell-delivery.svg" id="10_htyl8"]
+[ext_resource type="Texture2D" uid="uid://t6jnmwlhwtj5" path="res://images/game-map/notification-hex/hex-cell-delivery-notifiaction.svg" id="11_5o6cg"]
 [ext_resource type="Texture2D" uid="uid://djxp3n13q5pn" path="res://images/game-map/selected-hex/hex-cell-delivery-selected.svg" id="11_medfd"]
 [ext_resource type="Texture2D" uid="uid://bmdtbh61rtdwa" path="res://images/game-map/simple-hex/hex-cell-business.svg" id="12_l01y6"]
 [ext_resource type="Texture2D" uid="uid://cqul3fdpbrlv2" path="res://images/game-map/selected-hex/hex-cel-buisness-logic-selected.svg" id="13_vejf5"]
 [ext_resource type="Texture2D" uid="uid://dlpx4hjfysmbd" path="res://images/game-map/simple-hex/hex-cell-backend.svg" id="14_0eftj"]
+[ext_resource type="Texture2D" uid="uid://dsyxmv2i03ur7" path="res://images/game-map/notification-hex/hex-cell-business-notification.svg" id="14_ov5tk"]
 [ext_resource type="Texture2D" uid="uid://bascpiay0qrgh" path="res://images/game-map/selected-hex/hex-cell-backend-selected.svg" id="15_8ck7c"]
 [ext_resource type="Texture2D" uid="uid://bmlybrtxl8cum" path="res://images/game-map/simple-hex/hex-cell-ui-ux.svg" id="16_ir080"]
+[ext_resource type="Texture2D" uid="uid://da7lgcc231bpm" path="res://images/game-map/notification-hex/hex-cell-backend-notifiaction.svg" id="17_3vmwg"]
 [ext_resource type="Texture2D" uid="uid://dk8drfc0yhdjy" path="res://images/game-map/selected-hex/hex-cell-ui-ux-selected.svg" id="17_udybg"]
+[ext_resource type="Script" path="res://ui/main_screen/mock_handle_countdown.gd" id="18_0wahk"]
 [ext_resource type="Texture2D" uid="uid://ciww7iw8ke16u" path="res://images/game-map/question-page/frame.svg" id="18_fv22d"]
+[ext_resource type="Script" path="res://ui/main_screen/action_event_btn_manager.gd" id="18_nwfow"]
 [ext_resource type="Texture2D" uid="uid://cvqi3i4m1h0tk" path="res://images/game-map/question-page/scrollbar-bar.svg" id="19_5s3ei"]
 [ext_resource type="Texture2D" uid="uid://b3qtmgu3dhpmb" path="res://images/game-map/question-page/scrollbar-pointer.svg" id="20_6ffka"]
+[ext_resource type="Texture2D" uid="uid://dp3uujxgl4xqh" path="res://images/game-map/notification-hex/hex-cell-ux-notification.svg" id="20_ajqmu"]
 [ext_resource type="Texture2D" uid="uid://clm5abjqsvfy2" path="res://images/main-game/dev-progress-bar.svg" id="21_pfpek"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_e8khc"]
@@ -140,9 +147,11 @@ offset_left = 432.0
 offset_top = 470.0
 offset_right = 634.0
 offset_bottom = 666.0
-texture_normal = ExtResource("8_8qqeu")
+disabled = true
+texture_normal = ExtResource("8_5sr2y")
 texture_pressed = ExtResource("9_54p3a")
 texture_hover = ExtResource("9_54p3a")
+texture_disabled = ExtResource("8_8qqeu")
 
 [node name="Delivery" type="TextureButton" parent="MainControl"]
 layout_mode = 0
@@ -150,9 +159,11 @@ offset_left = 353.0
 offset_top = 309.0
 offset_right = 487.0
 offset_bottom = 437.0
-texture_normal = ExtResource("10_htyl8")
+disabled = true
+texture_normal = ExtResource("11_5o6cg")
 texture_pressed = ExtResource("11_medfd")
 texture_hover = ExtResource("11_medfd")
+texture_disabled = ExtResource("10_htyl8")
 
 [node name="BusinessLogic" type="TextureButton" parent="MainControl"]
 layout_mode = 0
@@ -160,9 +171,11 @@ offset_left = 33.0
 offset_top = 245.0
 offset_right = 295.0
 offset_bottom = 501.0
-texture_normal = ExtResource("12_l01y6")
+disabled = true
+texture_normal = ExtResource("14_ov5tk")
 texture_pressed = ExtResource("13_vejf5")
 texture_hover = ExtResource("13_vejf5")
+texture_disabled = ExtResource("12_l01y6")
 
 [node name="Backend" type="TextureButton" parent="MainControl"]
 layout_mode = 0
@@ -170,9 +183,11 @@ offset_left = 545.0
 offset_top = 135.0
 offset_right = 807.0
 offset_bottom = 391.0
-texture_normal = ExtResource("14_0eftj")
+disabled = true
+texture_normal = ExtResource("17_3vmwg")
 texture_pressed = ExtResource("15_8ck7c")
 texture_hover = ExtResource("15_8ck7c")
+texture_disabled = ExtResource("14_0eftj")
 
 [node name="UI_UX" type="TextureButton" parent="MainControl"]
 layout_mode = 0
@@ -180,9 +195,20 @@ offset_left = 257.0
 offset_top = 144.0
 offset_right = 391.0
 offset_bottom = 272.0
-texture_normal = ExtResource("16_ir080")
+disabled = true
+texture_normal = ExtResource("20_ajqmu")
 texture_pressed = ExtResource("17_udybg")
 texture_hover = ExtResource("17_udybg")
+texture_disabled = ExtResource("16_ir080")
+script = ExtResource("18_nwfow")
+
+[node name="Label" type="Label" parent="MainControl/UI_UX"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Timer" type="Timer" parent="MainControl/UI_UX/Label"]
+script = ExtResource("18_0wahk")
 
 [node name="SideControl" type="Control" parent="."]
 layout_mode = 3
@@ -264,3 +290,4 @@ vertical_alignment = 1
 [connection signal="pause_game" from="Sprite2D/TimerContainer/PlayPauseBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_pause"]
 [connection signal="unpause_game" from="Sprite2D/TimerContainer/PlayPauseBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_unpause"]
 [connection signal="speed_up_game" from="Sprite2D/TimerContainer/SpeedUpBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_speed_change"]
+[connection signal="timeout" from="MainControl/UI_UX/Label/Timer" to="MainControl/UI_UX" method="_on_timer_timeout"]
