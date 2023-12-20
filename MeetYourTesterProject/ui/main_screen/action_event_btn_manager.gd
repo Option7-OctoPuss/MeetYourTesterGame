@@ -22,4 +22,13 @@ func _on_timer_timeout():
 func _pressed():
 	var modified_message = message+ " -> " + str(randf())
 	print("action event is pressed")
-	get_parent()._send_to_terminal(modified_message)
+	print("sending data")
+	var text = modified_message
+	var sibling_b = get_parent().get_parent().get_node("Terminal").get_node("_terminal_mock")
+	if sibling_b:
+		print("Got the node" + sibling_b.name)
+		sibling_b.handle_event_from_action_event(text)
+
+
+func _on_pressed():
+	pass # Replace with function body.
