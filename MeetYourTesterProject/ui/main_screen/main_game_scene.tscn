@@ -83,66 +83,66 @@ offset_bottom = 774.0
 
 [node name="EmptyHex2" type="TextureButton" parent="MainControl"]
 layout_mode = 0
-offset_left = 449.0
-offset_top = 144.0
-offset_right = 583.0
-offset_bottom = 272.0
+offset_left = 572.0
+offset_top = 157.0
+offset_right = 706.0
+offset_bottom = 285.0
 texture_normal = ExtResource("7_cf20c")
 
 [node name="EmptyHex" type="TextureButton" parent="MainControl"]
 layout_mode = 0
-offset_left = 257.0
-offset_top = 364.0
-offset_right = 391.0
-offset_bottom = 492.0
+offset_left = 380.0
+offset_top = 377.0
+offset_right = 514.0
+offset_bottom = 505.0
 texture_normal = ExtResource("7_cf20c")
 
 [node name="EmptyHex3" type="TextureButton" parent="MainControl"]
 layout_mode = 0
-offset_left = 353.0
-offset_top = 419.0
-offset_right = 487.0
-offset_bottom = 547.0
+offset_left = 476.0
+offset_top = 432.0
+offset_right = 610.0
+offset_bottom = 560.0
 texture_normal = ExtResource("7_cf20c")
 
 [node name="EmptyHex4" type="TextureButton" parent="MainControl"]
 layout_mode = 0
-offset_left = 353.0
-offset_top = 199.0
-offset_right = 487.0
-offset_bottom = 327.0
+offset_left = 476.0
+offset_top = 212.0
+offset_right = 610.0
+offset_bottom = 340.0
 texture_normal = ExtResource("7_cf20c")
 
 [node name="EmptyHex5" type="TextureButton" parent="MainControl"]
 layout_mode = 0
-offset_left = 449.0
-offset_top = 254.0
-offset_right = 583.0
-offset_bottom = 382.0
+offset_left = 572.0
+offset_top = 267.0
+offset_right = 706.0
+offset_bottom = 395.0
 texture_normal = ExtResource("7_cf20c")
 
 [node name="EmptyHex6" type="TextureButton" parent="MainControl"]
 layout_mode = 0
-offset_left = 257.0
-offset_top = 254.0
-offset_right = 391.0
-offset_bottom = 382.0
+offset_left = 380.0
+offset_top = 267.0
+offset_right = 514.0
+offset_bottom = 395.0
 texture_normal = ExtResource("7_cf20c")
 
 [node name="EmptyHex7" type="TextureButton" parent="MainControl"]
 layout_mode = 0
-offset_left = 353.0
-offset_top = 89.0
-offset_right = 487.0
-offset_bottom = 217.0
+offset_left = 476.0
+offset_top = 102.0
+offset_right = 610.0
+offset_bottom = 230.0
 texture_normal = ExtResource("7_cf20c")
 
 [node name="Database" type="TextureButton" parent="MainControl"]
 layout_mode = 0
-offset_left = 432.0
-offset_top = 470.0
-offset_right = 634.0
-offset_bottom = 666.0
+offset_left = 555.0
+offset_top = 483.0
+offset_right = 761.0
+offset_bottom = 683.0
 disabled = true
 texture_normal = ExtResource("8_5sr2y")
 texture_pressed = ExtResource("9_54p3a")
@@ -151,10 +151,10 @@ texture_disabled = ExtResource("8_8qqeu")
 
 [node name="Delivery" type="TextureButton" parent="MainControl"]
 layout_mode = 0
-offset_left = 353.0
-offset_top = 309.0
-offset_right = 487.0
-offset_bottom = 437.0
+offset_left = 476.0
+offset_top = 322.0
+offset_right = 616.0
+offset_bottom = 455.0
 disabled = true
 texture_normal = ExtResource("11_5o6cg")
 texture_pressed = ExtResource("11_medfd")
@@ -163,10 +163,10 @@ texture_disabled = ExtResource("10_htyl8")
 
 [node name="BusinessLogic" type="TextureButton" parent="MainControl"]
 layout_mode = 0
-offset_left = 33.0
-offset_top = 245.0
-offset_right = 295.0
-offset_bottom = 501.0
+offset_left = 156.0
+offset_top = 258.0
+offset_right = 422.0
+offset_bottom = 518.0
 disabled = true
 texture_normal = ExtResource("14_ov5tk")
 texture_pressed = ExtResource("13_vejf5")
@@ -175,10 +175,10 @@ texture_disabled = ExtResource("12_l01y6")
 
 [node name="Backend" type="TextureButton" parent="MainControl"]
 layout_mode = 0
-offset_left = 545.0
-offset_top = 135.0
-offset_right = 807.0
-offset_bottom = 391.0
+offset_left = 668.0
+offset_top = 148.0
+offset_right = 934.0
+offset_bottom = 408.0
 disabled = true
 texture_normal = ExtResource("17_3vmwg")
 texture_pressed = ExtResource("15_8ck7c")
@@ -187,10 +187,10 @@ texture_disabled = ExtResource("14_0eftj")
 
 [node name="UI_UX" type="TextureButton" parent="MainControl"]
 layout_mode = 0
-offset_left = 257.0
-offset_top = 144.0
-offset_right = 391.0
-offset_bottom = 272.0
+offset_left = 380.0
+offset_top = 157.0
+offset_right = 519.0
+offset_bottom = 290.0
 disabled = true
 texture_normal = ExtResource("20_ajqmu")
 texture_pressed = ExtResource("17_udybg")
@@ -214,29 +214,29 @@ offset_bottom = 40.0
 
 [node name="ProgressBar" type="TextureRect" parent="ProgressBarControl"]
 layout_mode = 0
-offset_left = 55.0
-offset_top = 796.0
-offset_right = 871.0
-offset_bottom = 881.0
+offset_left = 151.0
+offset_top = 924.0
+offset_right = 967.0
+offset_bottom = 1009.0
 texture = ExtResource("21_pfpek")
 
 [node name="PercentageValue" type="Label" parent="ProgressBarControl"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 80.0
-offset_top = 805.0
-offset_right = 115.0
-offset_bottom = 853.0
+offset_left = 176.0
+offset_top = 933.0
+offset_right = 211.0
+offset_bottom = 981.0
 scale = Vector2(1.5, 1.5)
 text = "50%"
 vertical_alignment = 1
 
 [node name="TimerValue" type="Label" parent="ProgressBarControl"]
 layout_mode = 0
-offset_left = 742.0
-offset_top = 806.0
-offset_right = 783.0
-offset_bottom = 854.0
+offset_left = 838.0
+offset_top = 934.0
+offset_right = 879.0
+offset_bottom = 982.0
 scale = Vector2(1.5, 1.5)
 text = "05:19"
 vertical_alignment = 1
@@ -244,7 +244,8 @@ vertical_alignment = 1
 [node name="Terminal" type="Node2D" parent="."]
 
 [node name="_terminal_mock" parent="Terminal" instance=ExtResource("26_lb6pa")]
-position = Vector2(1130, 175)
+position = Vector2(1159, -4)
+scale = Vector2(1.405, 1.45)
 
 [connection signal="timeout" from="Sprite2D/TimerContainer/TimerLabel/TimerNode" to="Sprite2D/TimerContainer/TimerLabel" method="_on_timer_node_timeout"]
 [connection signal="pause_game" from="Sprite2D/TimerContainer/PlayPauseBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_pause"]
