@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://newdc3qfq08j"]
+
+[ext_resource type="Texture2D" uid="uid://ciww7iw8ke16u" path="res://images/game-map/question-page/frame.svg" id="1_p1gv0"]
+[ext_resource type="Script" path="res://ui/main_screen/terminal_communication.gd" id="1_rdfio"]
+[ext_resource type="Script" path="res://ui/main_screen/handle_terminal.gd" id="3_oihmk"]
+
+[node name="_terminal_mock" type="Node2D"]
+script = ExtResource("1_rdfio")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 25.0
+offset_top = 12.0
+offset_right = 532.0
+offset_bottom = 738.0
+
+[node name="terminal_sprite" type="Sprite2D" parent="."]
+position = Vector2(272, 376)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_p1gv0")
+
+[node name="terminal_content" type="RichTextLabel" parent="."]
+offset_left = 96.0
+offset_top = 40.0
+offset_right = 456.0
+offset_bottom = 680.0
+bbcode_enabled = true
+text = "PLACEHOLDER TEXT"
+script = ExtResource("3_oihmk")
