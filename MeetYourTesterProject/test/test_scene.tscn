@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://buvs3mp82j7ft"]
+
+[ext_resource type="Script" path="res://addons/gut/test.gd" id="1_rhxo7"]
+
+[node name="TestScene" type="Node2D"]
+
+[node name="GutTest" type="Node" parent="."]
+script = ExtResource("1_rhxo7")

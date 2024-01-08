@@ -1,0 +1,122 @@
+[gd_scene load_steps=12 format=3 uid="uid://doqt2siiqyb2a"]
+
+[ext_resource type="Script" path="res://ui/menus/difficulty/handle_difficulty_menu.gd" id="1_5jier"]
+[ext_resource type="Texture2D" uid="uid://bc7s65ssh3cgh" path="res://images/start-scene/btn-label-easy.svg" id="1_bqnr1"]
+[ext_resource type="Texture2D" uid="uid://dfyql346x7kwp" path="res://images/start-scene/btn-label-medium.svg" id="2_ggpfl"]
+[ext_resource type="Texture2D" uid="uid://7o5q1rpboy3w" path="res://images/start-scene/btn-icon-easy.svg" id="2_mnuxq"]
+[ext_resource type="Script" path="res://ui/menus/difficulty/handle_difficulty.gd" id="2_ty5a8"]
+[ext_resource type="Texture2D" uid="uid://dt5pa0n2lmbrh" path="res://images/start-scene/btn-label-hard.svg" id="3_m4dx8"]
+[ext_resource type="Texture2D" uid="uid://b67femqvsaggk" path="res://images/start-scene/btn-label-cancel.svg" id="4_w18dt"]
+[ext_resource type="Script" path="res://ui/menus/difficulty/player_name_input.gd" id="6_ifxn4"]
+[ext_resource type="Texture2D" uid="uid://dna006taf11ie" path="res://images/start-scene/btn-icon-medium.svg" id="7_j6g5n"]
+[ext_resource type="Texture2D" uid="uid://cr7g7ytvi6pw1" path="res://images/start-scene/btn-icon-hard.svg" id="11_kw371"]
+[ext_resource type="Texture2D" uid="uid://qqqi7myb5fbl" path="res://images/start-scene/btn-icon-cancel.svg" id="15_aikcy"]
+
+[node name="DifficultyMenu" type="Node2D"]
+clip_children = 2
+use_parent_material = true
+script = ExtResource("1_5jier")
+
+[node name="BoxContainer2" type="BoxContainer" parent="."]
+custom_minimum_size = Vector2(11, 11)
+offset_right = 178.0
+offset_bottom = 35.0
+scale = Vector2(1.88, 1.88)
+theme_override_constants/separation = 1
+vertical = true
+
+[node name="PlayerInputNode" type="LineEdit" parent="BoxContainer2"]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 2
+placeholder_text = "Enter your name here"
+max_length = 15
+expand_to_text_length = true
+caret_blink = true
+script = ExtResource("6_ifxn4")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_direction = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -1887.0
+offset_top = 523.0
+offset_right = -1279.0
+offset_bottom = 1047.0
+grow_vertical = 0
+columns = 2
+
+[node name="EasyIcon" type="TextureButton" parent="GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_mnuxq")
+script = ExtResource("2_ty5a8")
+difficulty_level = 1
+
+[node name="CenterEasyLabel" type="CenterContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="EasyDiffBtn" type="TextureButton" parent="GridContainer/CenterEasyLabel"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("1_bqnr1")
+script = ExtResource("2_ty5a8")
+next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
+
+[node name="MediumIcon" type="TextureButton" parent="GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_j6g5n")
+
+[node name="CenterMediumLabel" type="CenterContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="MediumDiffBtn" type="TextureButton" parent="GridContainer/CenterMediumLabel"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("2_ggpfl")
+script = ExtResource("2_ty5a8")
+difficulty_level = 2
+next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
+
+[node name="HardIcon" type="TextureButton" parent="GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("11_kw371")
+
+[node name="CenterHardLabel" type="CenterContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="HardDiffBtn" type="TextureButton" parent="GridContainer/CenterHardLabel"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("3_m4dx8")
+script = ExtResource("2_ty5a8")
+difficulty_level = 3
+next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
+
+[node name="CancelIcon" type="TextureButton" parent="GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("15_aikcy")
+
+[node name="CenterCancelLabel" type="CenterContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="CancelBtn" type="TextureButton" parent="GridContainer/CenterCancelLabel"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("4_w18dt")
+
+[connection signal="mouse_entered" from="GridContainer/EasyIcon" to="." method="_on_diff_btn_mouse_entered" binds= [1]]
+[connection signal="mouse_exited" from="GridContainer/EasyIcon" to="." method="_on_diff_btn_mouse_exited" binds= [1]]
+[connection signal="mouse_entered" from="GridContainer/CenterEasyLabel/EasyDiffBtn" to="." method="_on_diff_btn_mouse_entered" binds= [1]]
+[connection signal="mouse_exited" from="GridContainer/CenterEasyLabel/EasyDiffBtn" to="." method="_on_diff_btn_mouse_exited" binds= [1]]
+[connection signal="mouse_entered" from="GridContainer/MediumIcon" to="." method="_on_diff_btn_mouse_entered" binds= [2]]
+[connection signal="mouse_exited" from="GridContainer/MediumIcon" to="." method="_on_diff_btn_mouse_exited" binds= [2]]
+[connection signal="mouse_entered" from="GridContainer/CenterMediumLabel/MediumDiffBtn" to="." method="_on_diff_btn_mouse_entered" binds= [2]]
+[connection signal="mouse_exited" from="GridContainer/CenterMediumLabel/MediumDiffBtn" to="." method="_on_diff_btn_mouse_exited" binds= [2]]
+[connection signal="mouse_entered" from="GridContainer/HardIcon" to="." method="_on_diff_btn_mouse_entered" binds= [3]]
+[connection signal="mouse_exited" from="GridContainer/HardIcon" to="." method="_on_diff_btn_mouse_exited" binds= [3]]
+[connection signal="mouse_entered" from="GridContainer/CenterHardLabel/HardDiffBtn" to="." method="_on_diff_btn_mouse_entered" binds= [3]]
+[connection signal="mouse_exited" from="GridContainer/CenterHardLabel/HardDiffBtn" to="." method="_on_diff_btn_mouse_exited" binds= [3]]
+[connection signal="mouse_entered" from="GridContainer/CancelIcon" to="." method="_on_cancel_btn_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/CancelIcon" to="." method="_on_cancel_btn_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer/CenterCancelLabel/CancelBtn" to="." method="_on_cancel_btn_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/CenterCancelLabel/CancelBtn" to="." method="_on_cancel_btn_mouse_exited"]
