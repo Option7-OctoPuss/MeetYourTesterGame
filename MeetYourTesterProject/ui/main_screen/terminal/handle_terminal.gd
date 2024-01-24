@@ -10,10 +10,7 @@ func _ready():
 	self.clear()
 
 func handle_event_from_action_event(_message:String):
-	print("handle_event_from_action_event called")
 	animate_change_text(_message, 14, 20, 2)
-
-
 
 func animate_change_text(_new_text, _start_size, _end_size, _duration) ->void:
 	print("animate_change_text called")

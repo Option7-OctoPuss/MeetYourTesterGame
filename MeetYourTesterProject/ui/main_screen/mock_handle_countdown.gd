@@ -3,7 +3,7 @@ extends Timer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.wait_time = 2
-	self.start()
+	#self.start()
 
 func _process(_delta):
 	send_time_to_label()
