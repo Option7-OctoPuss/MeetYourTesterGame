@@ -50,11 +50,11 @@ class TestActionEventPO:
 	func test_click_on_mockup_answer_changes_action_event_texture():
 		gut.p("Testing if clicking on the mockup answer button disables the action event and changes its texture")
 		action_event_btn._pressed()
-		var texture_while_answering:Image = action_event_btn.texture_pressed.get_image()
+		var texture_while_answering:Image = action_event_btn.texture_disabled.get_image()
 		answer_mockup = main_game_scene.find_child("Terminal").find_child(answer_mockup_name)
 		assert_true(answer_mockup.visible,"Answer mockup button should be visible")
 		assert_false(answer_mockup.disabled,"Answer mockup button should be enabled")
 		answer_mockup._pressed()
-		var texture_after_answer:Image = action_event_btn.texture_pressed.get_image()
+		var texture_after_answer:Image = action_event_btn.texture_disabled.get_image()
 		assert_ne(texture_while_answering,texture_after_answer,"Action Event button should change texture")
 		
