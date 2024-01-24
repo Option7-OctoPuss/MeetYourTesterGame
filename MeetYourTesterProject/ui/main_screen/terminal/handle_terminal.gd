@@ -16,7 +16,6 @@ func animate_change_text(_new_text, _start_size, _end_size, _duration) ->void:
 	print("animate_change_text called")
 	# http://man.hubwiz.com/docset/Godot.docset/Contents/Resources/Documents/tutorials/gui/bbcode_in_richtextlabel.html
 	var animated_wave = "[wave amp=50 freq=2]%s[/wave]\n" % _new_text
-	append_chat_line_escaped("test user", _new_text)
 	append_text(animated_wave)
 	print("animate_change_text called 2")
 

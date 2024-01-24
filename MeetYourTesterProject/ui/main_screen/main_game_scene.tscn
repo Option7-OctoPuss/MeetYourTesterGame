@@ -249,7 +249,6 @@ position = Vector2(1159, -4)
 scale = Vector2(1.405, 1.45)
 
 [node name="_answer_mockup" type="Button" parent="Terminal"]
-visible = false
 offset_left = 1392.0
 offset_top = 892.0
 offset_right = 1524.0
