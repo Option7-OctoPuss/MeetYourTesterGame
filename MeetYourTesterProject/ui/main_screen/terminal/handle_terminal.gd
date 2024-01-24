@@ -9,8 +9,10 @@ var current_font_size = 14
 func _ready():
 	self.clear()
 
-func handle_event_from_action_event(_message:String):
-	animate_change_text(_message, 14, 20, 2)
+func handle_event_from_action_event(event_name:String, event_questions:Dictionary):
+	# TODO: show both event_name and event_questions in the terminal, with correct node structure and formatting
+	animate_change_text(event_name, 14, 20, 2)
+	print("TODO: show to terminal one of these event questions "+str(event_questions))
 
 func animate_change_text(_new_text, _start_size, _end_size, _duration) ->void:
 	print("animate_change_text called")
