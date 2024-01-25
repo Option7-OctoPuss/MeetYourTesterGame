@@ -35,7 +35,7 @@ func _on_timer_timeout():
 
 func _pressed():
 	#texture_disabled = preload("res://images/game-map/selected-hex/hex-cell-ui-ux-selected.svg")
-	#disabled = true
+	disabled = true
 	# define the parameters to pass to the terminal
 	var node_name = get_name()
 	var params = {"node_name":node_name}

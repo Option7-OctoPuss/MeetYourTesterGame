@@ -232,6 +232,7 @@ offset_left = 380.0
 offset_top = 157.0
 offset_right = 519.0
 offset_bottom = 290.0
+disabled = true
 texture_normal = ExtResource("20_ajqmu")
 texture_pressed = ExtResource("17_udybg")
 texture_hover = ExtResource("17_udybg")
@@ -239,7 +240,6 @@ texture_disabled = ExtResource("16_ir080")
 script = ExtResource("18_nwfow")
 
 [node name="Label" type="Label" parent="MainControl/UI_UX"]
-visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
