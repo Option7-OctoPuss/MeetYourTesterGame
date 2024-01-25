@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://newdc3qfq08j"]
 
 [ext_resource type="Texture2D" uid="uid://ciww7iw8ke16u" path="res://images/game-map/question-page/frame.svg" id="1_p1gv0"]
-[ext_resource type="Script" path="res://ui/main_screen/terminal_communication.gd" id="1_rdfio"]
-[ext_resource type="Script" path="res://ui/main_screen/handle_terminal.gd" id="3_oihmk"]
+[ext_resource type="Script" path="res://ui/main_screen/terminal/terminal_communication.gd" id="1_rdfio"]
+[ext_resource type="Script" path="res://ui/main_screen/terminal/handle_terminal.gd" id="3_oihmk"]
 
 [node name="_terminal_mock" type="Node2D"]
 script = ExtResource("1_rdfio")
