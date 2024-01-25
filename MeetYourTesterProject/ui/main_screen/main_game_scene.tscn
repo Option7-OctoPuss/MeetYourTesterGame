@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bmlybrtxl8cum" path="res://images/game-map/simple-hex/hex-cell-ui-ux.svg" id="16_ir080"]
 [ext_resource type="Texture2D" uid="uid://da7lgcc231bpm" path="res://images/game-map/notification-hex/hex-cell-backend-notifiaction.svg" id="17_3vmwg"]
 [ext_resource type="Texture2D" uid="uid://dk8drfc0yhdjy" path="res://images/game-map/selected-hex/hex-cell-ui-ux-selected.svg" id="17_udybg"]
-[ext_resource type="Script" path="res://ui/main_screen/mock_handle_countdown.gd" id="18_0wahk"]
+[ext_resource type="Script" path="res://ui/main_screen/init_countdown.gd" id="18_0wahk"]
 [ext_resource type="Script" path="res://ui/main_screen/action_event_btn_manager.gd" id="18_nwfow"]
 [ext_resource type="Texture2D" uid="uid://dp3uujxgl4xqh" path="res://images/game-map/notification-hex/hex-cell-ux-notification.svg" id="20_ajqmu"]
 [ext_resource type="Texture2D" uid="uid://clm5abjqsvfy2" path="res://images/main-game/dev-progress-bar.svg" id="21_pfpek"]
@@ -148,6 +148,17 @@ texture_normal = ExtResource("8_5sr2y")
 texture_pressed = ExtResource("9_54p3a")
 texture_hover = ExtResource("9_54p3a")
 texture_disabled = ExtResource("8_8qqeu")
+script = ExtResource("18_nwfow")
+
+[node name="Label" type="Label" parent="MainControl/Database"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 198.0
+offset_right = 130.0
+offset_bottom = 221.0
+
+[node name="Timer" type="Timer" parent="MainControl/Database/Label"]
+script = ExtResource("18_0wahk")
 
 [node name="Delivery" type="TextureButton" parent="MainControl"]
 layout_mode = 0
@@ -160,6 +171,17 @@ texture_normal = ExtResource("11_5o6cg")
 texture_pressed = ExtResource("11_medfd")
 texture_hover = ExtResource("11_medfd")
 texture_disabled = ExtResource("10_htyl8")
+script = ExtResource("18_nwfow")
+
+[node name="Label" type="Label" parent="MainControl/Delivery"]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 88.0
+offset_right = 166.0
+offset_bottom = 111.0
+
+[node name="Timer" type="Timer" parent="MainControl/Delivery/Label"]
+script = ExtResource("18_0wahk")
 
 [node name="BusinessLogic" type="TextureButton" parent="MainControl"]
 layout_mode = 0
@@ -172,6 +194,15 @@ texture_normal = ExtResource("14_ov5tk")
 texture_pressed = ExtResource("13_vejf5")
 texture_hover = ExtResource("13_vejf5")
 texture_disabled = ExtResource("12_l01y6")
+script = ExtResource("18_nwfow")
+
+[node name="Label" type="Label" parent="MainControl/BusinessLogic"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Timer" type="Timer" parent="MainControl/BusinessLogic/Label"]
+script = ExtResource("18_0wahk")
 
 [node name="Backend" type="TextureButton" parent="MainControl"]
 layout_mode = 0
@@ -184,6 +215,15 @@ texture_normal = ExtResource("17_3vmwg")
 texture_pressed = ExtResource("15_8ck7c")
 texture_hover = ExtResource("15_8ck7c")
 texture_disabled = ExtResource("14_0eftj")
+script = ExtResource("18_nwfow")
+
+[node name="Label" type="Label" parent="MainControl/Backend"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Timer" type="Timer" parent="MainControl/Backend/Label"]
+script = ExtResource("18_0wahk")
 
 [node name="UI_UX" type="TextureButton" parent="MainControl"]
 layout_mode = 0
@@ -251,5 +291,13 @@ scale = Vector2(1.405, 1.45)
 [connection signal="pause_game" from="Sprite2D/TimerContainer/PlayPauseBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_pause"]
 [connection signal="unpause_game" from="Sprite2D/TimerContainer/PlayPauseBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_unpause"]
 [connection signal="speed_up_game" from="Sprite2D/TimerContainer/SpeedUpBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_speed_change"]
+[connection signal="pressed" from="MainControl/Database" to="MainControl/Database" method="_pressed"]
+[connection signal="timeout" from="MainControl/Database/Label/Timer" to="MainControl/Database" method="_on_timer_timeout"]
+[connection signal="pressed" from="MainControl/Delivery" to="MainControl/Delivery" method="_pressed"]
+[connection signal="timeout" from="MainControl/Delivery/Label/Timer" to="MainControl/Delivery" method="_on_timer_timeout"]
+[connection signal="pressed" from="MainControl/BusinessLogic" to="MainControl/BusinessLogic" method="_pressed"]
+[connection signal="timeout" from="MainControl/BusinessLogic/Label/Timer" to="MainControl/BusinessLogic" method="_on_timer_timeout"]
+[connection signal="pressed" from="MainControl/Backend" to="MainControl/Backend" method="_pressed"]
+[connection signal="timeout" from="MainControl/Backend/Label/Timer" to="MainControl/Backend" method="_on_timer_timeout"]
 [connection signal="pressed" from="MainControl/UI_UX" to="MainControl/UI_UX" method="_on_pressed"]
 [connection signal="timeout" from="MainControl/UI_UX/Label/Timer" to="MainControl/UI_UX" method="_on_timer_timeout"]

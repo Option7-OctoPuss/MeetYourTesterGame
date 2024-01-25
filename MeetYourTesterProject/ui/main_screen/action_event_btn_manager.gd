@@ -6,6 +6,7 @@ var state_disabled = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	randomize()
 	pass # Replace with function body.
 
 
@@ -16,6 +17,15 @@ func _process(delta):
 func _on_timer_timeout():
 	print("action event is timeout")
 	state_disabled = !state_disabled
+	
+	# Getting hexagon's timer child
+	var timer_child = get_child(0).get_child(0)
+	
+	if !state_disabled:
+		timer_child.wait_time = randi() % Globals.randomTimerForActionEventInactivity
+	else:
+		timer_child.wait_time = (randi() % Globals.randomTimerForActionEventAcceptance) + 5
+	
 	self.set_disabled(state_disabled)
 
 
