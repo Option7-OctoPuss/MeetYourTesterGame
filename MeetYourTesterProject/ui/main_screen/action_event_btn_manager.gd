@@ -3,8 +3,9 @@ extends TextureButton
 
 @export_category("Communication message")
 @export var message: String = "Test message"
-var backup_disable_image: Image
+var backup_disable_image: Texture2D
 var is_action_event_generated = false
+var timer_child = null
 #var is_action_event_generated = {
 	#"Database":false,
 	#"Delivery":false,
@@ -16,6 +17,9 @@ var is_action_event_generated = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
+	backup_disable_image = texture_disabled	
+	timer_child = get_child(0).get_child(0)
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,20 +29,17 @@ func _process(delta):
 # TODO receive signal that this event was generated and this button must be enabled
 func _on_timer_timeout():
 	# Getting hexagon's timer child
-	var timer_child = get_child(0).get_child(0)
 	if !is_action_event_generated:
-		timer_child.wait_time = randi() % Globals.randomTimerForActionEventInactivity
 		generate_action_event()
 	else:
-		timer_child.wait_time = (randi() % Globals.randomTimerForActionEventAcceptance) + 5
 		remove_action_event()
 
 func _pressed():
 	#is_action_event_generated = true
 	# to switch texture, we first save the disabled one, then replace it with the pressed one
-	backup_disable_image = texture_disabled.get_image()
 	texture_disabled = texture_pressed
 	disabled = true
+	timer_child.paused = true
 	# define the parameters to pass to the terminal
 	var node_name = get_name()
 	var params = {"node_name":node_name}
@@ -52,9 +53,21 @@ func generate_action_event():
 	print("generating for "+name)
 	disabled = false
 	is_action_event_generated = true
+	timer_child.wait_time = randi() % Globals.randomTimerForActionEventAcceptance
+	
+	
 
 func remove_action_event():
 	print("removing for "+name)
-	texture_disabled = ImageTexture.create_from_image(backup_disable_image)
+	texture_disabled = backup_disable_image
+	print(disabled)
 	disabled = true
 	is_action_event_generated = false
+	timer_child.stop()
+	timer_child.wait_time = randi() % Globals.randomTimerForActionEventInactivity
+	timer_child.start()
+	timer_child.paused = false
+	
+	
+	
+	
