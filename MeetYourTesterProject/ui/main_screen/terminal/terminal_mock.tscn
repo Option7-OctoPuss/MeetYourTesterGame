@@ -24,5 +24,8 @@ offset_top = 40.0
 offset_right = 456.0
 offset_bottom = 680.0
 bbcode_enabled = true
-text = "PLACEHOLDER TEXT"
+scroll_following = true
+meta_underlined = false
 script = ExtResource("3_oihmk")
+
+[connection signal="meta_clicked" from="terminal_content" to="terminal_content" method="_on_meta_clicked"]

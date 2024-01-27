@@ -8,3 +8,5 @@ var gameTime= 0
 
 var questions_file_path = "res://questions/example_question.json"
 var questions:Dictionary = {}
+
+var terminalHistory = "";
