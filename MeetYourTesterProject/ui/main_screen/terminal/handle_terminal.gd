@@ -12,13 +12,16 @@ func _ready():
 	self.clear()
 	self.meta_underlined = false
 	self.scroll_following = true
+	
+func retrieve_question(event_questions:Dictionary):
+	var random_question_index = rng.randf_range(0, event_questions.questions.size()-1)
+	return event_questions.questions[random_question_index]
 
 func handle_event_from_action_event(event_name:String, event_questions:Dictionary):
 	#animate_change_text(event_name, 14, 20, 2)
 	print("TODO: show to terminal one of these event questions " + str(event_questions))
-
-	var random_question_index = rng.randf_range(0, event_questions.questions.size()-1)
-	var current_question = event_questions.questions[random_question_index]
+	
+	var current_question = retrieve_question(event_questions)
 	
 	current_question['event_name'] = event_name # add property event_name to question
 	queue.push_back(current_question)
@@ -50,9 +53,8 @@ func escape_bbcode(bbcode_text) -> String:
 	# We only need to replace opening brackets to prevent tags from being parsed.
 	return bbcode_text.replace("[", "[lb]")
 
-func _on_meta_clicked(meta):
-	self.scroll_active = true
-	var question_choosed_info = meta.split('_') # questionId_answerIdx
+func update_terminal_content(question_id_answer_id):
+	var question_choosed_info = question_id_answer_id.split('_') # questionId_answerIdx
 
 	var question_from_queue = pop_selected_question(question_choosed_info[0].to_int())
 	Globals.terminalHistory += format_question(question_from_queue)
@@ -60,6 +62,10 @@ func _on_meta_clicked(meta):
 
 	if queue.size() != 0:
 		append_text(prepare_question_for_terminal(queue[0]))
+
+func _on_meta_clicked(meta):
+	self.scroll_active = true
+	update_terminal_content(meta)
 
 	# TODO: retrieve answer from question_from_queue based on answer index (question_choosed_info[1]) and send values
 
@@ -78,7 +84,7 @@ func remove_bbcode_from_string(bbcode_string: String) -> String:
 func pop_selected_question(question_id: int) -> Dictionary:
 	var idx = 0
 	var question = {}
-
+	
 	for question_in_queue in queue:
 		if question_id == question_in_queue.id:
 			question = question_in_queue
