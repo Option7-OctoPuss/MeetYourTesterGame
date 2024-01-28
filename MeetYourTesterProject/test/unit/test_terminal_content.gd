@@ -39,13 +39,15 @@ class TestTerminalContent:
 	func test_not_empty_terminal_content():
 		var event_name = Globals.questions['nodes'][0].keys()[0]
 		terminal_content_node.handle_event_from_action_event(Globals.questions['nodes'][0].keys()[0], Globals.questions['nodes'][0][event_name])
-		terminal_content_node.update_terminal_content("1_0")
+		var question_from_queue = terminal_content_node.pop_selected_question(1)
+		terminal_content_node.update_terminal_content(question_from_queue)
 		assert_ne(terminal_content_node.get_text(), "")
 		
 	func test_terminal_contains_specific_content():
 		var event_name = Globals.questions['nodes'][0].keys()[0]
 		terminal_content_node.handle_event_from_action_event(Globals.questions['nodes'][0].keys()[0], Globals.questions['nodes'][0][event_name])
-		terminal_content_node.update_terminal_content("1_0")
+		var question_from_queue = terminal_content_node.pop_selected_question(1)
+		terminal_content_node.update_terminal_content(question_from_queue)
 		assert_string_contains(terminal_content_node.get_text(), "First answer, progress bar effect value (weight) 1, create a zone with offset 20 and length 7 and speed value of 1.5 )\n")
 	
 	func test_pop_question_from_queue():

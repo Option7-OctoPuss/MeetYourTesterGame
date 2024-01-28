@@ -53,10 +53,7 @@ func escape_bbcode(bbcode_text) -> String:
 	# We only need to replace opening brackets to prevent tags from being parsed.
 	return bbcode_text.replace("[", "[lb]")
 
-func update_terminal_content(question_id_answer_id):
-	var question_choosed_info = question_id_answer_id.split('_') # questionId_answerIdx
-
-	var question_from_queue = pop_selected_question(question_choosed_info[0].to_int())
+func update_terminal_content(question_from_queue:Dictionary):
 	Globals.terminalHistory += format_question(question_from_queue)
 	self.set_text(Globals.terminalHistory)
 
@@ -65,9 +62,13 @@ func update_terminal_content(question_id_answer_id):
 
 func _on_meta_clicked(meta):
 	self.scroll_active = true
-	update_terminal_content(meta)
+	var question_choosed_info = meta.split('_') # questionId_answerIdx
+	var question_from_queue = pop_selected_question(question_choosed_info[0].to_int())
+	update_terminal_content(question_from_queue)
+	var selected_answer = question_from_queue.answers[question_choosed_info[1].to_int()]
+	
 
-	# TODO: retrieve answer from question_from_queue based on answer index (question_choosed_info[1]) and send values
+	# TODO: send selected_answer
 
 func prepare_question_for_terminal(question: Dictionary) -> String:
 	var content_to_append = question.event_name + "\n" + "[color=red]%s[/color]\n"% question.title

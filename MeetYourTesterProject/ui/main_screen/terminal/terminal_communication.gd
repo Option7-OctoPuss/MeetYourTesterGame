@@ -12,14 +12,8 @@ func _ready():
 func handle_event_from_action_event(event_params:Dictionary):
 	event_name = event_params["node_name"]
 	# retrieve stored questions for this action event
-	# TODO: fix retrieval after official file structure is imported 
-	var event_questions = Globals.questions.get(event_name,{})
+	# TODO: fix retrieval after official file structure is imported
+	var event_questions = Globals.questions.nodes[0][event_name]
 	
 	# send signal to terminal to show the questions
 	$terminal_content.handle_event_from_action_event(event_name,event_questions)
-	
-	# enable answer mockup button to reset the action event 
-	# TODO: remove it when the real answers are implemented and shown
-	var answer_mockup = get_parent().get_node("_answer_mockup")
-	answer_mockup.visible = true
-	answer_mockup.disabled = false

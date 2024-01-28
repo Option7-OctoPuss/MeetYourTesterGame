@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dpyn1enbx4w7u"]
+[gd_scene load_steps=27 format=3 uid="uid://dpyn1enbx4w7u"]
 
 [ext_resource type="Texture2D" uid="uid://wgpfvhfu1oi6" path="res://images/game-map/time/timer.svg" id="1_lc3b6"]
 [ext_resource type="VideoStream" path="res://images/background/purple-nebula-background.ogv" id="1_tp77f"]
@@ -26,7 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://dp3uujxgl4xqh" path="res://images/game-map/notification-hex/hex-cell-ux-notification.svg" id="20_ajqmu"]
 [ext_resource type="Texture2D" uid="uid://clm5abjqsvfy2" path="res://images/main-game/dev-progress-bar.svg" id="21_pfpek"]
 [ext_resource type="PackedScene" uid="uid://newdc3qfq08j" path="res://ui/main_screen/terminal/terminal_mock.tscn" id="26_lb6pa"]
-[ext_resource type="Script" path="res://ui/main_screen/_answer_mockup.gd" id="27_j18td"]
 
 [node name="MainGameScene" type="Node2D"]
 
@@ -247,18 +246,6 @@ vertical_alignment = 1
 [node name="_terminal_mock" parent="Terminal" instance=ExtResource("26_lb6pa")]
 position = Vector2(1159, -4)
 scale = Vector2(1.405, 1.45)
-
-[node name="_answer_mockup" type="Button" parent="Terminal"]
-visible = false
-offset_left = 1392.0
-offset_top = 892.0
-offset_right = 1524.0
-offset_bottom = 923.0
-scale = Vector2(2.42355, 2.29027)
-disabled = true
-text = "Mockup Answer"
-flat = true
-script = ExtResource("27_j18td")
 
 [connection signal="timeout" from="Sprite2D/TimerContainer/TimerLabel/TimerNode" to="Sprite2D/TimerContainer/TimerLabel" method="_on_timer_node_timeout"]
 [connection signal="pause_game" from="Sprite2D/TimerContainer/PlayPauseBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_pause"]
