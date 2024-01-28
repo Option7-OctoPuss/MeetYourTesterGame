@@ -53,8 +53,8 @@ func escape_bbcode(bbcode_text) -> String:
 	# We only need to replace opening brackets to prevent tags from being parsed.
 	return bbcode_text.replace("[", "[lb]")
 
-func update_terminal_content(question_from_queue:Dictionary):
-	Globals.terminalHistory += format_question(question_from_queue)
+func update_terminal_content(question_from_queue:Dictionary, answer_idx: int):
+	Globals.terminalHistory += format_question(question_from_queue, answer_idx)
 	self.set_text(Globals.terminalHistory)
 
 	if queue.size() != 0:
@@ -64,7 +64,7 @@ func _on_meta_clicked(meta):
 	self.scroll_active = true
 	var question_choosed_info = meta.split('_') # questionId_answerIdx
 	var question_from_queue = pop_selected_question(question_choosed_info[0].to_int())
-	update_terminal_content(question_from_queue)
+	update_terminal_content(question_from_queue, question_choosed_info[1].to_int())
 	var selected_answer = question_from_queue.answers[question_choosed_info[1].to_int()]
 	
 
@@ -95,13 +95,16 @@ func pop_selected_question(question_id: int) -> Dictionary:
 	queue.remove_at(idx)
 	return question
 
-func format_question(question: Dictionary) -> String:
+func format_question(question: Dictionary, answer_idx: int) -> String:
 	var answers_text = []
 	for answer in question.answers:
 		answers_text.append(answer.text)
 
-	var terminal_question = question.event_name + "\n" + question.title + "\n"
-	for idx in range(1, answers_text.size() + 1):
-		terminal_question += str(idx) + ". " + answers_text[idx - 1] + "\n"
+	var terminal_question = "[color=red]%s[/color]"% question.event_name + "\n" + question.title + "\n"
+	for idx in range(0, answers_text.size()):
+		if idx == answer_idx:
+			terminal_question += "[color=green]%s[/color]"% (str(idx+1) + ". " + answers_text[idx]) + "\n"
+		else:
+			terminal_question += str(idx+1) + ". " + answers_text[idx] + "\n"
 
 	return terminal_question + "\n"
