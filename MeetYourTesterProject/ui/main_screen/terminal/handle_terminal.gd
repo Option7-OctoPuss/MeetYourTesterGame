@@ -7,6 +7,7 @@ extends RichTextLabel
 var current_font_size = 14
 var rng = RandomNumberGenerator.new()
 var queue = [];
+signal answer_signal(answer_target)
 
 func _ready():
 	self.clear()
@@ -19,7 +20,7 @@ func retrieve_question(event_questions:Dictionary):
 
 func handle_event_from_action_event(event_name:String, event_questions:Dictionary):
 	#animate_change_text(event_name, 14, 20, 2)
-	print("TODO: show to terminal one of these event questions " + str(event_questions))
+	# print("TODO: show to terminal one of these event questions " + str(event_questions))
 	
 	var current_question = retrieve_question(event_questions)
 	
@@ -60,15 +61,15 @@ func update_terminal_content(question_from_queue:Dictionary, answer_idx: int):
 	if queue.size() != 0:
 		append_text(prepare_question_for_terminal(queue[0]))
 
-func _on_meta_clicked(meta):
+func handle_meta_clicked(meta: Variant):
 	self.scroll_active = true
 	var question_choosed_info = meta.split('_') # questionId_answerIdx
 	var question_from_queue = pop_selected_question(question_choosed_info[0].to_int())
 	update_terminal_content(question_from_queue, question_choosed_info[1].to_int())
-	var selected_answer = question_from_queue.answers[question_choosed_info[1].to_int()]
 	
-
-	# TODO: send selected_answer
+	var selected_answer = question_from_queue.answers[question_choosed_info[1].to_int()]
+	if selected_answer != null:
+		answer_signal.emit(selected_answer.target)
 
 func prepare_question_for_terminal(question: Dictionary) -> String:
 	var content_to_append = question.event_name + "\n" + "[color=red]%s[/color]\n"% question.title

@@ -17,3 +17,7 @@ func handle_event_from_action_event(event_params:Dictionary):
 	
 	# send signal to terminal to show the questions
 	$terminal_content.handle_event_from_action_event(event_name,event_questions)
+
+func _on_terminal_content_answer_signal(answer_target:Variant):
+	Globals.currentAnswer = answer_target
+	print("Current answer in store: %s" % Globals.currentAnswer)

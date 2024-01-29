@@ -11,3 +11,4 @@ var questions_test_file_path = "res://questions/example_question_test.json"
 var questions:Dictionary = {}
 
 var terminalHistory = "";
+var currentAnswer:Dictionary = {}

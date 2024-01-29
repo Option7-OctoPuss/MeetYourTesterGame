@@ -57,3 +57,9 @@ class TestTerminalContent:
 		var question_id = 1
 		assert_eq(int(terminal_content_node.pop_selected_question(question_id).id), question_id)
 
+	func test_emit_answer_signal():
+		terminal_content_node.handle_event_from_action_event(Globals.questions['nodes'][0].keys()[0], Globals.questions['nodes'][0][event_name])
+		terminal_content_node.handle_meta_clicked("1_0") # questionId_answerId of 'example_question_test.json' file
+		var target_answer = Globals.questions['nodes'][0][event_name].questions[0].answers[0].target
+		assert_same(target_answer,Globals.currentAnswer)
+
