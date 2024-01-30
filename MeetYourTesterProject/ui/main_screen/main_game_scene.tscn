@@ -253,6 +253,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("27_4w0dy")
 
 [node name="AnonymityValue" type="RichTextLabel" parent="AnonymityBarControl"]
 layout_mode = 0
@@ -261,7 +262,6 @@ offset_top = 262.0
 offset_right = 1170.0
 offset_bottom = 904.0
 text = "ANONIMITY MOCK"
-script = ExtResource("27_4w0dy")
 
 [connection signal="timeout" from="Sprite2D/TimerContainer/TimerLabel/TimerNode" to="Sprite2D/TimerContainer/TimerLabel" method="_on_timer_node_timeout"]
 [connection signal="pause_game" from="Sprite2D/TimerContainer/PlayPauseBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_pause"]
