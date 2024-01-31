@@ -1,496 +1,494 @@
 {
-    "nodes": [
-        {
-            "Backend": {
-                "questions": [
-                    {
-                        "id": 1,
-                        "title": "Question n 1",
-                        "answers": [
-                            {
-                                "text": "First answer, progress bar effect value (weight) 1, create a zone with offset 20 and length 7 and speed value of 1.5 )", 
-                                "target": {
-                                    "type": "progress_bar", 
-                                    "effects": {
-                                        "value": 1, 
-                                        "zone": {
-                                            "offset" : 20, 
-                                            "speedValue": 1.5, 
-                                            "length": 7
-                                        }
-                                    }
-                                }
-                            },
-                            {
-                                "text": "Second answer, progress bar effect value (weigth -0.5), no zone, no speed value changes", 
-                                "target": {
-                                    "type": "progress_bar", 
-                                    "effects": {
-                                        "value": -0.5
-                                    }
-                                }
-                            },
-                            {
-                                "text": "Third answer, anonymous bar, effect value 1",
-                                "target": {
-                                    "type": "anon_bar", 
-                                    "effects": {
-                                        "value": 1 
-                                    }
-                                }
-                            },                      
-                            {
-                                "text": "Fourth answer, anonymous bar, effect value 5", 
-                                "target": {
-                                    "type": "anon_bar", 
-                                    "effects": {
-                                        "value": 5 
-                                    }
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "id": 2,
-                        "title": "Question n 1",
-                        "answers": [
-                            {
-                                "text": "First answer, progress bar effect value (weight) 1.5, create a zone with offset 10 and length 5 and speed value of 0.5 )", 
-                                "target": {
-                                    "type": "progress_bar", 
-                                    "effects": {
-                                        "value": 1.5, 
-                                        "zone": {
-                                            "offset" : 10, 
-                                            "speedValue": 0.5, 
-                                            "length": 5
-                                        }
-                                    }
-                                }
-                            },
-                            {
-                                "text": "Second answer, progress bar effect value (weigth -1.5), no zone, no speed value changes", 
-                                "target": {
-                                    "type": "progress_bar", 
-                                    "effects": {
-                                        "value": -1.5
-                                    }
-                                }
-                            },
-                            {
-                                "text": "Third answer, anonymous bar, effect value 3",
-                                "target": {
-                                    "type": "anon_bar", 
-                                    "effects": {
-                                        "value": 3
-                                    }
-                                }
-                            },                      
-                            {
-                                "text": "Fourth answer, anonymous bar, effect value 5", 
-                                "target": {
-                                    "type": "anon_bar", 
-                                    "effects": {
-                                        "value": 5 
-                                    }
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
-            "UI_UX": {
-                "questions": [
-                    {
-                        "id": 3,
-                        "title": "Question n 1",
-                        "answers": [
-                            {
-                                "text": "First answer, progress bar effect value (weight) 1, create a zone with offset 20 and length 7 and speed value of 1.5 )", 
-                                "target": {
-                                    "type": "progress_bar", 
-                                    "effects": {
-                                        "value": 1, 
-                                        "zone": {
-                                            "offset" : 20, 
-                                            "speedValue": 1.5, 
-                                            "length": 7
-                                        }
-                                    }
-                                }
-                            },
-                            {
-                                "text": "Second answer, progress bar effect value (weigth -0.5), no zone, no speed value changes", 
-                                "target": {
-                                    "type": "progress_bar", 
-                                    "effects": {
-                                        "value": -0.5
-                                    }
-                                }
-                            },
-                            {
-                                "text": "Third answer, anonymous bar, effect value 1",
-                                "target": {
-                                    "type": "anon_bar", 
-                                    "effects": {
-                                        "value": 1 
-                                    }
-                                }
-                            },                      
-                            {
-                                "text": "Fourth answer, anonymous bar, effect value 5", 
-                                "target": {
-                                    "type": "anon_bar", 
-                                    "effects": {
-                                        "value": 5 
-                                    }
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "id": 4,
-                        "title": "Question n 1",
-                        "answers": [
-                            {
-                                "text": "First answer, progress bar effect value (weight) 1.5, create a zone with offset 10 and length 5 and speed value of 0.5 )", 
-                                "target": {
-                                    "type": "progress_bar", 
-                                    "effects": {
-                                        "value": 1.5, 
-                                        "zone": {
-                                            "offset" : 10, 
-                                            "speedValue": 0.5, 
-                                            "length": 5
-                                        }
-                                    }
-                                }
-                            },
-                            {
-                                "text": "Second answer, progress bar effect value (weigth -1.5), no zone, no speed value changes", 
-                                "target": {
-                                    "type": "progress_bar", 
-                                    "effects": {
-                                        "value": -1.5
-                                    }
-                                }
-                            },
-                            {
-                                "text": "Third answer, anonymous bar, effect value 3",
-                                "target": {
-                                    "type": "anon_bar", 
-                                    "effects": {
-                                        "value": 3
-                                    }
-                                }
-                            },                      
-                            {
-                                "text": "Fourth answer, anonymous bar, effect value 5", 
-                                "target": {
-                                    "type": "anon_bar", 
-                                    "effects": {
-                                        "value": 5 
-                                    }
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
-            "Delivery": {
-                "questions": [
-                    {
-                        "id": 5,
-                        "title": "Question n 1",
-                        "answers": [
-                            {
-                                "text": "First answer, progress bar effect value (weight) 1, create a zone with offset 20 and length 7 and speed value of 1.5 )", 
-                                "target": {
-                                    "type": "progress_bar", 
-                                    "effects": {
-                                        "value": 1, 
-                                        "zone": {
-                                            "offset" : 20, 
-                                            "speedValue": 1.5, 
-                                            "length": 7
-                                        }
-                                    }
-                                }
-                            },
-                            {
-                                "text": "Second answer, progress bar effect value (weigth -0.5), no zone, no speed value changes", 
-                                "target": {
-                                    "type": "progress_bar", 
-                                    "effects": {
-                                        "value": -0.5
-                                    }
-                                }
-                            },
-                            {
-                                "text": "Third answer, anonymous bar, effect value 1",
-                                "target": {
-                                    "type": "anon_bar", 
-                                    "effects": {
-                                        "value": 1 
-                                    }
-                                }
-                            },                      
-                            {
-                                "text": "Fourth answer, anonymous bar, effect value 5", 
-                                "target": {
-                                    "type": "anon_bar", 
-                                    "effects": {
-                                        "value": 5 
-                                    }
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "id": 6,
-                        "title": "Question n 1",
-                        "answers": [
-                            {
-                                "text": "First answer, progress bar effect value (weight) 1.5, create a zone with offset 10 and length 5 and speed value of 0.5 )", 
-                                "target": {
-                                    "type": "progress_bar", 
-                                    "effects": {
-                                        "value": 1.5, 
-                                        "zone": {
-                                            "offset" : 10, 
-                                            "speedValue": 0.5, 
-                                            "length": 5
-                                        }
-                                    }
-                                }
-                            },
-                            {
-                                "text": "Second answer, progress bar effect value (weigth -1.5), no zone, no speed value changes", 
-                                "target": {
-                                    "type": "progress_bar", 
-                                    "effects": {
-                                        "value": -1.5
-                                    }
-                                }
-                            },
-                            {
-                                "text": "Third answer, anonymous bar, effect value 3",
-                                "target": {
-                                    "type": "anon_bar", 
-                                    "effects": {
-                                        "value": 3
-                                    }
-                                }
-                            },                      
-                            {
-                                "text": "Fourth answer, anonymous bar, effect value 5", 
-                                "target": {
-                                    "type": "anon_bar", 
-                                    "effects": {
-                                        "value": 5 
-                                    }
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
-            "Database": {
-                "questions": [
-                    {
-                        "id": 7,
-                        "title": "Question n 1",
-                        "answers": [
-                            {
-                                "text": "First answer, progress bar effect value (weight) 1, create a zone with offset 20 and length 7 and speed value of 1.5 )", 
-                                "target": {
-                                    "type": "progress_bar", 
-                                    "effects": {
-                                        "value": 1, 
-                                        "zone": {
-                                            "offset" : 20, 
-                                            "speedValue": 1.5, 
-                                            "length": 7
-                                        }
-                                    }
-                                }
-                            },
-                            {
-                                "text": "Second answer, progress bar effect value (weigth -0.5), no zone, no speed value changes", 
-                                "target": {
-                                    "type": "progress_bar", 
-                                    "effects": {
-                                        "value": -0.5
-                                    }
-                                }
-                            },
-                            {
-                                "text": "Third answer, anonymous bar, effect value 1",
-                                "target": {
-                                    "type": "anon_bar", 
-                                    "effects": {
-                                        "value": 1 
-                                    }
-                                }
-                            },                      
-                            {
-                                "text": "Fourth answer, anonymous bar, effect value 5", 
-                                "target": {
-                                    "type": "anon_bar", 
-                                    "effects": {
-                                        "value": 5 
-                                    }
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "id": 8,
-                        "title": "Question n 1",
-                        "answers": [
-                            {
-                                "text": "First answer, progress bar effect value (weight) 1.5, create a zone with offset 10 and length 5 and speed value of 0.5 )", 
-                                "target": {
-                                    "type": "progress_bar", 
-                                    "effects": {
-                                        "value": 1.5, 
-                                        "zone": {
-                                            "offset" : 10, 
-                                            "speedValue": 0.5, 
-                                            "length": 5
-                                        }
-                                    }
-                                }
-                            },
-                            {
-                                "text": "Second answer, progress bar effect value (weigth -1.5), no zone, no speed value changes", 
-                                "target": {
-                                    "type": "progress_bar", 
-                                    "effects": {
-                                        "value": -1.5
-                                    }
-                                }
-                            },
-                            {
-                                "text": "Third answer, anonymous bar, effect value 3",
-                                "target": {
-                                    "type": "anon_bar", 
-                                    "effects": {
-                                        "value": 3
-                                    }
-                                }
-                            },                      
-                            {
-                                "text": "Fourth answer, anonymous bar, effect value 5", 
-                                "target": {
-                                    "type": "anon_bar", 
-                                    "effects": {
-                                        "value": 5 
-                                    }
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
-            "Business_Logic": {
-                "questions": [
-                    {
-                        "id": 9,
-                        "title": "Question n 1",
-                        "answers": [
-                            {
-                                "text": "First answer, progress bar effect value (weight) 1, create a zone with offset 20 and length 7 and speed value of 1.5 )", 
-                                "target": {
-                                    "type": "progress_bar", 
-                                    "effects": {
-                                        "value": 1, 
-                                        "zone": {
-                                            "offset" : 20, 
-                                            "speedValue": 1.5, 
-                                            "length": 7
-                                        }
-                                    }
-                                }
-                            },
-                            {
-                                "text": "Second answer, progress bar effect value (weigth -0.5), no zone, no speed value changes", 
-                                "target": {
-                                    "type": "progress_bar", 
-                                    "effects": {
-                                        "value": -0.5
-                                    }
-                                }
-                            },
-                            {
-                                "text": "Third answer, anonymous bar, effect value 1",
-                                "target": {
-                                    "type": "anon_bar", 
-                                    "effects": {
-                                        "value": 1 
-                                    }
-                                }
-                            },                      
-                            {
-                                "text": "Fourth answer, anonymous bar, effect value 5", 
-                                "target": {
-                                    "type": "anon_bar", 
-                                    "effects": {
-                                        "value": 5 
-                                    }
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "id": 10,
-                        "title": "Question n 1",
-                        "answers": [
-                            {
-                                "text": "First answer, progress bar effect value (weight) 1.5, create a zone with offset 10 and length 5 and speed value of 0.5 )", 
-                                "target": {
-                                    "type": "progress_bar", 
-                                    "effects": {
-                                        "value": 1.5, 
-                                        "zone": {
-                                            "offset" : 10, 
-                                            "speedValue": 0.5, 
-                                            "length": 5
-                                        }
-                                    }
-                                }
-                            },
-                            {
-                                "text": "Second answer, progress bar effect value (weigth -1.5), no zone, no speed value changes", 
-                                "target": {
-                                    "type": "progress_bar", 
-                                    "effects": {
-                                        "value": -1.5
-                                    }
-                                }
-                            },
-                            {
-                                "text": "Third answer, anonymous bar, effect value 3",
-                                "target": {
-                                    "type": "anon_bar", 
-                                    "effects": {
-                                        "value": 3
-                                    }
-                                }
-                            },                      
-                            {
-                                "text": "Fourth answer, anonymous bar, effect value 5", 
-                                "target": {
-                                    "type": "anon_bar", 
-                                    "effects": {
-                                        "value": 5 
-                                    }
-                                }
-                            }
-                        ]
-                    }
-                ]
-            }
-        }
-    ]
+	"nodes": {
+		"Backend": {
+			"questions": [
+				{
+					"id": 1,
+					"title": "Question n 1",
+					"answers": [
+						{
+							"text": "First answer, progress bar effect value (weight) 1, create a zone with offset 20 and length 7 and speed value of 1.5 )", 
+							"target": {
+								"type": "progress_bar", 
+								"effects": {
+									"value": 1, 
+									"zone": {
+										"offset" : 20, 
+										"speedValue": 1.5, 
+										"length": 7
+									}
+								}
+							}
+						},
+						{
+							"text": "Second answer, progress bar effect value (weigth -0.5), no zone, no speed value changes", 
+							"target": {
+								"type": "progress_bar", 
+								"effects": {
+									"value": -0.5
+								}
+							}
+						},
+						{
+							"text": "Third answer, anonymous bar, effect value 1",
+							"target": {
+								"type": "anon_bar", 
+								"effects": {
+									"value": 1 
+								}
+							}
+						},                      
+						{
+							"text": "Fourth answer, anonymous bar, effect value 5", 
+							"target": {
+								"type": "anon_bar", 
+								"effects": {
+									"value": 5 
+								}
+							}
+						}
+					]
+				},
+				{
+					"id": 2,
+					"title": "Question n 1",
+					"answers": [
+						{
+							"text": "First answer, progress bar effect value (weight) 1.5, create a zone with offset 10 and length 5 and speed value of 0.5 )", 
+							"target": {
+								"type": "progress_bar", 
+								"effects": {
+									"value": 1.5, 
+									"zone": {
+										"offset" : 10, 
+										"speedValue": 0.5, 
+										"length": 5
+									}
+								}
+							}
+						},
+						{
+							"text": "Second answer, progress bar effect value (weigth -1.5), no zone, no speed value changes", 
+							"target": {
+								"type": "progress_bar", 
+								"effects": {
+									"value": -1.5
+								}
+							}
+						},
+						{
+							"text": "Third answer, anonymous bar, effect value 3",
+							"target": {
+								"type": "anon_bar", 
+								"effects": {
+									"value": 3
+								}
+							}
+						},                      
+						{
+							"text": "Fourth answer, anonymous bar, effect value 5", 
+							"target": {
+								"type": "anon_bar", 
+								"effects": {
+									"value": 5 
+								}
+							}
+						}
+					]
+				}
+			]
+		},
+		"UI_UX": {
+			"questions": [
+				{
+					"id": 3,
+					"title": "Question n 1",
+					"answers": [
+						{
+							"text": "First answer, progress bar effect value (weight) 1, create a zone with offset 20 and length 7 and speed value of 1.5 )", 
+							"target": {
+								"type": "progress_bar", 
+								"effects": {
+									"value": 1, 
+									"zone": {
+										"offset" : 20, 
+										"speedValue": 1.5, 
+										"length": 7
+									}
+								}
+							}
+						},
+						{
+							"text": "Second answer, progress bar effect value (weigth -0.5), no zone, no speed value changes", 
+							"target": {
+								"type": "progress_bar", 
+								"effects": {
+									"value": -0.5
+								}
+							}
+						},
+						{
+							"text": "Third answer, anonymous bar, effect value 1",
+							"target": {
+								"type": "anon_bar", 
+								"effects": {
+									"value": 1 
+								}
+							}
+						},                      
+						{
+							"text": "Fourth answer, anonymous bar, effect value 5", 
+							"target": {
+								"type": "anon_bar", 
+								"effects": {
+									"value": 5 
+								}
+							}
+						}
+					]
+				},
+				{
+					"id": 4,
+					"title": "Question n 1",
+					"answers": [
+						{
+							"text": "First answer, progress bar effect value (weight) 1.5, create a zone with offset 10 and length 5 and speed value of 0.5 )", 
+							"target": {
+								"type": "progress_bar", 
+								"effects": {
+									"value": 1.5, 
+									"zone": {
+										"offset" : 10, 
+										"speedValue": 0.5, 
+										"length": 5
+									}
+								}
+							}
+						},
+						{
+							"text": "Second answer, progress bar effect value (weigth -1.5), no zone, no speed value changes", 
+							"target": {
+								"type": "progress_bar", 
+								"effects": {
+									"value": -1.5
+								}
+							}
+						},
+						{
+							"text": "Third answer, anonymous bar, effect value 3",
+							"target": {
+								"type": "anon_bar", 
+								"effects": {
+									"value": 3
+								}
+							}
+						},                      
+						{
+							"text": "Fourth answer, anonymous bar, effect value 5", 
+							"target": {
+								"type": "anon_bar", 
+								"effects": {
+									"value": 5 
+								}
+							}
+						}
+					]
+				}
+			]
+		},
+		"Delivery": {
+			"questions": [
+				{
+					"id": 5,
+					"title": "Question n 1",
+					"answers": [
+						{
+							"text": "First answer, progress bar effect value (weight) 1, create a zone with offset 20 and length 7 and speed value of 1.5 )", 
+							"target": {
+								"type": "progress_bar", 
+								"effects": {
+									"value": 1, 
+									"zone": {
+										"offset" : 20, 
+										"speedValue": 1.5, 
+										"length": 7
+									}
+								}
+							}
+						},
+						{
+							"text": "Second answer, progress bar effect value (weigth -0.5), no zone, no speed value changes", 
+							"target": {
+								"type": "progress_bar", 
+								"effects": {
+									"value": -0.5
+								}
+							}
+						},
+						{
+							"text": "Third answer, anonymous bar, effect value 1",
+							"target": {
+								"type": "anon_bar", 
+								"effects": {
+									"value": 1 
+								}
+							}
+						},                      
+						{
+							"text": "Fourth answer, anonymous bar, effect value 5", 
+							"target": {
+								"type": "anon_bar", 
+								"effects": {
+									"value": 5 
+								}
+							}
+						}
+					]
+				},
+				{
+					"id": 6,
+					"title": "Question n 1",
+					"answers": [
+						{
+							"text": "First answer, progress bar effect value (weight) 1.5, create a zone with offset 10 and length 5 and speed value of 0.5 )", 
+							"target": {
+								"type": "progress_bar", 
+								"effects": {
+									"value": 1.5, 
+									"zone": {
+										"offset" : 10, 
+										"speedValue": 0.5, 
+										"length": 5
+									}
+								}
+							}
+						},
+						{
+							"text": "Second answer, progress bar effect value (weigth -1.5), no zone, no speed value changes", 
+							"target": {
+								"type": "progress_bar", 
+								"effects": {
+									"value": -1.5
+								}
+							}
+						},
+						{
+							"text": "Third answer, anonymous bar, effect value 3",
+							"target": {
+								"type": "anon_bar", 
+								"effects": {
+									"value": 3
+								}
+							}
+						},                      
+						{
+							"text": "Fourth answer, anonymous bar, effect value 5", 
+							"target": {
+								"type": "anon_bar", 
+								"effects": {
+									"value": 5 
+								}
+							}
+						}
+					]
+				}
+			]
+		},
+		"Database": {
+			"questions": [
+				{
+					"id": 7,
+					"title": "Question n 1",
+					"answers": [
+						{
+							"text": "First answer, progress bar effect value (weight) 1, create a zone with offset 20 and length 7 and speed value of 1.5 )", 
+							"target": {
+								"type": "progress_bar", 
+								"effects": {
+									"value": 1, 
+									"zone": {
+										"offset" : 20, 
+										"speedValue": 1.5, 
+										"length": 7
+									}
+								}
+							}
+						},
+						{
+							"text": "Second answer, progress bar effect value (weigth -0.5), no zone, no speed value changes", 
+							"target": {
+								"type": "progress_bar", 
+								"effects": {
+									"value": -0.5
+								}
+							}
+						},
+						{
+							"text": "Third answer, anonymous bar, effect value 1",
+							"target": {
+								"type": "anon_bar", 
+								"effects": {
+									"value": 1 
+								}
+							}
+						},                      
+						{
+							"text": "Fourth answer, anonymous bar, effect value 5", 
+							"target": {
+								"type": "anon_bar", 
+								"effects": {
+									"value": 5 
+								}
+							}
+						}
+					]
+				},
+				{
+					"id": 8,
+					"title": "Question n 1",
+					"answers": [
+						{
+							"text": "First answer, progress bar effect value (weight) 1.5, create a zone with offset 10 and length 5 and speed value of 0.5 )", 
+							"target": {
+								"type": "progress_bar", 
+								"effects": {
+									"value": 1.5, 
+									"zone": {
+										"offset" : 10, 
+										"speedValue": 0.5, 
+										"length": 5
+									}
+								}
+							}
+						},
+						{
+							"text": "Second answer, progress bar effect value (weigth -1.5), no zone, no speed value changes", 
+							"target": {
+								"type": "progress_bar", 
+								"effects": {
+									"value": -1.5
+								}
+							}
+						},
+						{
+							"text": "Third answer, anonymous bar, effect value 3",
+							"target": {
+								"type": "anon_bar", 
+								"effects": {
+									"value": 3
+								}
+							}
+						},                      
+						{
+							"text": "Fourth answer, anonymous bar, effect value 5", 
+							"target": {
+								"type": "anon_bar", 
+								"effects": {
+									"value": 5 
+								}
+							}
+						}
+					]
+				}
+			]
+		},
+		"Business_Logic": {
+			"questions": [
+				{
+					"id": 9,
+					"title": "Question n 1",
+					"answers": [
+						{
+							"text": "First answer, progress bar effect value (weight) 1, create a zone with offset 20 and length 7 and speed value of 1.5 )", 
+							"target": {
+								"type": "progress_bar", 
+								"effects": {
+									"value": 1, 
+									"zone": {
+										"offset" : 20, 
+										"speedValue": 1.5, 
+										"length": 7
+									}
+								}
+							}
+						},
+						{
+							"text": "Second answer, progress bar effect value (weigth -0.5), no zone, no speed value changes", 
+							"target": {
+								"type": "progress_bar", 
+								"effects": {
+									"value": -0.5
+								}
+							}
+						},
+						{
+							"text": "Third answer, anonymous bar, effect value 1",
+							"target": {
+								"type": "anon_bar", 
+								"effects": {
+									"value": 1 
+								}
+							}
+						},                      
+						{
+							"text": "Fourth answer, anonymous bar, effect value 5", 
+							"target": {
+								"type": "anon_bar", 
+								"effects": {
+									"value": 5 
+								}
+							}
+						}
+					]
+				},
+				{
+					"id": 10,
+					"title": "Question n 1",
+					"answers": [
+						{
+							"text": "First answer, progress bar effect value (weight) 1.5, create a zone with offset 10 and length 5 and speed value of 0.5 )", 
+							"target": {
+								"type": "progress_bar", 
+								"effects": {
+									"value": 1.5, 
+									"zone": {
+										"offset" : 10, 
+										"speedValue": 0.5, 
+										"length": 5
+									}
+								}
+							}
+						},
+						{
+							"text": "Second answer, progress bar effect value (weigth -1.5), no zone, no speed value changes", 
+							"target": {
+								"type": "progress_bar", 
+								"effects": {
+									"value": -1.5
+								}
+							}
+						},
+						{
+							"text": "Third answer, anonymous bar, effect value 3",
+							"target": {
+								"type": "anon_bar", 
+								"effects": {
+									"value": 3
+								}
+							}
+						},                      
+						{
+							"text": "Fourth answer, anonymous bar, effect value 5", 
+							"target": {
+								"type": "anon_bar", 
+								"effects": {
+									"value": 5 
+								}
+							}
+						}
+					]
+				}
+			]
+		}
+	}
 }
