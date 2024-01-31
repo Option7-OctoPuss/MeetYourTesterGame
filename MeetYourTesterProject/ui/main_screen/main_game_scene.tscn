@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://7o56brbyyo2q" path="res://images/main-game/progress_bar_frame.svg" id="26_kq1ud"]
 [ext_resource type="PackedScene" uid="uid://newdc3qfq08j" path="res://ui/main_screen/terminal/terminal_mock.tscn" id="26_lb6pa"]
 [ext_resource type="Texture2D" uid="uid://nrap4klg88nx" path="res://images/main-game/green_bars.svg" id="27_n756v"]
+[ext_resource type="Script" path="res://ui/main_screen/anonymity_value.gd" id="27_4w0dy"]
 
 [node name="MainGameScene" type="Node2D"]
 
@@ -273,6 +274,21 @@ autostart = true
 [node name="_terminal_mock" parent="Terminal" instance=ExtResource("26_lb6pa")]
 position = Vector2(1159, -4)
 scale = Vector2(1.405, 1.45)
+
+[node name="AnonymityBarControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("27_4w0dy")
+
+[node name="AnonymityValue" type="RichTextLabel" parent="AnonymityBarControl"]
+layout_mode = 0
+offset_left = 1015.0
+offset_top = 262.0
+offset_right = 1170.0
+offset_bottom = 904.0
+text = "ANONIMITY MOCK"
 
 [connection signal="timeout" from="Sprite2D/TimerContainer/TimerLabel/TimerNode" to="Sprite2D/TimerContainer/TimerLabel" method="_on_timer_node_timeout"]
 [connection signal="pause_game" from="Sprite2D/TimerContainer/PlayPauseBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_pause"]
