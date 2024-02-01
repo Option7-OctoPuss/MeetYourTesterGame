@@ -20,7 +20,6 @@ func retrieve_question(event_questions:Dictionary):
 
 func handle_event_from_action_event(event_name:String, event_questions:Dictionary):
 	#animate_change_text(event_name, 14, 20, 2)
-	# print("TODO: show to terminal one of these event questions " + str(event_questions))
 	
 	var current_question = retrieve_question(event_questions)
 	

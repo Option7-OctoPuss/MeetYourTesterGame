@@ -12,3 +12,6 @@ var questions:Dictionary = {}
 
 var terminalHistory = "";
 var currentAnswer:Dictionary = {}
+
+var current_anonymity_value = 0
+var anonymity_value_alert_threshold = 4

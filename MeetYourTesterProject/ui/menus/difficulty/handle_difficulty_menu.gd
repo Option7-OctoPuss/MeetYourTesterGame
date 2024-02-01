@@ -11,14 +11,14 @@ var cancelLabel : TextureButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	easyIcon = $GridContainer/EasyIcon
-	easyLabel = $GridContainer/CenterEasyLabel/EasyDiffBtn
-	mediumIcon = $GridContainer/MediumIcon
-	mediumLabel = $GridContainer/CenterMediumLabel/MediumDiffBtn
-	hardIcon = $GridContainer/HardIcon
-	hardLabel = $GridContainer/CenterHardLabel/HardDiffBtn
-	cancelIcon = $GridContainer/CancelIcon
-	cancelLabel = $GridContainer/CenterCancelLabel/CancelBtn
+	easyIcon = $DiffBtns/EasyIcon
+	easyLabel = $DiffBtns/CenterEasyLabel/EasyDiffBtn
+	mediumIcon = $DiffBtns/MediumIcon
+	mediumLabel = $DiffBtns/CenterMediumLabel/MediumDiffBtn
+	hardIcon = $DiffBtns/HardIcon
+	hardLabel = $DiffBtns/CenterHardLabel/HardDiffBtn
+	cancelIcon = $DiffBtns/CancelIcon
+	cancelLabel = $DiffBtns/CenterCancelLabel/CancelBtn
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
