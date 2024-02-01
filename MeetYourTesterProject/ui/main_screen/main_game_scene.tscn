@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dpyn1enbx4w7u"]
+[gd_scene load_steps=31 format=3 uid="uid://dpyn1enbx4w7u"]
 
 [ext_resource type="Texture2D" uid="uid://wgpfvhfu1oi6" path="res://images/game-map/time/timer.svg" id="1_lc3b6"]
 [ext_resource type="VideoStream" path="res://images/background/purple-nebula-background.ogv" id="1_tp77f"]
@@ -25,11 +25,11 @@
 [ext_resource type="Script" path="res://ui/main_screen/action_event_btn_manager.gd" id="18_nwfow"]
 [ext_resource type="Texture2D" uid="uid://dp3uujxgl4xqh" path="res://images/game-map/notification-hex/hex-cell-ux-notification.svg" id="20_ajqmu"]
 [ext_resource type="Texture2D" uid="uid://clm5abjqsvfy2" path="res://images/main-game/dev-progress-bar.svg" id="21_pfpek"]
-[ext_resource type="Script" path="res://ui/main_screen/ProgressBarControl.gd" id="25_3y5sj"]
+[ext_resource type="Script" path="res://ui/main_screen/progress_bar_control.gd" id="25_n2qqa"]
 [ext_resource type="Texture2D" uid="uid://7o56brbyyo2q" path="res://images/main-game/progress_bar_frame.svg" id="26_kq1ud"]
 [ext_resource type="PackedScene" uid="uid://newdc3qfq08j" path="res://ui/main_screen/terminal/terminal_mock.tscn" id="26_lb6pa"]
-[ext_resource type="Texture2D" uid="uid://nrap4klg88nx" path="res://images/main-game/green_bars.svg" id="27_n756v"]
 [ext_resource type="Script" path="res://ui/main_screen/anonymity_value.gd" id="27_4w0dy"]
+[ext_resource type="Texture2D" uid="uid://nrap4klg88nx" path="res://images/main-game/green_bars.svg" id="27_n756v"]
 
 [node name="MainGameScene" type="Node2D"]
 
@@ -215,7 +215,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("25_3y5sj")
+script = ExtResource("25_n2qqa")
 
 [node name="ProgressBar" type="TextureRect" parent="ProgressBarControl"]
 visible = false
@@ -266,9 +266,6 @@ scale = Vector2(1.5, 1.5)
 text = "05:19"
 vertical_alignment = 1
 
-[node name="Timer" type="Timer" parent="ProgressBarControl"]
-autostart = true
-
 [node name="Terminal" type="Node2D" parent="."]
 
 [node name="_terminal_mock" parent="Terminal" instance=ExtResource("26_lb6pa")]
@@ -295,5 +292,3 @@ text = "ANONIMITY MOCK"
 [connection signal="unpause_game" from="Sprite2D/TimerContainer/PlayPauseBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_unpause"]
 [connection signal="speed_up_game" from="Sprite2D/TimerContainer/SpeedUpBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_speed_change"]
 [connection signal="timeout" from="MainControl/UI_UX/Label/Timer" to="MainControl/UI_UX" method="_on_timer_timeout"]
-[connection signal="timeout" from="ProgressBarControl/Timer" to="ProgressBarControl" method="_on_timer_timeout"]
-[connection signal="answer_root" from="Terminal/_terminal_mock" to="ProgressBarControl" method="apply_answer_effects"]

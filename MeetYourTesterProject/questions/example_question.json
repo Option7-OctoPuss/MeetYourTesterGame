@@ -1,5 +1,5 @@
 {
-    "nodes": [
+    "nodes": 
         {
             "Backend": {
                 "questions": [
@@ -492,5 +492,4 @@
                 ]
             }
         }
-    ]
 }
