@@ -23,6 +23,8 @@ func apply_progress_bar_effects(answer_impact: Dictionary):
 		#var speed_value = zone_effects.get("speedValue",0)
 		#if speed_value > 5 and speed_value < 10: 
 		
+func get_pixel_from_percent(percent: float, total: int) -> int:
+	return int(percent * total / 100)
 		
 func create_zone(answer_effects: Dictionary):
 	print(answer_effects)
@@ -43,7 +45,9 @@ func create_zone(answer_effects: Dictionary):
 		_:
 			print("Unrecognized zone length: " + str(zone_length))
 			
-	new_zone_node.offset_left = zone_effects.get("offset",0) 	# set offset from left of progress bar
+	new_zone_node.offset_left = zone_effects.get("offset",0) + get_pixel_from_percent($GameProgressBar.value , $GameProgressBar.size['x'])	# set offset from left of progress bar
+
+	print($GameProgressBar.value )
 	$ZonesContainer.add_child(new_zone_node)
 	
 	
