@@ -15,3 +15,7 @@ var currentAnswer:Dictionary = {}
 
 var current_anonymity_value = 0
 var anonymity_value_alert_threshold = 4
+
+var progress_bar_zone_small = 1
+var progress_bar_zone_medium = 2
+var progress_bar_zone_large = 3
