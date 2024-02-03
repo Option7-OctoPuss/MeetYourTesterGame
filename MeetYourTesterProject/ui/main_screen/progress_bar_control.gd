@@ -27,7 +27,9 @@ func apply_progress_bar_effects(answer_impact: Dictionary):
 func create_zone(answer_effects: Dictionary):
 	print(answer_effects)
 	var new_zone_scene = zones_scene.instantiate()
-	var new_zone_node:TextureRect = new_zone_scene.get_child(0) 
+	var new_zone_node:TextureRect = new_zone_scene.get_child(0)
+	# https://www.davcri.it/posts/godot-reparent-node/
+	new_zone_scene.remove_child(new_zone_node)
 	var zone_effects:Dictionary = answer_effects.get("zone",{})
 	
 	var zone_length = int(zone_effects.get("length",1))
