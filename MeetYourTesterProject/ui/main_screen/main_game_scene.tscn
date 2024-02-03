@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dpyn1enbx4w7u"]
+[gd_scene load_steps=30 format=3 uid="uid://dpyn1enbx4w7u"]
 
 [ext_resource type="Texture2D" uid="uid://wgpfvhfu1oi6" path="res://images/game-map/time/timer.svg" id="1_lc3b6"]
 [ext_resource type="VideoStream" path="res://images/background/purple-nebula-background.ogv" id="1_tp77f"]
@@ -24,12 +24,11 @@
 [ext_resource type="Script" path="res://ui/main_screen/mock_handle_countdown.gd" id="18_0wahk"]
 [ext_resource type="Script" path="res://ui/main_screen/action_event_btn_manager.gd" id="18_nwfow"]
 [ext_resource type="Texture2D" uid="uid://dp3uujxgl4xqh" path="res://images/game-map/notification-hex/hex-cell-ux-notification.svg" id="20_ajqmu"]
-[ext_resource type="Texture2D" uid="uid://clm5abjqsvfy2" path="res://images/main-game/dev-progress-bar.svg" id="21_pfpek"]
 [ext_resource type="Script" path="res://ui/main_screen/progress_bar_control.gd" id="25_n2qqa"]
-[ext_resource type="Texture2D" uid="uid://7o56brbyyo2q" path="res://images/main-game/progress_bar_frame.svg" id="26_kq1ud"]
 [ext_resource type="PackedScene" uid="uid://newdc3qfq08j" path="res://ui/main_screen/terminal/terminal_mock.tscn" id="26_lb6pa"]
+[ext_resource type="Texture2D" uid="uid://bat4k3lm2jfrr" path="res://images/main-game/progress-bar/green-bars-neutral.svg" id="26_xyt0u"]
+[ext_resource type="Texture2D" uid="uid://7o56brbyyo2q" path="res://images/main-game/progress-bar/progress-bar-frame.svg" id="27_1f572"]
 [ext_resource type="Script" path="res://ui/main_screen/anonymity_value.gd" id="27_4w0dy"]
-[ext_resource type="Texture2D" uid="uid://nrap4klg88nx" path="res://images/main-game/green_bars.svg" id="27_n756v"]
 
 [node name="MainGameScene" type="Node2D"]
 
@@ -213,35 +212,29 @@ script = ExtResource("18_0wahk")
 [node name="ProgressBarControl" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 202.0
+offset_top = 928.0
+offset_right = 996.0
+offset_bottom = 1058.0
 script = ExtResource("25_n2qqa")
-
-[node name="ProgressBar" type="TextureRect" parent="ProgressBarControl"]
-visible = false
-layout_mode = 0
-offset_left = 151.0
-offset_top = 924.0
-offset_right = 967.0
-offset_bottom = 1009.0
-texture = ExtResource("21_pfpek")
 
 [node name="GameProgressBar" type="TextureProgressBar" parent="ProgressBarControl"]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 993.0
-offset_right = 826.0
-offset_bottom = 1078.0
+offset_left = 18.0
+offset_top = 33.0
+offset_right = 769.0
+offset_bottom = 113.0
 step = 0.1
-texture_progress = ExtResource("27_n756v")
+value = 100.0
+texture_progress = ExtResource("26_xyt0u")
 
 [node name="ProgressFrame" type="TextureRect" parent="ProgressBarControl"]
 layout_mode = 0
-offset_left = 3.0
-offset_top = 973.0
-offset_right = 767.0
-offset_bottom = 1071.0
-texture = ExtResource("26_kq1ud")
+offset_left = 11.0
+offset_top = 17.0
+offset_right = 806.0
+offset_bottom = 115.0
+texture = ExtResource("27_1f572")
 
 [node name="PercentageValue" type="Label" parent="ProgressBarControl"]
 visible = false

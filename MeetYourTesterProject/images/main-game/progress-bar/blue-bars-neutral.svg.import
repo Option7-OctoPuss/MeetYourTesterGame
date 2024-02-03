@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7o56brbyyo2q"
-path="res://.godot/imported/progress_bar_frame.svg-85eaf342e43d5b86959ff3e3d95d3de3.ctex"
+uid="uid://dlfk6f6ije4k6"
+path="res://.godot/imported/blue-bars-neutral.svg-a082c56607eae797f6e28ccbae4f9d4a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/main-game/progress_bar_frame.svg"
-dest_files=["res://.godot/imported/progress_bar_frame.svg-85eaf342e43d5b86959ff3e3d95d3de3.ctex"]
+source_file="res://images/main-game/progress-bar/blue-bars-neutral.svg"
+dest_files=["res://.godot/imported/blue-bars-neutral.svg-a082c56607eae797f6e28ccbae4f9d4a.ctex"]
 
 [params]
 

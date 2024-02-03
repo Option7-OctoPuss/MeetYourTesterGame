@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nrap4klg88nx"
-path="res://.godot/imported/green_bars.svg-ec02fde9d9d76583f4c44ea0e5050830.ctex"
+uid="uid://chna6lhagh336"
+path="res://.godot/imported/yellow-bars-faster.svg-4380e62ba89ab5e9daf2244882c37b01.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/main-game/green_bars.svg"
-dest_files=["res://.godot/imported/green_bars.svg-ec02fde9d9d76583f4c44ea0e5050830.ctex"]
+source_file="res://images/main-game/progress-bar/yellow-bars-faster.svg"
+dest_files=["res://.godot/imported/yellow-bars-faster.svg-4380e62ba89ab5e9daf2244882c37b01.ctex"]
 
 [params]
 
