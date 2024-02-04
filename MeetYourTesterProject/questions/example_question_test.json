@@ -1,0 +1,28 @@
+{
+	"nodes": {
+		"Backend": {
+			"questions": [
+				{
+					"id": 1,
+					"title": "Question n 1",
+					"answers": [
+						{
+							"text": "First answer, progress bar effect value (weight) 1, create a zone with offset 20 and length 7 and speed value of 1.5 )", 
+							"target": {
+								"type": "progress_bar", 
+								"effects": {
+									"value": 1, 
+									"zone": {
+										"offset" : 20, 
+										"speedValue": 1.5, 
+										"length": 7
+									}
+								}
+							}
+						}
+					]
+				}
+			]
+		}
+	}
+}

@@ -27,6 +27,7 @@ func _process(delta):
 	pass
 	
 # TODO receive signal that this event was generated and this button must be enabled
+# TODO receive signal that this event was generated and this button must be enabled
 func _on_timer_timeout():
 	# Getting hexagon's timer child
 	if !is_action_event_generated:

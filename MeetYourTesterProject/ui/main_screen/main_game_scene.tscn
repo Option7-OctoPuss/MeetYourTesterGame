@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://clm5abjqsvfy2" path="res://images/main-game/dev-progress-bar.svg" id="21_pfpek"]
 [ext_resource type="PackedScene" uid="uid://newdc3qfq08j" path="res://ui/main_screen/terminal/terminal_mock.tscn" id="26_lb6pa"]
 [ext_resource type="Script" path="res://ui/main_screen/_answer_mockup.gd" id="27_j18td"]
+[ext_resource type="Script" path="res://ui/main_screen/anonymity_value.gd" id="27_4w0dy"]
 
 [node name="MainGameScene" type="Node2D"]
 
@@ -232,7 +233,6 @@ offset_left = 380.0
 offset_top = 157.0
 offset_right = 519.0
 offset_bottom = 290.0
-disabled = true
 texture_normal = ExtResource("20_ajqmu")
 texture_pressed = ExtResource("17_udybg")
 texture_hover = ExtResource("17_udybg")
@@ -240,6 +240,7 @@ texture_disabled = ExtResource("16_ir080")
 script = ExtResource("18_nwfow")
 
 [node name="Label" type="Label" parent="MainControl/UI_UX"]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
@@ -288,17 +289,20 @@ vertical_alignment = 1
 position = Vector2(1159, -4)
 scale = Vector2(1.405, 1.45)
 
-[node name="_answer_mockup" type="Button" parent="Terminal"]
-visible = false
-offset_left = 1392.0
-offset_top = 892.0
-offset_right = 1524.0
-offset_bottom = 923.0
-scale = Vector2(2.42355, 2.29027)
-disabled = true
-text = "Mockup Answer"
-flat = true
-script = ExtResource("27_j18td")
+[node name="AnonymityBarControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("27_4w0dy")
+
+[node name="AnonymityValue" type="RichTextLabel" parent="AnonymityBarControl"]
+layout_mode = 0
+offset_left = 1015.0
+offset_top = 262.0
+offset_right = 1170.0
+offset_bottom = 904.0
+text = "ANONIMITY MOCK"
 
 [connection signal="timeout" from="Sprite2D/TimerContainer/TimerLabel/TimerNode" to="Sprite2D/TimerContainer/TimerLabel" method="_on_timer_node_timeout"]
 [connection signal="pause_game" from="Sprite2D/TimerContainer/PlayPauseBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_pause"]
