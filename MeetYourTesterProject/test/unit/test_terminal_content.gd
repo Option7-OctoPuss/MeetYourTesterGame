@@ -7,6 +7,7 @@ class TestTerminalContent:
 	var play_pause_btn = "PlayPauseBtn"
 	var speed_up_btn = "SpeedUpBtn"
 	var game_scene = null
+	var main_game_scene = null
 	var terminal_content_node = null
 	var event_name = null
 
@@ -17,8 +18,9 @@ class TestTerminalContent:
 		event_name = Globals.questions['nodes'].keys()[0]
 
 	func before_each():
-		game_scene = preload("res://ui/main_screen/terminal/terminal_mock.tscn").instantiate()
-		terminal_content_node = game_scene.find_child(terminal_content_node_name)
+		#game_scene = preload("res://ui/main_screen/terminal/terminal_mock.tscn").instantiate()
+		main_game_scene = preload("res://ui/main_screen/main_game_scene.tscn").instantiate()
+		terminal_content_node = game_scene.find_child("Terminal").find_child("_terminal_mock")#.find_child(terminal_content_node_name)
 
 	func after_each():
 		game_scene.free()

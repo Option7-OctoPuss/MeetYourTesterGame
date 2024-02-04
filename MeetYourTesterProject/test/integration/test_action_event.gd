@@ -32,7 +32,7 @@ class TestActionEventPO:
 		action_event_btn = main_game_scene.find_child(action_event_btn_name)
 		assert_not_null(action_event_btn, "Action Event button should be found")
 		assert_false(action_event_btn.disabled, "Action Event should be enabled")
-
+		action_event_btn._ready()
 		terminal = main_game_scene.find_child(terminal_name)
 		assert_not_null(terminal, "Terminal should be found")
 		
