@@ -15,3 +15,6 @@ var currentAnswer:Dictionary = {}
 
 var current_anonymity_value = 0
 var anonymity_value_alert_threshold = 4
+
+var randomTimerForActionEventInactivity = 75
+var randomTimerForActionEventAcceptance = 10
