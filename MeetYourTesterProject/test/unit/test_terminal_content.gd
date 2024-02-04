@@ -20,10 +20,10 @@ class TestTerminalContent:
 	func before_each():
 		#game_scene = preload("res://ui/main_screen/terminal/terminal_mock.tscn").instantiate()
 		main_game_scene = preload("res://ui/main_screen/main_game_scene.tscn").instantiate()
-		terminal_content_node = game_scene.find_child("Terminal").find_child("_terminal_mock")#.find_child(terminal_content_node_name)
+		terminal_content_node = main_game_scene.find_child("Terminal").find_child("_terminal_mock").find_child(terminal_content_node_name)
 
 	func after_each():
-		game_scene.free()
+		main_game_scene.free()
 
 	func test_backend_node_id():
 		var current_question = terminal_content_node.retrieve_question(Globals.questions['nodes'][event_name])

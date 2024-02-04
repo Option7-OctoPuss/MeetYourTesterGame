@@ -55,7 +55,7 @@ func generate_action_event():
 	disabled = false
 	is_action_event_generated = true
 	timer_child.wait_time = randi() % Globals.randomTimerForActionEventAcceptance
-	
+	print("Timer:", timer_child)
 	
 
 func remove_action_event():
@@ -64,10 +64,11 @@ func remove_action_event():
 	print(disabled)
 	disabled = true
 	is_action_event_generated = false
-	timer_child.stop()
-	timer_child.wait_time = randi() % Globals.randomTimerForActionEventInactivity
-	timer_child.start()
-	timer_child.paused = false
+	if timer_child:
+		timer_child.stop()
+		timer_child.wait_time = randi() % Globals.randomTimerForActionEventInactivity
+		timer_child.start()
+		timer_child.paused = false
 	
 	
 	

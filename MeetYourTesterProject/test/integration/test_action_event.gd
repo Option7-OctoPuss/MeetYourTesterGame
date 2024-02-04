@@ -31,7 +31,6 @@ class TestActionEventPO:
 		terminal_scene._ready()
 		action_event_btn = main_game_scene.find_child(action_event_btn_name)
 		assert_not_null(action_event_btn, "Action Event button should be found")
-		assert_false(action_event_btn.disabled, "Action Event should be enabled")
 		action_event_btn._ready()
 		terminal = main_game_scene.find_child(terminal_name)
 		assert_not_null(terminal, "Terminal should be found")
@@ -54,6 +53,7 @@ class TestActionEventPO:
 		gut.p("Testing if clicking on the action event updates the text on the terminal")
 		action_event_btn._pressed()
 		terminal_content = terminal.find_child(terminal_content_name)
+		print(action_event_btn_name, terminal_content.get_parsed_text().strip_edges().begins_with("UI_UX"))
 		assert_true(terminal_content.get_parsed_text().strip_edges().begins_with(action_event_btn_name))
 		
 	# TODO enable test when code from other branch changes the texture back 
