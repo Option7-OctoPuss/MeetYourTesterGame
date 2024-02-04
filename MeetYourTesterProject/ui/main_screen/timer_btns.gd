@@ -26,21 +26,17 @@ func handle_speed_up():
 	if Globals.gameSpeed == 1:
 		self.texture_normal = speedup_texture_path
 		Globals.gameSpeed = 2
-		Engine.time_scale = Globals.gameSpeed
-		print("Speeding up 2")
+		print("Speeding up")
 	elif Globals.gameSpeed == 2:
 		Globals.gameSpeed = 3
-		Engine.time_scale = Globals.gameSpeed		
-		print("Speeding up 3")
+		print("Speeding up 2")
 	elif Globals.gameSpeed == 3:
 		Globals.gameSpeed = 1
-		Engine.time_scale = Globals.gameSpeed		
 		self.texture_normal = play_texture_path
-		print("Speeding up 1")
+		print("Speeding up 3")
 	else:
 		print("Speeding up Else")
 		Globals.gameSpeed = 1
-		Engine.time_scale = Globals.gameSpeed		
 		self.texture_normal = play_texture_path
 	emit_signal("speed_up_game")
 
