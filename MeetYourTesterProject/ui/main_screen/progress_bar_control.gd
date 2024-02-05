@@ -68,6 +68,6 @@ func remove_zone():
 	var nodo = $ZonesContainer.get_child(0)
 	$ZonesContainer.remove_child(nodo)
 	begin_nodo = -1
-	end_nodo = -1
+	end_nodo = 9223372036854775807 #max int in godot
 	has_nodo_spawned = false
 	$GameProgressBar.texture_progress = load("res://images/main-game/progress-bar/yellow-bars-neutral.svg")
