@@ -3,11 +3,21 @@ extends Control
 @onready var terminal = $"../Terminal/_terminal_mock/terminal_content"
 const PROGRESS_BAR_DICTIONARY_KEY = "progress_bar"
 var zones_scene = preload("res://ui/main_screen/progress_bar_zones_scene.tscn")
-
-
+var has_nodo_spawned:bool = false
+var begin_nodo: int
+var end_nodo: int
+ 
 func _ready():
 	terminal.connect("answer_signal", apply_progress_bar_effects)
 
+func _process(delta):
+	if has_nodo_spawned:
+		var position_bar = get_pixel_from_percent($GameProgressBar.value , $GameProgressBar.size['x'])
+		if position_bar > begin_nodo && position_bar < end_nodo:
+			$GameProgressBar.texture_progress = load("res://images/main-game/progress-bar/yellow-bars-faster.svg")
+		if position_bar > end_nodo:
+				remove_zone()
+			
 
 func apply_progress_bar_effects(answer_impact: Dictionary):
 	if PROGRESS_BAR_DICTIONARY_KEY == answer_impact["type"]:
@@ -49,5 +59,15 @@ func create_zone(answer_effects: Dictionary):
 
 	print($GameProgressBar.value )
 	$ZonesContainer.add_child(new_zone_node)
+	has_nodo_spawned = true
+	begin_nodo = new_zone_node.offset_left
+	end_nodo = new_zone_node.texture.get_width() + begin_nodo
 	
-	
+
+func remove_zone():
+	var nodo = $ZonesContainer.get_child(0)
+	$ZonesContainer.remove_child(nodo)
+	begin_nodo = -1
+	end_nodo = -1
+	has_nodo_spawned = false
+	$GameProgressBar.texture_progress = load("res://images/main-game/progress-bar/yellow-bars-neutral.svg")
