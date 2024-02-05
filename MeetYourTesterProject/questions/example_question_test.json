@@ -19,6 +19,15 @@
 									}
 								}
 							}
+						},
+						{
+							"text": "Second answer, progress bar effect value (weigth 5), no zone, no speed value changes", 
+							"target": {
+								"type": "progress_bar", 
+								"effects": {
+									"value": 5
+								}
+							}
 						}
 					]
 				}

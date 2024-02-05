@@ -32,7 +32,7 @@ class TestTerminalContent:
 
 	func test_backend_node_single_answer_count():
 		var current_question = terminal_content_node.retrieve_question(Globals.questions['nodes'][event_name])
-		assert_eq(current_question.answers.size(), 1)
+		assert_eq(current_question.answers.size(), 2)
 
 	func test_backend_node_single_answer_text():
 		var current_question = terminal_content_node.retrieve_question(Globals.questions['nodes'][event_name])
