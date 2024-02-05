@@ -34,5 +34,5 @@ class TestProgressBar:
 		terminal_content_node.handle_meta_clicked("1_1") # questionId_answerId of 'example_question_test.json' file       
 		var target_answer = Globals.questions['nodes'][event_name].questions[0].answers[1].target
 		progress_bar_node.apply_progress_bar_effects(target_answer)
-		assert_eq(progress_bar_node.find_child(progress_bar_node_name).value, target_answer.effects.value)
+		assert_eq(progress_bar_node.find_child(progress_bar_node_name).value, target_answer.effects.value+70) #added 70 because the progress bar for testing starts from 70
 
