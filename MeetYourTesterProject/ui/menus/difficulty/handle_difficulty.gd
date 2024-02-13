@@ -15,6 +15,9 @@ func _ready():
 
 func _on_Button_pressed():
 	DiffStore.player_difficulty = difficulty_level
+	if difficulty_level > 0:
+		print('set speed to %s'%Globals.progress_bar_possible_speeds[difficulty_level-1])
+		Globals.progress_bar_speed = Globals.progress_bar_possible_speeds[difficulty_level-1]
 	_debug_print("Button pressed with difficulty: %d" % difficulty_level)
 	_debug_print("Difficulty stored in global: %d" % DiffStore.player_difficulty)
 	# Change to the next scene
