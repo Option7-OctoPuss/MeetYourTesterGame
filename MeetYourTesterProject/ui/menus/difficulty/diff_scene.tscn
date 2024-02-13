@@ -86,6 +86,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 texture_normal = ExtResource("1_bqnr1")
 script = ExtResource("2_ty5a8")
+difficulty_level = 1
 next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
 
 [node name="MediumIcon" type="TextureButton" parent="DiffBtns"]

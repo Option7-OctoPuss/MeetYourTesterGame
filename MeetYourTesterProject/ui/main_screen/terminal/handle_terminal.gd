@@ -66,8 +66,9 @@ func handle_meta_clicked(meta: Variant):
 	var question_from_queue = pop_selected_question(question_choosed_info[0].to_int())
 	update_terminal_content(question_from_queue, question_choosed_info[1].to_int())
 	print("Event name from meta: %s" % question_from_queue['event_name'])
-	var node = get_node("../../../MainControl/" + question_from_queue['event_name'])	
-	node.remove_action_event()
+	var node = get_node("../../../MainControl/" + question_from_queue['event_name'])
+	if node:
+		node.remove_action_event()
 	var selected_answer = question_from_queue.answers[question_choosed_info[1].to_int()]
 	if selected_answer != null:
 		answer_signal.emit(selected_answer.target)
