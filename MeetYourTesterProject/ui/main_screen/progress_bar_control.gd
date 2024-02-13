@@ -77,10 +77,12 @@ func create_zone(answer_effects: Dictionary):
 			print("Unrecognized zone length: " + str(zone_length))
 			
 	new_zone_node.offset_left = zone_effects.get("offset",0) + get_pixel_from_percent($GameProgressBar.value , $GameProgressBar.size['x'])	# set offset from left of progress bar
-	$ZonesContainer.add_child(new_zone_node)
-	is_zone_present = true
 	begin_zone = new_zone_node.offset_left
 	end_zone = new_zone_node.texture.get_width() + begin_zone
+	
+	if end_zone <= $ZonesContainer.size.x: # if the end_zone of the zone will exceed the total ZonesContainer size, do not add zone
+		$ZonesContainer.add_child(new_zone_node)
+		is_zone_present = true
 	
 
 func remove_zone():
