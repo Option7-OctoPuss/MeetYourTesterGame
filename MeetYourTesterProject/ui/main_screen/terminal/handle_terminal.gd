@@ -15,7 +15,7 @@ func _ready():
 	self.scroll_following = true
 	
 func retrieve_question(event_questions:Dictionary):
-	var random_question_index = rng.randf_range(0, event_questions.questions.size()-1)
+	var random_question_index = rng.randi_range(0, event_questions.questions.size()-1)
 	return event_questions.questions[random_question_index]
 
 func handle_event_from_action_event(event_name:String, event_questions:Dictionary):
@@ -31,19 +31,17 @@ func handle_event_from_action_event(event_name:String, event_questions:Dictionar
 	scroll_to_line(get_line_count() - 1)
 
 func animate_change_text(_new_text, _start_size, _end_size, _duration) ->void:
-	print("animate_change_text called")
 	# http://man.hubwiz.com/docset/Godot.docset/Contents/Resources/Documents/tutorials/gui/bbcode_in_richtextlabel.html
 	var animated_wave = "[wave amp=50 freq=2]%s[/wave]\n" % _new_text
 	append_text(animated_wave)
-	print("animate_change_text called 2")
 
 func update_text_with_font_size(new_text, font_size) ->void:
 	current_font_size = font_size
 	var bbcode_str = "[size=" + str(font_size) + "]" + new_text + "[/size]"
 	append_chat_line_escaped("test", bbcode_str)
 
-func animate_font_size(_to_size, _duration) ->void:
-	print("animate_font_size called")
+#func animate_font_size(_to_size, _duration) ->void:
+#	print("animate_font_size called")
 
 func append_chat_line_escaped(username, message) ->void:
 	append_text("%s: [color=green]%s[/color]\n" % [escape_bbcode(username), escape_bbcode(message)])
