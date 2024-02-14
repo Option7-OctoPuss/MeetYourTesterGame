@@ -15,11 +15,13 @@ var currentAnswer:Dictionary = {}
 
 var current_anonymity_value = 0
 var anonymity_value_alert_threshold = 4
-var progress_bar_zone_small = 1
-var progress_bar_zone_medium = 2
-var progress_bar_zone_large = 3
+enum progress_bar_zone_length {
+	SMALL=1,
+	MEDIUM=2,
+	LARGE=3,
+}
 var progress_bar_possible_speeds = [0.3,0.6,1] # a value is chosen based on selected difficulty
 var progress_bar_speed = progress_bar_possible_speeds[0]
 
-var randomTimerForActionEventInactivity = 75
+var randomTimerForActionEventInactivity = 10#75
 var randomTimerForActionEventAcceptance = 10

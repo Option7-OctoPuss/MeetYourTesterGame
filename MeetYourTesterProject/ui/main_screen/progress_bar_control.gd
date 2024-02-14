@@ -3,28 +3,27 @@ extends Control
 @onready var terminal = $"../Terminal/_terminal_mock/terminal_content"
 const PROGRESS_BAR_DICTIONARY_KEY = "progress_bar"
 var zones_scene = preload("res://ui/main_screen/progress_bar_zones_scene.tscn")
+var zones_queue = [] # FIFO queue to store created zones with their parameters
 
-var zone_speed_value:float # if inside a zone, the zone's speed value is applied
-
-var is_zone_present:bool = false
-var begin_zone: int
-var end_zone: int
- 
 func _ready():
 	terminal.connect("answer_signal", apply_progress_bar_effects)
 
 func _process(delta):
-	if is_zone_present:
+	if is_zone_present():
 		var position_bar = get_current_position()
 		# check if bar is currently inside a spawned zone, then change its speed
 		if is_inside_zone(position_bar):
 			$GameProgressBar.texture_progress = load("res://images/main-game/progress-bar/yellow-bars-faster.svg")
 		# check if bar has passed a spawned zone, then remove it
-		if position_bar > end_zone:
+		if position_bar > zones_queue[0]["end_pos"]:
 				remove_zone()
 
+func is_zone_present():
+	return len(zones_queue) > 0
+
+# if current progress is in the first zone
 func is_inside_zone(position_bar:int):
-	return position_bar > begin_zone && position_bar < end_zone
+	return is_zone_present() and zones_queue[0]["start_pos"] < position_bar and position_bar < zones_queue[0]["end_pos"]
 	
 func get_current_position():
 	return get_pixel_from_percent($GameProgressBar.value , $GameProgressBar.size['x'])
@@ -39,54 +38,55 @@ func auto_increment():
 	# TODO add an actual end game notification, stopping the game timer
 		print("GAME OVER: progress bar has reached 100%")
 	if is_inside_zone(get_current_position()):
-		$GameProgressBar.value += Globals.progress_bar_speed * zone_speed_value
+		$GameProgressBar.value += Globals.progress_bar_speed * zones_queue[0]["speed"]
 	else:
 		$GameProgressBar.value += Globals.progress_bar_speed
-		
+
+# get effects from answer and apply them (moving progress, creating zone)
 func apply_progress_bar_effects(answer_impact: Dictionary):
 	if PROGRESS_BAR_DICTIONARY_KEY == answer_impact["type"]:
-		# print("Answer Selected!")
 		var answerEffects = answer_impact["effects"]
-		
 		if answerEffects.has("zone"):
 			create_zone(answerEffects)
-
 		# Godot handle under the hood the check for progress bar boundaries. If you add 1000 with a max value of 100 it will be 100.
 		$GameProgressBar.value += answerEffects.value
-		# TODO
-		#var speed_value = zone_effects.get("speedValue",0)
-		#if speed_value > 5 and speed_value < 10: 
-		
+
+# create a new zone and push it at the end of the queue
 func create_zone(answer_effects: Dictionary):
-	# print(answer_effects)
 	var new_zone_scene = zones_scene.instantiate()
 	var new_zone_node:TextureRect = new_zone_scene.get_child(0)
 	# https://www.davcri.it/posts/godot-reparent-node/
 	new_zone_scene.remove_child(new_zone_node)
+	# get zone effects and params
 	var zone_effects:Dictionary = answer_effects.get("zone",{})
-	zone_speed_value = zone_effects.get("speedValue",1)
-	var zone_length = int(zone_effects.get("length",1))
+	var zone_length = int(zone_effects.get("length",Globals.progress_bar_zone_length.SMALL))
 	match zone_length: 		# set zone texture based on length (sm,md,lg)
-		Globals.progress_bar_zone_small:
+		Globals.progress_bar_zone_length.SMALL:
 			new_zone_node.texture = preload("res://images/main-game/progress-bar/blue-zone-sm.svg")
-		Globals.progress_bar_zone_medium:
+		Globals.progress_bar_zone_length.MEDIUM:
 			new_zone_node.texture = preload("res://images/main-game/progress-bar/blue-zone-md.svg")
-		Globals.progress_bar_zone_large:
+		Globals.progress_bar_zone_length.LARGE:
 			new_zone_node.texture = preload("res://images/main-game/progress-bar/blue-zone-lg.svg")
 		_:
-			print("Unrecognized zone length: " + str(zone_length))
-			
-	new_zone_node.offset_left = zone_effects.get("offset",0) + get_pixel_from_percent($GameProgressBar.value , $GameProgressBar.size['x'])	# set offset from left of progress bar
-	begin_zone = new_zone_node.offset_left
-	end_zone = new_zone_node.texture.get_width() + begin_zone
+			print("Unrecognized zone length: %s" % zone_length)
+	var new_zone = {}
+	# set offset from left of progress bar
+	var zone_offset = zone_effects.get("offset",0)
+	new_zone["speed"] = zone_effects.get("speedValue",1)
+	# start position is the offset (if any) plus the end of the last zone (if present) or the current progress bar position
+	new_zone["start_pos"] = zone_offset + (zones_queue[-1]["end_pos"] if is_zone_present() else $GameProgressBar.value)
+	# end position is the start of this zone plus the zone length
+	new_zone["end_pos"] = new_zone["start_pos"] + new_zone_node.texture.get_width()
+	new_zone_node.offset_left = new_zone["start_pos"]
 	
-	if end_zone <= $ZonesContainer.size.x: # if the end_zone of the zone will exceed the total ZonesContainer size, do not add zone
+	# if the end_zone of the zone will exceed the total ZonesContainer size, do not add zone
+	if new_zone["end_pos"] <= $ZonesContainer.size.x: 
 		$ZonesContainer.add_child(new_zone_node)
-		is_zone_present = true
+		zones_queue.append(new_zone) 
 	
 
 func remove_zone():
 	var zone = $ZonesContainer.get_child(0)
 	$ZonesContainer.remove_child(zone)
-	is_zone_present = false
+	zones_queue.pop_front()
 	$GameProgressBar.texture_progress = load("res://images/main-game/progress-bar/yellow-bars-neutral.svg")

@@ -6,37 +6,24 @@ extends TextureButton
 var backup_disable_image: Texture2D
 var is_action_event_generated = false
 var timer_child = null
-#var is_action_event_generated = {
-	#"Database":false,
-	#"Delivery":false,
-	#"BusinessLogic":false,
-	#"Backend":false,
-	#"UI_UX":false,
-#}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
 	backup_disable_image = texture_disabled	
 	timer_child = get_child(0).get_child(0)
-	
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 	
-# TODO receive signal that this event was generated and this button must be enabled
-# TODO receive signal that this event was generated and this button must be enabled
 func _on_timer_timeout():
-	# Getting hexagon's timer child
 	if !is_action_event_generated:
 		generate_action_event()
 	else:
 		remove_action_event()
 
 func _pressed():
-	#is_action_event_generated = true
 	# to switch texture, we first save the disabled one, then replace it with the pressed one
 	texture_disabled = texture_pressed
 	disabled = true
@@ -51,17 +38,13 @@ func _pressed():
 
 # functions to handle changes of state for the button
 func generate_action_event():
-	print("generating for "+name)
 	disabled = false
 	is_action_event_generated = true
 	timer_child.wait_time = randi() % Globals.randomTimerForActionEventAcceptance
-	print("Timer:", timer_child)
 	
 
 func remove_action_event():
-	print("removing for "+name)
 	texture_disabled = backup_disable_image
-	print(disabled)
 	disabled = true
 	is_action_event_generated = false
 	if timer_child:
