@@ -29,4 +29,6 @@ func catch_unpause() -> void:
 	$TimerNode.paused = false
 
 func catch_speed_change() -> void:
-	$TimerNode.wait_time = float(1) / Globals.gameSpeed
+	#$TimerNode.wait_time = float(1) / Globals.gameSpeed
+	Engine.time_scale = Globals.gameSpeed
+	
