@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://83rjfwajgvos"
-path="res://.godot/imported/pause.svg-09127f19c3b279e09b32f71d3249e6c1.ctex"
+uid="uid://dhe6y5w8fklch"
+path="res://.godot/imported/speedup2.svg-9a82b65dd0d32588f8cd96bbe034fca5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/game-map/time/pause.svg"
-dest_files=["res://.godot/imported/pause.svg-09127f19c3b279e09b32f71d3249e6c1.ctex"]
+source_file="res://images/game-map/time/speedup2.svg"
+dest_files=["res://.godot/imported/speedup2.svg-9a82b65dd0d32588f8cd96bbe034fca5.ctex"]
 
 [params]
 
