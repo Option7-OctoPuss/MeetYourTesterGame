@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://wgpfvhfu1oi6" path="res://images/game-map/time/timer.svg" id="1_lc3b6"]
 [ext_resource type="VideoStream" path="res://images/background/purple-nebula-background.ogv" id="1_tp77f"]
-[ext_resource type="Texture2D" uid="uid://svsqskokvpwx" path="res://images/game-map/time/pause.svg" id="2_1jfsg"]
 [ext_resource type="Texture2D" uid="uid://b46cjpn0dkvib" path="res://images/game-map/time/speed.svg" id="3_ps3v0"]
 [ext_resource type="Script" path="res://ui/main_screen/timer_btns.gd" id="3_svwg2"]
 [ext_resource type="Script" path="res://ui/main_screen/timer.gd" id="5_bt7jo"]
@@ -29,6 +28,9 @@
 [ext_resource type="Texture2D" uid="uid://cy3cktjlojmph" path="res://images/main-game/progress-bar/yellow-bars-neutral.svg" id="26_r8fpx"]
 [ext_resource type="Texture2D" uid="uid://7o56brbyyo2q" path="res://images/main-game/progress-bar/progress-bar-frame.svg" id="27_1f572"]
 [ext_resource type="Script" path="res://ui/main_screen/anonymity_value.gd" id="27_4w0dy"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wlhim"]
+load_path = "res://.godot/imported/pause.svg-09127f19c3b279e09b32f71d3249e6c1.ctex"
 
 [node name="MainGameScene" type="Node2D"]
 
@@ -69,7 +71,7 @@ autostart = true
 [node name="PlayPauseBtn" type="TextureButton" parent="Sprite2D/TimerContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-texture_normal = ExtResource("2_1jfsg")
+texture_normal = SubResource("CompressedTexture2D_wlhim")
 script = ExtResource("3_svwg2")
 
 [node name="SpeedUpBtn" type="TextureButton" parent="Sprite2D/TimerContainer"]
