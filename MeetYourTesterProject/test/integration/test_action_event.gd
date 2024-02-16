@@ -23,12 +23,15 @@ class TestActionEventPO:
 		gut.p('TestActionEventPO:  setup')
 		
 		main_game_scene = preload("res://ui/main_screen/main_game_scene.tscn").instantiate()
-		terminal_scene = preload("res://ui/main_screen/terminal/terminal_mock.tscn").instantiate()
+		#+terminal_scene = preload("res://ui/main_screen/terminal/terminal_mock.tscn").instantiate()
+		
 		# TODO: not calling directly _ready() but find a way to instantiate the
 		# scene correctly.
 		# _ready() should be called automatically when the scene is instantiated
 		# but this does not happens, so we call it 'manually'
+		terminal_scene = main_game_scene.find_child("_terminal_mock")
 		terminal_scene._ready()
+
 		action_event_btn = main_game_scene.find_child(action_event_btn_name)
 		assert_not_null(action_event_btn, "Action Event button should be found")
 		action_event_btn._ready()

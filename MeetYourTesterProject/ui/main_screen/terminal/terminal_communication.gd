@@ -4,11 +4,22 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# list of all hexagons
+	var hex_list = [
+		$"../../MainControl/Database",
+		$"../../MainControl/Delivery",
+		$"../../MainControl/Business_Logic",
+		$"../../MainControl/Backend",
+		$"../../MainControl/UI_UX"
+	]
 	# read and parse the question data file (in JSON)
 	var file = FileAccess.get_file_as_string(Globals.questions_file_path)
 	Globals.questions = JSON.parse_string(file)
-
-
+	
+	for hex in hex_list:
+		# connect terminal to each hexagon in game scene
+		hex.connect("hexagon_clicked", handle_event_from_action_event)
+	
 func handle_event_from_action_event(event_params:Dictionary):
 	event_name = event_params["node_name"]
 	# retrieve stored questions for this action event

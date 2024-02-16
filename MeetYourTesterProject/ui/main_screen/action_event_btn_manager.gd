@@ -7,6 +7,8 @@ var backup_disable_image: Texture2D
 var is_action_event_generated = false
 var timer_child = null
 
+signal hexagon_clicked(params)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
@@ -27,14 +29,13 @@ func _pressed():
 	# to switch texture, we first save the disabled one, then replace it with the pressed one
 	texture_disabled = texture_pressed
 	disabled = true
-	timer_child.paused = true
+	
 	# define the parameters to pass to the terminal
 	var node_name = get_name()
 	var params = {"node_name":node_name}
+	
 	# emit signal that this button has been pressed
-	var terminal = get_parent().get_parent().get_node("Terminal").get_node("_terminal_mock")
-	if terminal:
-		terminal.handle_event_from_action_event(params)
+	hexagon_clicked.emit(params)
 
 # functions to handle changes of state for the button
 func generate_action_event():
@@ -51,7 +52,6 @@ func remove_action_event():
 		timer_child.stop()
 		timer_child.wait_time = randi() % Globals.randomTimerForActionEventInactivity
 		timer_child.start()
-		timer_child.paused = false
 	
 	
 	
