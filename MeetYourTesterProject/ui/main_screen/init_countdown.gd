@@ -2,7 +2,10 @@ extends Timer
 
 @onready var play_pause_btn = $"../../../../Sprite2D/TimerContainer/PlayPauseBtn"
 @onready var speed_up_btn = $"../../../../Sprite2D/TimerContainer/SpeedUpBtn"
+@onready var terminal = $"../../../../Terminal/_terminal_mock/terminal_content"
 
+var action_event_flag_pause = false
+@onready var hex_parent = get_parent().get_parent()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
@@ -10,13 +13,25 @@ func _ready():
 	self.start()
 	play_pause_btn.connect("pause_game", stop_resume_timer)
 	play_pause_btn.connect("unpause_game", stop_resume_timer)
+	terminal.connect("answer_signal", handle_answer_stop_resume)
+	hex_parent.connect("hexagon_clicked", handle_hexagon_click)
 	
 func _process(_delta):
 	if Globals.DEBUG_MODE:
 		send_time_to_label()
 
+func handle_answer_stop_resume(answer_impact: Dictionary):
+	if answer_impact.node_name == hex_parent.name:
+		action_event_flag_pause = false
+		stop_resume_timer()
+		print(hex_parent.name)
+
+func handle_hexagon_click(params):
+	action_event_flag_pause = true
+	stop_resume_timer()
+
 func stop_resume_timer():
-	self.set_paused(!self.paused)
+	self.set_paused(Globals.gamePaused or action_event_flag_pause)
 
 func send_time_to_label():
 	var sub_str = "" 

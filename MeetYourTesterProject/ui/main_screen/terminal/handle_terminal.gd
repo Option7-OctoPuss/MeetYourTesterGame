@@ -69,6 +69,9 @@ func handle_meta_clicked(meta: Variant):
 		node.remove_action_event()
 	var selected_answer = question_from_queue.answers[question_choosed_info[1].to_int()]
 	if selected_answer != null:
+		# add node_name to selected answer for correct behaviour in
+		# pause/resume hexagon timer
+		selected_answer.target.node_name = question_from_queue['event_name']
 		answer_signal.emit(selected_answer.target)
 
 func prepare_question_for_terminal(question: Dictionary) -> String:
