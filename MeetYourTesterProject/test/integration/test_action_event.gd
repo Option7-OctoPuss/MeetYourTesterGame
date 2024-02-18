@@ -7,39 +7,29 @@ class TestActionEventPO:
 	extends GutTest
 	var main_game_scene = null
 	var terminal_scene = null
-	var action_event_btn_name = "UI_UX"
+	var action_event_btn_name = "Business_Logic"
 	var terminal_name = "_terminal_mock"
-	var terminal_content_name = "terminal_content"
+	var terminal_content_node_name = "terminal_content"
 	var action_event_btn:TextureButton
-	var terminal:Node2D
-	var terminal_content:RichTextLabel
+	var test_event_name = 'GutTest'
+	var terminal_content_node:RichTextLabel
 	
 	func before_all():
-		gut.p('TestActionEventPO:  pre-run')	
-		var file = FileAccess.get_file_as_string(Globals.questions_file_path)
-		Globals.questions = JSON.parse_string(file)
-
+		gut.p('TestActionEventPO:  pre-run')
+	
 	func before_each():
 		gut.p('TestActionEventPO:  setup')
-		
 		main_game_scene = preload("res://ui/main_screen/main_game_scene.tscn").instantiate()
-		#+terminal_scene = preload("res://ui/main_screen/terminal/terminal_mock.tscn").instantiate()
-		
-		# TODO: not calling directly _ready() but find a way to instantiate the
-		# scene correctly.
-		# _ready() should be called automatically when the scene is instantiated
-		# but this does not happens, so we call it 'manually'
-		terminal_scene = main_game_scene.find_child("_terminal_mock")
-		terminal_scene._ready()
-
+		terminal_scene = preload("res://ui/main_screen/terminal/terminal_mock.tscn").instantiate()
+		add_child(main_game_scene)
+		terminal_content_node = terminal_scene.find_child(terminal_content_node_name)
 		action_event_btn = main_game_scene.find_child(action_event_btn_name)
 		assert_not_null(action_event_btn, "Action Event button should be found")
-		action_event_btn._ready()
-		terminal = main_game_scene.find_child(terminal_name)
-		assert_not_null(terminal, "Terminal should be found")
-		
+	
 	func after_each():
 		gut.p('TestActionEventPO:  teardown')
+		main_game_scene.free()
+		terminal_scene.free()
 
 	func after_all():
 		gut.p('TestActionEventPO:  post-run')
@@ -55,9 +45,8 @@ class TestActionEventPO:
 	func test_click_on_action_event_updates_terminal():
 		gut.p("Testing if clicking on the action event updates the text on the terminal")
 		action_event_btn._pressed()
-		terminal_content = terminal.find_child(terminal_content_name)
-		print(action_event_btn_name, terminal_content.get_parsed_text().strip_edges().begins_with("UI_UX"))
-		assert_true(terminal_content.get_parsed_text().strip_edges().begins_with(action_event_btn_name))
+		terminal_scene.handle_event_from_action_event({"node_name":test_event_name})
+		assert_string_contains(terminal_content_node.text, test_event_name)
 		
 	# TODO enable test when code from other branch changes the texture back 
 	#func test_click_on_mockup_answer_changes_action_event_texture():

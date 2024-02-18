@@ -6,6 +6,7 @@ extends RichTextLabel
 @onready var tween = get_tree().create_tween()
 var rng = RandomNumberGenerator.new()
 var queue = [];
+var terminalHistory = ""
 signal answer_signal(answer_target)
 
 func _ready():
@@ -24,20 +25,22 @@ func handle_event_from_action_event(event_name:String, event_questions:Array):
 		return
 	# push to queue both current event_name and question content
 	queue.append([event_name,current_question])
-	append_text(prepare_question_for_terminal(event_name, current_question, true))
+	text = prepare_question_for_terminal(event_name, current_question, true)
 	self.scroll_active = false 
 	scroll_to_line(get_line_count() - 1)
 
 func update_terminal_content(event_name:String, current_question:Dictionary, answer_idx: int):
-	Globals.terminalHistory += prepare_question_for_terminal(event_name, current_question, false, answer_idx)
-	self.set_text(Globals.terminalHistory)
+	terminalHistory += prepare_question_for_terminal(event_name, current_question, false, answer_idx)
+	text = terminalHistory
 	if queue.size() != 0:
-		append_text(prepare_question_for_terminal(event_name, current_question, true))
+		text = prepare_question_for_terminal(event_name, current_question, true)
 
 func handle_meta_clicked(meta: Variant):
 	self.scroll_active = true
 	var question_choosed_info = meta.split('_') # questionId_answerIdx
+	print(question_choosed_info)
 	var question_from_queue = pop_selected_question(question_choosed_info[0])
+	print(question_from_queue)
 	var event_name = question_from_queue[0]
 	var current_question = question_from_queue[1]
 	update_terminal_content(event_name, current_question, question_choosed_info[1].to_int())

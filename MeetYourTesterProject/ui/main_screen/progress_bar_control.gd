@@ -46,6 +46,7 @@ func auto_increment():
 
 # get effects from answer and apply them (moving progress, creating zone)
 func apply_progress_bar_effects(selected_answer: Dictionary):
+	print("apply_progress_bar_effects")
 	if selected_answer.has(PROGRESS_BAR_DICTIONARY_KEY):
 		var effect = selected_answer[PROGRESS_BAR_DICTIONARY_KEY]
 		if effect.has(PROGRESS_BAR_VALUE_DICTIONARY_KEY):
@@ -53,6 +54,7 @@ func apply_progress_bar_effects(selected_answer: Dictionary):
 			$GameProgressBar.value += effect[PROGRESS_BAR_VALUE_DICTIONARY_KEY]
 		if effect.has(PROGRESS_BAR_ZONE_DICTIONARY_KEY):
 			create_zone(effect[PROGRESS_BAR_ZONE_DICTIONARY_KEY])
+	
 
 # create a new zone and push it at the end of the queue
 func create_zone(zone_effects: Dictionary):

@@ -24,5 +24,7 @@ enum progress_bar_zone_length {
 var progress_bar_possible_speeds = [0.3,0.6,1] # a value is chosen based on selected difficulty
 var progress_bar_speed = progress_bar_possible_speeds[0]
 
-var randomTimerForActionEventInactivity = 10#75
+var randomTimerForActionEventInactivity = 10 # 75
 var randomTimerForActionEventAcceptance = 10
+
+const ANONYMITY_BAR_DICTIONARY_KEY = "anon_bar"

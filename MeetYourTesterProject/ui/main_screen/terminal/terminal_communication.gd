@@ -13,15 +13,14 @@ func _ready():
 		$"../../MainControl/UI_UX"
 	]
 	# read and parse all questions from different data files for each node (in JSON)
-	for node in ["Database","Delivery","Business_Logic","Backend","UI_UX"]:
+	for node in ["Database","Delivery","Business_Logic","Backend","UI_UX","GutTest"]:
 		var file = FileAccess.get_file_as_string("%s/%s.json" % [Globals.questions_dir_path, node])
 		if file:
 			Globals.questions[node] = JSON.parse_string(file)
 		else:
 			Globals.questions[node] = []
-	
+	# connect terminal to each hexagon in game scene
 	for hex in hex_list:
-		# connect terminal to each hexagon in game scene
 		hex.connect("hexagon_clicked", handle_event_from_action_event)
 	
 func handle_event_from_action_event(event_params:Dictionary):
