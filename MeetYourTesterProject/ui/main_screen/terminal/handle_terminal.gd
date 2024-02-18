@@ -24,15 +24,15 @@ func handle_event_from_action_event(event_name:String, event_questions:Array):
 		return
 	# push to queue both current event_name and question content
 	queue.append([event_name,current_question])
-	append_text(prepare_question_for_terminal(event_name, current_question))
+	append_text(prepare_question_for_terminal(event_name, current_question, true))
 	self.scroll_active = false 
 	scroll_to_line(get_line_count() - 1)
 
 func update_terminal_content(event_name:String, current_question:Dictionary, answer_idx: int):
-	Globals.terminalHistory += format_question(event_name, current_question, answer_idx)
+	Globals.terminalHistory += prepare_question_for_terminal(event_name, current_question, false, answer_idx)
 	self.set_text(Globals.terminalHistory)
 	if queue.size() != 0:
-		append_text(prepare_question_for_terminal(event_name, current_question))
+		append_text(prepare_question_for_terminal(event_name, current_question, true))
 
 func handle_meta_clicked(meta: Variant):
 	self.scroll_active = true
@@ -52,10 +52,17 @@ func handle_meta_clicked(meta: Variant):
 		Globals.currentAnswer = selected_answer
 		answer_signal.emit(selected_answer)
 
-func prepare_question_for_terminal(event_name:String, question: Dictionary) -> String:
+func prepare_question_for_terminal(event_name:String, question: Dictionary, with_url: bool=false, answered_idx: int=-1) -> String:
 	var content_to_append = "[color=red]%s[/color]\n%s\n\n" % [event_name, question.title]
 	for i in range(question.answers.size()):
-		content_to_append += "%s. [url=%s_%s]%s[/url]\n" % [i + 1, question.id, i, question.answers[i].text]
+		if with_url:
+			content_to_append += "%s. [url=%s_%s]%s[/url]" % [i + 1, question.id, i, question.answers[i].text]
+		else:
+			if i == answered_idx:
+				content_to_append += "[color=green]%s. %s[/color]" % [i + 1, question.answers[i].text]
+			else:
+				content_to_append += "%s. %s" % [i + 1, question.answers[i].text]
+		content_to_append += "\n"
 	return content_to_append + "\n"
 
 func pop_selected_question(question_id: String) -> Array:
@@ -63,17 +70,3 @@ func pop_selected_question(question_id: String) -> Array:
 		if question_id == queue[i][1].id:
 			return queue.pop_at(i)
 	return []
-
-func format_question(event_name:String, question: Dictionary, answer_idx: int) -> String:
-	var answers_text = []
-	for answer in question.answers:
-		answers_text.append(answer.text)
-
-	var terminal_question = "[color=red]%s[/color]"% event_name + "\n" + question.title + "\n"
-	for idx in range(0, answers_text.size()):
-		if idx == answer_idx:
-			terminal_question += "[color=green]%s[/color]"% (str(idx+1) + ". " + answers_text[idx]) + "\n"
-		else:
-			terminal_question += str(idx+1) + ". " + answers_text[idx] + "\n"
-
-	return terminal_question + "\n"

@@ -2,6 +2,7 @@ extends Control
 
 @onready var terminal = $"../Terminal/_terminal_mock/terminal_content"
 const PROGRESS_BAR_DICTIONARY_KEY = "progress_bar"
+const PROGRESS_BAR_VALUE_DICTIONARY_KEY = "value"
 const PROGRESS_BAR_ZONE_DICTIONARY_KEY = "zone"
 var zones_scene = preload("res://ui/main_screen/progress_bar_zones_scene.tscn")
 var zones_queue = [] # FIFO queue to store created zones with their parameters
@@ -47,8 +48,9 @@ func auto_increment():
 func apply_progress_bar_effects(selected_answer: Dictionary):
 	if selected_answer.has(PROGRESS_BAR_DICTIONARY_KEY):
 		var effect = selected_answer[PROGRESS_BAR_DICTIONARY_KEY]
-		# Godot handle under the hood the check for progress bar boundaries. If you add 1000 with a max value of 100 it will be 100.
-		$GameProgressBar.value += effect.value
+		if effect.has(PROGRESS_BAR_VALUE_DICTIONARY_KEY):
+			# Godot handle under the hood the check for progress bar boundaries. If you add 1000 with a max value of 100 it will be 100.
+			$GameProgressBar.value += effect[PROGRESS_BAR_VALUE_DICTIONARY_KEY]
 		if effect.has(PROGRESS_BAR_ZONE_DICTIONARY_KEY):
 			create_zone(effect[PROGRESS_BAR_ZONE_DICTIONARY_KEY])
 
