@@ -29,11 +29,9 @@ func _pressed():
 	# to switch texture, we first save the disabled one, then replace it with the pressed one
 	texture_disabled = texture_pressed
 	disabled = true
-	
 	# define the parameters to pass to the terminal
 	var node_name = get_name()
 	var params = {"node_name":node_name}
-	
 	# emit signal that this button has been pressed
 	hexagon_clicked.emit(params)
 
@@ -43,7 +41,6 @@ func generate_action_event():
 	is_action_event_generated = true
 	timer_child.wait_time = randi() % Globals.randomTimerForActionEventAcceptance
 	
-
 func remove_action_event():
 	texture_disabled = backup_disable_image
 	disabled = true

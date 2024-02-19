@@ -2,6 +2,8 @@ extends Control
 
 @onready var terminal = $"../Terminal/_terminal_mock/terminal_content"
 const PROGRESS_BAR_DICTIONARY_KEY = "progress_bar"
+const PROGRESS_BAR_VALUE_DICTIONARY_KEY = "value"
+const PROGRESS_BAR_ZONE_DICTIONARY_KEY = "zone"
 var zones_scene = preload("res://ui/main_screen/progress_bar_zones_scene.tscn")
 var zones_queue = [] # FIFO queue to store created zones with their parameters
 
@@ -43,22 +45,24 @@ func auto_increment():
 		$GameProgressBar.value += Globals.progress_bar_speed
 
 # get effects from answer and apply them (moving progress, creating zone)
-func apply_progress_bar_effects(answer_impact: Dictionary):
-	if PROGRESS_BAR_DICTIONARY_KEY == answer_impact["type"]:
-		var answerEffects = answer_impact["effects"]
-		if answerEffects.has("zone"):
-			create_zone(answerEffects)
-		# Godot handle under the hood the check for progress bar boundaries. If you add 1000 with a max value of 100 it will be 100.
-		$GameProgressBar.value += answerEffects.value
+func apply_progress_bar_effects(selected_answer: Dictionary):
+	print("apply_progress_bar_effects")
+	if selected_answer.has(PROGRESS_BAR_DICTIONARY_KEY):
+		var effect = selected_answer[PROGRESS_BAR_DICTIONARY_KEY]
+		if effect.has(PROGRESS_BAR_VALUE_DICTIONARY_KEY):
+			# Godot handle under the hood the check for progress bar boundaries. If you add 1000 with a max value of 100 it will be 100.
+			$GameProgressBar.value += effect[PROGRESS_BAR_VALUE_DICTIONARY_KEY]
+		if effect.has(PROGRESS_BAR_ZONE_DICTIONARY_KEY):
+			create_zone(effect[PROGRESS_BAR_ZONE_DICTIONARY_KEY])
+	
 
 # create a new zone and push it at the end of the queue
-func create_zone(answer_effects: Dictionary):
+func create_zone(zone_effects: Dictionary):
 	var new_zone_scene = zones_scene.instantiate()
 	var new_zone_node:TextureRect = new_zone_scene.get_child(0)
 	# https://www.davcri.it/posts/godot-reparent-node/
 	new_zone_scene.remove_child(new_zone_node)
 	# get zone effects and params
-	var zone_effects:Dictionary = answer_effects.get("zone",{})
 	var zone_length = int(zone_effects.get("length",Globals.progress_bar_zone_length.SMALL))
 	match zone_length: 		# set zone texture based on length (sm,md,lg)
 		Globals.progress_bar_zone_length.SMALL:

@@ -1,0 +1,41 @@
+[
+  {
+	"id": "BL-ST-Q1",
+	"title": "The admin asked you to report the current status of the roles and permissions inside the software. While testing, you found out that some of the roles have extra permissions than the ones declared in the documentation. What do you do?",
+	"answers": [
+	  {
+		"text": "I will report to the admin that the extra permissions are unused and should be removed.",
+		"progress_bar": {
+		  "value": -5,
+		  "zone": {
+			"offset": 20,
+			"speed_value": 0.5,
+			"length": 1
+		  }
+		},
+		"anon_bar": {
+		  "value": -5
+		}
+	  },
+	  {
+		"text": "I will report to the admin that the extra permissions should be documented.",
+		"progress_bar": {
+		  "value": 5
+		}
+	  },
+	  {
+		"text": "I will ignore the extra permissions because they do not affect the test's outcomes.",
+		"progress_bar": {
+		  "zone": {
+			"offset": 20,
+			"speed_value": 0.5,
+			"length": 1
+		  }
+		},
+		"anon_bar": {
+		  "value": -5
+		}
+	  }
+	]
+  }
+]
