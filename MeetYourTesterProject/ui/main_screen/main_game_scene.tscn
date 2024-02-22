@@ -310,6 +310,12 @@ offset_left = 0.119999
 offset_right = -0.179993
 offset_bottom = 0.0199966
 
+[node name="ProgressBarSpeedDbg" type="RichTextLabel" parent="ProgressBarControl"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = -40.0
+offset_right = 115.0
+
 [node name="Terminal" type="Node2D" parent="."]
 
 [node name="_terminal_mock" parent="Terminal" instance=ExtResource("26_lb6pa")]
