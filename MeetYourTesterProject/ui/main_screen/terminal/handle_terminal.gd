@@ -7,6 +7,7 @@ extends RichTextLabel
 var rng = RandomNumberGenerator.new()
 var queue = [];
 var terminalHistory = ""
+var REGEX_ENGINE = RegEx.new()
 signal answer_signal(answer_target)
 
 func _ready():
@@ -23,6 +24,8 @@ func handle_event_from_action_event(event_name:String, event_questions:Array):
 	var current_question = retrieve_question(event_questions)
 	if not current_question:
 		return
+	
+	current_question.answers = randomize_answers(current_question.answers)
 	# push to queue both current event_name and question content
 	queue.append([event_name,current_question])
 	text = prepare_question_for_terminal(event_name, current_question, true)
@@ -56,20 +59,46 @@ func handle_meta_clicked(meta: Variant):
 		answer_signal.emit(selected_answer)
 
 func prepare_question_for_terminal(event_name:String, question: Dictionary, with_url: bool=false, answered_idx: int=-1) -> String:
-	var content_to_append = "[color=red]%s[/color]\n%s\n\n" % [event_name, question.title]
+	var content_to_append = "[color=red]%s[/color]\n%s\n\n" % [event_name, check_for_characters(question.title)]
 	for i in range(question.answers.size()):
+		var answer_text = question.answers[i].text
 		if with_url:
-			content_to_append += "%s. [url=%s_%s]%s[/url]" % [i + 1, question.id, i, question.answers[i].text]
+			content_to_append += "%s. [url=%s_%s]%s[/url]" % [i + 1, question.id, i, answer_text]
 		else:
 			if i == answered_idx:
-				content_to_append += "[color=green]%s. %s[/color]" % [i + 1, question.answers[i].text]
+				content_to_append += "[color=green]%s. %s[/color]" % [i + 1, answer_text]
 			else:
-				content_to_append += "%s. %s" % [i + 1, question.answers[i].text]
+				content_to_append += "%s. %s" % [i + 1, answer_text]
 		content_to_append += "\n"
 	return content_to_append + "\n"
+
+func randomize_answers(answers:Array, amount: int=3) -> Array:
+	print("These are NOT randomized\n",answers)
+	if answers.size() <= amount: return answers
+		
+	var randomized_answers:Array = []
+	for i in range(amount):
+		var random_index = rng.randi_range(0, answers.size()-1)
+		randomized_answers.append(answers[random_index])
+		answers.remove_at(random_index)
+	print("These are randomized\n",randomized_answers)
+	return randomized_answers
 
 func pop_selected_question(question_id: String) -> Array:
 	for i in range(queue.size()):
 		if question_id == queue[i][1].id:
 			return queue.pop_at(i)
 	return []
+
+func check_for_characters(question_title: String) -> String:
+	var regex_pattern: String = "%(.*?)%"
+	REGEX_ENGINE.compile(regex_pattern)
+	var results = REGEX_ENGINE.search_all(question_title)
+		
+	for result in results:
+		var matched_string = result.get_string(0)
+		print("matched_string %s" % matched_string)
+		var matched_string_replaced = result.get_string(1)
+		question_title = question_title.replace(matched_string, "[wave amp=50.0 freq=5.0 connected=1][color=blue]" + matched_string_replaced + "[/color][/wave]")
+	
+	return question_title

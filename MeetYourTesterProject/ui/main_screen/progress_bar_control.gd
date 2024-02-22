@@ -35,6 +35,7 @@ func get_pixel_from_percent(percent: float, total: int) -> int:
 		
 # called by the game timer each cycle, increment bar progress by default and apply zone modifier
 func auto_increment():
+	$ProgressBarSpeedDbg.set_text(str($GameProgressBar.value))
 	# if bar has reached the end, print GAME OVER 
 	if $GameProgressBar.value >= $GameProgressBar.max_value:
 	# TODO add an actual end game notification, stopping the game timer
