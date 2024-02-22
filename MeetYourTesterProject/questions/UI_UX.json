@@ -1,7 +1,7 @@
 [
     {
         "id": "UI-UT-Q1",
-        "title": "You are a QA Engineer involved in the final stages of a new app's development. The UX/UI designer, Steve, is collecting last-minute feedback from various team members to make minor adjustments before the usability testing session with external testers. Steve is particularly interested in ensuring that the app's navigation is intuitive and that the interface elements are engaging without being overwhelming.",
+        "title": "You are a QA Engineer involved in the final stages of a new app's development. The UX/UI designer, %Steve%, is collecting last-minute feedback from various team members to make minor adjustments before the usability testing session with external testers. Steve is particularly interested in ensuring that the app's navigation is intuitive and that the interface elements are engaging without being overwhelming.",
         "answers": [
             {
                 "text": "I think users would appreciate more options on the main navigation menu. It feels too simplistic right now. Maybe add some advanced settings directly in there too?",
@@ -66,7 +66,7 @@
     },
     {
         "id": "UI-UT-Q2",
-        "title": "You are designated as the usability tester for an e-commerce website and your manager Sally Filippini asked you to test a scenario of finding a particular pair of shoes. How do you test this behavior?",
+        "title": "You are designated as the usability tester for an e-commerce website and your manager %Sally Filippini% asked you to test a scenario of finding a particular pair of shoes. How do you test this behavior?",
         "answers": [
             {
                 "text": "I will scroll all the pages and then I go back using the browser back arrow to the page containing the shoes I want to purchase. In this way I can test also the browser back arrow functionality",
@@ -191,7 +191,7 @@
     },
     {
         "id": "UI-UT-Q4",
-        "title": "A testing session for the company's flagship app is scheduled for tomorrow. Steve, the project's lead UX/UI designer, and Rocco, the QA lead, are counting on this session to finalize the app's design and functionality.",
+        "title": "A testing session for the company's flagship app is scheduled for tomorrow. %Steve%, the project's lead UX/UI designer, and %Rocco%, the QA lead, are counting on this session to finalize the app's design and functionality.",
         "answers": [
             {
                 "text": "Under the pretense of efficiency, I provide the testers with a detailed script on how they should navigate the app, emphasizing areas I know are polished, and steering them away from less refined features.",
