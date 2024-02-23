@@ -7,9 +7,20 @@ const PROGRESS_BAR_ZONE_DICTIONARY_KEY = "zone"
 var zones_scene = preload("res://ui/main_screen/progress_bar_zones_scene.tscn")
 var zones_queue = [] # FIFO queue to store created zones with their parameters
 
+var zone_dictionary = {}
+var colors = ["red", "green"]
+var sizes = ["sm", "md", "lg"]
+
+
+
+
 func _ready():
 	terminal.connect("answer_signal", apply_progress_bar_effects)
-
+	for color in colors:
+		zone_dictionary[color] = {}
+		for size in sizes:
+			zone_dictionary[color][size] = load("res://images/main-game/progress-bar/" + color + "-zone-" + size + ".svg")
+			
 func _process(delta):
 	if is_zone_present():
 		var position_bar = get_current_position()
@@ -59,36 +70,48 @@ func apply_progress_bar_effects(selected_answer: Dictionary):
 
 # create a new zone and push it at the end of the queue
 func create_zone(zone_effects: Dictionary):
+	var new_zone_node = create_new_zone_node()
+	set_zone_texture(new_zone_node, zone_effects)
+	var new_zone = set_new_zone_properties(zone_effects, new_zone_node)
+	add_zone_to_queue_and_container(new_zone, new_zone_node)
+
+# create a new zone scene and node
+func create_new_zone_node():
 	var new_zone_scene = zones_scene.instantiate()
 	var new_zone_node:TextureRect = new_zone_scene.get_child(0)
-	# https://www.davcri.it/posts/godot-reparent-node/
 	new_zone_scene.remove_child(new_zone_node)
-	# get zone effects and params
+	return new_zone_node
+
+# set zone texture based on length (sm,md,lg)
+func set_zone_texture(new_zone_node, zone_effects):
 	var zone_length = int(zone_effects.get("length",Globals.progress_bar_zone_length.SMALL))
-	match zone_length: 		# set zone texture based on length (sm,md,lg)
+	var zone_speedup = zone_effects.get("speedValue",1)
+	var zone_color = "red" if zone_speedup < 1 else "green"
+	match zone_length:
 		Globals.progress_bar_zone_length.SMALL:
-			new_zone_node.texture = preload("res://images/main-game/progress-bar/blue-zone-sm.svg")
+			new_zone_node.texture = zone_dictionary[zone_color]["sm"]
 		Globals.progress_bar_zone_length.MEDIUM:
-			new_zone_node.texture = preload("res://images/main-game/progress-bar/blue-zone-md.svg")
+			new_zone_node.texture = zone_dictionary[zone_color]["md"]
 		Globals.progress_bar_zone_length.LARGE:
-			new_zone_node.texture = preload("res://images/main-game/progress-bar/blue-zone-lg.svg")
+			new_zone_node.texture = zone_dictionary[zone_color]["lg"]
 		_:
 			print("Unrecognized zone length: %s" % zone_length)
+
+# set new zone's properties
+func set_new_zone_properties(zone_effects, new_zone_node):
 	var new_zone = {}
-	# set offset from left of progress bar
 	var zone_offset = zone_effects.get("offset",0)
 	new_zone["speed"] = zone_effects.get("speedValue",1)
-	# start position is the offset (if any) plus the end of the last zone (if present) or the current progress bar position
 	new_zone["start_pos"] = zone_offset + (zones_queue[-1]["end_pos"] if is_zone_present() else $GameProgressBar.value)
-	# end position is the start of this zone plus the zone length
 	new_zone["end_pos"] = new_zone["start_pos"] + new_zone_node.texture.get_width()
 	new_zone_node.offset_left = new_zone["start_pos"]
-	
-	# if the end_zone of the zone will exceed the total ZonesContainer size, do not add zone
+	return new_zone
+
+# add new zone to queue and ZonesContainer
+func add_zone_to_queue_and_container(new_zone, new_zone_node):
 	if new_zone["end_pos"] <= $ZonesContainer.size.x: 
 		$ZonesContainer.add_child(new_zone_node)
-		zones_queue.append(new_zone) 
-	
+		zones_queue.append(new_zone)
 
 func remove_zone():
 	var zone = $ZonesContainer.get_child(0)
