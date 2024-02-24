@@ -1,0 +1,174 @@
+[
+    {
+        "id": "DEL-Q1",
+        "title": "You are a software tester during the development phase, and you need to ensure that your code integrates seamlessly with the existing codebase. How do you handle this behaviour?",
+        "answers": [
+            {
+                "text": "I will manually test my code by executing it and verifying the results.",
+                "progress_bar": {
+                    "value": 5
+                }
+            },
+            {
+                "text": "I will use automated testing services to execute pre-defined test scripts and ensure smooth integration with the existing codebase.",
+                "progress_bar": {
+                    "value": 5
+                },
+                "anon_bar": {
+                    "value": 10
+                }
+            },
+            {
+                "text": "I will ignore the integration testing phase as it's not an issue, assuming my code will work fine with the existing code.",
+                "anon_bar": {
+                    "value": 5
+                }
+            }
+        ]
+    },
+    {
+        "id": "DEL-Q2",
+        "title": "You are a QA tester during the testing phase, and there is a need to run the same set of tests multiple times to catch any potential issues before the code is released. How do you handle this behaviour?",
+        "answers": [
+            {
+                "text": "I will manually execute the tests multiple times to ensure any issues are caught before the release.",
+                "progress_bar": {
+                    "value": -5
+                }
+            },
+            {
+                "text": "I will use automation testing to run the test scripts multiple times, providing rapid feedback and catching issues early in the development process.",
+                "progress_bar": {
+                    "value": 5,
+                    "zone": {
+                        "offset": 20,
+                        "speedValue": 1.5,
+                        "length": 1
+                    }
+                },
+                "anon_bar": {
+                    "value": 15
+                }
+            },
+            {
+                "text": "I will ignore the need to run tests multiple times as it's not an issue, assuming that once tested, the code will be error-free.",
+                "progress_bar": {
+                    "value": -15,
+                    "zone": {
+                        "offset": 20,
+                        "speedValue": 0.5,
+                        "length": 1
+                    }
+                },
+                "anon_bar": {
+                    "value": -15
+                }
+            }
+        ]
+    },
+    {
+        "id": "DEL-Q3",
+        "title": "You are a software developer during the deployment phase, and you want to ensure that the new version of the application is deployed without causing any disruptions to end-users. How do you handle this behaviour?",
+        "answers": [
+            {
+                "text": "I will manually deploy the new version of the application and monitor for any disruptions.",
+                "progress_bar": {
+                    "value": 5
+                }
+            },
+            {
+                "text": "I will use automated deployment tools to deploy the new version of the application, ensuring a smoother and less error-prone deployment process.",
+                "progress_bar": {
+                    "value": 5,
+                    "zone": {
+                        "offset": 20,
+                        "speedValue": 1.2,
+                        "length": 1
+                    }
+                },
+                "anon_bar": {
+                    "value": 15
+                }
+            },
+            {
+                "text": "I will ignore the deployment process, assuming that the manual deployment will not cause any disruptions.",
+                "progress_bar": {
+                    "value": -5,
+                    "zone": {
+                        "offset": 20,
+                        "speedValue": 0.2,
+                        "length": 1
+                    }
+                },
+                "anon_bar": {
+                    "value": -5
+                }
+            }
+        ]
+    },
+    {
+        "id": "DEL-Q4",
+        "title": "You are a QA tester during the continuous delivery phase, and the automated release of validated code to a repository is completed. How do you handle this behaviour?",
+        "answers": [
+            {
+                "text": "I will intentionally disrupt the continuous delivery process, believing manual release is more controlled.",
+                "progress_bar": {
+                    "value": -10
+                },
+                "anon_bar": {
+                    "value": -10
+                }
+            },
+            {
+                "text": "I will actively support the continuous delivery process, understanding its role in swift and automated code release.",
+                "progress_bar": {
+                    "value": 10
+                },
+                "anon_bar": {
+                    "value": 10
+                }
+            },
+            {
+                "text": "I will passively ignore the continuous delivery process, assuming it's not my concern as a tester.",
+                "progress_bar": {
+                    "value": -5
+                }
+            }
+        ]
+    },
+    {
+        "id": "DEL-Q5",
+        "title": "You are a DevOps engineer during the continuous deployment phase, and there is a need for automated release of a developer's changes from the repository to production. How do you handle this behaviour?",
+        "answers": [
+            {
+                "text": "I will intentionally hinder the continuous deployment process, believing manual deployment is safer.",
+                "progress_bar": {
+                    "value": -10
+                },
+                "anon_bar": {
+                    "value": -10
+                }
+            },
+            {
+                "text": "I will actively promote continuous deployment, recognizing its benefits in rapid and automated production releases.",
+                "progress_bar": {
+                    "value": 5,
+                    "zone": {
+                        "offset": 20,
+                        "speedValue": 1.1,
+                        "length": 2
+                    }
+                },
+                "anon_bar": {
+                    "value": 15
+                }
+            },
+            {
+                "text": "I will passively ignore the continuous deployment process, assuming it's not within my role's scope.",
+                "progress_bar": {
+                    "value": -5
+                }
+            }
+        ]
+    }
+]
