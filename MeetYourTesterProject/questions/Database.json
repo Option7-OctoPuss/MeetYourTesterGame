@@ -13,6 +13,7 @@
 				   "length":1
 				}
 			 },
+			 "aftermath": "Your boss really appreciate your proactive so you gained more trust.",
 			 "anon_bar":{
 				"value":5
 			 }
@@ -27,12 +28,14 @@
 				   "length":1
 				}
 			 },
+			 "aftermath": "By focusing solely on the mapping formats within individual databases, you may miss potential inconsistencies, leading to fragmented schema across the heterogeneous environment.",
 			 "anon_bar":{
 				"value":5
 			 }
 		  },
 		  {
 			 "text":"I will dismiss the relevance of heterogeneous databases, assuming they have no impact on the schema mapping between front-end and back-end.",
+			 "aftermath": "Dismissing the relevance of heterogeneous databases, you overlook critical impacts on schema mapping between front-end and back-end, potentially causing significant discrepancies in the overall application functionality.",
 			 "anon_bar":{
 				"value":5
 			 }
@@ -52,6 +55,7 @@
 					"length":1
 				 }
 			  },
+			  "aftermath": "By avoiding testing the new function and assuming it won't impact existing code, you risk overlooking potential dependencies and unforeseen issues that may arise, potentially leading to compatibility issues or errors in the system.",
 			  "anon_bar":{
 				 "value":-5
 			  }
@@ -66,12 +70,14 @@
 				   "length":1
 				}
 			  },
+			  "aftermath": "Thoroughly testing the new function, analyzing its dependencies, and ensuring compatibility with existing code, enables you to identify and resolve any issues promptly, maintaining the integrity and stability of the system.",
 			  "anon_bar":{
 				 "value":5
 			  }
 		   },
 		   {
-			  "text":"I will passively include the new function in the testing process but won't specifically focus on its dependencies. ",
+			  "text":"I will passively include the new function in the testing process but won't specifically focus on its dependencies.",
+			  "aftermath": "Passively including the new function in the testing process without specifically focusing on its dependencies may result in undetected compatibility issues or errors, potentially compromising the reliability of the system.",
 			  "progress_bar":{
 				"value":10
 			  }
@@ -92,6 +98,7 @@
 					"length":1
 				 }
 			  },
+			  "aftermath": "By analyzing the system's performance under heavy loads you can optimize the system to handle increased transaction volumes efficiently",
 			  "anon_bar":{
 				 "value":5
 			  }
@@ -105,12 +112,14 @@
 				   "length":1
 				}
 			 },
+			 "aftermath": "Passively observing the system's behavior under heavy loads without taking corrective actions may lead to performance issues, compromising the system's reliability and user experience.",
 			 "anon_bar":{
 				"value":-5
 			 }
 		   },
 		   {
 			  "text":"I will deliberately escalate the load beyond its known capacity, aiming to induce a system crash, with the intention of uncovering potential weaknesses and vulnerabilities.",
+			  "aftermath": "Deliberately escalating the load beyond its known capacity with the intention of inducing a system crash to uncover weaknesses and vulnerabilities is a risky approach that can disrupt the system.",
 			  "progress_bar":{
 				"value":-5
 			  }
@@ -118,22 +127,106 @@
 		]
 	 },
 	 {
+	   "id": "DB-PER-Q2",
+   
+	   "title": "You are tasked with conducting Endurance Testing of the system, running it under sustained load for an extended period of time. How do you ensure stability and performance during this prolonged test?",
+	   "answers": [
+		 {
+		   "text": "I will closely monitor the system for memory leaks, database connection leaks, and overall performance degradation over the extended testing period, addressing any issues that may arise.",
+		   "progress_bar": {
+			 "value": 5,
+			 "zone": {
+			   "offset": 20,
+			   "speedValue": 1.2,
+			   "length": 1
+			 }
+		   },
+		   "aftermath": "By closely monitoring the system for possible leaks and issues you ensure stability and performance are maintained throughout the endurance testing phase.",
+		   "anon_bar": {
+			 "value": 5
+		   }
+		 },
+		 {
+		   "text": "I will run the system under sustained load without actively monitoring for potential issues, assuming that if there are problems, they will manifest themselves in other testing phases.",
+		   "progress_bar": {
+			   "zone": {
+				   "offset": 20,
+				   "speedValue": 0.5,
+				   "length": 1
+				 }
+			 },
+			 "aftermath": "Running the system under sustained load without actively monitoring for potential issues may lead to undetected problems that could significantly impact system stability.",
+			 "anon_bar": {
+			   "value": -5
+			 }
+		 },
+		 {
+		   "text": "I will extend the testing duration beyond the established time frame until any potential issues are discovered.",
+		   "aftermath": "Extending the testing duration beyond the established time frame until any potential issues are discovered may lead to unnecessary delays in the testing process and may not necessarily guarantee the discovery of all issues.",
+		   "progress_bar": {
+			   "value": -5
+			}
+		 }
+	   ]
+	 },
+	 {
+	   "id": "DB-SEC-Q1",
+   
+	   "title": "During the Log Integrity testing phase for the application’s logs, you discover that the logs are not digitally signed or protected. How do you address this issue?",
+	   "answers": [
+		 {
+		   "text": "I will report that it is necessary to implement a cryptographic validation for each entry so that the entire log chain can be verified",
+		   "progress_bar": {
+			 "value": 5,
+			 "zone": {
+			   "offset": 20,
+			   "speedValue": 1.2,
+			   "length": 1
+			 }
+		   },
+		   "aftermath": "This proactive approach enhances the security of the application, and stakeholders appreciate your attention to log integrity.",
+		   "anon_bar": {
+			 "value": 5
+		   }
+		 },
+		 {
+		   "text": "I will disregard the absence of log protection because even if the logs were tampered with, it's possible to trace incidents or identify security breaches.",
+		   "progress_bar": {
+			   "zone": {
+				   "offset": 20,
+				   "speedValue": 0.5,
+				   "length": 1
+				 }
+			},
+			"aftermath": "This approach results in possibile vulnerabilities and stakeholders express concerns about the compromised integrity of the logs. Your decision to overlook log protection is questioned, and efforts are redirected towards implementing security measures to prevent tampering.",
+			"anon_bar": {
+			  "value": -5
+			}
+		 },
+		 {
+		   "text": "I will introduce random irrelevant log entries into the system to produce noise",
+		   "aftermath": "Security incidents become harder to detect, and legitimate entries may be overlooked amidst the noise. Your approach is deemed counterproductive, and efforts are redirected towards implementing meaningful security measures for log protection.",
+		   "progress_bar": {
+			   "value": -5
+			}
+		 }
+	   ]
+	 },
+	 {
 		"id": "DB-SEC-Q2",
-	
 		"title": "During the Log Integrity testing phase for the application’s logs, you discover that the retention period is set to 90 days, while the industry standard recommends at least 180 days. How do you address this issue?",
 		"answers": [
 		  {
 			"text": "I will propose to extend the retention period to 1 year to ensure better traceability and investigation of incidents",
 			"progress_bar": {
 			  "value": 5,
-	
 			  "zone": {
 				"offset": 20,
 				"speedValue": 1.2,
 				"length": 1
 			  }
 			},
-	
+			"aftermath": "The change is implemented smoothly, ensuring better traceability and investigation of incidents. Stakeholders appreciate the proactive approach, and the application is now aligned with industry standards.",
 			"anon_bar": {
 			  "value": 5
 			}
@@ -143,106 +236,23 @@
 			"text": "I will propose to reduce the retention period to 1 week to free up storage space and ensure faster log retrieval and analysis",
 			"progress_bar": {
 				"value": -5,
-	  
 				"zone": {
 				  "offset": 20,
 				  "speedValue": 0.5,
 				  "length": 1
 				}
 			  },
-	  
+			  "aftermath": "After an analysis, the team agrees that the reduced retention period aligns with operational needs. Storage space is freed up, log retrieval and analysis become faster, and the change is well-received by the team.",
 			  "anon_bar": {
 				"value": -5
 			  }
 		  },
-	
 		  {
 			"text": "I will propose to remove the retention period and maintain all logs for an indefinite amount of time",
+			"aftermath": "Your approach will cause disk saturation causing also a slow down to the system.",
 			"progress_bar": {
-				"value": -5}
-		  }
-		]
-	  },
-	  {
-		"id": "DB-SEC-Q1",
-	
-		"title": "During the Log Integrity testing phase for the application’s logs, you discover that the logs are not digitally signed or protected. How do you address this issue?",
-		"answers": [
-		  {
-			"text": "I will report that it is necessary to implement a cryptographic validation for each entry so that the entire log chain can be verified",
-			"progress_bar": {
-			  "value": 5,
-	
-			  "zone": {
-				"offset": 20,
-				"speedValue": 1.2,
-				"length": 1
-			  }
-			},
-	
-			"anon_bar": {
-			  "value": 5
-			}
-		  },
-		  {
-			"text": "I will disregard the absence of log protection because even if the logs were tampered with, it’s possible to trace incidents or identify security breaches.",
-			"progress_bar": {
-				"zone": {
-					"offset": 20,
-					"speedValue": 0.5,
-					"length": 1
-				  }
-			  },
-	  
-			  "anon_bar": {
 				"value": -5
-			  }
-		  },
-		  {
-			"text": "I will introduce random irrelevant log entries into the system to produce noise",
-			"progress_bar": {
-				"value": -5}
-		  }
-		]
-	  },
-	  {
-		"id": "DB-PER-Q2",
-	
-		"title": "You are tasked with conducting Endurance Testing of the system, running it under sustained load for an extended period of time. How do you ensure stability and performance during this prolonged test?",
-		"answers": [
-		  {
-			"text": "I will closely monitor the system for memory leaks, database connection leaks, and overall performance degradation over the extended testing period, addressing any issues that may arise.",
-			"progress_bar": {
-			  "value": 5,
-	
-			  "zone": {
-				"offset": 20,
-				"speedValue": 1.2,
-				"length": 1
-			  }
-			},
-			"anon_bar": {
-			  "value": 5
 			}
-		  },
-		  {
-			"text": "I will run the system under sustained load without actively monitoring for potential issues, assuming that if there are problems, they will manifest themselves in other testing phases.",
-			"progress_bar": {
-				"zone": {
-					"offset": 20,
-					"speedValue": 0.5,
-					"length": 1
-				  }
-			  },
-	  
-			  "anon_bar": {
-				"value": -5
-			  }
-		  },
-		  {
-			"text": "I will extend the testing duration beyond the established time frame until any potential issues are discovered.",
-			"progress_bar": {
-				"value": -5}
 		  }
 		]
 	  }
