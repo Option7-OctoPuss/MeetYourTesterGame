@@ -10,7 +10,8 @@
                 },
                 "anon_bar": {
                     "value": -5
-                }
+                },
+                "aftermath": "After implementing the additional options and settings, users find it cluttered and confusing."
             },
             {
                 "text": "The current color scheme is too conventional. We should aim for something bold. How about using more vibrant, contrasting colors for text and background? It will make the app stand out.",
@@ -19,7 +20,9 @@
                 },
                 "anon_bar": {
                     "value": -5
-                }
+                },
+                "aftermath":"After implementing the bold and vibrant color scheme, users find the app visually overwhelming. The high contrast colors strain their eyes, making it difficult to focus on content."
+
             },
             {
                 "text": "Users might find it useful to have pop-up tutorials on every page. It shows we're thoughtful about guiding them.",
@@ -33,10 +36,11 @@
                 },
                 "anon_bar": {
                     "value": -5
-                }
+                },
+                "aftermath":"After implementing pop-up tutorials on every page, users find them intrusive and disruptive to their experience."
             },
             {
-                "text": "I believe our users are smart enough to handle more information at once. Let's pack more data into each screen to reduce the need for scrolling.",
+                "text": "I believe our users are smart enough to handle more information at once. Let's pack more data into each screen to reduce the need for scrolling",
                 "progress_bar": {
                     "zone": {
                         "offset": 20,
@@ -46,7 +50,8 @@
                 },
                 "anon_bar": {
                     "value": -5
-                }
+                },
+                "aftermath":"After implementing the strategy of packing more data into each screen, users find the interface overwhelming and cluttered. "
             },
             {
                 "text": "How about separating the page by colors, so users know if they want to navigate to different sections they do so by colors?",
@@ -60,7 +65,8 @@
                 },
                 "anon_bar": {
                     "value": 5
-                }
+                },
+                "aftermath":"After implementing the color-based separation, users find the app’s navigation intuitive and engaging. Each section’s distinct color helps them quickly identify and access the desired features"
             }
         ]
     },
@@ -72,7 +78,8 @@
                 "text": "I will scroll all the pages and then I go back using the browser back arrow to the page containing the shoes I want to purchase. In this way I can test also the browser back arrow functionality",
                 "progress_bar": {
                     "value": -5
-                }
+                },
+                "aftermath":"This results in an overall decrease in testing efficiency, as the time and effort expended on this exhaustive method could be better allocated to more targeted, high-impact testing strategies."
             },
             {
                 "text": "I will open the page of the shoes and start clicking on links chaining them until I reach again the shoes I want to purchase. In this way I can test that all the links are marked as purple",
@@ -86,13 +93,15 @@
                 },
                 "anon_bar": {
                     "value": -5
-                }
+                },
+                "aftermath":"This approach overlooks critical usability aspects such as search functionality, navigation efficiency, and category filtering. Consequently, the method may consume significant time and resources without providing substantial improvements to the user's shopping experience"
             },
             {
                 "text": "I will simply search the pair of shoes since they are really cool",
                 "progress_bar": {
                     "value": 5
-                }
+                },
+                "aftermath":"This approach smoothly leads you to the shoes with minimal effort, showcasing the effectiveness and efficiency of the site's search functionality"
             }
         ]
     },
@@ -112,13 +121,15 @@
                 },
                 "anon_bar": {
                     "value": -5
-                }
+                },
+                "aftermath":"The team finds your approach impractical and irrelevant. Focusing on aesthetics alone doesn’t address critical usability issues. "
             },
             {
                 "text": "I will finish your work at home since you need the help of your little child to locate the settings section. He is young and knows better the social media",
                 "progress_bar": {
                     "value": -5
-                }
+                },
+                "aftermath":"Your decision to delegate testing to your young child backfires. The child inadvertently changes critical settings, leading to unexpected bugs in the live app."
             },
             {
                 "text": "I will create a test scenario that involves changing the profile picture using an obscure file format or via third-party apps not commonly used, which doesn't represent typical user behavior.",
@@ -131,7 +142,8 @@
                 },
                 "anon_bar": {
                     "value": -5
-                }
+                },
+                "aftermath":"Your test scenario confuses the development team. They struggle to reproduce the issue and waste time investigating non-standard scenarios. "
             },
             {
                 "text": "I will insist on testing the feature exclusively on outdated or uncommon devices, arguing that it's important to ensure wide compatibility.",
@@ -145,7 +157,8 @@
                 },
                 "anon_bar": {
                     "value": -5
-                }
+                },
+                "aftermath":"The boss is frustrated by your insistence on testing on obsolete devices. The team’s focus shifts from improving core functionality to maintaining compatibility with outdated hardware."
             },
             {
                 "text": "I will suggest testing the feature under unrealistic conditions, such as with extremely slow internet connections, to see how the feature performs in \"adverse\" conditions.",
@@ -159,7 +172,8 @@
                 },
                 "anon_bar": {
                     "value": -5
-                }
+                },
+                "aftermath":"Your insistence on simulating extremely slow internet connections causes delays. The team prioritizes performance over usability, resulting in a sluggish app. "
             },
             {
                 "text": "I will design a test that mimics a typical user's process of changing their profile picture, including selecting a photo from the device's gallery, cropping it, and saving it.",
@@ -172,7 +186,8 @@
                 },
                 "anon_bar": {
                     "value": 5
-                }
+                },
+                "aftermath":"After implementing this approach, the team praises your thoroughness. The feature performs seamlessly during usability testing, and users find the process intuitive. "
             },
             {
                 "text": "I will conduct usability testing across a range of commonly used devices and operating systems to ensure the feature's accessibility and functionality for the majority of users.",
@@ -185,7 +200,8 @@
                 },
                 "anon_bar": {
                     "value": 5
-                }
+                },
+                "aftermath":"Your comprehensive testing pays off. The feature works flawlessly on various devices and platforms. Users appreciate the consistent experience, and the boss acknowledges your diligent efforts."
             }
         ]
     },

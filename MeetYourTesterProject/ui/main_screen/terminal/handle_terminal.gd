@@ -20,6 +20,7 @@ func retrieve_question(event_questions:Array):
 		var random_question_index = rng.randi_range(0, event_questions.size()-1)
 		return event_questions[random_question_index]
 
+# Start here
 func handle_event_from_action_event(event_name:String, event_questions:Array):
 	var current_question = retrieve_question(event_questions)
 	if not current_question:
@@ -36,7 +37,7 @@ func update_terminal_content(event_name:String, current_question:Dictionary, ans
 	terminalHistory += prepare_question_for_terminal(event_name, current_question, false, answer_idx)
 	text = terminalHistory
 	if queue.size() != 0:
-		text = prepare_question_for_terminal(event_name, current_question, true)
+		text = prepare_question_for_terminal(event_name, current_question, true) 
 
 func handle_meta_clicked(meta: Variant):
 	self.scroll_active = true
@@ -70,10 +71,11 @@ func prepare_question_for_terminal(event_name:String, question: Dictionary, with
 			else:
 				content_to_append += "%s. %s" % [i + 1, answer_text]
 		content_to_append += "\n"
+	if answered_idx != -1:
+		content_to_append += "[color=#FFB6C1]"+ question.answers[answered_idx].aftermath+"[/color]\n"
 	return content_to_append + "\n"
 
 func randomize_answers(answers:Array, amount: int=3) -> Array:
-	print("These are NOT randomized\n",answers)
 	if answers.size() <= amount: return answers
 		
 	var randomized_answers:Array = []
@@ -81,7 +83,6 @@ func randomize_answers(answers:Array, amount: int=3) -> Array:
 		var random_index = rng.randi_range(0, answers.size()-1)
 		randomized_answers.append(answers[random_index])
 		answers.remove_at(random_index)
-	print("These are randomized\n",randomized_answers)
 	return randomized_answers
 
 func pop_selected_question(question_id: String) -> Array:
