@@ -15,29 +15,29 @@ func _ready():
 	self.meta_underlined = false
 	self.scroll_following = true
 	
-func retrieve_question(event_questions:Array):
-	if event_questions.size()>0:
-		var random_question_index = rng.randi_range(0, event_questions.size()-1)
+func retrieve_question(event_questions: Array):
+	if event_questions.size() > 0:
+		var random_question_index = rng.randi_range(0, event_questions.size() - 1)
 		return event_questions[random_question_index]
 
 # Start here
-func handle_event_from_action_event(event_name:String, event_questions:Array):
+func handle_event_from_action_event(event_name: String, event_questions: Array):
 	var current_question = retrieve_question(event_questions)
 	if not current_question:
 		return
 	
 	current_question.answers = randomize_answers(current_question.answers)
 	# push to queue both current event_name and question content
-	queue.append([event_name,current_question])
+	queue.append([event_name, current_question])
 	text = prepare_question_for_terminal(event_name, current_question, true)
-	self.scroll_active = false 
+	self.scroll_active = false
 	scroll_to_line(get_line_count() - 1)
 
-func update_terminal_content(event_name:String, current_question:Dictionary, answer_idx: int):
+func update_terminal_content(event_name: String, current_question: Dictionary, answer_idx: int):
 	terminalHistory += prepare_question_for_terminal(event_name, current_question, false, answer_idx)
 	text = terminalHistory
 	if queue.size() != 0:
-		text = prepare_question_for_terminal(event_name, current_question, true) 
+		text = prepare_question_for_terminal(event_name, current_question, true)
 
 func handle_meta_clicked(meta: Variant):
 	self.scroll_active = true
@@ -49,7 +49,7 @@ func handle_meta_clicked(meta: Variant):
 	var current_question = question_from_queue[1]
 	update_terminal_content(event_name, current_question, question_choosed_info[1].to_int())
 	#print("Event name from meta: %s" % question_from_queue['event_name'])
-	var node = get_node("../../../MainControl/" + event_name)
+	var node = get_node("../../../MainControl/"+ event_name)
 	if node:
 		node.remove_action_event()
 	var selected_answer = current_question.answers[question_choosed_info[1].to_int()]
@@ -59,7 +59,7 @@ func handle_meta_clicked(meta: Variant):
 		Globals.currentAnswer = selected_answer
 		answer_signal.emit(selected_answer)
 
-func prepare_question_for_terminal(event_name:String, question: Dictionary, with_url: bool=false, answered_idx: int=-1) -> String:
+func prepare_question_for_terminal(event_name: String, question: Dictionary, with_url: bool=false, answered_idx: int=- 1) -> String:
 	var content_to_append = "[color=red]%s[/color]\n%s\n\n" % [event_name, check_for_characters(question.title)]
 	for i in range(question.answers.size()):
 		var answer_text = question.answers[i].text
@@ -71,16 +71,18 @@ func prepare_question_for_terminal(event_name:String, question: Dictionary, with
 			else:
 				content_to_append += "%s. %s" % [i + 1, answer_text]
 		content_to_append += "\n"
-	if answered_idx != -1:
-		content_to_append += "[color=#FFB6C1]"+ question.answers[answered_idx].aftermath+"[/color]\n"
+	if answered_idx != - 1:
+		var aftermath_text = question.answers[answered_idx].get("aftermath", null)
+		if aftermath_text != null:
+			content_to_append += "[color=#FFB6C1]%s[/color]\n" % aftermath_text
 	return content_to_append + "\n"
 
-func randomize_answers(answers:Array, amount: int=3) -> Array:
+func randomize_answers(answers: Array, amount: int=3) -> Array:
 	if answers.size() <= amount: return answers
 		
-	var randomized_answers:Array = []
+	var randomized_answers: Array = []
 	for i in range(amount):
-		var random_index = rng.randi_range(0, answers.size()-1)
+		var random_index = rng.randi_range(0, answers.size() - 1)
 		randomized_answers.append(answers[random_index])
 		answers.remove_at(random_index)
 	return randomized_answers
