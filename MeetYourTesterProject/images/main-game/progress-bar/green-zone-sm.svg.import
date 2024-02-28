@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clm5abjqsvfy2"
-path="res://.godot/imported/dev-progress-bar.svg-3e23d73ad96649b1e197545dad7080ce.ctex"
+uid="uid://d1f7tv4x2wt35"
+path="res://.godot/imported/green-zone-sm.svg-92ef6d4b492e11d21e3b1c6ef4517c9e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/main-game/dev-progress-bar.svg"
-dest_files=["res://.godot/imported/dev-progress-bar.svg-3e23d73ad96649b1e197545dad7080ce.ctex"]
+source_file="res://images/main-game/progress-bar/green-zone-sm.svg"
+dest_files=["res://.godot/imported/green-zone-sm.svg-92ef6d4b492e11d21e3b1c6ef4517c9e.ctex"]
 
 [params]
 

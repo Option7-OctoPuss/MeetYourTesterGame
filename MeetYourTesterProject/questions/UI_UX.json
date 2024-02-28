@@ -1,0 +1,265 @@
+[
+    {
+        "id": "UI-UT-Q1",
+        "title": "You are a QA Engineer involved in the final stages of a new app's development. The UX/UI designer, %Steve%, is collecting last-minute feedback from various team members to make minor adjustments before the usability testing session with external testers. Steve is particularly interested in ensuring that the app's navigation is intuitive and that the interface elements are engaging without being overwhelming.",
+        "answers": [
+            {
+                "text": "I think users would appreciate more options on the main navigation menu. It feels too simplistic right now. Maybe add some advanced settings directly in there too?",
+                "progress_bar": {
+                    "value": 2
+                },
+                "anon_bar": {
+                    "value": -5
+                },
+                "aftermath": "After implementing the additional options and settings, users find it cluttered and confusing."
+            },
+            {
+                "text": "The current color scheme is too conventional. We should aim for something bold. How about using more vibrant, contrasting colors for text and background? It will make the app stand out.",
+                "progress_bar": {
+                    "value": -5
+                },
+                "anon_bar": {
+                    "value": -5
+                },
+                "aftermath":"After implementing the bold and vibrant color scheme, users find the app visually overwhelming. The high contrast colors strain their eyes, making it difficult to focus on content."
+
+            },
+            {
+                "text": "Users might find it useful to have pop-up tutorials on every page. It shows we're thoughtful about guiding them.",
+                "progress_bar": {
+                    "value": -5,
+                    "zone": {
+                        "offset": 20,
+                        "speedValue": 1.1,
+                        "length": 1
+                    }
+                },
+                "anon_bar": {
+                    "value": -5
+                },
+                "aftermath":"After implementing pop-up tutorials on every page, users find them intrusive and disruptive to their experience."
+            },
+            {
+                "text": "I believe our users are smart enough to handle more information at once. Let's pack more data into each screen to reduce the need for scrolling",
+                "progress_bar": {
+                    "zone": {
+                        "offset": 20,
+                        "speedValue": 0.4,
+                        "length": 1
+                    }
+                },
+                "anon_bar": {
+                    "value": -5
+                },
+                "aftermath":"After implementing the strategy of packing more data into each screen, users find the interface overwhelming and cluttered. "
+            },
+            {
+                "text": "How about separating the page by colors, so users know if they want to navigate to different sections they do so by colors?",
+                "progress_bar": {
+                    "value": 0,
+                    "zone": {
+                        "offset": 20,
+                        "speedValue": 1,
+                        "length": 1
+                    }
+                },
+                "anon_bar": {
+                    "value": 5
+                },
+                "aftermath":"After implementing the color-based separation, users find the app’s navigation intuitive and engaging. Each section’s distinct color helps them quickly identify and access the desired features"
+            }
+        ]
+    },
+    {
+        "id": "UI-UT-Q2",
+        "title": "You are designated as the usability tester for an e-commerce website and your manager %Sally Filippini% asked you to test a scenario of finding a particular pair of shoes. How do you test this behavior?",
+        "answers": [
+            {
+                "text": "I will scroll all the pages and then I go back using the browser back arrow to the page containing the shoes I want to purchase. In this way I can test also the browser back arrow functionality",
+                "progress_bar": {
+                    "value": -5
+                },
+                "aftermath":"This results in an overall decrease in testing efficiency, as the time and effort expended on this exhaustive method could be better allocated to more targeted, high-impact testing strategies."
+            },
+            {
+                "text": "I will open the page of the shoes and start clicking on links chaining them until I reach again the shoes I want to purchase. In this way I can test that all the links are marked as purple",
+                "progress_bar": {
+                    "value": -5,
+                    "zone": {
+                        "offset": 20,
+                        "speedValue": 0.3,
+                        "length": 1
+                    }
+                },
+                "anon_bar": {
+                    "value": -5
+                },
+                "aftermath":"This approach overlooks critical usability aspects such as search functionality, navigation efficiency, and category filtering. Consequently, the method may consume significant time and resources without providing substantial improvements to the user's shopping experience"
+            },
+            {
+                "text": "I will simply search the pair of shoes since they are really cool",
+                "progress_bar": {
+                    "value": 5
+                },
+                "aftermath":"This approach smoothly leads you to the shoes with minimal effort, showcasing the effectiveness and efficiency of the site's search functionality"
+            }
+        ]
+    },
+    {
+        "id": "UI-UT-Q3",
+        "title": "As a Usability Tester, your big boss has assigned you the task of testing a new feature on the company's upcoming social media app: changing the profile picture.",
+        "answers": [
+            {
+                "text": "You will test that the photo looks good since you were a professional model before starting a career as a Tester",
+                "progress_bar": {
+                    "value": -5,
+                    "zone": {
+                        "offset": 20,
+                        "speedValue": 0.6,
+                        "length": 1
+                    }
+                },
+                "anon_bar": {
+                    "value": -5
+                },
+                "aftermath":"The team finds your approach impractical and irrelevant. Focusing on aesthetics alone doesn’t address critical usability issues. "
+            },
+            {
+                "text": "I will finish your work at home since you need the help of your little child to locate the settings section. He is young and knows better the social media",
+                "progress_bar": {
+                    "value": -5
+                },
+                "aftermath":"Your decision to delegate testing to your young child backfires. The child inadvertently changes critical settings, leading to unexpected bugs in the live app."
+            },
+            {
+                "text": "I will create a test scenario that involves changing the profile picture using an obscure file format or via third-party apps not commonly used, which doesn't represent typical user behavior.",
+                "progress_bar": {
+                    "zone": {
+                        "offset": 20,
+                        "speedValue": 0.25,
+                        "length": 1
+                    }
+                },
+                "anon_bar": {
+                    "value": -5
+                },
+                "aftermath":"Your test scenario confuses the development team. They struggle to reproduce the issue and waste time investigating non-standard scenarios. "
+            },
+            {
+                "text": "I will insist on testing the feature exclusively on outdated or uncommon devices, arguing that it's important to ensure wide compatibility.",
+                "progress_bar": {
+                    "value": -5,
+                    "zone": {
+                        "offset": 20,
+                        "speedValue": 0.75,
+                        "length": 1
+                    }
+                },
+                "anon_bar": {
+                    "value": -5
+                },
+                "aftermath":"The boss is frustrated by your insistence on testing on obsolete devices. The team’s focus shifts from improving core functionality to maintaining compatibility with outdated hardware."
+            },
+            {
+                "text": "I will suggest testing the feature under unrealistic conditions, such as with extremely slow internet connections, to see how the feature performs in \"adverse\" conditions.",
+                "progress_bar": {
+                    "value": -5,
+                    "zone": {
+                        "offset": 20,
+                        "speedValue": 0.9,
+                        "length": 1
+                    }
+                },
+                "anon_bar": {
+                    "value": -5
+                },
+                "aftermath":"Your insistence on simulating extremely slow internet connections causes delays. The team prioritizes performance over usability, resulting in a sluggish app. "
+            },
+            {
+                "text": "I will design a test that mimics a typical user's process of changing their profile picture, including selecting a photo from the device's gallery, cropping it, and saving it.",
+                "progress_bar": {
+                    "zone": {
+                        "offset": 15,
+                        "speedValue": 1,
+                        "length": 1
+                    }
+                },
+                "anon_bar": {
+                    "value": 5
+                },
+                "aftermath":"After implementing this approach, the team praises your thoroughness. The feature performs seamlessly during usability testing, and users find the process intuitive. "
+            },
+            {
+                "text": "I will conduct usability testing across a range of commonly used devices and operating systems to ensure the feature's accessibility and functionality for the majority of users.",
+                "progress_bar": {
+                    "zone": {
+                        "offset": 20,
+                        "speedValue": 1.25,
+                        "length": 1
+                    }
+                },
+                "anon_bar": {
+                    "value": 5
+                },
+                "aftermath":"Your comprehensive testing pays off. The feature works flawlessly on various devices and platforms. Users appreciate the consistent experience, and the boss acknowledges your diligent efforts."
+            }
+        ]
+    },
+    {
+        "id": "UI-UT-Q4",
+        "title": "A testing session for the company's flagship app is scheduled for tomorrow. %Steve%, the project's lead UX/UI designer, and %Rocco%, the QA lead, are counting on this session to finalize the app's design and functionality.",
+        "answers": [
+            {
+                "text": "Under the pretense of efficiency, I provide the testers with a detailed script on how they should navigate the app, emphasizing areas I know are polished, and steering them away from less refined features.",
+                "progress_bar": {
+                    "value": -3
+                },
+                "aftermath": "Because testers were guided to focus on specific areas, significant usability problems in the app remain undiscovered."
+            },
+            {
+                "text": "I express concerns that the testing might not cover the app's innovative features, like the advanced customization options, which have not been the focus of development recently. I suggest these features should be a priority during testing to impress stakeholders.",
+                "progress_bar": {
+                    "value": 0,
+                    "zone": {
+                        "offset": 20,
+                        "speedValue": 0.5,
+                        "length": 1
+                    }
+                },
+                "aftermath":"Steve spends the night tweaking design elements to match the latest trends, while essential features remain buggy and user-unfriendly.",
+                "anon_bar": {
+                    "value": -5
+                }
+            },
+            {
+                "text": "In a pre-testing meeting with Jamie and Taylor, I downplay the significance of recently discovered bugs. Instead, I advocate focusing on aligning the UI with the latest design trends I claim are essential for user engagement, citing articles and examples that exaggerate these trends' importance.",
+                "progress_bar": {
+                    "zone": {
+                      "offset": 30,
+                      "speedValue": 0.35,
+                      "length":3
+                  }
+                },
+                "anon_bar": {
+                    "value": 2
+                },
+                "aftermath": "Rocco and Steve are misled into believing the app is closer to readiness than it actually is."
+            },
+            {
+                "text": "I emphasize the potential of a customization feature that testers found engaging, though it was not a priority for the team.",
+                "progress_bar": {
+                    "value": 5,
+                    "zone": {
+                        "offset": 30,
+                        "speedValue": 0.35,
+                        "length": 2
+                    }
+                },
+                "aftermath": "Rocco reallocates QA resources to extensively test the advanced customization options, leaving less time for evaluating the app's core functionalities and attracting a niche user base that appreciates the high level of personalization.",
+                "anon_bar": {
+                    "value": 5
+                }
+            }
+        ]
+    }
+]

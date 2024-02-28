@@ -1,0 +1,419 @@
+[
+  {
+	"id": "BL-ST-Q1",
+	"title": "The admin asked you to report the current status of the roles and permissions inside the software. While testing, you found out that some of the roles have extra permissions than the ones declared in the documentation. What do you do?",
+	"answers": [
+	  {
+		"text": "I will report to the admin that the extra permissions are unused and should be removed.",
+		"progress_bar": {
+		  "value": -5,
+		  "zone": {
+			"offset": 20,
+			"speedValue": 0.5,
+			"length": 1
+		  }
+		},
+		"aftermath": "Your proactive approach to identifying unnecessary permissions is appreciated. The admin may initiate a cleanup of roles and permissions, enhancing security and reducing complexity in the software.",
+		"anon_bar": {
+		  "value": -5
+		}
+	  },
+	  {
+		"text": "I will report to the admin that the extra permissions should be documented.",
+		"progress_bar": {
+		  "value": 5
+		},
+		"aftermath": "Your suggestion to update the documentation is noted. The admin might proceed to update the documentation, ensuring clarity for future reference and avoiding confusion among users and testers."
+	  },
+	  {
+		"text": "I will ignore the extra permissions because they do not affect the test's outcomes.",
+		"progress_bar": {
+		  "zone": {
+			"offset": 20,
+			"speedValue": 0.5,
+			"length": 1
+		  }
+		},
+		"aftermath": "Ignoring the extra permissions could lead to confusion and potential security vulnerabilities in the software. Your oversight might be missed by the admin, potentially resulting in unforeseen issues during the actual usage of the software.",
+		"anon_bar": {
+		  "value": -5
+		}
+	  }
+	]
+  },
+  {
+	"id": "BL-ST-Q2",
+	"title": "During the Penetration Testing phase of the web interface, you discover a vulnerability related to how the cookies are handled. How do you handle this?",
+	"answers": [
+	  {
+		"text": "I will report the vulnerability to the security team and suggest immediate remediation steps to maintain the integrity.",
+		"progress_bar": {
+		  "value": 5
+		},
+		"aftermath": "Immediate remediation steps can be taken to patch the vulnerability, enhancing the security posture of the web interface and mitigating potential risks."
+	  },
+	  {
+		"text": "I will exploit the vulnerability to inject malicious scripts into cookies causing unexpected behavior in the application, and report the exploit as well.",
+		"progress_bar": {
+		  "value": 5,
+		  "zone": {
+			"offset": 10,
+			"speedValue": 0.7,
+			"length": 2
+		  }
+		},
+		"aftermath": "You got unauthorized access to the application's backend systems.",
+		"anon_bar": {
+		  "value": 5
+		}
+	  },
+	  {
+		"text": "I will not report the vulnerability because I could not exploit it to gain any unauthorized access.",
+		"progress_bar": {
+		  "zone": {
+			"offset": 15,
+			"speedValue": 0.8,
+			"length": 1
+		  }
+		},
+		"aftermath": "Your action poses a significant risk to the security of the web interface.",
+		"anon_bar": {
+		  "value": -5
+		}
+	  }
+	]
+  },
+  {
+	"id": "BL-ST-Q3",
+	"title": "You are testing the Role Concatenation Logic of a system where users can have multiple roles. You discover that there are two roles “Admin” and “Administrator” that share all the same permissions except for one. How do you test this behavior?",
+	"answers": [
+	  {
+		"text": "I will report to the Role Permission Design team that the two roles could be merged into one.",
+		"progress_bar": {
+		  "value": -5,
+		  "zone": {
+			"offset": 15,
+			"speedValue": 0.8,
+			"length": 1
+		  }
+		},
+		"aftermath": "You facilitate streamlining the system's permissions structure, enhancing clarity and simplifying role management",
+		"anon_bar": {
+		  "value": -5
+		}
+	  },
+	  {
+		"text": "I will duplicate all tests that use either role to ensure that the permissions are checked correctly.",
+		"progress_bar": {
+		  "value": -5
+		},
+		"aftermath": "You minimized the risk of overlooking discrepancies and enhancing the system's robustness."
+	  },
+	  {
+		"text": "I will ignore it because it passes all the tests and its not an issue.",
+		"anon_bar": {
+		  "value": 5
+		},
+		"aftermath": "Your action led to confusion and inconsistencies in role management and undermined system security and functionality."
+	  },
+	  {
+		"text": "I will discuss with the Role Permission Design team to better understand the hierarchy between the roles.",
+		"progress_bar": {
+		  "value": 5
+		},
+		"aftermath": "Your contribution and proactive adjustments to the hierarchy are highly appreciated and gained you more trust."
+	  }
+	]
+  },
+  {
+	"id": "BL-DT-Q1",
+	"title": "You are testing “adding more items” to the user's cart and the expected behavior is to stop adding when the total price exceeds the user's balance, but you don't have the user balance since it's classified, where would you apply the test:",
+	"answers": [
+	  {
+		"text": "I will report to my boss that I can't test this since the balance is classified.",
+		"progress_bar": {
+		  "value": -5
+		},
+		"aftermath": "Your Boss is bored because of your ethical testing practices because you are not able to provide test solutions."
+	  },
+	  {
+		"text": "I will implement the logic to test the hidden value so I know if it fits my conditions or not.",
+		"progress_bar": {
+		  "value": 5
+		},
+		"aftermath": "Your ethical testing practices, impact the system functionality and enhance the robustness of the system, which increases the speed of the process and improves the quality."
+	  },
+	  {
+		"text": "I will write a dummy test that does nothing just to pass my hours.",
+		"progress_bar": {
+		  "zone": {
+			"offset": 15,
+			"speedValue": 0.8,
+			"length": 2
+		  }
+		},
+		"aftermath": "You are wasting time and also failing to provide meaningful insights into the functionality, resulting in undetected defects and compromised system reliability.",
+		"anon_bar": {
+		  "value": -5
+		}
+	  }
+	]
+  },
+  {
+	"id": "BL-DT-Q2",
+	"title": "The development team asked you to test a new complex code that has many conditions. In this situation, how do you handle this?",
+	"answers": [
+	  {
+		"text": "I will write the code considering a Design Table testing approach to help organize the complex code using a table format.",
+		"progress_bar": {
+		  "value": 5
+		},
+		"aftermath": "Your approach demonstrates proactive planning and organization thereby enhancing the quality of the software."
+	  },
+	  {
+		"text": "I will employ a Design Table testing approach, creating a new table for each condition to ensure better organization and clarity.",
+		"progress_bar": {
+		  "value": -5
+		},
+		"aftermath": "Your unnecessary meticulousness is speeding down, and your boss is mad at you."
+	  },
+	  {
+		"text": "I will first draw a diagram, then construct a Design Table, and finally proceed with writing the code to be clear.",
+		"aftermath": "This structured approach fosters clear communication and facilitates comprehensive testing, resulting in more reliable and robust software that gains you more trust.",
+		"anon_bar": {
+		  "value": 5
+		}
+	  }
+	]
+  },
+  {
+	"id": "BL-DT-Q3",
+	"title": "Your boss asked you, as part of a team working on e-commerce, to test a function that tests that if you add an item to the cart you will be charged for the price of the item, you discovered that there are no rules about decreasing the number of products in the cart, how do you handle this situation?",
+	"answers": [
+	  {
+		"text": "I will test the feature with simple test cases",
+		"progress_bar": {
+		  "zone": {
+			"offset": 15,
+			"speedValue": 0.8,
+			"length": 2
+		  }
+		},
+		"aftermath": "Your simple test will fail later, costing the team time to cover all the possible cases.",
+		"anon_bar": {
+		  "value": -5
+		}
+	  },
+	  {
+		"text": "I will test adding and removing items with particular attention to boundary cases.",
+		"progress_bar": {
+		  "value": 5
+		},
+		"aftermath": "By considering edge cases, you enhance the reliability and integrity of the feature"
+	  },
+	  {
+		"text": "I will use the vulnerability to give me back the price of the money * 2  when the number of items is negative, but I hide it from the testing report.",
+		"progress_bar": {
+		  "value": -5,
+		  "zone": {
+			"offset": 15,
+			"speedValue": 0.8,
+			"length": 2
+		  }
+		},
+		"aftermath": " Your action includes extensive damage control efforts, loss of trust from users, and significant financial repercussions for the organization",
+		"anon_bar": {
+		  "value": -5
+		}
+	  }
+	]
+  },
+  {
+	"id": "BL-DT-Q4",
+	"title": "Your boss has decided to run a special promotion on the e-commerce platform. Starting at a specified time, the first person to make a purchase will receive the selected item for free. So they stressed you to test the new functionality of free goods focusing on possible overlapping conditions.",
+	"answers": [
+	  {
+		"text": "I will focus entirely on individual user scenarios to make sure that the code runs smoothly.",
+		"anon_bar": {
+		  "value": 5
+		},
+		"aftermath": "Your action is enhancing the reliability and user experience of the platform."
+	  },
+	  {
+		"text": "I will conduct stress testing with the Database team to test how the system handles high traffic, ensuring that it remains stable and responsive",
+		"progress_bar": {
+		  "value": 5,
+		  "zone": {
+			"offset": 15,
+			"speedValue": 1.5,
+			"length": 2
+		  }
+		},
+		"aftermath": "You missed the chance to crash down the software against high traffic loads and maintained optimal performance during peak periods.",
+		"anon_bar": {
+		  "value": 5
+		}
+	  },
+	  {
+		"text": "I know a specific user that will use the system so you test the feature only considering this username and getting each time a free product",
+		"aftermath": "You delivered data inconsistencies and skewed performance metrics.",
+		"progress_bar": {
+		  "value": -5,
+		  "zone": {
+			"offset": 5,
+			"speedValue": 0.5,
+			"length": 2
+		  }
+		},
+		"anon_bar": {
+		  "value": -5
+		}
+	  }
+	]
+  },
+  {
+	"id": "BL-CT-Q1",
+	"title": "Your boss assigns you the task of testing the new promotion on our e-commerce web app for the new products until supplies run out. You discovered that sometimes (rarely) a product with a quantity of 0 can still be purchased, but you haven't been able to reproduce the issue. What do you do?",
+	"answers": [
+	  {
+		"text": "I will just report the problem because I didn't find a way how to replicate the issue.",
+		"progress_bar": {
+		  "value": 5
+		},
+		"aftermath": "This ensures that potential issues are brought to the attention of the development team for further investigation and resolution."
+	  },
+	  {
+		"text": "I will investigate the problem, try to replicate the behavior, and then report it to the development team for help.",
+		"progress_bar": {
+		  "value": 5,
+		  "zone": {
+			"offset": 10,
+			"speedValue": 0.7,
+			"length": 3
+		  }
+		},
+		"aftermath": "Your assistance-seeking fosters collaboration and ensures that the issue is addressed effectively, which improves the software quality.",
+		"anon_bar": {
+		  "value": 5
+		}
+	  },
+	  {
+		"text": "I will not investigate it since it happens rarely and also because I didn't find a way how to replicate the problem.",
+		"progress_bar": {
+		  "zone": {
+			"offset": 10,
+			"speedValue": 0.7,
+			"length": 3
+		  }
+		},
+		"aftermath": "The unforeseen consequences undermine the overall integrity of the application, resulting in user frustration and loss of trust.",
+		"anon_bar": {
+		  "value": -5
+		}
+	  }
+	]
+  },
+  {
+	"id": "BL-CT-Q2",
+	"title": "The development team implemented some months ago a review functionality for the products in the e-commerce web app. You discovered that comments and ratings are lost or not synchronized when a review is written simultaneously. How do you handle this?",
+	"answers": [
+	  {
+		"text": "Since the review functionality was implemented a long time ago and not used so much, I will ignore this case in my test suite.",
+		"progress_bar": {
+		  "zone": {
+			"offset": 10,
+			"speedValue": 0.7,
+			"length": 2
+		  }
+		},
+		"aftermath": "Failing to address synchronization issues could lead to data inconsistency and undermine the reliability of the review feature, ultimately affecting customer trust and satisfaction.",
+		"anon_bar": {
+		  "value": -5
+		}
+	  },
+	  {
+		"text": "I will report the problem to the development team, since it’s a code issue.",
+		"progress_bar": {
+		  "value": 5
+		},
+		"aftermath": "You facilitated prompt investigation and resolution, contributing to the overall improvement of the software."
+	  },
+	  {
+		"text": "I will create a new test to make the old function pass because the programmers are my friends.",
+		"progress_bar": {
+		  "value": -5
+		},
+		"aftermath": "Your relationships with friends impact testing integrity, the reliability, and effectiveness of quality assurance efforts."
+	  }
+	]
+  },
+  {
+	"id": "BL-TT-Q1",
+	"title": "The software development team has implemented a real-time chat service, and your boss asked you to test it. However, while testing, you noticed that there is no global timing for messages, which means that the user can change the time locally to send messages that appear at the wrong order. What will you do?",
+	"answers": [
+	  {
+		"text": "I will report the bug immediately since it’s critical and might violate the integrity and honesty of data.",
+		"progress_bar": {
+		  "value": 5
+		},
+		"aftermath": "You helped in maintaining the functionality and reliability of the real-time chat service."
+	  },
+	  {
+		"text": "I will not tell them about it because I will use it later to delay other processes when needed.",
+		"progress_bar": {
+		  "zone": {
+			"offset": 15,
+			"speedValue": 0.7,
+			"length": 2
+		  }
+		},
+		"aftermath": "You got yourself a warning because you jeopardized the integrity of the chat service and its data.",
+		"anon_bar": {
+		  "value": -5
+		}
+	  },
+	  {
+		"text": "I will ignore it and not mention anything.",
+		"aftermath": "The application is losing users because they are more confused and dissatisfied.",
+		"anon_bar": {
+		  "value": 5
+		}
+	  }
+	]
+  },
+  {
+	"id": "BL-TT-Q2",
+	"title": "While you were testing the cart functionality on the website, you were so tired and solely focused on transitioning from the 'shopping cart' state to the 'order confirmed' state. However, you neglected to test the transition to the 'order canceled' state when users abandon their carts. As a result, when users abandon their carts, the system fails to update the order status, leading to inaccurate order records and inventory discrepancies. You noticed that at the end of the day, what will you do?",
+	"answers": [
+	  {
+		"text": "I will quietly update the test results documentation to indicate that the transition to the 'order canceled' state was successfully tested, even though it was not.",
+		"progress_bar": {
+		  "value": -5,
+		  "zone": {
+			"offset": 15,
+			"speedValue": 0.7,
+			"length": 2
+		  }
+		},
+		"aftermath": "The application has a bad review because of the faulty functionality and negative consequences for users and the business.",
+		"anon_bar": {
+		  "value": -5
+		}
+	  },
+	  {
+		"text": "I will ask for extra time to do further testing.",
+		"progress_bar": {
+		  "value": -5
+		},
+		"aftermath": "You advocated for additional testing resources which slows down the progress significantly."
+	  },
+	  {
+		"text": "I will report the issue to the development team.",
+		"progress_bar": {
+		  "value": 5
+		},
+		"aftermath": "This proactive approach helps uphold the quality standards of the software and enhances the overall user experience."
+	  }
+	]
+  }
+]

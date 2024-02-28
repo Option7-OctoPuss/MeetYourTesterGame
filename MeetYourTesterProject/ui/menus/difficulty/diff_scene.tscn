@@ -59,7 +59,7 @@ drag_and_drop_selection_enabled = false
 caret_blink = true
 script = ExtResource("6_ifxn4")
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="DiffBtns" type="GridContainer" parent="."]
 layout_direction = 3
 anchors_preset = 2
 anchor_top = 1.0
@@ -71,34 +71,35 @@ offset_bottom = 1047.0
 grow_vertical = 0
 columns = 2
 
-[node name="EasyIcon" type="TextureButton" parent="GridContainer"]
+[node name="EasyIcon" type="TextureButton" parent="DiffBtns"]
 layout_mode = 2
 texture_normal = ExtResource("2_mnuxq")
 script = ExtResource("2_ty5a8")
 difficulty_level = 1
 next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
 
-[node name="CenterEasyLabel" type="CenterContainer" parent="GridContainer"]
+[node name="CenterEasyLabel" type="CenterContainer" parent="DiffBtns"]
 layout_mode = 2
 
-[node name="EasyDiffBtn" type="TextureButton" parent="GridContainer/CenterEasyLabel"]
+[node name="EasyDiffBtn" type="TextureButton" parent="DiffBtns/CenterEasyLabel"]
 layout_mode = 2
 size_flags_horizontal = 8
 texture_normal = ExtResource("1_bqnr1")
 script = ExtResource("2_ty5a8")
+difficulty_level = 1
 next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
 
-[node name="MediumIcon" type="TextureButton" parent="GridContainer"]
+[node name="MediumIcon" type="TextureButton" parent="DiffBtns"]
 layout_mode = 2
 texture_normal = ExtResource("7_j6g5n")
 script = ExtResource("2_ty5a8")
 difficulty_level = 2
 next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
 
-[node name="CenterMediumLabel" type="CenterContainer" parent="GridContainer"]
+[node name="CenterMediumLabel" type="CenterContainer" parent="DiffBtns"]
 layout_mode = 2
 
-[node name="MediumDiffBtn" type="TextureButton" parent="GridContainer/CenterMediumLabel"]
+[node name="MediumDiffBtn" type="TextureButton" parent="DiffBtns/CenterMediumLabel"]
 layout_mode = 2
 size_flags_horizontal = 8
 texture_normal = ExtResource("2_ggpfl")
@@ -106,17 +107,17 @@ script = ExtResource("2_ty5a8")
 difficulty_level = 2
 next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
 
-[node name="HardIcon" type="TextureButton" parent="GridContainer"]
+[node name="HardIcon" type="TextureButton" parent="DiffBtns"]
 layout_mode = 2
 texture_normal = ExtResource("11_kw371")
 script = ExtResource("2_ty5a8")
 difficulty_level = 3
 next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
 
-[node name="CenterHardLabel" type="CenterContainer" parent="GridContainer"]
+[node name="CenterHardLabel" type="CenterContainer" parent="DiffBtns"]
 layout_mode = 2
 
-[node name="HardDiffBtn" type="TextureButton" parent="GridContainer/CenterHardLabel"]
+[node name="HardDiffBtn" type="TextureButton" parent="DiffBtns/CenterHardLabel"]
 layout_mode = 2
 size_flags_horizontal = 8
 texture_normal = ExtResource("3_m4dx8")
@@ -124,16 +125,16 @@ script = ExtResource("2_ty5a8")
 difficulty_level = 3
 next_scene_path = "res://ui/main_screen/main_game_scene.tscn"
 
-[node name="CancelIcon" type="TextureButton" parent="GridContainer"]
+[node name="CancelIcon" type="TextureButton" parent="DiffBtns"]
 layout_mode = 2
 texture_normal = ExtResource("15_aikcy")
 script = ExtResource("2_ty5a8")
 next_scene_path = "res://ui/menus/main_menu.tscn"
 
-[node name="CenterCancelLabel" type="CenterContainer" parent="GridContainer"]
+[node name="CenterCancelLabel" type="CenterContainer" parent="DiffBtns"]
 layout_mode = 2
 
-[node name="CancelBtn" type="TextureButton" parent="GridContainer/CenterCancelLabel"]
+[node name="CancelBtn" type="TextureButton" parent="DiffBtns/CenterCancelLabel"]
 layout_mode = 2
 size_flags_horizontal = 8
 texture_normal = ExtResource("4_w18dt")
@@ -210,21 +211,21 @@ offset_bottom = 436.0
 layout_mode = 2
 texture = ExtResource("23_f0m7b")
 
-[connection signal="mouse_entered" from="GridContainer/EasyIcon" to="." method="_on_diff_btn_mouse_entered" binds= [1]]
-[connection signal="mouse_exited" from="GridContainer/EasyIcon" to="." method="_on_diff_btn_mouse_exited" binds= [1]]
-[connection signal="mouse_entered" from="GridContainer/CenterEasyLabel/EasyDiffBtn" to="." method="_on_diff_btn_mouse_entered" binds= [1]]
-[connection signal="mouse_exited" from="GridContainer/CenterEasyLabel/EasyDiffBtn" to="." method="_on_diff_btn_mouse_exited" binds= [1]]
-[connection signal="mouse_entered" from="GridContainer/MediumIcon" to="." method="_on_diff_btn_mouse_entered" binds= [2]]
-[connection signal="mouse_exited" from="GridContainer/MediumIcon" to="." method="_on_diff_btn_mouse_exited" binds= [2]]
-[connection signal="mouse_entered" from="GridContainer/CenterMediumLabel/MediumDiffBtn" to="." method="_on_diff_btn_mouse_entered" binds= [2]]
-[connection signal="mouse_exited" from="GridContainer/CenterMediumLabel/MediumDiffBtn" to="." method="_on_diff_btn_mouse_exited" binds= [2]]
-[connection signal="mouse_entered" from="GridContainer/HardIcon" to="." method="_on_diff_btn_mouse_entered" binds= [3]]
-[connection signal="mouse_exited" from="GridContainer/HardIcon" to="." method="_on_diff_btn_mouse_exited" binds= [3]]
-[connection signal="mouse_entered" from="GridContainer/CenterHardLabel/HardDiffBtn" to="." method="_on_diff_btn_mouse_entered" binds= [3]]
-[connection signal="mouse_exited" from="GridContainer/CenterHardLabel/HardDiffBtn" to="." method="_on_diff_btn_mouse_exited" binds= [3]]
-[connection signal="mouse_entered" from="GridContainer/CancelIcon" to="." method="_on_diff_btn_mouse_entered" binds= [0]]
-[connection signal="mouse_exited" from="GridContainer/CancelIcon" to="." method="_on_diff_btn_mouse_exited" binds= [0]]
-[connection signal="pressed" from="GridContainer/CancelIcon" to="GridContainer/CancelIcon" method="_on_Button_pressed"]
-[connection signal="mouse_entered" from="GridContainer/CenterCancelLabel/CancelBtn" to="." method="_on_diff_btn_mouse_entered" binds= [0]]
-[connection signal="mouse_exited" from="GridContainer/CenterCancelLabel/CancelBtn" to="." method="_on_diff_btn_mouse_exited" binds= [0]]
-[connection signal="pressed" from="GridContainer/CenterCancelLabel/CancelBtn" to="GridContainer/CenterCancelLabel/CancelBtn" method="_on_Button_pressed"]
+[connection signal="mouse_entered" from="DiffBtns/EasyIcon" to="." method="_on_diff_btn_mouse_entered" binds= [1]]
+[connection signal="mouse_exited" from="DiffBtns/EasyIcon" to="." method="_on_diff_btn_mouse_exited" binds= [1]]
+[connection signal="mouse_entered" from="DiffBtns/CenterEasyLabel/EasyDiffBtn" to="." method="_on_diff_btn_mouse_entered" binds= [1]]
+[connection signal="mouse_exited" from="DiffBtns/CenterEasyLabel/EasyDiffBtn" to="." method="_on_diff_btn_mouse_exited" binds= [1]]
+[connection signal="mouse_entered" from="DiffBtns/MediumIcon" to="." method="_on_diff_btn_mouse_entered" binds= [2]]
+[connection signal="mouse_exited" from="DiffBtns/MediumIcon" to="." method="_on_diff_btn_mouse_exited" binds= [2]]
+[connection signal="mouse_entered" from="DiffBtns/CenterMediumLabel/MediumDiffBtn" to="." method="_on_diff_btn_mouse_entered" binds= [2]]
+[connection signal="mouse_exited" from="DiffBtns/CenterMediumLabel/MediumDiffBtn" to="." method="_on_diff_btn_mouse_exited" binds= [2]]
+[connection signal="mouse_entered" from="DiffBtns/HardIcon" to="." method="_on_diff_btn_mouse_entered" binds= [3]]
+[connection signal="mouse_exited" from="DiffBtns/HardIcon" to="." method="_on_diff_btn_mouse_exited" binds= [3]]
+[connection signal="mouse_entered" from="DiffBtns/CenterHardLabel/HardDiffBtn" to="." method="_on_diff_btn_mouse_entered" binds= [3]]
+[connection signal="mouse_exited" from="DiffBtns/CenterHardLabel/HardDiffBtn" to="." method="_on_diff_btn_mouse_exited" binds= [3]]
+[connection signal="mouse_entered" from="DiffBtns/CancelIcon" to="." method="_on_diff_btn_mouse_entered" binds= [0]]
+[connection signal="mouse_exited" from="DiffBtns/CancelIcon" to="." method="_on_diff_btn_mouse_exited" binds= [0]]
+[connection signal="pressed" from="DiffBtns/CancelIcon" to="DiffBtns/CancelIcon" method="_on_Button_pressed"]
+[connection signal="mouse_entered" from="DiffBtns/CenterCancelLabel/CancelBtn" to="." method="_on_diff_btn_mouse_entered" binds= [0]]
+[connection signal="mouse_exited" from="DiffBtns/CenterCancelLabel/CancelBtn" to="." method="_on_diff_btn_mouse_exited" binds= [0]]
+[connection signal="pressed" from="DiffBtns/CenterCancelLabel/CancelBtn" to="DiffBtns/CenterCancelLabel/CancelBtn" method="_on_Button_pressed"]

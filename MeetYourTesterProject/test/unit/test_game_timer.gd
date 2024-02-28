@@ -25,12 +25,12 @@ class TestGameTimerPO:
 		var expected_value = params[1]
 		assert_eq(timer_node.paused, expected_value, "Property 'paused' of timer node should be " + str(expected_value) + ": " + str(timer_node.paused))
 
-	func test_timer_speed_game(params=use_parameters([[3, str(1)], [1, str(0.5)], [2, str(0.333)]])):
+	func test_timer_speed_game(params=use_parameters([[3, float(1)], [1, float(2)], [2, float(3)]])):
 		Globals.gameSpeed = params[0]
 		game_scene.find_child(speed_up_btn)._on_button_pressed()
-		var actual_wait_time = str(timer_node.wait_time).substr(0, 5)
+		var actual_wait_time = Engine.get_time_scale()
 		var expected_wait_time = params[1]
-		assert_eq(actual_wait_time, expected_wait_time, "With game speed of : " + str(Globals.gameSpeed) + " property 'wait_time' of timer node should be " + expected_wait_time + ": " + actual_wait_time)
+		assert_eq(actual_wait_time, expected_wait_time, "With game speed of : " + str(Globals.gameSpeed) + " property 'wait_time' of timer node should be " + str(expected_wait_time) + ": " + str(actual_wait_time))
 
 	func test_timer_string_format():
 		var timer_script = load("res://ui/main_screen/timer.gd").new()

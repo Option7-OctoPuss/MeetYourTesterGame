@@ -1,0 +1,30 @@
+[
+  {
+	"id": "TEST-Q1",
+	"title": "...",
+	"answers": [
+	  {
+		"text": "TEST PROGRESS VALUE",
+		"progress_bar": {
+		  "value": 10,
+		}
+	  },
+	  {
+		"text": "TEST ZONE",
+		"progress_bar": {
+		  "zone": {
+			"offset": 20,
+			"speed_value": 5,
+			"length": 1
+		  }
+		}
+	  },
+	  {
+		"text": "TEST ANONIMITY",
+		"anon_bar": {
+		  "value": 5
+		}
+	  }
+	]
+  }
+]

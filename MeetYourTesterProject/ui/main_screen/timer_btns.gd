@@ -6,7 +6,9 @@ signal speed_up_game
 
 var play_texture_path = preload("res://images/game-map/time/play.svg")
 var pause_texture_path = preload("res://images/game-map/time/pause.svg")
-var speedup_texture_path = preload("res://images/game-map/time/speed.svg")
+var speed_texture_path = preload("res://images/game-map/time/speed.svg")
+var speedup_texture_path = preload("res://images/game-map/time/speedup.svg")
+var speedup_2_texture_path = preload("res://images/game-map/time/speedup2.svg")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,16 +30,17 @@ func handle_speed_up():
 		Globals.gameSpeed = 2
 		print("Speeding up")
 	elif Globals.gameSpeed == 2:
+		self.texture_normal = speedup_2_texture_path
 		Globals.gameSpeed = 3
 		print("Speeding up 2")
 	elif Globals.gameSpeed == 3:
 		Globals.gameSpeed = 1
-		self.texture_normal = play_texture_path
+		self.texture_normal = speed_texture_path
 		print("Speeding up 3")
 	else:
 		print("Speeding up Else")
 		Globals.gameSpeed = 1
-		self.texture_normal = play_texture_path
+		self.texture_normal = speed_texture_path
 	emit_signal("speed_up_game")
 
 # https://docs.godotengine.org/en/stable/getting_started/step_by_step/signals.html
