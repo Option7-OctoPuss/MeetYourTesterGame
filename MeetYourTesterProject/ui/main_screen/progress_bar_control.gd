@@ -57,6 +57,7 @@ func auto_increment():
 		$GameProgressBar.value += Globals.progress_bar_speed * zones_queue[0]["speed"]
 	else:
 		$GameProgressBar.value += Globals.progress_bar_speed
+	decrease_deadlines_timers()
 
 # get effects from answer and apply them (moving progress, creating zone)
 func apply_progress_bar_effects(selected_answer: Dictionary):
@@ -69,13 +70,30 @@ func apply_progress_bar_effects(selected_answer: Dictionary):
 		if effect.has(PROGRESS_BAR_ZONE_DICTIONARY_KEY):
 			create_zone(effect[PROGRESS_BAR_ZONE_DICTIONARY_KEY])
 
+func float_to_time(seconds_float: float = 0) -> String:
+	var minutes = int(seconds_float / 60) % 60
+	var seconds = int(seconds_float) % 60
+
+	# Format the time components to ensure two digits for each (e.g., 05 instead of 5)
+	# var time_string = "%02d:%02d:%02d" % [hours, minutes, seconds]
+	var time_string = "%02d:%02d" % [ minutes, seconds]
+	return time_string
+
 func create_deadlines():
 	for i in range(len(Globals.deadlines)):
 		var new_deadline_scene = deadline_scene.instantiate()
 		var tmp_key = "deadline_%s" % str(i)
-		new_deadline_scene.get_child(0).position.x = (Globals.deadlines[i][tmp_key].deadline_position_in_seconds * Globals.progress_bar_speed / 100 * $GameProgressBar.size.x) - new_deadline_scene.get_child(0).size.x
-		var new_deadline_node:TextureRect = new_deadline_scene.get_child(0)
+		new_deadline_scene.get_child(0).set_text(float_to_time(float(Globals.deadlines[i][tmp_key].deadline_position_in_seconds)))
+		new_deadline_scene.position.x = (Globals.deadlines[i][tmp_key].deadline_position_in_seconds * Globals.progress_bar_speed / 100 * $GameProgressBar.size.x) - new_deadline_scene.get_child(1).size.x
 		$DeadlinesContainer.add_child(new_deadline_scene)
+		
+func decrease_deadlines_timers():
+	for i in range(len($DeadlinesContainer.get_children())):
+		var tmp_key = "deadline_%s" % str(i)
+		var new_timer = float(Globals.deadlines[i][tmp_key].deadline_position_in_seconds - Globals.gameTime)
+		if new_timer < 0:
+			continue
+		$DeadlinesContainer.get_child(i).get_child(0).set_text(float_to_time(new_timer))
 
 # create a new zone and push it at the end of the queue
 func create_zone(zone_effects: Dictionary):

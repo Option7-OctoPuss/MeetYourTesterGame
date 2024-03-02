@@ -320,9 +320,9 @@ anchor_top = 0.3
 anchor_right = 0.97
 anchor_bottom = 0.846
 offset_left = 7.12
-offset_top = -22.0
+offset_top = -47.0
 offset_right = -0.179993
-offset_bottom = 2.02
+offset_bottom = -11.98
 
 [node name="ProgressBarSpeedDbg" type="RichTextLabel" parent="ProgressBarControl"]
 visible = false
