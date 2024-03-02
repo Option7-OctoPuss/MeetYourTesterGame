@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dpyn1enbx4w7u"]
+[gd_scene load_steps=31 format=3 uid="uid://dpyn1enbx4w7u"]
 
 [ext_resource type="Texture2D" uid="uid://wgpfvhfu1oi6" path="res://images/game-map/time/timer.svg" id="1_lc3b6"]
 [ext_resource type="VideoStream" path="res://images/background/purple-nebula-background.ogv" id="1_tp77f"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://cy3cktjlojmph" path="res://images/main-game/progress-bar/yellow-bars-neutral.svg" id="26_r8fpx"]
 [ext_resource type="Texture2D" uid="uid://7o56brbyyo2q" path="res://images/main-game/progress-bar/progress-bar-frame.svg" id="27_1f572"]
 [ext_resource type="Script" path="res://ui/main_screen/anonymity_value.gd" id="27_4w0dy"]
+[ext_resource type="Texture2D" uid="uid://r1ddriq7amuf" path="res://images/main-game/progress-bar/deadline-pending.svg" id="27_618b6"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wlhim"]
 load_path = "res://.godot/imported/pause.svg-09127f19c3b279e09b32f71d3249e6c1.ctex"
@@ -285,10 +286,10 @@ vertical_alignment = 1
 
 [node name="GameProgressBar" type="TextureProgressBar" parent="ProgressBarControl"]
 layout_mode = 0
-offset_left = 18.0
-offset_top = 33.0
-offset_right = 769.0
-offset_bottom = 113.0
+offset_left = 19.0
+offset_top = 27.0
+offset_right = 770.0
+offset_bottom = 107.0
 step = 0.1
 texture_progress = ExtResource("26_r8fpx")
 
@@ -296,9 +297,10 @@ texture_progress = ExtResource("26_r8fpx")
 layout_mode = 0
 offset_left = 11.0
 offset_top = 17.0
-offset_right = 806.0
-offset_bottom = 115.0
+offset_right = 773.0
+offset_bottom = 116.0
 texture = ExtResource("27_1f572")
+expand_mode = 1
 
 [node name="ZonesContainer" type="Control" parent="ProgressBarControl"]
 layout_mode = 1
@@ -306,15 +308,67 @@ anchor_left = 0.02
 anchor_top = 0.3
 anchor_right = 0.97
 anchor_bottom = 0.846
-offset_left = 0.119999
-offset_right = -0.179993
-offset_bottom = 0.0199966
+offset_left = 2.12
+offset_top = -7.0
+offset_right = -13.18
+offset_bottom = -6.98
 
 [node name="ProgressBarSpeedDbg" type="RichTextLabel" parent="ProgressBarControl"]
+visible = false
 layout_mode = 0
 offset_left = 37.0
 offset_top = -40.0
 offset_right = 115.0
+
+[node name="Deadline1" type="TextureRect" parent="ProgressBarControl"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.287
+anchor_top = 0.238
+anchor_right = 0.345
+anchor_bottom = 1.0
+offset_left = 2.12199
+offset_top = -12.94
+offset_right = 2.06998
+offset_bottom = -13.0
+pivot_offset = Vector2(29, 51)
+texture = ExtResource("27_618b6")
+
+[node name="Deadline1Label" type="Label" parent="ProgressBarControl/Deadline1"]
+offset_top = -26.0
+offset_right = 41.0
+offset_bottom = -3.0
+text = "00:00
+"
+
+[node name="Deadline2" type="TextureRect" parent="ProgressBarControl"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.287
+anchor_top = 0.238
+anchor_right = 0.345
+anchor_bottom = 1.0
+offset_left = 242.122
+offset_top = -12.94
+offset_right = 242.07
+offset_bottom = -13.0
+pivot_offset = Vector2(29, 51)
+texture = ExtResource("27_618b6")
+
+[node name="Deadline2Label" type="Label" parent="ProgressBarControl/Deadline2"]
+offset_top = -26.0
+offset_right = 41.0
+offset_bottom = -3.0
+text = "00:00
+"
+
+[node name="FinalDeadlineLabel" type="Label" parent="."]
+offset_left = 932.0
+offset_top = 921.0
+offset_right = 973.0
+offset_bottom = 944.0
+text = "00:00
+"
 
 [node name="Terminal" type="Node2D" parent="."]
 
