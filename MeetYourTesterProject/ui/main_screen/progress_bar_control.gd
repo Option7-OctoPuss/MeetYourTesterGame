@@ -5,6 +5,7 @@ const PROGRESS_BAR_DICTIONARY_KEY = "progress_bar"
 const PROGRESS_BAR_VALUE_DICTIONARY_KEY = "value"
 const PROGRESS_BAR_ZONE_DICTIONARY_KEY = "zone"
 var zones_scene = preload("res://ui/main_screen/progress_bar_zones_scene.tscn")
+var deadline_scene = preload("res://ui/main_screen/progress_bar_deadline_scene.tscn")
 var zones_queue = [] # FIFO queue to store created zones with their parameters
 
 var zone_dictionary = {}
@@ -20,6 +21,7 @@ func _ready():
 		zone_dictionary[color] = {}
 		for size in sizes:
 			zone_dictionary[color][size] = load("res://images/main-game/progress-bar/" + color + "-zone-" + size + ".svg")
+	create_deadlines()
 			
 func _process(delta):
 	if is_zone_present():
@@ -66,7 +68,14 @@ func apply_progress_bar_effects(selected_answer: Dictionary):
 			$GameProgressBar.value += effect[PROGRESS_BAR_VALUE_DICTIONARY_KEY]
 		if effect.has(PROGRESS_BAR_ZONE_DICTIONARY_KEY):
 			create_zone(effect[PROGRESS_BAR_ZONE_DICTIONARY_KEY])
-	
+
+func create_deadlines():
+	for i in range(len(Globals.deadlines)):
+		var new_deadline_scene = deadline_scene.instantiate()
+		var tmp_key = "deadline_%s" % str(i)
+		new_deadline_scene.get_child(0).position.x = (Globals.deadlines[i][tmp_key].deadline_position_in_seconds * Globals.progress_bar_speed / 100 * $GameProgressBar.size.x) - new_deadline_scene.get_child(0).size.x
+		var new_deadline_node:TextureRect = new_deadline_scene.get_child(0)
+		$DeadlinesContainer.add_child(new_deadline_scene)
 
 # create a new zone and push it at the end of the queue
 func create_zone(zone_effects: Dictionary):

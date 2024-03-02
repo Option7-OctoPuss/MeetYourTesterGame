@@ -6,6 +6,9 @@ var gamePaused = false
 var gameSpeed = 1
 var gameTime= 0
 
+var deadlines_file_path = "res://deadlines/Deadlines.json"
+var deadlines:Array
+
 var questions_dir_path = "res://questions"
 var questions_file_path = "res://questions/example_question.json"
 var questions_test_file_path = "res://questions/example_question_test.json"
