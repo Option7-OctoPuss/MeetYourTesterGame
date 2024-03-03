@@ -1,11 +1,14 @@
-<svg width="751" height="80" viewBox="0 0 751 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect y="5" width="751" height="73" fill="#FEC631"/>
-<path d="M61.4948 2L13 2L42.5 41L13 78H61.4948L87 41L61.4948 2Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
-<path d="M154.495 2L106 2L135.5 41L106 78H154.495L180 41L154.495 2Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
-<path d="M247.495 2L199 2L228.5 41L199 78H247.495L273 41L247.495 2Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
-<path d="M340.495 2L292 2L321.5 41L292 78H340.495L366 41L340.495 2Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
-<path d="M433.495 2L385 2L414.5 41L385 78H433.495L459 41L433.495 2Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
-<path d="M526.495 2L478 2L507.5 41L478 78H526.495L552 41L526.495 2Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
-<path d="M619.495 2L571 2L600.5 41L571 78H619.495L645 41L619.495 2Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
-<path d="M712.495 2L664 2L693.5 41L664 78H712.495L738 41L712.495 2Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
+<svg width="742" height="99" viewBox="0 0 742 99" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="8" y="15" width="732" height="73" fill="#FEC631"/>
+<path d="M67.9392 12L20.6713 12L49.4249 51L20.6713 88L67.9392 88L92.7991 51L67.9392 12Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
+<path d="M158.586 12L111.318 12L140.072 51L111.318 88L158.586 88L183.446 51L158.586 12Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
+<path d="M249.233 12L201.965 12L230.719 51L201.965 88L249.233 88L274.093 51L249.233 12Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
+<path d="M339.88 12L292.612 12L321.366 51L292.612 88L339.88 88L364.74 51L339.88 12Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
+<path d="M430.528 12L383.26 12L412.013 51L383.26 88L430.528 88L455.388 51L430.528 12Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
+<path d="M521.175 12L473.907 12L502.66 51L473.907 88L521.175 88L546.035 51L521.175 12Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
+<path d="M611.822 12L564.554 12L593.308 51L564.554 88L611.822 88L636.682 51L611.822 12Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
+<path d="M702.469 12L655.201 12L683.955 51L655.201 88L702.469 88L727.329 51L702.469 12Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
+<path d="M4 19L10.787 12H729.243L737 19V80L730.213 88H10.787L4 81V19Z" stroke="#8F1B42" stroke-width="7"/>
+<path d="M4 19L10.787 12H729.243L737 19V80L730.213 88H10.787L4 81V19Z" stroke="#401127" stroke-width="2"/>
+<path d="M740 9.91667L733.913 2L700.471 2L698 9.91667L725.176 49.5L698 89.0833L700.471 97H733.913L740 89.0833V49.5V9.91667Z" fill="#8F1B42" stroke="#401127" stroke-width="3"/>
 </svg>

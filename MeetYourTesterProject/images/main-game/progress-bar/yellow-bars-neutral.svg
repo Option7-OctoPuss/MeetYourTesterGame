@@ -1,11 +1,14 @@
-<svg width="751" height="80" viewBox="0 0 751 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect y="5" width="751" height="73" fill="#FEC631"/>
-<rect y="5" width="751" height="73" fill="#FEC631"/>
-<path d="M111 2H61.4948L13 78H61.4948L111 2Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
-<path d="M209 2H159.495L111 78H159.495L209 2Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
-<path d="M307 2H257.495L209 78H257.495L307 2Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
-<path d="M405 2H355.495L307 78H355.495L405 2Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
-<path d="M503 2H453.495L405 78H453.495L503 2Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
-<path d="M601 2H551.495L503 78H551.495L601 2Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
-<path d="M699 2H649.495L601 78H649.495L699 2Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
+<svg width="742" height="99" viewBox="0 0 742 99" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="4" y="15" width="736" height="73" fill="#FEC631"/>
+<rect x="4" y="15" width="736" height="73" fill="#FEC631"/>
+<path d="M112.783 12H64.2666L16.7404 88H64.2666L112.783 12Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
+<path d="M208.826 12H160.309L112.783 88H160.309L208.826 12Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
+<path d="M304.868 12H256.352L208.826 88H256.352L304.868 12Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
+<path d="M400.911 12H352.394L304.868 88H352.394L400.911 12Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
+<path d="M496.953 12H448.437L400.911 88H448.437L496.953 12Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
+<path d="M592.996 12H544.48L496.953 88H544.48L592.996 12Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
+<path d="M689.039 12H640.522L592.996 88H640.522L689.039 12Z" fill="#FF9520" stroke="#FF9520" stroke-width="3"/>
+<path d="M4 19L10.787 12H729.243L737 19V80L730.213 88H10.787L4 81V19Z" stroke="#8F1B42" stroke-width="7"/>
+<path d="M4 19L10.787 12H729.243L737 19V80L730.213 88H10.787L4 81V19Z" stroke="#401127" stroke-width="2"/>
+<path d="M740 9.91667L733.913 2L700.471 2L698 9.91667L725.176 49.5L698 89.0833L700.471 97H733.913L740 89.0833V49.5V9.91667Z" fill="#8F1B42" stroke="#401127" stroke-width="3"/>
 </svg>
