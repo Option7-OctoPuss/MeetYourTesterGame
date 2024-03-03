@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ybxxnjiwk5sb"
-path="res://.godot/imported/sabotage-button-single-charge.svg-06d5c5ebc91f27dfb4f5acd19abd3f3a.ctex"
+uid="uid://bfdojxvh0t1t1"
+path="res://.godot/imported/charge-empty.svg-bd6ee7b78fbb3415e2a29904728d74c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/sabotage-buttons/sabotage-button-single-charge.svg"
-dest_files=["res://.godot/imported/sabotage-button-single-charge.svg-06d5c5ebc91f27dfb4f5acd19abd3f3a.ctex"]
+source_file="res://images/sabotage-buttons/charge-empty.svg"
+dest_files=["res://.godot/imported/charge-empty.svg-bd6ee7b78fbb3415e2a29904728d74c6.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csqw4cv82qkjj"
-path="res://.godot/imported/sabotage-button-no-charge.svg-0286bc0321324879ee2bf47388d04d9a.ctex"
+uid="uid://ctahb4xq02ktv"
+path="res://.godot/imported/charge-filled.svg-94426deb7d43e4bf9bcf7ff74f569303.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/sabotage-buttons/sabotage-button-no-charge.svg"
-dest_files=["res://.godot/imported/sabotage-button-no-charge.svg-0286bc0321324879ee2bf47388d04d9a.ctex"]
+source_file="res://images/sabotage-buttons/charge-filled.svg"
+dest_files=["res://.godot/imported/charge-filled.svg-94426deb7d43e4bf9bcf7ff74f569303.ctex"]
 
 [params]
 
