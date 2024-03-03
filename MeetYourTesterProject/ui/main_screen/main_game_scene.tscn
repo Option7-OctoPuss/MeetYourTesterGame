@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dpyn1enbx4w7u"]
+[gd_scene load_steps=30 format=3 uid="uid://dpyn1enbx4w7u"]
 
 [ext_resource type="Texture2D" uid="uid://wgpfvhfu1oi6" path="res://images/game-map/time/timer.svg" id="1_lc3b6"]
 [ext_resource type="VideoStream" path="res://images/background/purple-nebula-background.ogv" id="1_tp77f"]
@@ -23,13 +23,11 @@
 [ext_resource type="Script" path="res://ui/main_screen/init_countdown.gd" id="18_0wahk"]
 [ext_resource type="Script" path="res://ui/main_screen/action_event_btn_manager.gd" id="18_nwfow"]
 [ext_resource type="Texture2D" uid="uid://dp3uujxgl4xqh" path="res://images/game-map/notification-hex/hex-cell-ux-notification.svg" id="20_ajqmu"]
-[ext_resource type="Script" path="res://ui/main_screen/progress_bar_control.gd" id="25_n2qqa"]
 [ext_resource type="PackedScene" uid="uid://newdc3qfq08j" path="res://ui/main_screen/terminal/terminal_mock.tscn" id="26_lb6pa"]
-[ext_resource type="Texture2D" uid="uid://cy3cktjlojmph" path="res://images/main-game/progress-bar/yellow-bars-neutral.svg" id="26_r8fpx"]
-[ext_resource type="Texture2D" uid="uid://7o56brbyyo2q" path="res://images/main-game/progress-bar/progress-bar-frame.svg" id="27_1f572"]
 [ext_resource type="Script" path="res://ui/main_screen/anonymity_value.gd" id="27_4w0dy"]
-[ext_resource type="Texture2D" uid="uid://r1ddriq7amuf" path="res://images/main-game/progress-bar/deadline-pending.svg" id="27_618b6"]
+[ext_resource type="Script" path="res://ui/main_screen/DEBUG_BUTTON_PROGRESS.gd" id="28_dq55m"]
 [ext_resource type="Texture2D" uid="uid://csqw4cv82qkjj" path="res://images/sabotage-buttons/sabotage-button-no-charge.svg" id="30_lwshy"]
+[ext_resource type="PackedScene" uid="uid://cqjh266ttak2g" path="res://ui/main_screen/progress_bar/progress_bar.tscn" id="31_vyioj"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wlhim"]
 load_path = "res://.godot/imported/pause.svg-09127f19c3b279e09b32f71d3249e6c1.ctex"
@@ -44,11 +42,11 @@ autoplay = true
 expand = true
 loop = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="TimerSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_lc3b6")
 centered = false
 
-[node name="TimerContainer" type="HBoxContainer" parent="Sprite2D"]
+[node name="TimerContainer" type="HBoxContainer" parent="TimerSprite"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -61,22 +59,22 @@ offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TimerLabel" type="Label" parent="Sprite2D/TimerContainer"]
+[node name="TimerLabel" type="Label" parent="TimerSprite/TimerContainer"]
 layout_mode = 2
 text = "00:00
 "
 script = ExtResource("5_bt7jo")
 
-[node name="TimerNode" type="Timer" parent="Sprite2D/TimerContainer/TimerLabel"]
+[node name="TimerNode" type="Timer" parent="TimerSprite/TimerContainer/TimerLabel"]
 autostart = true
 
-[node name="PlayPauseBtn" type="TextureButton" parent="Sprite2D/TimerContainer"]
+[node name="PlayPauseBtn" type="TextureButton" parent="TimerSprite/TimerContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 texture_normal = SubResource("CompressedTexture2D_wlhim")
 script = ExtResource("3_svwg2")
 
-[node name="SpeedUpBtn" type="TextureButton" parent="Sprite2D/TimerContainer"]
+[node name="SpeedUpBtn" type="TextureButton" parent="TimerSprite/TimerContainer"]
 layout_mode = 2
 texture_normal = ExtResource("3_ps3v0")
 script = ExtResource("3_svwg2")
@@ -253,140 +251,6 @@ offset_bottom = 23.0
 [node name="Timer" type="Timer" parent="MainControl/UI_UX/Label"]
 script = ExtResource("18_0wahk")
 
-[node name="ProgressBarControl" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 202.0
-offset_top = 928.0
-offset_right = 996.0
-offset_bottom = 1058.0
-script = ExtResource("25_n2qqa")
-
-[node name="PercentageValue" type="Label" parent="ProgressBarControl"]
-visible = false
-modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = 176.0
-offset_top = 933.0
-offset_right = 211.0
-offset_bottom = 981.0
-scale = Vector2(1.5, 1.5)
-text = "50%"
-vertical_alignment = 1
-
-[node name="TimerValue" type="Label" parent="ProgressBarControl"]
-visible = false
-layout_mode = 0
-offset_left = 838.0
-offset_top = 934.0
-offset_right = 879.0
-offset_bottom = 982.0
-scale = Vector2(1.5, 1.5)
-text = "05:19"
-vertical_alignment = 1
-
-[node name="GameProgressBar" type="TextureProgressBar" parent="ProgressBarControl"]
-layout_mode = 0
-offset_left = 19.0
-offset_top = 27.0
-offset_right = 770.0
-offset_bottom = 107.0
-step = 0.1
-texture_progress = ExtResource("26_r8fpx")
-
-[node name="ProgressFrame" type="TextureRect" parent="ProgressBarControl"]
-layout_mode = 0
-offset_left = 11.0
-offset_top = 17.0
-offset_right = 773.0
-offset_bottom = 116.0
-texture = ExtResource("27_1f572")
-expand_mode = 1
-
-[node name="ZonesContainer" type="Control" parent="ProgressBarControl"]
-layout_mode = 1
-anchor_left = 0.02
-anchor_top = 0.3
-anchor_right = 0.97
-anchor_bottom = 0.846
-offset_left = 2.12
-offset_top = -7.0
-offset_right = -13.18
-offset_bottom = -6.98
-
-[node name="DeadlinesContainer" type="Control" parent="ProgressBarControl"]
-layout_mode = 1
-anchor_left = 0.02
-anchor_top = 0.3
-anchor_right = 0.97
-anchor_bottom = 0.846
-offset_left = 7.12
-offset_top = -47.0
-offset_right = -0.179993
-offset_bottom = -11.98
-
-[node name="ProgressBarSpeedDbg" type="RichTextLabel" parent="ProgressBarControl"]
-visible = false
-layout_mode = 0
-offset_left = 37.0
-offset_top = -40.0
-offset_right = 115.0
-
-[node name="Deadline1" type="TextureRect" parent="ProgressBarControl"]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.287
-anchor_top = 0.238
-anchor_right = 0.345
-anchor_bottom = 1.0
-offset_left = 2.12199
-offset_top = -12.94
-offset_right = 2.06998
-offset_bottom = -13.0
-pivot_offset = Vector2(29, 51)
-texture = ExtResource("27_618b6")
-
-[node name="Deadline1Label" type="Label" parent="ProgressBarControl/Deadline1"]
-layout_mode = 0
-offset_top = -26.0
-offset_right = 41.0
-offset_bottom = -3.0
-text = "00:00
-"
-
-[node name="Deadline2" type="TextureRect" parent="ProgressBarControl"]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.287
-anchor_top = 0.238
-anchor_right = 0.345
-anchor_bottom = 1.0
-offset_left = 242.122
-offset_top = -12.94
-offset_right = 242.07
-offset_bottom = -13.0
-pivot_offset = Vector2(29, 51)
-texture = ExtResource("27_618b6")
-
-[node name="Deadline2Label" type="Label" parent="ProgressBarControl/Deadline2"]
-layout_mode = 0
-offset_top = -26.0
-offset_right = 41.0
-offset_bottom = -3.0
-text = "00:00
-"
-
-[node name="FinalDeadlineLabel" type="Label" parent="ProgressBarControl"]
-layout_mode = 0
-offset_left = 730.0
-offset_top = -7.0
-offset_right = 771.0
-offset_bottom = 16.0
-text = "
-"
-
 [node name="Terminal" type="Node2D" parent="."]
 
 [node name="_terminal_mock" parent="Terminal" instance=ExtResource("26_lb6pa")]
@@ -422,12 +286,36 @@ offset_right = 221.0
 offset_bottom = 930.0
 texture_normal = ExtResource("30_lwshy")
 
-[connection signal="timeout" from="Sprite2D/TimerContainer/TimerLabel/TimerNode" to="Sprite2D/TimerContainer/TimerLabel" method="_on_timer_node_timeout"]
-[connection signal="pause_game" from="Sprite2D/TimerContainer/PlayPauseBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_pause"]
-[connection signal="unpause_game" from="Sprite2D/TimerContainer/PlayPauseBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_unpause"]
-[connection signal="speed_up_game" from="Sprite2D/TimerContainer/SpeedUpBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_speed_change"]
+[node name="ProgressBar" parent="." instance=ExtResource("31_vyioj")]
+offset_left = 213.0
+offset_top = 848.0
+offset_right = 213.0
+offset_bottom = 848.0
+
+[node name="DebugButtonPlus" type="Button" parent="."]
+offset_left = 400.0
+offset_top = 791.0
+offset_right = 576.0
+offset_bottom = 839.0
+text = "ADD +1 PROGRESS"
+script = ExtResource("28_dq55m")
+
+[node name="DebugButtonMinus" type="Button" parent="."]
+offset_left = 592.0
+offset_top = 793.0
+offset_right = 768.0
+offset_bottom = 841.0
+text = "ADD -1 PROGRESS"
+script = ExtResource("28_dq55m")
+
+[connection signal="timeout" from="TimerSprite/TimerContainer/TimerLabel/TimerNode" to="TimerSprite/TimerContainer/TimerLabel" method="_on_timer_node_timeout"]
+[connection signal="pause_game" from="TimerSprite/TimerContainer/PlayPauseBtn" to="TimerSprite/TimerContainer/TimerLabel" method="catch_pause"]
+[connection signal="unpause_game" from="TimerSprite/TimerContainer/PlayPauseBtn" to="TimerSprite/TimerContainer/TimerLabel" method="catch_unpause"]
+[connection signal="speed_up_game" from="TimerSprite/TimerContainer/SpeedUpBtn" to="TimerSprite/TimerContainer/TimerLabel" method="catch_speed_change"]
 [connection signal="timeout" from="MainControl/Database/Label/Timer" to="MainControl/Database" method="_on_timer_timeout"]
 [connection signal="timeout" from="MainControl/Delivery/Label/Timer" to="MainControl/Delivery" method="_on_timer_timeout"]
 [connection signal="timeout" from="MainControl/Business_Logic/Label/Timer" to="MainControl/Business_Logic" method="_on_timer_timeout"]
 [connection signal="timeout" from="MainControl/Backend/Label/Timer" to="MainControl/Backend" method="_on_timer_timeout"]
 [connection signal="timeout" from="MainControl/UI_UX/Label/Timer" to="MainControl/UI_UX" method="_on_timer_timeout"]
+[connection signal="pressed" from="DebugButtonPlus" to="DebugButtonPlus" method="_on_Button_pressed_plus"]
+[connection signal="pressed" from="DebugButtonMinus" to="DebugButtonMinus" method="_on_Button_pressed_minus"]

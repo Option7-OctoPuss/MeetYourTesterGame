@@ -1,7 +1,7 @@
 extends Timer
 
-@onready var play_pause_btn = $"../../../../Sprite2D/TimerContainer/PlayPauseBtn"
-@onready var speed_up_btn = $"../../../../Sprite2D/TimerContainer/SpeedUpBtn"
+@onready var play_pause_btn = $"../../../../TimerSprite/TimerContainer/PlayPauseBtn"
+@onready var speed_up_btn = $"../../../../TimerSprite/TimerContainer/SpeedUpBtn"
 @onready var terminal = $"../../../../Terminal/_terminal_mock/terminal_content"
 
 var action_event_flag_pause = false
@@ -34,11 +34,10 @@ func stop_resume_timer():
 	self.set_paused(Globals.gamePaused or action_event_flag_pause)
 
 func send_time_to_label():
-	var sub_str = "" 
+	var sub_str = ""
 	if self.time_left > 9:
 		sub_str = str(self.time_left).substr(0, 2)
 	else:
 		sub_str = str(self.time_left).substr(0, 3)
 		
 	get_parent().text = sub_str
-

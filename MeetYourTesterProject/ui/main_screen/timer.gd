@@ -1,6 +1,6 @@
 extends Node
 
-@onready var progress_bar = $"../../../ProgressBarControl"
+@onready var progress_bar = $"../../../ProgressBar"
 
 func _ready():
 	pass
@@ -21,4 +21,3 @@ func catch_unpause() -> void:
 func catch_speed_change() -> void:
 	#$TimerNode.wait_time = float(1) / Globals.gameSpeed
 	Engine.time_scale = Globals.gameSpeed
-	

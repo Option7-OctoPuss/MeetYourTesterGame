@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqjh266ttak2g"]
+
+[ext_resource type="Script" path="res://ui/main_screen/progress_bar/progress_bar_control.gd" id="1_8pom3"]
+[ext_resource type="Texture2D" uid="uid://cy3cktjlojmph" path="res://images/main-game/progress-bar/yellow-bars-neutral.svg" id="2_svfkm"]
+[ext_resource type="Shader" path="res://ui/main_screen/progress_bar/new_shader.gdshader" id="2_uf1mu"]
+[ext_resource type="Texture2D" uid="uid://7o56brbyyo2q" path="res://images/main-game/progress-bar/progress-bar-frame.svg" id="3_dfcll"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h7vy1"]
+shader = ExtResource("2_uf1mu")
+
+[node name="ProgressBar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_8pom3")
+
+[node name="ProgressFrame" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 762.0
+offset_bottom = 99.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ZonesContainer" type="Control" parent="ProgressFrame"]
+layout_mode = 1
+anchor_left = 0.02
+anchor_top = 0.340404
+anchor_right = 0.970131
+anchor_bottom = 0.845253
+offset_left = -15.24
+offset_top = -9.7
+offset_right = -15.24
+offset_bottom = -9.68
+metadata/_edit_use_anchors_ = true
+
+[node name="GameProgressBar" type="TextureProgressBar" parent="ProgressFrame"]
+clip_children = 2
+material = SubResource("ShaderMaterial_h7vy1")
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0104987
+anchor_top = -0.10101
+anchor_right = 0.0209974
+anchor_bottom = 0.0909091
+offset_left = 8.0
+offset_top = 10.0
+offset_right = 759.0
+offset_bottom = 90.0
+step = 0.1
+nine_patch_stretch = true
+texture_over = ExtResource("3_dfcll")
+texture_progress = ExtResource("2_svfkm")
+texture_progress_offset = Vector2(4, 0)
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBarSpeedDbg" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 37.0
+offset_top = -40.0
+offset_right = 115.0
+metadata/_edit_use_anchors_ = true
+
+[node name="FinalDeadlineLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 730.0
+offset_top = -7.0
+offset_right = 771.0
+offset_bottom = 16.0
+text = "
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="DeadlinesContainer" type="Control" parent="."]
+anchors_preset = 0
+offset_bottom = 40.0
