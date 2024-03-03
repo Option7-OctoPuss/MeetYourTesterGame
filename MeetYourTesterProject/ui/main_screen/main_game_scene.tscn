@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dpyn1enbx4w7u"]
+[gd_scene load_steps=32 format=3 uid="uid://dpyn1enbx4w7u"]
 
 [ext_resource type="Texture2D" uid="uid://wgpfvhfu1oi6" path="res://images/game-map/time/timer.svg" id="1_lc3b6"]
 [ext_resource type="VideoStream" path="res://images/background/purple-nebula-background.ogv" id="1_tp77f"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://7o56brbyyo2q" path="res://images/main-game/progress-bar/progress-bar-frame.svg" id="27_1f572"]
 [ext_resource type="Script" path="res://ui/main_screen/anonymity_value.gd" id="27_4w0dy"]
 [ext_resource type="Texture2D" uid="uid://r1ddriq7amuf" path="res://images/main-game/progress-bar/deadline-pending.svg" id="27_618b6"]
+[ext_resource type="Texture2D" uid="uid://csqw4cv82qkjj" path="res://images/sabotage-buttons/sabotage-button-no-charge.svg" id="30_lwshy"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wlhim"]
 load_path = "res://.godot/imported/pause.svg-09127f19c3b279e09b32f71d3249e6c1.ctex"
@@ -378,6 +379,7 @@ text = "00:00
 "
 
 [node name="FinalDeadlineLabel" type="Label" parent="ProgressBarControl"]
+layout_mode = 0
 offset_left = 730.0
 offset_top = -7.0
 offset_right = 771.0
@@ -405,6 +407,20 @@ offset_top = 262.0
 offset_right = 1170.0
 offset_bottom = 904.0
 text = "ANONIMITY MOCK"
+
+[node name="SabotageButtonControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SabotageButton" type="TextureButton" parent="SabotageButtonControl"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 734.0
+offset_right = 221.0
+offset_bottom = 930.0
+texture_normal = ExtResource("30_lwshy")
 
 [connection signal="timeout" from="Sprite2D/TimerContainer/TimerLabel/TimerNode" to="Sprite2D/TimerContainer/TimerLabel" method="_on_timer_node_timeout"]
 [connection signal="pause_game" from="Sprite2D/TimerContainer/PlayPauseBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_pause"]
