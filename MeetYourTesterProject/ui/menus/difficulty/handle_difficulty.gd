@@ -18,6 +18,15 @@ func _on_Button_pressed():
 	if difficulty_level > 0:
 		print('set speed to %s'%Globals.progress_bar_possible_speeds[difficulty_level-1])
 		Globals.progress_bar_speed = Globals.progress_bar_possible_speeds[difficulty_level-1]
+		
+		# save current difficulty deadlines 
+		var file = FileAccess.get_file_as_string(Globals.deadlines_file_path)
+		if file:
+			var parse_json_file = JSON.parse_string(file)
+			Globals.deadlines = parse_json_file["difficulty-%s" % difficulty_level]
+		else:
+			Globals.deadlines = []
+			
 	_debug_print("Button pressed with difficulty: %d" % difficulty_level)
 	_debug_print("Difficulty stored in global: %d" % DiffStore.player_difficulty)
 	# Change to the next scene
