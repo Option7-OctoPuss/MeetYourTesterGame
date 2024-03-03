@@ -3,20 +3,11 @@ name: Custom User Story template
 about: This is a template for a user story
 title: ''
 labels: User Story
-assignees: Siponek
-
----
-
----
-name: User Story
-about: Describe a user story to capture a specific requirement
-title: 'User Story: '
-labels: user-story
 assignees: ''
 
 ---
 
-# **Front / Description:**
+## **Front / Description:**
 
 **As a** [role],
 **I want** [action or feature],
@@ -24,7 +15,7 @@ assignees: ''
 
 Any additional context or screenshots can be added here.
 
-# **Back / Acceptance Criteria:**
+## **Back / Acceptance Criteria:**
 
 - [ ] Criterion 1 / Or Scenario
 - [ ] Criterion 2
