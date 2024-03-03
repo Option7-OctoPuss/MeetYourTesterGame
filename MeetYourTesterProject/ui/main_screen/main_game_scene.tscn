@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dpyn1enbx4w7u"]
+[gd_scene load_steps=35 format=3 uid="uid://dpyn1enbx4w7u"]
 
 [ext_resource type="Texture2D" uid="uid://wgpfvhfu1oi6" path="res://images/game-map/time/timer.svg" id="1_lc3b6"]
 [ext_resource type="VideoStream" path="res://images/background/purple-nebula-background.ogv" id="1_tp77f"]
@@ -28,7 +28,11 @@
 [ext_resource type="Texture2D" uid="uid://cy3cktjlojmph" path="res://images/main-game/progress-bar/yellow-bars-neutral.svg" id="26_r8fpx"]
 [ext_resource type="Texture2D" uid="uid://7o56brbyyo2q" path="res://images/main-game/progress-bar/progress-bar-frame.svg" id="27_1f572"]
 [ext_resource type="Script" path="res://ui/main_screen/anonymity_value.gd" id="27_4w0dy"]
-[ext_resource type="Texture2D" uid="uid://r1ddriq7amuf" path="res://images/main-game/progress-bar/deadline-pending.svg" id="27_618b6"]
+[ext_resource type="Texture2D" uid="uid://bfdojxvh0t1t1" path="res://images/sabotage-buttons/charge-empty.svg" id="29_uhnp3"]
+[ext_resource type="Texture2D" uid="uid://c0qscxdhe0y0b" path="res://images/sabotage-buttons/sabotage-btn.svg" id="30_1i0ej"]
+[ext_resource type="Texture2D" uid="uid://c7ibmmf7nuqw" path="res://images/sabotage-buttons/sabotage-btn-enabled.svg" id="30_f8a6t"]
+[ext_resource type="Texture2D" uid="uid://bituwj1ulonvo" path="res://images/sabotage-buttons/anonymity-fill.svg" id="32_0d254"]
+[ext_resource type="Texture2D" uid="uid://dvgajhh78c4wt" path="res://images/sabotage-buttons/sabotage-icon.svg" id="32_tfymk"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wlhim"]
 load_path = "res://.godot/imported/pause.svg-09127f19c3b279e09b32f71d3249e6c1.ctex"
@@ -256,9 +260,9 @@ script = ExtResource("18_0wahk")
 layout_mode = 3
 anchors_preset = 0
 offset_left = 202.0
-offset_top = 928.0
+offset_top = 882.0
 offset_right = 996.0
-offset_bottom = 1058.0
+offset_bottom = 1012.0
 script = ExtResource("25_n2qqa")
 
 [node name="PercentageValue" type="Label" parent="ProgressBarControl"]
@@ -331,53 +335,8 @@ offset_left = 37.0
 offset_top = -40.0
 offset_right = 115.0
 
-[node name="Deadline1" type="TextureRect" parent="ProgressBarControl"]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.287
-anchor_top = 0.238
-anchor_right = 0.345
-anchor_bottom = 1.0
-offset_left = 2.12199
-offset_top = -12.94
-offset_right = 2.06998
-offset_bottom = -13.0
-pivot_offset = Vector2(29, 51)
-texture = ExtResource("27_618b6")
-
-[node name="Deadline1Label" type="Label" parent="ProgressBarControl/Deadline1"]
-layout_mode = 0
-offset_top = -26.0
-offset_right = 41.0
-offset_bottom = -3.0
-text = "00:00
-"
-
-[node name="Deadline2" type="TextureRect" parent="ProgressBarControl"]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.287
-anchor_top = 0.238
-anchor_right = 0.345
-anchor_bottom = 1.0
-offset_left = 242.122
-offset_top = -12.94
-offset_right = 242.07
-offset_bottom = -13.0
-pivot_offset = Vector2(29, 51)
-texture = ExtResource("27_618b6")
-
-[node name="Deadline2Label" type="Label" parent="ProgressBarControl/Deadline2"]
-layout_mode = 0
-offset_top = -26.0
-offset_right = 41.0
-offset_bottom = -3.0
-text = "00:00
-"
-
 [node name="FinalDeadlineLabel" type="Label" parent="ProgressBarControl"]
+layout_mode = 0
 offset_left = 730.0
 offset_top = -7.0
 offset_right = 771.0
@@ -392,6 +351,7 @@ position = Vector2(1159, -4)
 scale = Vector2(1.405, 1.45)
 
 [node name="AnonymityBarControl" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -399,12 +359,65 @@ offset_bottom = 40.0
 script = ExtResource("27_4w0dy")
 
 [node name="AnonymityValue" type="RichTextLabel" parent="AnonymityBarControl"]
+visible = false
 layout_mode = 0
 offset_left = 1015.0
 offset_top = 262.0
 offset_right = 1170.0
 offset_bottom = 904.0
 text = "ANONIMITY MOCK"
+
+[node name="SabotageButtonControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Charge2" type="TextureRect" parent="SabotageButtonControl"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 830.0
+offset_right = 225.0
+offset_bottom = 895.0
+texture = ExtResource("29_uhnp3")
+
+[node name="Charge1" type="TextureRect" parent="SabotageButtonControl"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 847.0
+offset_right = 225.0
+offset_bottom = 912.0
+texture = ExtResource("29_uhnp3")
+
+[node name="SabotageButton" type="TextureButton" parent="SabotageButtonControl"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 831.0
+offset_right = 268.0
+offset_bottom = 1066.0
+disabled = true
+texture_normal = ExtResource("30_f8a6t")
+texture_disabled = ExtResource("30_1i0ej")
+stretch_mode = 0
+
+[node name="AnonymityBar" type="TextureProgressBar" parent="SabotageButtonControl/SabotageButton"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 48.0
+offset_top = 37.0
+offset_right = 187.0
+offset_bottom = 198.0
+value = 50.0
+fill_mode = 3
+texture_progress = ExtResource("32_0d254")
+
+[node name="SabotageIcon" type="TextureRect" parent="SabotageButtonControl/SabotageButton"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 58.0
+offset_right = 171.0
+offset_bottom = 174.0
+texture = ExtResource("32_tfymk")
 
 [connection signal="timeout" from="Sprite2D/TimerContainer/TimerLabel/TimerNode" to="Sprite2D/TimerContainer/TimerLabel" method="_on_timer_node_timeout"]
 [connection signal="pause_game" from="Sprite2D/TimerContainer/PlayPauseBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_pause"]
