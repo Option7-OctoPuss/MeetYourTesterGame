@@ -22,6 +22,7 @@ func _ready():
 		for size in sizes:
 			zone_dictionary[color][size] = load("res://images/main-game/progress-bar/" + color + "-zone-" + size + ".svg")
 	create_deadlines()
+	init_last_deadline_label()
 			
 func _process(delta):
 	if is_zone_present():
@@ -70,6 +71,10 @@ func apply_progress_bar_effects(selected_answer: Dictionary):
 		if effect.has(PROGRESS_BAR_ZONE_DICTIONARY_KEY):
 			create_zone(effect[PROGRESS_BAR_ZONE_DICTIONARY_KEY])
 
+func init_last_deadline_label():
+	# last label is max value of the progress bar / current step size
+	$FinalDeadlineLabel.set_text(Utils.float_to_time(float($GameProgressBar.max_value / Globals.progress_bar_speed)))
+
 func create_deadlines():
 	for i in range(len(Globals.deadlines)):
 		var new_deadline_scene = deadline_scene.instantiate()
@@ -83,6 +88,11 @@ func is_deadline_reached(deadline_index:int) -> bool:
 	return ($GameProgressBar.value / $GameProgressBar.max_value) * $GameProgressBar.size.x >= $DeadlinesContainer.get_child(deadline_index).position.x + $DeadlinesContainer.get_child(deadline_index).size.x + $DeadlinesContainer.position.x + $ProgressFrame.position.x + progress_frame_border
 
 func decrease_deadlines_timers():
+	if $FinalDeadlineLabel.get_text() == "00:00":
+		return
+		
+	$FinalDeadlineLabel.set_text(Utils.float_to_time(float(($GameProgressBar.max_value / Globals.progress_bar_speed) - Globals.gameTime)))
+	
 	for i in range(len($DeadlinesContainer.get_children())):
 		var current_key = "deadline_%s" % str(i)
 		var new_timer = float(Globals.deadlines[i][current_key].deadline_position_in_seconds - Globals.gameTime)

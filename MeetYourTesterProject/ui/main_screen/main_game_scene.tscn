@@ -377,13 +377,12 @@ offset_bottom = -3.0
 text = "00:00
 "
 
-[node name="FinalDeadlineLabel" type="Label" parent="."]
-visible = false
-offset_left = 932.0
-offset_top = 921.0
-offset_right = 973.0
-offset_bottom = 944.0
-text = "00:00
+[node name="FinalDeadlineLabel" type="Label" parent="ProgressBarControl"]
+offset_left = 730.0
+offset_top = -7.0
+offset_right = 771.0
+offset_bottom = 16.0
+text = "
 "
 
 [node name="Terminal" type="Node2D" parent="."]
