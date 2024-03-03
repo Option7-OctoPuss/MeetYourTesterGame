@@ -33,7 +33,5 @@ class TestGameTimerPO:
 		assert_eq(actual_wait_time, expected_wait_time, "With game speed of : " + str(Globals.gameSpeed) + " property 'wait_time' of timer node should be " + str(expected_wait_time) + ": " + str(actual_wait_time))
 
 	func test_timer_string_format():
-		var timer_script = load("res://ui/main_screen/timer.gd").new()
-		var timer_formatted = timer_script.float_to_time(float(42))
+		var timer_formatted = Utils.float_to_time(float(42))
 		assert_eq(timer_formatted, "00:42", "With 42 seconds of game playthrough the formatted time should be 00:42: " + timer_formatted)
-		timer_script.free()
