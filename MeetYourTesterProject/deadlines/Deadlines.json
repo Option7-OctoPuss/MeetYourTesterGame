@@ -1,0 +1,44 @@
+{
+    "difficulty-1": [
+        {
+            "deadline_0": {
+                "label": "Deadline 0",
+                "deadline_position_in_seconds": 120
+            }
+        },
+        {
+            "deadline_1": {
+                "label": "Deadline 1",
+                "deadline_position_in_seconds": 180
+            }
+        }
+    ],
+    "difficulty-2": [
+        {
+            "deadline_0": {
+                "label": "Deadline 0",
+                "deadline_position_in_seconds": 60
+            }
+        },
+        {
+            "deadline_1": {
+                "label": "Deadline 1",
+                "deadline_position_in_seconds": 90
+            }
+        }
+    ],
+    "difficulty-3": [
+        {
+            "deadline_0": {
+                "label": "Deadline 0",
+                "deadline_position_in_seconds": 30
+            }
+        },
+        {
+            "deadline_1": {
+                "label": "Deadline 1",
+                "deadline_position_in_seconds": 75
+            }
+        }
+    ]
+}
