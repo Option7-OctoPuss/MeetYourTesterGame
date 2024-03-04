@@ -4,8 +4,11 @@ var startLabel : TextureButton
 
 var quitIcon : TextureButton
 var quitLabel : TextureButton
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	startIcon = $GridContainer/StartIcon
 	startLabel = $GridContainer/CenterStartLabel/StartLabel
 	quitIcon = $GridContainer/QuitIcon
@@ -25,6 +28,7 @@ func _on_start_game_label_pressed():
 	#var scene = load("res://ui/menus/difficulty/diff_scene.tscn").instantiate()
 	#layer.add_child(scene)
 	#scene.show()
+	
 	get_tree().change_scene_to_file("res://ui/menus/difficulty/diff_scene.tscn")
 
 func _on_start_label_mouse_entered():
@@ -54,6 +58,8 @@ func _on_quit_label_pressed():
 	#var scene = load("res://ui/menus/difficulty/diff_scene.tscn").instantiate()
 	#layer.add_child(scene)
 	#scene.show()
+
+	#add_myNode_to_my_game()
 	get_tree().change_scene_to_file("res://ui/menus/exit_menu_scene.tscn")
 	
 
@@ -75,6 +81,10 @@ func _on_quit_label_mouse_exited():
 	_debug_print("Quit Game Button (label) on hover exited")
 	quitIcon.texture_normal = ResourceLoader.load("res://images/start-scene/btn-icon-exit.svg")
 	
+#func add_myNode_to_my_game():
+#	var exit_menu_scene = preload("res://ui/menus/exit_menu_scene.tscn")
+#	var exit_menu_instance = exit_menu_scene.instance()
+#	get_tree().get_root().add_child(exit_menu_instance)
 
 func _debug_print(msg):
 	if Globals.DEBUG_MODE:
