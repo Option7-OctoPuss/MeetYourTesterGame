@@ -1,15 +1,29 @@
 extends Button
 
-# @onready var progress_bar = $ProgressBar.get_node("ProgressFrame").get_node("GameProgressBar")
-@onready var progress_bar = get_parent().get_node("ProgressBar").get_node("ProgressFrame").get_node("GameProgressBar")
-# Called when the node enters the scene tree for the first time.
+var progress_bar = null
+var game_progress_bar = null
+var zones_container = null
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _ready():
+	# Called when the node enters the scene tree for the first time.
+	var progress_frame_node = get_parent().get_node("ProgressBar").get_node("ProgressFrame")
+	game_progress_bar = progress_frame_node.get_node("GameProgressBar")
+	zones_container = progress_frame_node.get_node("ZonesContainer")
+	# ZoneManager.zones_container = zones_container
+
+const zone_dict_plus = {"zone": {"offset": 20, "speedValue": 1.5, "length": 2}}
+const zone_dict_minus = {"zone": {"offset": 20, "speedValue": 0.5, "length": 2}}
 
 func _on_Button_pressed_plus():
-	progress_bar.value += 1
+	game_progress_bar.value += 1
 
 func _on_Button_pressed_minus():
-	progress_bar.value -= 1
+	game_progress_bar.value -= 1
+
+func _on_Button_pressed_zone_plus():
+	print("zone plus")
+	ZoneManager.create_zone(zone_dict_plus)
+
+func _on_Button_pressed_zone_minus():
+	print("zone minus")
+	ZoneManager.create_zone(zone_dict_minus)

@@ -35,12 +35,15 @@ load_path = "res://.godot/imported/pause.svg-09127f19c3b279e09b32f71d3249e6c1.ct
 [node name="MainGameScene" type="Node2D"]
 
 [node name="Background" type="VideoStreamPlayer" parent="."]
-offset_right = 1920.0
-offset_bottom = 1080.0
+offset_left = -120.0
+offset_top = 24.0
+offset_right = 1800.0
+offset_bottom = 1104.0
 stream = ExtResource("1_tp77f")
 autoplay = true
 expand = true
 loop = true
+metadata/_edit_lock_ = true
 
 [node name="TimerSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_lc3b6")
@@ -85,6 +88,7 @@ anchors_preset = 0
 offset_top = 110.0
 offset_right = 830.0
 offset_bottom = 774.0
+metadata/_edit_lock_ = true
 
 [node name="EmptyHex2" type="TextureButton" parent="MainControl"]
 layout_mode = 0
@@ -93,6 +97,7 @@ offset_top = 157.0
 offset_right = 706.0
 offset_bottom = 285.0
 texture_normal = ExtResource("7_cf20c")
+metadata/_edit_lock_ = true
 
 [node name="EmptyHex" type="TextureButton" parent="MainControl"]
 layout_mode = 0
@@ -101,6 +106,7 @@ offset_top = 377.0
 offset_right = 514.0
 offset_bottom = 505.0
 texture_normal = ExtResource("7_cf20c")
+metadata/_edit_lock_ = true
 
 [node name="EmptyHex3" type="TextureButton" parent="MainControl"]
 layout_mode = 0
@@ -109,6 +115,7 @@ offset_top = 432.0
 offset_right = 610.0
 offset_bottom = 560.0
 texture_normal = ExtResource("7_cf20c")
+metadata/_edit_lock_ = true
 
 [node name="EmptyHex4" type="TextureButton" parent="MainControl"]
 layout_mode = 0
@@ -117,6 +124,7 @@ offset_top = 212.0
 offset_right = 610.0
 offset_bottom = 340.0
 texture_normal = ExtResource("7_cf20c")
+metadata/_edit_lock_ = true
 
 [node name="EmptyHex5" type="TextureButton" parent="MainControl"]
 layout_mode = 0
@@ -125,6 +133,7 @@ offset_top = 267.0
 offset_right = 706.0
 offset_bottom = 395.0
 texture_normal = ExtResource("7_cf20c")
+metadata/_edit_lock_ = true
 
 [node name="EmptyHex6" type="TextureButton" parent="MainControl"]
 layout_mode = 0
@@ -133,6 +142,7 @@ offset_top = 267.0
 offset_right = 514.0
 offset_bottom = 395.0
 texture_normal = ExtResource("7_cf20c")
+metadata/_edit_lock_ = true
 
 [node name="EmptyHex7" type="TextureButton" parent="MainControl"]
 layout_mode = 0
@@ -141,6 +151,7 @@ offset_top = 102.0
 offset_right = 610.0
 offset_bottom = 230.0
 texture_normal = ExtResource("7_cf20c")
+metadata/_edit_lock_ = true
 
 [node name="Database" type="TextureButton" parent="MainControl"]
 layout_mode = 0
@@ -154,6 +165,7 @@ texture_pressed = ExtResource("9_54p3a")
 texture_hover = ExtResource("9_54p3a")
 texture_disabled = ExtResource("8_8qqeu")
 script = ExtResource("18_nwfow")
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="MainControl/Database"]
 layout_mode = 0
@@ -177,6 +189,7 @@ texture_pressed = ExtResource("11_medfd")
 texture_hover = ExtResource("11_medfd")
 texture_disabled = ExtResource("10_htyl8")
 script = ExtResource("18_nwfow")
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="MainControl/Delivery"]
 layout_mode = 0
@@ -200,6 +213,7 @@ texture_pressed = ExtResource("13_vejf5")
 texture_hover = ExtResource("13_vejf5")
 texture_disabled = ExtResource("12_l01y6")
 script = ExtResource("18_nwfow")
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="MainControl/Business_Logic"]
 layout_mode = 0
@@ -221,6 +235,7 @@ texture_pressed = ExtResource("15_8ck7c")
 texture_hover = ExtResource("15_8ck7c")
 texture_disabled = ExtResource("14_0eftj")
 script = ExtResource("18_nwfow")
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="MainControl/Backend"]
 layout_mode = 0
@@ -242,6 +257,7 @@ texture_pressed = ExtResource("17_udybg")
 texture_hover = ExtResource("17_udybg")
 texture_disabled = ExtResource("16_ir080")
 script = ExtResource("18_nwfow")
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="MainControl/UI_UX"]
 layout_mode = 0
@@ -269,7 +285,7 @@ layout_mode = 0
 offset_left = 1015.0
 offset_top = 262.0
 offset_right = 1170.0
-offset_bottom = 904.0
+offset_bottom = 392.0
 text = "ANONIMITY MOCK"
 
 [node name="SabotageButtonControl" type="Control" parent="."]
@@ -293,19 +309,35 @@ offset_right = 213.0
 offset_bottom = 848.0
 
 [node name="DebugButtonPlus" type="Button" parent="."]
-offset_left = 400.0
-offset_top = 791.0
-offset_right = 576.0
-offset_bottom = 839.0
+offset_left = 800.0
+offset_top = 688.0
+offset_right = 976.0
+offset_bottom = 736.0
 text = "ADD +1 PROGRESS"
 script = ExtResource("28_dq55m")
 
 [node name="DebugButtonMinus" type="Button" parent="."]
-offset_left = 592.0
-offset_top = 793.0
-offset_right = 768.0
-offset_bottom = 841.0
+offset_left = 800.0
+offset_top = 752.0
+offset_right = 976.0
+offset_bottom = 800.0
 text = "ADD -1 PROGRESS"
+script = ExtResource("28_dq55m")
+
+[node name="DebugButtonCreateZonePlus" type="Button" parent="."]
+offset_left = 984.0
+offset_top = 688.0
+offset_right = 1112.0
+offset_bottom = 736.0
+text = "Create Zone +"
+script = ExtResource("28_dq55m")
+
+[node name="DebugButtonCreateZoneMinus" type="Button" parent="."]
+offset_left = 984.0
+offset_top = 752.0
+offset_right = 1112.0
+offset_bottom = 800.0
+text = "Create Zone -"
 script = ExtResource("28_dq55m")
 
 [connection signal="timeout" from="TimerSprite/TimerContainer/TimerLabel/TimerNode" to="TimerSprite/TimerContainer/TimerLabel" method="_on_timer_node_timeout"]
@@ -319,3 +351,5 @@ script = ExtResource("28_dq55m")
 [connection signal="timeout" from="MainControl/UI_UX/Label/Timer" to="MainControl/UI_UX" method="_on_timer_timeout"]
 [connection signal="pressed" from="DebugButtonPlus" to="DebugButtonPlus" method="_on_Button_pressed_plus"]
 [connection signal="pressed" from="DebugButtonMinus" to="DebugButtonMinus" method="_on_Button_pressed_minus"]
+[connection signal="pressed" from="DebugButtonCreateZonePlus" to="DebugButtonCreateZonePlus" method="_on_Button_pressed_zone_plus"]
+[connection signal="pressed" from="DebugButtonCreateZoneMinus" to="DebugButtonCreateZoneMinus" method="_on_Button_pressed_zone_minus"]
