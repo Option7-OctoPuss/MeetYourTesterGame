@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://brhb8q4l3dke2"]
+[gd_scene load_steps=7 format=3 uid="uid://brhb8q4l3dke2"]
 
+[ext_resource type="Script" path="res://ui/menus/exit_menu_scene.gd" id="1_j2s58"]
 [ext_resource type="Texture2D" uid="uid://dfcianirloxhq" path="res://images/exit-menu/main-exit-menu.svg" id="1_qwbld"]
 [ext_resource type="Texture2D" uid="uid://chnxxv7gxkphr" path="res://images/exit-menu/cancel-btn.svg" id="2_867fp"]
 [ext_resource type="Texture2D" uid="uid://cj5gshpacnna6" path="res://images/exit-menu/cancel-btn-hover.svg" id="3_iu81o"]
@@ -7,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bb268dhwnvbeu" path="res://images/exit-menu/exit-btn-hover.svg" id="5_t8xyq"]
 
 [node name="exit_menu" type="Node2D"]
+script = ExtResource("1_j2s58")
 
 [node name="Main-exit-menu" type="Sprite2D" parent="."]
 position = Vector2(956, 542)
@@ -31,3 +33,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 texture_normal = ExtResource("4_q078e")
 texture_hover = ExtResource("5_t8xyq")
+
+[connection signal="pressed" from="cancel_btn" to="." method="_on_cancel_btn_pressed"]
+[connection signal="pressed" from="exit_btn" to="." method="_on_exit_btn_pressed"]
