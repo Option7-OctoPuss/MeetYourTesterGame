@@ -32,4 +32,3 @@ var randomTimerForActionEventAcceptance = 10
 
 const ANONYMITY_BAR_DICTIONARY_KEY = "anon_bar"
 
-var is_pause = false
