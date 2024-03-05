@@ -19,12 +19,12 @@ func get_progress_bar_ref() -> Node:
 
 func __get_progress_bar_reference() -> Node:
 	const array_names = ["MainGameScene", "ProgressBar", "ProgressFrame", "GameProgressBar"]
-	print(get_tree())
-	print(get_tree().get_root())
-	print(get_tree().get_root().get_node(array_names[0]))
-	print(get_tree().get_root().get_node(array_names[0]).get_node(array_names[1]))
-	print(get_tree().get_root().get_node(array_names[0]).get_node(array_names[1]).get_node(array_names[2]))
 	return get_tree().get_root().get_node(array_names[0]).get_node(array_names[1]).get_node(array_names[2]).get_node(array_names[3])
 
+### This return the VALUE of the progress bar, not the PIXELS
 func get_current_progressbar_value() -> float:
 	return get_progress_bar_ref().value
+
+### This return the PIXELS of the progress bar, not the VALUE
+func get_current_progressbar_pixels() -> float:
+	return (get_current_progressbar_value() / 100) * get_progress_bar_ref().size.x

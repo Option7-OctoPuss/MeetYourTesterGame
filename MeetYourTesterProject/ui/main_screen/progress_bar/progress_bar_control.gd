@@ -36,22 +36,24 @@ func _ready():
 			
 func _process(delta):
 	if ZoneManager.is_zone_present():
-		var position_bar = get_current_position()
+		var position_bar_value = get_current_position()
+		var far_right_zone_position = ZoneManager.zones_queue[0].get("end_pos", null)
 		# check if bar is currently inside a spawned zone, then change its speed
-		if ZoneManager.is_inside_zone(position_bar):
+		if ZoneManager.is_inside_zone(position_bar_value):
 			game_progress_bar_node.texture_progress = progress_bar_textures["faster"]
 		# check if bar has passed a spawned zone, then remove it
-		if position_bar > ZoneManager.zones_queue[0]["end_pos"]:
-				ZoneManager.remove_zone()
-				# change the bar texture back to normal
-				game_progress_bar_node.texture_progress = progress_bar_textures["neutral"]
+		elif position_bar_value > far_right_zone_position:
+			assert(far_right_zone_position != null, "progress_bar_control: Zone end position is null")
+			ZoneManager.remove_zone()
+			# change the bar texture back to normal
+			game_progress_bar_node.texture_progress = progress_bar_textures["neutral"]
 
 func get_current_position():
 	return get_pixel_from_percent(game_progress_bar_node.value, game_progress_bar_node.size['x'])
 	
-func get_pixel_from_percent(percent: float, total: int) -> int:
-	return int(percent * total / 100)
-		
+func get_pixel_from_percent(percent: float, total: int) -> float:
+	return (percent * total) / 100
+
 # called by the game timer each cycle, increment bar progress by default and apply zone modifier
 func auto_increment():
 	$ProgressBarSpeedDbg.set_text(str(game_progress_bar_node.value))
@@ -67,7 +69,6 @@ func auto_increment():
 
 # get effects from answer and apply them (moving progress, creating zone)
 func apply_progress_bar_effects(selected_answer: Dictionary):
-	print("apply_progress_bar_effects")
 	if selected_answer.has(PROGRESS_BAR_DICTIONARY_KEY):
 		var effect = selected_answer[PROGRESS_BAR_DICTIONARY_KEY]
 		if effect.has(PROGRESS_BAR_VALUE_DICTIONARY_KEY):
