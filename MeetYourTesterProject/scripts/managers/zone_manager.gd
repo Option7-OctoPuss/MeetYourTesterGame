@@ -29,18 +29,11 @@ func is_zone_present():
 # create a new zone and push it at the end of the queue
 func create_zone(zone_effects: Dictionary):
 	print("zone_control: Creating zone")
-	var new_zone_node = create_new_zone_node()
-	set_zone_texture(new_zone_node, zone_effects)
-	var new_zone = set_new_zone_properties(zone_effects, new_zone_node)
-	add_zone_to_queue_and_container(new_zone, new_zone_node)
+	var zone_texture_node = TextureRect.new()
+	set_zone_texture(zone_texture_node, zone_effects)
+	var new_zone = set_new_zone_properties(zone_effects, zone_texture_node)
+	add_zone_to_queue_and_container(new_zone, zone_texture_node)
 	print("zone_control: Zone created: %s" % new_zone)
-
-# create a new zone scene and node
-func create_new_zone_node():
-	var new_zone_scene = zones_scene.instantiate()
-	var new_zone_node: TextureRect = new_zone_scene.get_child(0)
-	new_zone_scene.remove_child(new_zone_node)
-	return new_zone_node
 
 # set zone texture based on length (sm,md,lg)
 func set_zone_texture(new_zone_node, zone_effects):
@@ -61,9 +54,14 @@ func set_zone_texture(new_zone_node, zone_effects):
 
 # set new zone's properties
 func set_new_zone_properties(zone_effects, new_zone_node):
+	print("zone_effects: %s" % zone_effects)
 	var new_zone = {}
-	var zone_offset = zone_effects.get("offset", 0)
-	new_zone["speed"] = zone_effects.get("speedValue", 1)
+	var zone_key = zone_effects.get("zone")
+	var zone_offset = zone_key.get("offset", 0)
+	var zone_speedup = zone_key.get("speedValue", null)
+	assert(zone_speedup != null, "zone_control: Zone speedup not set")
+	new_zone["speed"] = zone_speedup
+	print("Zone queue capacity: %d" % len(zones_queue), "Progess bar value: %d" % ProgressBarGlobals.get_current_progressbar_value())
 	new_zone["start_pos"] = zone_offset + (zones_queue[- 1]["end_pos"] if is_zone_present() else ProgressBarGlobals.get_current_progressbar_value())
 	new_zone["end_pos"] = new_zone["start_pos"] + new_zone_node.texture.get_width()
 	new_zone_node.offset_left = new_zone["start_pos"]
