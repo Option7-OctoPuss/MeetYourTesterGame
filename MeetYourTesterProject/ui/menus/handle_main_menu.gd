@@ -7,6 +7,8 @@ var quitLabel : TextureButton
 
 var exitMenu: Control
 
+signal quit_signal
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -15,12 +17,33 @@ func _ready():
 	quitIcon = $GridContainer/QuitIcon
 	quitLabel = $GridContainer/CenterQuitLabel/QuitLabel
 	exitMenu = $ExitMenuControl
-	
+	self.connect("quit_signal", disable_everything)
+	exitMenu.get_node("exit_menu").connect("resume_from_quit_prompt",enable_everything)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
 	pass
 
 # for the start icon and lable 
+func disable_everything():
+	Utils.pause($GridContainer)
+	exitMenu.visible = true
+	startIcon.texture_hover = ResourceLoader.load("res://images/start-scene/btn-icon-start.svg")	
+	startLabel.texture_hover = ResourceLoader.load("res://images/start-scene/btn-label-start.svg")
+	quitLabel.texture_hover = ResourceLoader.load("res://images/start-scene/btn-label-quit.svg")
+	quitIcon.texture_hover = ResourceLoader.load("res://images/start-scene/btn-icon-exit.svg")	 	
+	quitLabel.texture_normal = ResourceLoader.load("res://images/start-scene/btn-label-quit.svg")
+	quitIcon.texture_normal = ResourceLoader.load("res://images/start-scene/btn-icon-exit.svg")	 	
+
+func enable_everything():
+	Utils.unpause($GridContainer)
+	print($GridContainer)
+	exitMenu.visible = false
+	startIcon.texture_hover = ResourceLoader.load("res://images/start-scene/btn-icon-start-select.svg")	
+	startLabel.texture_hover = ResourceLoader.load("res://images/start-scene/btn-label-start-select.svg")
+	quitLabel.texture_hover = ResourceLoader.load("res://images/start-scene/btn-label-quit-select.svg")
+	quitIcon.texture_hover = ResourceLoader.load("res://images/start-scene/btn-icon-exit-select.svg")	 	
+
 
 func _on_start_game_label_pressed():
 	_debug_print("Start Game Button (label) pressed")
@@ -35,79 +58,48 @@ func _on_start_game_label_pressed():
 
 func _on_start_label_mouse_entered():
 	_debug_print("Start Game Button (label) on hover entered")
-	if not Globals.is_pause:
-		startIcon.texture_normal = ResourceLoader.load("res://images/start-scene/btn-icon-start-select.svg")
-	else:
-		startIcon.texture_normal = ResourceLoader.load("res://images/start-scene/btn-icon-start.svg")	
-		startLabel.texture_hover = ResourceLoader.load("res://images/start-scene/btn-label-start.svg")
-		
+	if not exitMenu.visible:
+		startIcon.texture_normal = ResourceLoader.load("res://images/start-scene/btn-icon-start-select.svg")	
 func _on_start_label_mouse_exited():
 	_debug_print("Start Game Button (label) on hover exited")
-	if not Globals.is_pause:	
-		startIcon.texture_normal = ResourceLoader.load("res://images/start-scene/btn-icon-start.svg")
-	else:
-		startLabel.texture_hover =ResourceLoader.load("res://images/start-scene/btn-label-start.svg")
-		startIcon.texture_normal = ResourceLoader.load("res://images/start-scene/btn-icon-start.svg")
-
+	startIcon.texture_normal = ResourceLoader.load("res://images/start-scene/btn-icon-start.svg")
+		
 func _on_start_icon_mouse_entered():
 	_debug_print("Start Game Button (icon) on hover entered")
-	if not Globals.is_pause:
+	if not exitMenu.visible:
 		startLabel.texture_normal = ResourceLoader.load("res://images/start-scene/btn-label-start-select.svg")
-	else:
-		startLabel.texture_hover =ResourceLoader.load("res://images/start-scene/btn-label-start.svg")
-		startIcon.texture_hover = ResourceLoader.load("res://images/start-scene/btn-icon-start.svg")	
 		
 func _on_start_icon_mouse_exited():
 	_debug_print("Start Game Button (icon) on hover exited")
-	if not Globals.is_pause:
-		startLabel.texture_normal = ResourceLoader.load("res://images/start-scene/btn-label-start.svg")
-	else:
-		startLabel.texture_hover =ResourceLoader.load("res://images/start-scene/btn-label-start.svg")
-		startIcon.texture_hover = ResourceLoader.load("res://images/start-scene/btn-icon-start.svg")
+	startLabel.texture_normal = ResourceLoader.load("res://images/start-scene/btn-label-start.svg")
 
+		
 #for the quit icon and label
 
 func _on_quit_label_pressed():
 	_debug_print("Quit Game Button (label) pressed")
-	Globals.is_pause = true
-	exitMenu.visible = true
-	Utils.pause($GridContainer) #this function disable the functionality of all the gridcontainer nodes
-	quitIcon.texture_normal = ResourceLoader.load("res://images/start-scene/btn-icon-exit.svg")
-	quitLabel.texture_normal = ResourceLoader.load("res://images/start-scene/btn-label-quit.svg")
-	quitIcon.texture_hover = ResourceLoader.load("res://images/start-scene/btn-icon-exit.svg")
-	quitLabel.texture_hover = ResourceLoader.load("res://images/start-scene/btn-label-quit.svg")
+	emit_signal("quit_signal")
+	print(Globals.quit_signal_name)
 
+	
 func _on_quit_icon_mouse_entered():
 	_debug_print("Quit Game Button (icon) on hover entered")
-	if not Globals.is_pause:
+	if not exitMenu.visible:
 		quitLabel.texture_normal = ResourceLoader.load("res://images/start-scene/btn-label-quit-select.svg")
-	else: 
-		quitLabel.texture_hover = ResourceLoader.load("res://images/start-scene/btn-label-quit.svg")
-		quitIcon.texture_hover = ResourceLoader.load("res://images/start-scene/btn-icon-exit.svg")
-		 
+	
+		
 func _on_quit_icon_mouse_exited():
 	_debug_print("Quit Game Button (icon) on hover exited")
-	if not Globals.is_pause:
-		quitLabel.texture_normal = ResourceLoader.load("res://images/start-scene/btn-label-quit.svg")
-	else: 
-		quitLabel.texture_hover = ResourceLoader.load("res://images/start-scene/btn-label-quit.svg")
-		quitIcon.texture_hover = ResourceLoader.load("res://images/start-scene/btn-icon-exit.svg")
+	quitLabel.texture_normal = ResourceLoader.load("res://images/start-scene/btn-label-quit.svg")
 	
 func _on_quit_label_mouse_entered():
 	_debug_print("Quit Game Button (label) on hover entered")
-	if not Globals.is_pause:
+	if not exitMenu.visible:
 		quitIcon.texture_normal = ResourceLoader.load("res://images/start-scene/btn-icon-exit-select.svg")
-	else: 
-		quitLabel.texture_hover = ResourceLoader.load("res://images/start-scene/btn-label-quit.svg")
-		quitIcon.texture_hover = ResourceLoader.load("res://images/start-scene/btn-icon-exit.svg")
-		
+	
 func _on_quit_label_mouse_exited():
 	_debug_print("Quit Game Button (label) on hover exited")
-	if not Globals.is_pause:	
-		quitIcon.texture_normal = ResourceLoader.load("res://images/start-scene/btn-icon-exit.svg")
-	else: 
-		quitLabel.texture_hover = ResourceLoader.load("res://images/start-scene/btn-label-quit.svg")
-		quitIcon.texture_hover = ResourceLoader.load("res://images/start-scene/btn-icon-exit.svg")
+	quitIcon.texture_normal = ResourceLoader.load("res://images/start-scene/btn-icon-exit.svg")
 	
 func _debug_print(msg):
 	if Globals.DEBUG_MODE:
