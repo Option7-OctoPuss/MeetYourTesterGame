@@ -3,6 +3,7 @@ extends Timer
 @onready var play_pause_btn = $"../../../../Sprite2D/TimerContainer/PlayPauseBtn"
 @onready var speed_up_btn = $"../../../../Sprite2D/TimerContainer/SpeedUpBtn"
 @onready var terminal = $"../../../../Terminal/_terminal_mock/terminal_content"
+@onready var main_game_scene = $"../../../.."
 
 var action_event_flag_pause = false
 @onready var hex_parent = get_parent().get_parent()
@@ -12,6 +13,7 @@ func _ready():
 	self.wait_time = randi() % Globals.randomTimerForActionEventInactivity
 	self.start()
 	play_pause_btn.connect("pause_game", stop_resume_timer)
+	main_game_scene.connect("pause_game", stop_resume_timer)
 	play_pause_btn.connect("unpause_game", stop_resume_timer)
 	terminal.connect("answer_signal", handle_answer_stop_resume)
 	hex_parent.connect("hexagon_clicked", handle_hexagon_click)
