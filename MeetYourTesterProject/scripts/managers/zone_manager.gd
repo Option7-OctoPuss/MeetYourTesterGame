@@ -31,13 +31,14 @@ func create_zone(zone_effects: Dictionary):
 	print("zone_control: Creating zone")
 	var zone_texture_node = TextureRect.new()
 	set_zone_texture(zone_texture_node, zone_effects)
+	print("zone texture: %s " % zone_texture_node.texture)
 	var new_zone = set_new_zone_properties(zone_effects, zone_texture_node)
 	add_zone_to_queue_and_container(new_zone, zone_texture_node)
 	print("zone_control: Zone created: %s" % new_zone)
 
 # set zone texture based on length (sm,md,lg)
 func set_zone_texture(new_zone_node, zone_effects):
-	var zone_length = int(zone_effects.get("length", ProgressBarGlobals.progress_bar_zone_length.SMALL))
+	var zone_length = int(zone_effects.get("zone", null).get("length", ProgressBarGlobals.progress_bar_zone_length.SMALL))
 	var zone_speedup = zone_effects.get("zone").get("speedValue", null)
 	assert(zone_speedup != null, "zone_control: Zone speedup not set")
 	print("zone_control: Zone speedup: %s" % zone_speedup)
