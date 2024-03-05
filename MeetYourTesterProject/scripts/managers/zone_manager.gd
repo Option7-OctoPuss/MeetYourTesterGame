@@ -5,6 +5,7 @@ const zones_scene = preload ("res://ui/main_screen/progress_bar/progress_bar_zon
 # FIFO queue to store created zones with their parameters
 var zones_queue = []
 
+# This needs to be set in the where the manager is used
 var zones_container = null
 var zone_dictionary = {}
 var zone_colors = ["red", "green"]
@@ -12,8 +13,6 @@ var zone_sizes = ["sm", "md", "lg"]
 	
 func _init():
 	print("ZoneManager initialized")
-	# assert(zones_container_reference != null, "Error when initializing ZoneManager: zones_container_reference is null")
-	# zones_container = zones_container_reference
 	
 func _ready():
 	for color in zone_colors:
@@ -46,7 +45,9 @@ func create_new_zone_node():
 # set zone texture based on length (sm,md,lg)
 func set_zone_texture(new_zone_node, zone_effects):
 	var zone_length = int(zone_effects.get("length", ProgressBarGlobals.progress_bar_zone_length.SMALL))
-	var zone_speedup = zone_effects.get("speedValue", 1)
+	var zone_speedup = zone_effects.get("zone").get("speedValue", null)
+	assert(zone_speedup != null, "zone_control: Zone speedup not set")
+	print("zone_control: Zone speedup: %s" % zone_speedup)
 	var zone_color = "red" if zone_speedup < 1 else "green"
 	match zone_length:
 		ProgressBarGlobals.progress_bar_zone_length.SMALL:
@@ -73,6 +74,8 @@ func add_zone_to_queue_and_container(new_zone, new_zone_node):
 	if new_zone["end_pos"] <= zones_container.size.x:
 		zones_container.add_child(new_zone_node)
 		zones_queue.append(new_zone)
+	else:
+		push_warning("zone_control: Zone not added to container, out of bounds")
 
 func remove_zone():
 	var zone = zones_container.get_child(0)
