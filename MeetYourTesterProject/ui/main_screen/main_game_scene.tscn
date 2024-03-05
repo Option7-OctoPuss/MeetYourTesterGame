@@ -1,5 +1,6 @@
-[gd_scene load_steps=35 format=3 uid="uid://dpyn1enbx4w7u"]
+[gd_scene load_steps=37 format=3 uid="uid://dpyn1enbx4w7u"]
 
+[ext_resource type="Script" path="res://ui/main_screen/main_script.gd" id="1_87vrv"]
 [ext_resource type="Texture2D" uid="uid://wgpfvhfu1oi6" path="res://images/game-map/time/timer.svg" id="1_lc3b6"]
 [ext_resource type="VideoStream" path="res://images/background/purple-nebula-background.ogv" id="1_tp77f"]
 [ext_resource type="Texture2D" uid="uid://b46cjpn0dkvib" path="res://images/game-map/time/speed.svg" id="3_ps3v0"]
@@ -33,11 +34,13 @@
 [ext_resource type="Texture2D" uid="uid://c7ibmmf7nuqw" path="res://images/sabotage-buttons/sabotage-btn-enabled.svg" id="30_f8a6t"]
 [ext_resource type="Texture2D" uid="uid://bituwj1ulonvo" path="res://images/sabotage-buttons/anonymity-fill.svg" id="32_0d254"]
 [ext_resource type="Texture2D" uid="uid://dvgajhh78c4wt" path="res://images/sabotage-buttons/sabotage-icon.svg" id="32_tfymk"]
+[ext_resource type="PackedScene" uid="uid://brhb8q4l3dke2" path="res://ui/menus/exit_menu_scene.tscn" id="34_n0pnv"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wlhim"]
 load_path = "res://.godot/imported/pause.svg-09127f19c3b279e09b32f71d3249e6c1.ctex"
 
 [node name="MainGameScene" type="Node2D"]
+script = ExtResource("1_87vrv")
 
 [node name="Background" type="VideoStreamPlayer" parent="."]
 offset_right = 1920.0
@@ -418,6 +421,11 @@ offset_top = 58.0
 offset_right = 171.0
 offset_bottom = 174.0
 texture = ExtResource("32_tfymk")
+
+[node name="ExitPrompt" type="Node2D" parent="."]
+
+[node name="exit_menu" parent="ExitPrompt" instance=ExtResource("34_n0pnv")]
+visible = false
 
 [connection signal="timeout" from="Sprite2D/TimerContainer/TimerLabel/TimerNode" to="Sprite2D/TimerContainer/TimerLabel" method="_on_timer_node_timeout"]
 [connection signal="pause_game" from="Sprite2D/TimerContainer/PlayPauseBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_pause"]
