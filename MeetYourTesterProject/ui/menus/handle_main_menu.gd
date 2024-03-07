@@ -79,8 +79,7 @@ func _on_start_icon_mouse_exited():
 func _on_quit_label_pressed():
 	_debug_print("Quit Game Button (label) pressed")
 	emit_signal("quit_signal")
-	print(Globals.quit_signal_name)
-
+	
 	
 func _on_quit_icon_mouse_entered():
 	_debug_print("Quit Game Button (icon) on hover entered")
