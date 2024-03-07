@@ -26,7 +26,8 @@ func handle_answer_stop_resume(answer_impact: Dictionary):
 		stop_resume_timer()
 		print(hex_parent.name)
 
-func handle_hexagon_click():
+func handle_hexagon_click(_params: Dictionary):
+	
 	action_event_flag_pause = true
 	stop_resume_timer()
 

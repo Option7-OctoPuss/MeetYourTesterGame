@@ -35,8 +35,8 @@ func create_zone(zone_effects: Dictionary):
 
 # set zone texture based on length (sm,md,lg)
 func set_zone_texture(new_zone_node, zone_effects):
-	var zone_length = int(zone_effects.get("zone", null).get("length", ProgressBarGlobals.progress_bar_zone_length.SMALL))
-	var zone_speedup = zone_effects.get("zone").get("speedValue", null)
+	var zone_length = int(zone_effects.get("length", ProgressBarGlobals.progress_bar_zone_length.SMALL))
+	var zone_speedup = zone_effects.get("speedValue", null)
 	assert(zone_speedup != null, "zone_control: Zone speedup not set")
 	var zone_color = "red" if zone_speedup < 1 else "green"
 	match zone_length:
@@ -52,7 +52,7 @@ func set_zone_texture(new_zone_node, zone_effects):
 # set new zone's properties
 func set_new_zone_properties(zone_effects: Dictionary, new_zone_node: TextureRect) -> Dictionary:
 	var new_zone_dict = {}
-	var zone_key = zone_effects.get("zone")
+	var zone_key = zone_effects
 	var zone_offset = zone_key.get("offset", 0)
 	var zone_speedup = zone_key.get("speedValue", null)
 	assert(zone_speedup != null, "zone_control: Zone speedup not set")

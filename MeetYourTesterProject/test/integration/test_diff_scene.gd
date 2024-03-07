@@ -13,12 +13,13 @@ class TestDiffScenePO:
 
 	func before_each():
 		gut.p('TestDiffScenePO:  setup')
-		diff_scene = preload("res://ui/menus/difficulty/diff_scene.tscn").instantiate()
+		diff_scene = preload ("res://ui/menus/difficulty/diff_scene.tscn").instantiate()
 		
 	func after_each():
 		gut.p('TestDiffScenePO:  teardown')
 
 	func after_all():
+		print('TestDiffScenePO:  DONE')
 		gut.p('TestDiffScenePO:  post-run')
 		
 	func test_diff_scene_initialization():
@@ -30,7 +31,7 @@ class TestDiffScenePO:
 		if diff_btns == null:
 			gut.p("DiffButtons is null")
 		var child_count = diff_btns.get_child_count()
-		var child_names= ["EasyDiffBtn", "MediumDiffBtn", "HardDiffBtn", "CancelBtn"]
+		var child_names = ["EasyDiffBtn", "MediumDiffBtn", "HardDiffBtn", "CancelBtn"]
 		if child_count < 4:
 			var fmt_str = "{name} has {children}".format({"name": diff_btns.get_name(), "children": child_count})
 			gut.p(fmt_str)
@@ -39,8 +40,8 @@ class TestDiffScenePO:
 		# TODO this should check for individiual nodes init
 		assert_not_null(diff_btns, "DiffButtons should be initialized")
 		#assert_eq(diff_btns.get_child_count(), 4, "DiffButtons should have 3 children and not {count}".format({"count": child_count}))
-		for i in range(1,child_count,2):
-			assert_eq(diff_btns.get_child(i).get_child(0).get_name(), child_names[(i-1)/2], "Child {i} should be {name}".format({"i": (i-1)/2, "name": child_names[(i-1)/2]}))
+		for i in range(1, child_count, 2):
+			assert_eq(diff_btns.get_child(i).get_child(0).get_name(), child_names[(i - 1) / 2], "Child {i} should be {name}".format({"i": (i - 1) / 2, "name": child_names[(i - 1) / 2]}))
 		
 	#func test_diff_btns_difficulties():
 	#	return # TODO refactor test 

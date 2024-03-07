@@ -50,6 +50,7 @@ func handle_meta_clicked(meta: Variant):
 	update_terminal_content(event_name, current_question, question_choosed_info[1].to_int())
 	#print("Event name from meta: %s" % question_from_queue['event_name'])
 	var node = get_node("../../../MainControl/"+ event_name)
+	print("handle terminal: %s" % node)
 	if node:
 		node.remove_action_event()
 	var selected_answer = current_question.answers[question_choosed_info[1].to_int()]

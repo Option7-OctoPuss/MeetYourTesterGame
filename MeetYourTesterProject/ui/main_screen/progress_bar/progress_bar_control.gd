@@ -17,20 +17,25 @@ var progress_bar_textures = {
 var deadline_dictionary = {}
 var deadline_states = ["missed", "reached"]
 var game_progress_bar_node = null
-
+var terminal_content_node = null
 func _ready():
-	var parent_scene_node = get_tree().get_root()
-	var parent_scene = parent_scene_node.get_node("MainGameScene")
-	var terminal = parent_scene.get_node("Terminal")
+	instantiate_scene()
+	
+func instantiate_scene():
+	print("ready function on progress_bar_control")
 	var zones_container = get_node("ProgressFrame/ZonesContainer")
 	# zone_manager = ZoneManager.new(zones_container)
 	ZoneManager.zones_container = zones_container
-	
-	terminal.connect("answer_signal", apply_progress_bar_effects)
+	terminal_content_node = $"../Terminal/_terminal_mock/terminal_content"
+	terminal_content_node.connect("answer_signal", apply_progress_bar_effects)
 	game_progress_bar_node = self.get_node("ProgressFrame").get_node("GameProgressBar")
-
+	if game_progress_bar_node == null:
+		print("Game progress bar node is null")
+		push_error("Game progress bar node is null")
 	for state in deadline_states:
 		deadline_dictionary[state] = load("res://images/main-game/progress-bar/deadline-" + state + ".svg")
+	#! PASS THE PROGRESS BAR NODE HERE SO IT CAN BE USED IN THE FUNCTION
+	#! otherwise we cannot reach game_progress_bar_node.size.x in tests
 	create_deadlines()
 	init_last_deadline_label()
 			
@@ -55,16 +60,20 @@ func get_pixel_from_percent(percent: float, total: int) -> float:
 	return (percent * total) / 100
 
 # called by the game timer each cycle, increment bar progress by default and apply zone modifier
-func auto_increment():
-	$ProgressBarSpeedDbg.set_text(str(game_progress_bar_node.value))
+func auto_increment(node_ref: Node):
+	if node_ref == null:
+		node_ref = game_progress_bar_node
+	print("### node_ref: ", node_ref)
+	$ProgressBarSpeedDbg.set_text(str(node_ref.value))
 	# if bar has reached the end, print GAME OVER 
-	if game_progress_bar_node.value >= game_progress_bar_node.max_value:
+	if node_ref.value >= node_ref.max_value:
 	# TODO add an actual end game notification, stopping the game timer
 		print("GAME OVER: progress bar has reached 100%")
 	if ZoneManager.is_inside_zone(get_current_position()):
-		game_progress_bar_node.value += ProgressBarGlobals.progress_bar_speed * ZoneManager.zones_queue[0]["speed"]
+		node_ref.value += ProgressBarGlobals.progress_bar_speed * ZoneManager.zones_queue[0]["speed"]
 	else:
-		game_progress_bar_node.value += ProgressBarGlobals.progress_bar_speed
+		node_ref.value += ProgressBarGlobals.progress_bar_speed
+	print("before decrease_deadlines_timers func")
 	decrease_deadlines_timers()
 
 # get effects from answer and apply them (moving progress, creating zone)
@@ -100,6 +109,7 @@ func create_deadlines():
 		# Calculate the position of the new deadline scene
 		new_deadline_scene.position.x = calculate_position(deadline_position_in_seconds, ProgressBarGlobals.progress_bar_speed, game_progress_bar_node.size.x)
 		# Add the new deadline scene to the DeadlinesContainer
+		print("### new deadline is added to container!")
 		$DeadlinesContainer.add_child(new_deadline_scene)
 
 func is_deadline_reached(deadline_index: int) -> bool:
@@ -114,12 +124,13 @@ func is_deadline_reached(deadline_index: int) -> bool:
 	return percentage_position >= far_right_deadline_position - offset
 
 func decrease_deadlines_timers():
-	if $FinalDeadlineLabel.get_text() == "00:00":
+	if $FinalDeadlineLabel.get_text() == "00: 00":
 		return
 		
 	$FinalDeadlineLabel.set_text(Utils.float_to_time(float((game_progress_bar_node.max_value / ProgressBarGlobals.progress_bar_speed) - Globals.gameTime)))
-	for i in range(len($DeadlinesContainer.get_children())):
-		var current_key = "deadline_%s" % str(i)
+	var deadline_container_children = $DeadlinesContainer.get_children()
+	for i in range(len(deadline_container_children)):
+		var current_key = "deadline_%d" % i
 		var new_timer = float(Globals.deadlines[i][current_key].deadline_position_in_seconds - Globals.gameTime)
 		var deadline_label = $DeadlinesContainer.get_child(i).get_child(0)
 		var deadline_texture = $DeadlinesContainer.get_child(i).get_child(1)

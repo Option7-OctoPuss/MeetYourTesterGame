@@ -4,19 +4,22 @@ class homePageTestPO:
 	var scene_instance = null
 	var home_scene = null
 	var home_btns_node_name = "GridContainer"
+	var step = "start"
 	
 	func before_all():
 		gut.p('TestHomeScenePO:  pre-run')
 	
 	func before_each():
 		gut.p('TestHomeScenePO:  setup')
-		home_scene = preload("res://ui/menus/main_menu.tscn").instantiate()
+		home_scene = preload ("res://ui/menus/main_menu.tscn").instantiate()
 		
 	func after_each():
 		gut.p('TestHomeScenePO:  teardown')
+		print('homePageTestPO:  test finished ', step)
 		
 	func after_all():
-		gut.p('TestHomeScenePO:  post-run')	
+		print('TestHomeScenePO:  DONE')
+		gut.p('TestHomeScenePO: post - run')
 
 	func homepage_scene_tester_initialization():
 		assert_not_null(home_scene, "Scene instance should be initialized")
@@ -27,7 +30,7 @@ class homePageTestPO:
 		if home_btns == null:
 			gut.p("HomeButtons is null")
 		var child_count = home_btns.get_child_count()
-		var child_names= ["StartIcon", "CenterStartLabel", "TutorialIcon", "CenterTutorialLabel","OptionsIcon", "CenterOptionsLabel", "QuitIcon", "CenterQuitLabel"]
+		var child_names = ["StartIcon", "CenterStartLabel", "TutorialIcon", "CenterTutorialLabel", "OptionsIcon", "CenterOptionsLabel", "QuitIcon", "CenterQuitLabel"]
 		if child_count < 8:
 			var fmt_str = "{name} has {children}".format({"name": home_btns.get_name(), "children": child_count})
 			gut.p(fmt_str)

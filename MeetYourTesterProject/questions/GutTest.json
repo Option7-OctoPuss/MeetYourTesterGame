@@ -6,7 +6,7 @@
 	  {
 		"text": "TEST PROGRESS VALUE",
 		"progress_bar": {
-		  "value": 10,
+		  "value": 10
 		}
 	  },
 	  {
@@ -14,7 +14,7 @@
 		"progress_bar": {
 		  "zone": {
 			"offset": 20,
-			"speed_value": 5,
+			"speedValue": 5,
 			"length": 1
 		  }
 		}

@@ -11,8 +11,8 @@ func _ready():
 	zones_container = progress_frame_node.get_node("ZonesContainer")
 	# ZoneManager.zones_container = zones_container
 
-const zone_dict_plus = {"zone": {"offset": 20, "speedValue": 1.5, "length": 2}}
-const zone_dict_minus = {"zone": {"offset": 20, "speedValue": 0.5, "length": 2}}
+const zone_dict_plus = {"offset": 10, "speedValue": 1.5, "length": 2}
+const zone_dict_minus = {"offset": 10, "speedValue": 0.5, "length": 2}
 
 func _on_Button_pressed_plus():
 	game_progress_bar.value += 1
