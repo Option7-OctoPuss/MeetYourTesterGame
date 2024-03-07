@@ -19,3 +19,19 @@ func unpause(node_name: Node):
 	#process_mode = PROCESS_MODE_INHERIT
 	node_name.process_mode = PROCESS_MODE_INHERIT
 
+func toggle_button_effect(button: TextureButton):
+	# toggle the hover and normal effect of a texture button
+	# if the texture name contains "-select"
+	#	- set hover effect value as the normal one
+	#	- override the normal one in case of previously changed
+	# else
+	#	- set the expected values
+	 
+	if button.texture_hover.resource_path.contains("-select"):
+		var split_texture = button.texture_hover.resource_path.split("-select")
+		button.texture_hover = ResourceLoader.load("%s.svg" % split_texture[0])
+		button.texture_normal = ResourceLoader.load("%s.svg" % split_texture[0])
+	else:
+		var split_texture = button.texture_hover.resource_path.split(".")
+		button.texture_normal = ResourceLoader.load(button.texture_normal.resource_path)
+		button.texture_hover = ResourceLoader.load("%s-select.svg" % split_texture[0])
