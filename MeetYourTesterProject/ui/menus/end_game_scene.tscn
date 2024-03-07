@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://cp6cijgy2bnkw"]
+
+[ext_resource type="Texture2D" uid="uid://kfssj07xa8ij" path="res://images/end-game/overlay.svg" id="1_gflwy"]
+[ext_resource type="Script" path="res://ui/menus/end_game_scene.gd" id="1_lykmd"]
+[ext_resource type="Texture2D" uid="uid://dibo524jg52dl" path="res://images/end-game/end-screen-sabotage.svg" id="3_tpfw7"]
+[ext_resource type="Texture2D" uid="uid://idhbnxbj0ri6" path="res://images/end-game/btn-retry.svg" id="5_25ceo"]
+[ext_resource type="Texture2D" uid="uid://6burqbf02n43" path="res://images/end-game/btn-retry-selected.svg" id="6_o4tx0"]
+[ext_resource type="Texture2D" uid="uid://cbb6wtm6hiv14" path="res://images/end-game/btn-retry-enabled.svg" id="7_c8qwu"]
+[ext_resource type="Texture2D" uid="uid://cn1y88eb21tej" path="res://images/end-game/btn-back.svg" id="8_b3dk8"]
+[ext_resource type="Texture2D" uid="uid://chunvdytxct7a" path="res://images/end-game/btn-back-selected.svg" id="9_6kktl"]
+[ext_resource type="Texture2D" uid="uid://ccjppt5v4o7eo" path="res://images/end-game/btn-back-enabled.svg" id="10_d7c3r"]
+[ext_resource type="Texture2D" uid="uid://bl1jm1he7ro85" path="res://images/end-game/btn-question-mark.svg" id="11_cjgun"]
+[ext_resource type="FontFile" uid="uid://c3noyb50u6ndm" path="res://fonts/NovaSquare-Regular.ttf" id="12_q5tqu"]
+[ext_resource type="FontFile" uid="uid://w2vy61sxp1ph" path="res://fonts/CascadiaCode.ttf" id="12_x3d88"]
+
+[node name="end_game_menu" type="Node2D"]
+script = ExtResource("1_lykmd")
+
+[node name="overlay" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_gflwy")
+
+[node name="bg" type="TextureRect" parent="."]
+offset_left = 333.0
+offset_top = 128.0
+offset_right = 1546.0
+offset_bottom = 921.0
+texture = ExtResource("3_tpfw7")
+
+[node name="btn-retry" type="TextureButton" parent="."]
+offset_left = 600.0
+offset_top = 850.0
+offset_right = 895.0
+offset_bottom = 962.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture_normal = ExtResource("5_25ceo")
+texture_pressed = ExtResource("6_o4tx0")
+texture_hover = ExtResource("7_c8qwu")
+
+[node name="btn-back" type="TextureButton" parent="."]
+offset_left = 1013.0
+offset_top = 850.0
+offset_right = 1308.0
+offset_bottom = 962.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture_normal = ExtResource("8_b3dk8")
+texture_pressed = ExtResource("9_6kktl")
+texture_hover = ExtResource("10_d7c3r")
+
+[node name="btn-question-mark" type="TextureButton" parent="."]
+offset_left = 889.0
+offset_top = 843.0
+offset_right = 1018.0
+offset_bottom = 955.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+disabled = true
+texture_disabled = ExtResource("11_cjgun")
+
+[node name="title" type="Label" parent="."]
+offset_left = 583.0
+offset_top = 237.0
+offset_right = 1336.0
+offset_bottom = 362.0
+theme_override_fonts/font = ExtResource("12_q5tqu")
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="body" type="Label" parent="."]
+offset_left = 489.0
+offset_top = 418.0
+offset_right = 1461.0
+offset_bottom = 809.0
+theme_override_fonts/font = ExtResource("12_x3d88")
+theme_override_font_sizes/font_size = 24
+autowrap_mode = 3
+
+[connection signal="pressed" from="btn-retry" to="." method="_on_cancel_btn_pressed"]
+[connection signal="pressed" from="btn-back" to="." method="_on_exit_btn_pressed"]
