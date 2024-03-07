@@ -34,7 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://c7ibmmf7nuqw" path="res://images/sabotage-buttons/sabotage-btn-enabled.svg" id="30_f8a6t"]
 [ext_resource type="Texture2D" uid="uid://bituwj1ulonvo" path="res://images/sabotage-buttons/anonymity-fill.svg" id="32_0d254"]
 [ext_resource type="Texture2D" uid="uid://dvgajhh78c4wt" path="res://images/sabotage-buttons/sabotage-icon.svg" id="32_tfymk"]
-[ext_resource type="PackedScene" uid="uid://ddxuf2lx03xq3" path="res://ui/menus/exit_menu_scene.tscn" id="34_n0pnv"]
+[ext_resource type="PackedScene" uid="uid://cl6vuu5nixgev" path="res://ui/menus/exit_menu_scene.tscn" id="34_n0pnv"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wlhim"]
 load_path = "res://.godot/imported/pause.svg-09127f19c3b279e09b32f71d3249e6c1.ctex"
@@ -425,6 +425,11 @@ texture = ExtResource("32_tfymk")
 [node name="ExitPrompt" type="Node2D" parent="."]
 
 [node name="exit_menu" parent="ExitPrompt" instance=ExtResource("34_n0pnv")]
+visible = false
+
+[node name="EndGamePrompt" type="Node2D" parent="."]
+
+[node name="end_game_menu" parent="EndGamePrompt" instance=ExtResource("34_n0pnv")]
 visible = false
 
 [connection signal="timeout" from="Sprite2D/TimerContainer/TimerLabel/TimerNode" to="Sprite2D/TimerContainer/TimerLabel" method="_on_timer_node_timeout"]
