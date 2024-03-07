@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dpyn1enbx4w7u"]
+[gd_scene load_steps=39 format=3 uid="uid://dpyn1enbx4w7u"]
 
 [ext_resource type="Script" path="res://ui/main_screen/main_script.gd" id="1_87vrv"]
 [ext_resource type="Texture2D" uid="uid://wgpfvhfu1oi6" path="res://images/game-map/time/timer.svg" id="1_lc3b6"]
@@ -29,12 +29,14 @@
 [ext_resource type="Texture2D" uid="uid://cy3cktjlojmph" path="res://images/main-game/progress-bar/yellow-bars-neutral.svg" id="26_r8fpx"]
 [ext_resource type="Texture2D" uid="uid://7o56brbyyo2q" path="res://images/main-game/progress-bar/progress-bar-frame.svg" id="27_1f572"]
 [ext_resource type="Script" path="res://ui/main_screen/anonymity_value.gd" id="27_4w0dy"]
+[ext_resource type="Script" path="res://ui/main_screen/DEBUG_BUTTON_PROGRESS_PLUS.gd" id="28_cxtu7"]
 [ext_resource type="Texture2D" uid="uid://bfdojxvh0t1t1" path="res://images/sabotage-buttons/charge-empty.svg" id="29_uhnp3"]
 [ext_resource type="Texture2D" uid="uid://c0qscxdhe0y0b" path="res://images/sabotage-buttons/sabotage-btn.svg" id="30_1i0ej"]
 [ext_resource type="Texture2D" uid="uid://c7ibmmf7nuqw" path="res://images/sabotage-buttons/sabotage-btn-enabled.svg" id="30_f8a6t"]
+[ext_resource type="Script" path="res://ui/main_screen/SabotageButtonControl.gd" id="31_g1nb2"]
 [ext_resource type="Texture2D" uid="uid://bituwj1ulonvo" path="res://images/sabotage-buttons/anonymity-fill.svg" id="32_0d254"]
 [ext_resource type="Texture2D" uid="uid://dvgajhh78c4wt" path="res://images/sabotage-buttons/sabotage-icon.svg" id="32_tfymk"]
-[ext_resource type="PackedScene" uid="uid://cl6vuu5nixgev" path="res://ui/menus/exit_menu_scene.tscn" id="34_n0pnv"]
+[ext_resource type="PackedScene" path="res://ui/menus/exit_menu_scene.tscn" id="34_n0pnv"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wlhim"]
 load_path = "res://.godot/imported/pause.svg-09127f19c3b279e09b32f71d3249e6c1.ctex"
@@ -43,8 +45,10 @@ load_path = "res://.godot/imported/pause.svg-09127f19c3b279e09b32f71d3249e6c1.ct
 script = ExtResource("1_87vrv")
 
 [node name="Background" type="VideoStreamPlayer" parent="."]
-offset_right = 1920.0
-offset_bottom = 1080.0
+offset_left = 21.0
+offset_top = 3.0
+offset_right = 1941.0
+offset_bottom = 1083.0
 stream = ExtResource("1_tp77f")
 autoplay = true
 expand = true
@@ -347,6 +351,24 @@ offset_bottom = 16.0
 text = "
 "
 
+[node name="DEBUG_BUTTON_PROGRESS_PLUS" type="Button" parent="ProgressBarControl"]
+layout_mode = 0
+offset_left = 422.0
+offset_top = -52.0
+offset_right = 572.0
+offset_bottom = -14.0
+text = "ADD +1 PROGRESS"
+script = ExtResource("28_cxtu7")
+
+[node name="DEBUG_BUTTON_PROGRESS_MINUS" type="Button" parent="ProgressBarControl"]
+layout_mode = 0
+offset_left = 590.0
+offset_top = -52.0
+offset_right = 740.0
+offset_bottom = -14.0
+text = "ADD -1 PROGRESS"
+script = ExtResource("28_cxtu7")
+
 [node name="Terminal" type="Node2D" parent="."]
 
 [node name="_terminal_mock" parent="Terminal" instance=ExtResource("26_lb6pa")]
@@ -375,6 +397,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("31_g1nb2")
 
 [node name="Charge2" type="TextureRect" parent="SabotageButtonControl"]
 layout_mode = 0
@@ -422,6 +445,14 @@ offset_right = 171.0
 offset_bottom = 174.0
 texture = ExtResource("32_tfymk")
 
+[node name="SabotageChargesLabel" type="Label" parent="SabotageButtonControl"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 920.0
+offset_right = 104.0
+offset_bottom = 944.0
+text = "0"
+
 [node name="ExitPrompt" type="Node2D" parent="."]
 
 [node name="exit_menu" parent="ExitPrompt" instance=ExtResource("34_n0pnv")]
@@ -441,3 +472,5 @@ visible = false
 [connection signal="timeout" from="MainControl/Business_Logic/Label/Timer" to="MainControl/Business_Logic" method="_on_timer_timeout"]
 [connection signal="timeout" from="MainControl/Backend/Label/Timer" to="MainControl/Backend" method="_on_timer_timeout"]
 [connection signal="timeout" from="MainControl/UI_UX/Label/Timer" to="MainControl/UI_UX" method="_on_timer_timeout"]
+[connection signal="pressed" from="ProgressBarControl/DEBUG_BUTTON_PROGRESS_PLUS" to="ProgressBarControl/DEBUG_BUTTON_PROGRESS_PLUS" method="_on_Button_pressed_plus"]
+[connection signal="pressed" from="ProgressBarControl/DEBUG_BUTTON_PROGRESS_MINUS" to="ProgressBarControl/DEBUG_BUTTON_PROGRESS_MINUS" method="_on_Button_pressed_minus"]

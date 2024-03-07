@@ -4,16 +4,15 @@ extends Control
 const PROGRESS_BAR_DICTIONARY_KEY = "progress_bar"
 const PROGRESS_BAR_VALUE_DICTIONARY_KEY = "value"
 const PROGRESS_BAR_ZONE_DICTIONARY_KEY = "zone"
-var zones_scene = preload("res://ui/main_screen/progress_bar_zones_scene.tscn")
-var deadline_scene = preload("res://ui/main_screen/progress_bar_deadline_scene.tscn")
+var zones_scene = preload ("res://ui/main_screen/progress_bar_zones_scene.tscn")
+var deadline_scene = preload ("res://ui/main_screen/progress_bar_deadline_scene.tscn")
 var zones_queue = [] # FIFO queue to store created zones with their parameters
 
 var zone_dictionary = {}
 var colors = ["red", "green"]
 var sizes = ["sm", "md", "lg"]
 
-
-
+signal deadline_missed()
 
 func _ready():
 	terminal.connect("answer_signal", apply_progress_bar_effects)
@@ -38,11 +37,11 @@ func is_zone_present():
 	return len(zones_queue) > 0
 
 # if current progress is in the first zone
-func is_inside_zone(position_bar:int):
+func is_inside_zone(position_bar: int):
 	return is_zone_present() and zones_queue[0]["start_pos"] < position_bar and position_bar < zones_queue[0]["end_pos"]
 	
 func get_current_position():
-	return get_pixel_from_percent($GameProgressBar.value , $GameProgressBar.size['x'])
+	return get_pixel_from_percent($GameProgressBar.value, $GameProgressBar.size['x'])
 	
 func get_pixel_from_percent(percent: float, total: int) -> int:
 	return int(percent * total / 100)
@@ -83,7 +82,11 @@ func create_deadlines():
 		new_deadline_scene.position.x = (Globals.deadlines[i][current_key].deadline_position_in_seconds * Globals.progress_bar_speed / 100 * $GameProgressBar.size.x) - new_deadline_scene.get_child(1).size.x
 		$DeadlinesContainer.add_child(new_deadline_scene)
 
-func is_deadline_reached(deadline_index:int) -> bool:
+func add_charge_to_sabotage() -> void:
+	print("deadline_missed signal emitted")
+	deadline_missed.emit()
+
+func is_deadline_reached(deadline_index: int) -> bool:
 	var progress_frame_border = $GameProgressBar.position.x - $ProgressFrame.position.x
 	return ($GameProgressBar.value / $GameProgressBar.max_value) * $GameProgressBar.size.x >= $DeadlinesContainer.get_child(deadline_index).position.x + $DeadlinesContainer.get_child(deadline_index).size.x + $DeadlinesContainer.position.x + $ProgressFrame.position.x + progress_frame_border
 
@@ -107,6 +110,7 @@ func decrease_deadlines_timers():
 			# check if the current position of the progress bar is less than the position of the next deadline
 			if not is_deadline_reached(i):
 				deadline_texture.texture = load("res://images/main-game/progress-bar/deadline-missed.svg")
+				add_charge_to_sabotage()
 			else:
 				deadline_texture.texture = load("res://images/main-game/progress-bar/deadline-reached.svg")
 		else:
@@ -125,14 +129,14 @@ func create_zone(zone_effects: Dictionary):
 # create a new zone scene and node
 func create_new_zone_node():
 	var new_zone_scene = zones_scene.instantiate()
-	var new_zone_node:TextureRect = new_zone_scene.get_child(0)
+	var new_zone_node: TextureRect = new_zone_scene.get_child(0)
 	new_zone_scene.remove_child(new_zone_node)
 	return new_zone_node
 
 # set zone texture based on length (sm,md,lg)
 func set_zone_texture(new_zone_node, zone_effects):
-	var zone_length = int(zone_effects.get("length",Globals.progress_bar_zone_length.SMALL))
-	var zone_speedup = zone_effects.get("speedValue",1)
+	var zone_length = int(zone_effects.get("length", Globals.progress_bar_zone_length.SMALL))
+	var zone_speedup = zone_effects.get("speedValue", 1)
 	var zone_color = "red" if zone_speedup < 1 else "green"
 	match zone_length:
 		Globals.progress_bar_zone_length.SMALL:
@@ -147,16 +151,16 @@ func set_zone_texture(new_zone_node, zone_effects):
 # set new zone's properties
 func set_new_zone_properties(zone_effects, new_zone_node):
 	var new_zone = {}
-	var zone_offset = zone_effects.get("offset",0)
-	new_zone["speed"] = zone_effects.get("speedValue",1)
-	new_zone["start_pos"] = zone_offset + (zones_queue[-1]["end_pos"] if is_zone_present() else $GameProgressBar.value)
+	var zone_offset = zone_effects.get("offset", 0)
+	new_zone["speed"] = zone_effects.get("speedValue", 1)
+	new_zone["start_pos"] = zone_offset + (zones_queue[- 1]["end_pos"] if is_zone_present() else $GameProgressBar.value)
 	new_zone["end_pos"] = new_zone["start_pos"] + new_zone_node.texture.get_width()
 	new_zone_node.offset_left = new_zone["start_pos"]
 	return new_zone
 
 # add new zone to queue and ZonesContainer
 func add_zone_to_queue_and_container(new_zone, new_zone_node):
-	if new_zone["end_pos"] <= $ZonesContainer.size.x: 
+	if new_zone["end_pos"] <= $ZonesContainer.size.x:
 		$ZonesContainer.add_child(new_zone_node)
 		zones_queue.append(new_zone)
 
