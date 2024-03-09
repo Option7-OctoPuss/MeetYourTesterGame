@@ -55,7 +55,7 @@ class TestDeadlinePO:
 		gut.p("Testing if the deadline is missed by changing the timer and current progress bar value is less than the position of deadline")
 		var deadlines_container = progress_bar_control.get_node("DeadlinesContainer")
 		progress_bar_control.create_deadlines()
-		Globals.gameTime = 130
 		progress_bar_control.get_node("GameProgressBar").value = 10
+		deadlines_container.get_child(0).find_child("DeadlineTimer").text = "00:01"
 		progress_bar_control.decrease_deadlines_timers()
 		assert_string_contains(deadlines_container.get_child(0).get_node("Deadline").texture.resource_path, "missed")

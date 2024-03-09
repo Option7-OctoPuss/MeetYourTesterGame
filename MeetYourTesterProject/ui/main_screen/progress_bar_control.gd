@@ -98,15 +98,16 @@ func decrease_deadlines_timers():
 	
 	for i in range(len($DeadlinesContainer.get_children())):
 		var current_key = "deadline_%s" % str(i)
-		var new_timer = float(Globals.deadlines[i][current_key].deadline_position_in_seconds - Globals.gameTime)
 		var deadline_label = $DeadlinesContainer.get_child(i).get_child(0)
 		var deadline_texture = $DeadlinesContainer.get_child(i).get_child(1)
+		var new_timer = float(Utils.time_to_seconds(deadline_label.text) - 1)
 		
 		# check if the texture is already changed
 		if deadline_texture.texture.resource_path.contains("missed") or deadline_texture.texture.resource_path.contains("reached"):
 			continue
 		
 		if new_timer <= 0:
+			new_timer = 0
 			# check if the current position of the progress bar is less than the position of the next deadline
 			if not is_deadline_reached(i):
 				deadline_texture.texture = load("res://images/main-game/progress-bar/deadline-missed.svg")
