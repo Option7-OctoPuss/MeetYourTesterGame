@@ -54,12 +54,23 @@ func decrease_charge_count():
 
 
 func _on_sabotage_button_pressed():
+	reduce_deadline_time()
 	decrease_charge_count()
 	anonimity_node.add_anonymity_value(-Globals.SABOTAGE_ANON_DECREASE_VALUE)
-	decrease_final_deadline()
 	if charge_count == 0:
 		$SabotageButton.disabled = true
 		return
 
-func decrease_final_deadline():
-	pass
+func reduce_deadline_time():
+	var deadlines_children = progress_bar_control_node.find_child("DeadlinesContainer").get_children()
+	for deadline_node in deadlines_children:
+		var deadline_texture: TextureRect = deadline_node.find_child("Deadline")
+		var deadline_label: Label = deadline_node.find_child("DeadlineTimer") 
+		var new_deadline_time_amount = Utils.time_to_seconds(deadline_label.text) - Globals.DECREASE_FINAL_DEADLINE_AMOUNT
+		
+		if new_deadline_time_amount <= 0:
+			pass
+
+		if deadline_texture.texture.resource_path.contains("pending"):
+			deadline_label.text = Utils.float_to_time(new_deadline_time_amount)
+			break

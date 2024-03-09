@@ -10,6 +10,13 @@ func float_to_time(seconds_float: float = 0) -> String:
 	var time_string = "%02d:%02d" % [ minutes, seconds]
 	return time_string
 
+func time_to_seconds(time_string: String) -> float:
+	var time_components = time_string.split(":")
+	var minutes = int(time_components[0])
+	var seconds = int(time_components[1])
+	var total_seconds = minutes * 60 + seconds
+	return total_seconds
+
 # on any node
 func pause(node_name: Node):
 	#process_mode = PROCESS_MODE_DISABLED
