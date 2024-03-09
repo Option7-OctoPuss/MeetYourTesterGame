@@ -447,7 +447,6 @@ disabled = true
 texture_normal = ExtResource("30_f8a6t")
 texture_disabled = ExtResource("30_1i0ej")
 stretch_mode = 0
-script = ExtResource("37_gabqj")
 
 [node name="AnonymityBar" type="TextureProgressBar" parent="SabotageButtonControl/SabotageButton"]
 layout_mode = 1
