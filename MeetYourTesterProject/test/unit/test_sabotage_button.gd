@@ -29,8 +29,14 @@ class TestSabotageButton:
 		sabotage_node.increase_charge_count()
 		assert_eq(sabotage_node.charge_count, 1, "Charge count should be 1")
 	
-	func test_limit_3_charges():
-		gut.p("Testing charge is limited to 3")
-		sabotage_node.charge_count = 3
+	func test_limit_2_charges():
+		gut.p("Testing charge is limited to 2")
+		sabotage_node.charge_count = 2
 		sabotage_node.increase_charge_count()
-		assert_eq(sabotage_node.charge_count, 3, "Charge count should be 3")
+		assert_eq(sabotage_node.charge_count, 2, "Charge count should be 2")
+
+	func test_decrease_charge():
+		gut.p("Testing charge is decreased")
+		sabotage_node.charge_count = 1
+		sabotage_node.decrease_charge_count()
+		assert_eq(sabotage_node.charge_count, 0, "Charge count should be 0")
