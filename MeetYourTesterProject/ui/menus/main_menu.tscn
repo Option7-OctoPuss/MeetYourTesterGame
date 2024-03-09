@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cguax1fbaiecp" path="res://images/start-scene/btn-label-quit.svg" id="10_ew0m2"]
 [ext_resource type="Texture2D" uid="uid://dnx1jansete6u" path="res://images/start-scene/btn-icon-exit-select.svg" id="13_kxd7s"]
 [ext_resource type="Texture2D" uid="uid://cnj2hmbegy77i" path="res://images/start-scene/btn-label-quit-select.svg" id="14_2d5jb"]
-[ext_resource type="PackedScene" uid="uid://brhb8q4l3dke2" path="res://ui/menus/exit_menu_scene.tscn" id="15_eu3by"]
+[ext_resource type="PackedScene" uid="uid://cl6vuu5nixgev" path="res://ui/menus/exit_menu_scene.tscn" id="15_eu3by"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("5_wor2r")

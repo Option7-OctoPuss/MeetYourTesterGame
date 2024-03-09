@@ -11,7 +11,7 @@ signal quit_signal
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	#BackgroundAudio.startSong() 
 	startIcon = $GridContainer/StartIcon
 	startLabel = $GridContainer/CenterStartLabel/StartLabel
 	quitIcon = $GridContainer/QuitIcon
@@ -28,22 +28,18 @@ func _process(delta):
 func disable_everything():
 	Utils.pause($GridContainer)
 	exitMenu.visible = true
-	startIcon.texture_hover = ResourceLoader.load("res://images/start-scene/btn-icon-start.svg")	
-	startLabel.texture_hover = ResourceLoader.load("res://images/start-scene/btn-label-start.svg")
-	quitLabel.texture_hover = ResourceLoader.load("res://images/start-scene/btn-label-quit.svg")
-	quitIcon.texture_hover = ResourceLoader.load("res://images/start-scene/btn-icon-exit.svg")	 	
-	quitLabel.texture_normal = ResourceLoader.load("res://images/start-scene/btn-label-quit.svg")
-	quitIcon.texture_normal = ResourceLoader.load("res://images/start-scene/btn-icon-exit.svg")	 	
+	Utils.toggle_button_effect(startIcon)
+	Utils.toggle_button_effect(startLabel)
+	Utils.toggle_button_effect(quitLabel)
+	Utils.toggle_button_effect(quitIcon)
 
 func enable_everything():
 	Utils.unpause($GridContainer)
-	print($GridContainer)
 	exitMenu.visible = false
-	startIcon.texture_hover = ResourceLoader.load("res://images/start-scene/btn-icon-start-select.svg")	
-	startLabel.texture_hover = ResourceLoader.load("res://images/start-scene/btn-label-start-select.svg")
-	quitLabel.texture_hover = ResourceLoader.load("res://images/start-scene/btn-label-quit-select.svg")
-	quitIcon.texture_hover = ResourceLoader.load("res://images/start-scene/btn-icon-exit-select.svg")	 	
-
+	Utils.toggle_button_effect(startIcon)
+	Utils.toggle_button_effect(startLabel)
+	Utils.toggle_button_effect(quitLabel)
+	Utils.toggle_button_effect(quitIcon)
 
 func _on_start_game_label_pressed():
 	_debug_print("Start Game Button (label) pressed")
@@ -79,8 +75,7 @@ func _on_start_icon_mouse_exited():
 func _on_quit_label_pressed():
 	_debug_print("Quit Game Button (label) pressed")
 	emit_signal("quit_signal")
-	print(Globals.quit_signal_name)
-
+	
 	
 func _on_quit_icon_mouse_entered():
 	_debug_print("Quit Game Button (icon) on hover entered")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dpyn1enbx4w7u"]
+[gd_scene load_steps=42 format=3 uid="uid://dpyn1enbx4w7u"]
 
 [ext_resource type="Script" path="res://ui/main_screen/main_script.gd" id="1_87vrv"]
 [ext_resource type="Texture2D" uid="uid://wgpfvhfu1oi6" path="res://images/game-map/time/timer.svg" id="1_lc3b6"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://ui/main_screen/timer_btns.gd" id="3_svwg2"]
 [ext_resource type="Script" path="res://ui/main_screen/timer.gd" id="5_bt7jo"]
 [ext_resource type="Texture2D" uid="uid://beevq6x3iexl0" path="res://images/main-game/hex-cell-small.svg" id="7_cf20c"]
+[ext_resource type="AudioStream" uid="uid://ckfa8saj8axfy" path="res://sounds/clickHexagon.mp3" id="7_v2lef"]
 [ext_resource type="Texture2D" uid="uid://cggemgu6mwcp" path="res://images/game-map/notification-hex/hex-cell-database-notifiaction.svg" id="8_5sr2y"]
 [ext_resource type="Texture2D" uid="uid://c8d3le8nttgse" path="res://images/game-map/simple-hex/hex-cell-database.svg" id="8_8qqeu"]
 [ext_resource type="Texture2D" uid="uid://d4im2hnqve1s3" path="res://images/game-map/selected-hex/hex-cell-database-selected.svg" id="9_54p3a"]
@@ -29,12 +30,16 @@
 [ext_resource type="Texture2D" uid="uid://cy3cktjlojmph" path="res://images/main-game/progress-bar/yellow-bars-neutral.svg" id="26_r8fpx"]
 [ext_resource type="Texture2D" uid="uid://7o56brbyyo2q" path="res://images/main-game/progress-bar/progress-bar-frame.svg" id="27_1f572"]
 [ext_resource type="Script" path="res://ui/main_screen/anonymity_value.gd" id="27_4w0dy"]
+[ext_resource type="Script" path="res://ui/main_screen/DEBUG_BUTTON_PROGRESS_PLUS.gd" id="28_cxtu7"]
 [ext_resource type="Texture2D" uid="uid://bfdojxvh0t1t1" path="res://images/sabotage-buttons/charge-empty.svg" id="29_uhnp3"]
 [ext_resource type="Texture2D" uid="uid://c0qscxdhe0y0b" path="res://images/sabotage-buttons/sabotage-btn.svg" id="30_1i0ej"]
 [ext_resource type="Texture2D" uid="uid://c7ibmmf7nuqw" path="res://images/sabotage-buttons/sabotage-btn-enabled.svg" id="30_f8a6t"]
+[ext_resource type="Script" path="res://ui/main_screen/SabotageButtonControl.gd" id="31_g1nb2"]
 [ext_resource type="Texture2D" uid="uid://bituwj1ulonvo" path="res://images/sabotage-buttons/anonymity-fill.svg" id="32_0d254"]
 [ext_resource type="Texture2D" uid="uid://dvgajhh78c4wt" path="res://images/sabotage-buttons/sabotage-icon.svg" id="32_tfymk"]
 [ext_resource type="PackedScene" uid="uid://cl6vuu5nixgev" path="res://ui/menus/exit_menu_scene.tscn" id="34_n0pnv"]
+[ext_resource type="Script" path="res://ui/main_screen/SabotageButton.gd" id="37_gabqj"]
+[ext_resource type="AudioStream" uid="uid://d044b2aeveg6j" path="res://sounds/spawnHexagon.mp3" id="38_nnwxb"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wlhim"]
 load_path = "res://.godot/imported/pause.svg-09127f19c3b279e09b32f71d3249e6c1.ctex"
@@ -93,6 +98,13 @@ anchors_preset = 0
 offset_top = 110.0
 offset_right = 830.0
 offset_bottom = 774.0
+
+[node name="HexagonClickedSfx" type="AudioStreamPlayer" parent="MainControl"]
+stream = ExtResource("7_v2lef")
+volume_db = -11.664
+
+[node name="HexagonActivatedSfx" type="AudioStreamPlayer" parent="MainControl"]
+stream = ExtResource("38_nnwxb")
 
 [node name="EmptyHex2" type="TextureButton" parent="MainControl"]
 layout_mode = 0
@@ -347,6 +359,40 @@ offset_bottom = 16.0
 text = "
 "
 
+[node name="DEBUG_BUTTON_PROGRESS_PLUS" type="Button" parent="ProgressBarControl"]
+layout_mode = 0
+offset_left = 422.0
+offset_top = -52.0
+offset_right = 572.0
+offset_bottom = -14.0
+text = "ADD +1 PROGRESS"
+script = ExtResource("28_cxtu7")
+
+[node name="DEBUG_BUTTON_PROGRESS_MINUS" type="Button" parent="ProgressBarControl"]
+layout_mode = 0
+offset_left = 590.0
+offset_top = -52.0
+offset_right = 740.0
+offset_bottom = -14.0
+text = "ADD -1 PROGRESS"
+script = ExtResource("28_cxtu7")
+
+[node name="DEBUG_BUTTON_ANON_PLUS" type="Button" parent="ProgressBarControl"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = -52.0
+offset_right = 415.0
+offset_bottom = -15.0
+text = "ADD ANON VALUE + 20"
+
+[node name="DEBUG_BUTTON_ANON_MINUS" type="Button" parent="ProgressBarControl"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = -52.0
+offset_right = 226.0
+offset_bottom = -15.0
+text = "ADD ANON VALUE -20"
+
 [node name="Terminal" type="Node2D" parent="."]
 
 [node name="_terminal_mock" parent="Terminal" instance=ExtResource("26_lb6pa")]
@@ -354,7 +400,6 @@ position = Vector2(1159, -4)
 scale = Vector2(1.405, 1.45)
 
 [node name="AnonymityBarControl" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -362,7 +407,6 @@ offset_bottom = 40.0
 script = ExtResource("27_4w0dy")
 
 [node name="AnonymityValue" type="RichTextLabel" parent="AnonymityBarControl"]
-visible = false
 layout_mode = 0
 offset_left = 1015.0
 offset_top = 262.0
@@ -375,6 +419,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("31_g1nb2")
 
 [node name="Charge2" type="TextureRect" parent="SabotageButtonControl"]
 layout_mode = 0
@@ -402,6 +447,7 @@ disabled = true
 texture_normal = ExtResource("30_f8a6t")
 texture_disabled = ExtResource("30_1i0ej")
 stretch_mode = 0
+script = ExtResource("37_gabqj")
 
 [node name="AnonymityBar" type="TextureProgressBar" parent="SabotageButtonControl/SabotageButton"]
 layout_mode = 1
@@ -422,6 +468,14 @@ offset_right = 171.0
 offset_bottom = 174.0
 texture = ExtResource("32_tfymk")
 
+[node name="SabotageChargesLabel" type="Label" parent="SabotageButtonControl"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 920.0
+offset_right = 62.0
+offset_bottom = 944.0
+text = "0"
+
 [node name="ExitPrompt" type="Node2D" parent="."]
 
 [node name="exit_menu" parent="ExitPrompt" instance=ExtResource("34_n0pnv")]
@@ -441,3 +495,8 @@ visible = false
 [connection signal="timeout" from="MainControl/Business_Logic/Label/Timer" to="MainControl/Business_Logic" method="_on_timer_timeout"]
 [connection signal="timeout" from="MainControl/Backend/Label/Timer" to="MainControl/Backend" method="_on_timer_timeout"]
 [connection signal="timeout" from="MainControl/UI_UX/Label/Timer" to="MainControl/UI_UX" method="_on_timer_timeout"]
+[connection signal="pressed" from="ProgressBarControl/DEBUG_BUTTON_PROGRESS_PLUS" to="ProgressBarControl/DEBUG_BUTTON_PROGRESS_PLUS" method="_on_Button_pressed_plus"]
+[connection signal="pressed" from="ProgressBarControl/DEBUG_BUTTON_PROGRESS_MINUS" to="ProgressBarControl/DEBUG_BUTTON_PROGRESS_MINUS" method="_on_Button_pressed_minus"]
+[connection signal="pressed" from="ProgressBarControl/DEBUG_BUTTON_ANON_PLUS" to="ProgressBarControl/DEBUG_BUTTON_PROGRESS_MINUS" method="_on_Debug_btn_pressed_plus"]
+[connection signal="pressed" from="ProgressBarControl/DEBUG_BUTTON_ANON_MINUS" to="ProgressBarControl/DEBUG_BUTTON_PROGRESS_MINUS" method="_on_Debug_btn_pressed_minus"]
+[connection signal="pressed" from="SabotageButtonControl/SabotageButton" to="SabotageButtonControl" method="_on_sabotage_button_pressed"]
