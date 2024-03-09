@@ -1,11 +1,13 @@
 extends TextureButton
 
-
+var exit_menu
 @export_category("Communication message")
 @export var message: String = "Test message"
 var backup_disable_image: Texture2D
+var backup_hover_image: Texture2D
 var is_action_event_generated = false
 var timer_child = null
+
 
 signal hexagon_clicked(params)
 
@@ -13,6 +15,7 @@ signal hexagon_clicked(params)
 func _ready():
 	randomize()
 	backup_disable_image = texture_disabled	
+	backup_hover_image = texture_hover
 	timer_child = get_child(0).get_child(0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -57,3 +60,14 @@ func startSoundSpawnEvent():
 	
 func startSoundClickedEvent():
 	get_node("../HexagonClickedSfx").play()
+
+func handle_game_exit(checkGameQuit):
+	if(checkGameQuit):
+		if(disabled and is_action_event_generated):
+			texture_hover = texture_pressed
+		if(disabled and not is_action_event_generated):
+			texture_hover = texture_disabled
+		if(not disabled):
+			texture_hover = texture_normal
+	else: 
+		texture_hover = backup_hover_image
