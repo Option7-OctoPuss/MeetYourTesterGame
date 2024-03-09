@@ -5,6 +5,8 @@ var charge_limit_reached = Signal()
 @onready var charge_count_label = find_child("SabotageChargesLabel")
 @onready var progress_bar_control_node = get_parent().get_node("ProgressBarControl")
 @onready var anonimity_node = get_parent().get_node("AnonymityBarControl")
+@onready var charge_one_node: TextureRect = get_node("Charge1")
+@onready var charge_two_node: TextureRect = get_node("Charge2")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,12 +27,19 @@ func _handle_deadline_missed():
 	_handle_anon_value_update()
 	
 func increase_charge_count():
-	if charge_count < 2:
-		charge_count += 1
-		charge_count_label.text = str(charge_count)
-	else:
+	if charge_count == 2:
 		print("You have enough charges")
 		emit_signal("charge_limit_reached")
+		return
+
+	charge_count += 1
+	charge_count_label.text = str(charge_count)
+
+	if charge_count == 1:
+		charge_one_node.texture = load("res://images/sabotage-buttons/charge-filled.svg")
+	else:
+		charge_two_node.texture = load("res://images/sabotage-buttons/charge-filled.svg")
+		
 
 func change_label_text(new_text: String):
 	charge_count_label.text = new_text
@@ -38,6 +47,10 @@ func change_label_text(new_text: String):
 func decrease_charge_count():
 	charge_count -= 1
 	change_label_text(str(charge_count))
+	if charge_count == 0:
+		charge_one_node.texture = load("res://images/sabotage-buttons/charge-empty.svg")
+	else:
+		charge_two_node.texture = load("res://images/sabotage-buttons/charge-empty.svg")
 
 
 func _on_sabotage_button_pressed():
