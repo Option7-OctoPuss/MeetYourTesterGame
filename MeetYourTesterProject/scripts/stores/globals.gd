@@ -11,6 +11,7 @@ var deadlines:Array
 
 var questions_dir_path = "res://questions"
 var questions_file_path = "res://questions/example_question.json"
+var messages_file_path = "res://messages/end_game.json"
 var questions_test_file_path = "res://questions/example_question_test.json"
 var questions:Dictionary = {}
 
