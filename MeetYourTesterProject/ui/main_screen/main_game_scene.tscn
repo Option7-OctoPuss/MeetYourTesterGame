@@ -47,10 +47,8 @@ load_path = "res://.godot/imported/pause.svg-09127f19c3b279e09b32f71d3249e6c1.ct
 script = ExtResource("1_87vrv")
 
 [node name="Background" type="VideoStreamPlayer" parent="."]
-offset_left = 21.0
-offset_top = 3.0
-offset_right = 1941.0
-offset_bottom = 1083.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 stream = ExtResource("1_tp77f")
 autoplay = true
 expand = true

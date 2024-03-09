@@ -21,6 +21,7 @@ func _process(delta):
 		Utils.pause(main_control)
 		Utils.pause(timer_control)
 		Utils.pause(terminal_control)
+		manageHoverNodes()
 	pass
 
 func resume():
@@ -30,4 +31,13 @@ func resume():
 	Utils.unpause(main_control)
 	Utils.unpause(timer_control)
 	Utils.unpause(terminal_control)
+	manageHoverNodes()
 	pass
+
+func manageHoverNodes():
+	get_node("MainControl").get_node("Database").handle_game_exit(exit_menu.visible)
+	get_node("MainControl").get_node("Delivery").handle_game_exit(exit_menu.visible)
+	get_node("MainControl").get_node("Business_Logic").handle_game_exit(exit_menu.visible)
+	get_node("MainControl").get_node("Backend").handle_game_exit(exit_menu.visible)
+	get_node("MainControl").get_node("UI_UX").handle_game_exit(exit_menu.visible)
+	
