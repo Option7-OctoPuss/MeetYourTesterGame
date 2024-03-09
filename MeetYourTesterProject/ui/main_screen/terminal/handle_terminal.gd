@@ -40,6 +40,7 @@ func update_terminal_content(event_name: String, current_question: Dictionary, a
 		text = prepare_question_for_terminal(event_name, current_question, true)
 
 func handle_meta_clicked(meta: Variant):
+	startSoundSelectedAnswer()
 	self.scroll_active = true
 	var question_choosed_info = meta.split('_') # questionId_answerIdx
 	print(question_choosed_info)
@@ -106,3 +107,7 @@ func check_for_characters(question_title: String, persona_color: String="#05C9C9
 		question_title = question_title.replace(matched_string, "[wave amp=50.0 freq=5.0 connected=1][color=%s]" % persona_color + matched_string_replaced + "[/color][/wave]")
 	
 	return question_title
+
+
+func startSoundSelectedAnswer():
+	get_node("../TerminalSelectedAnswerSfx").play()

@@ -21,6 +21,7 @@ func _process(delta):
 	
 func _on_timer_timeout():
 	if !is_action_event_generated:
+		startSoundSpawnEvent()
 		generate_action_event()
 	else:
 		remove_action_event()
@@ -34,6 +35,7 @@ func _pressed():
 	var params = {"node_name":node_name}
 	# emit signal that this button has been pressed
 	hexagon_clicked.emit(params)
+	startSoundClickedEvent()
 
 # functions to handle changes of state for the button
 func generate_action_event():
@@ -50,6 +52,8 @@ func remove_action_event():
 		timer_child.wait_time = randi() % Globals.randomTimerForActionEventInactivity
 		timer_child.start()
 	
+func startSoundSpawnEvent():
+	get_node("../HexagonActivatedSfx").play()
 	
-	
-	
+func startSoundClickedEvent():
+	get_node("../HexagonClickedSfx").play()
