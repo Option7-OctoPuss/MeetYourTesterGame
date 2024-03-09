@@ -22,6 +22,7 @@ SceneManager="*res://scripts/managers/scene_manager.gd"
 DiffStore="*res://scripts/stores/diff_store.gd"
 Globals="*res://scripts/stores/globals.gd"
 Utils="*res://scripts/stores/utils.gd"
+BackgroundAudio="*res://BackgroundAudioController/BackgroundAudio.tscn"
 
 [display]
 
