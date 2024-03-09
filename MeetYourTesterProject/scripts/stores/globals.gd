@@ -18,7 +18,7 @@ var questions:Dictionary = {}
 var terminalHistory = "";
 var currentAnswer:Dictionary = {}
 
-var current_anonymity_value = 0
+var current_anonymity_value = 40 # starting value
 var anonymity_value_alert_threshold = 4
 enum progress_bar_zone_length {
 	SMALL=1,
