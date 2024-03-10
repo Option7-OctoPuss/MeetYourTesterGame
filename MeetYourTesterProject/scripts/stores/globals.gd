@@ -18,7 +18,7 @@ var questions:Dictionary = {}
 var terminalHistory = "";
 var currentAnswer:Dictionary = {}
 
-var current_anonymity_value = 0
+var current_anonymity_value = 40 # starting value
 var anonymity_value_alert_threshold = 4
 enum progress_bar_zone_length {
 	SMALL=1,
@@ -35,3 +35,5 @@ const ANONYMITY_BAR_DICTIONARY_KEY = "anon_bar"
 const ANON_VALUE_SABOTAGE_TRIGGER = 50
 const SABOTAGE_ANON_DECREASE_VALUE = 20
 var DECREASE_FINAL_DEADLINE_AMOUNT = 10 # in seconds
+
+var end_game_reason = null

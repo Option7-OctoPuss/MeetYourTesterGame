@@ -13,6 +13,8 @@ var colors = ["red", "green"]
 var sizes = ["sm", "md", "lg"]
 
 signal deadline_missed()
+signal progress_bar_limit_reached
+signal last_deadline_missed
 
 func _ready():
 	terminal.connect("answer_signal", apply_progress_bar_effects)
@@ -50,14 +52,18 @@ func get_pixel_from_percent(percent: float, total: int) -> int:
 func auto_increment():
 	$ProgressBarSpeedDbg.set_text(str($GameProgressBar.value))
 	# if bar has reached the end, print GAME OVER 
-	if $GameProgressBar.value >= $GameProgressBar.max_value:
-	# TODO add an actual end game notification, stopping the game timer
-		print("GAME OVER: progress bar has reached 100%")
 	if is_inside_zone(get_current_position()):
 		$GameProgressBar.value += Globals.progress_bar_speed * zones_queue[0]["speed"]
 	else:
 		$GameProgressBar.value += Globals.progress_bar_speed
+	check_progress_bar_limit_reached()
 	decrease_deadlines_timers()
+
+func check_progress_bar_limit_reached():
+	if $GameProgressBar.value >= $GameProgressBar.max_value:
+	# TODO add an actual end game notification, stopping the game timer
+		print("GAME OVER: progress bar has reached 100%")
+		emit_signal("progress_bar_limit_reached")
 
 # get effects from answer and apply them (moving progress, creating zone)
 func apply_progress_bar_effects(selected_answer: Dictionary):
@@ -67,6 +73,7 @@ func apply_progress_bar_effects(selected_answer: Dictionary):
 		if effect.has(PROGRESS_BAR_VALUE_DICTIONARY_KEY):
 			# Godot handle under the hood the check for progress bar boundaries. If you add 1000 with a max value of 100 it will be 100.
 			$GameProgressBar.value += effect[PROGRESS_BAR_VALUE_DICTIONARY_KEY]
+			check_progress_bar_limit_reached()
 		if effect.has(PROGRESS_BAR_ZONE_DICTIONARY_KEY):
 			create_zone(effect[PROGRESS_BAR_ZONE_DICTIONARY_KEY])
 
@@ -85,6 +92,10 @@ func create_deadlines():
 func add_charge_to_sabotage() -> void:
 	print("deadline_missed signal emitted")
 	deadline_missed.emit()
+	
+func missed_last_deadline() -> void:
+	print("missed last deadline")
+	last_deadline_missed.emit()
 
 func is_deadline_reached(deadline_index: int) -> bool:
 	var progress_frame_border = $GameProgressBar.position.x - $ProgressFrame.position.x
@@ -92,6 +103,7 @@ func is_deadline_reached(deadline_index: int) -> bool:
 
 func decrease_deadlines_timers():
 	if $FinalDeadlineLabel.get_text() == "00:00":
+		missed_last_deadline()
 		return
 		
 	$FinalDeadlineLabel.set_text(Utils.float_to_time(float(($GameProgressBar.max_value / Globals.progress_bar_speed) - Globals.gameTime)))
