@@ -21,16 +21,19 @@ func _ready():
 
 func handle_last_deadline_missed():
 	print("Missed last deadline, you won the game")
-	end_game.emit(1)
+	Globals.end_game_reason = 1
+	get_tree().change_scene_to_file("res://ui/menus/end_game_scene.tscn")
 	
 func check_anonimity_value():
 	if Globals.current_anonymity_value <= 0:
 		print("Current anonimity value reached 0, game lost")
-		end_game.emit(2)
+		Globals.end_game_reason = 2
+		get_tree().change_scene_to_file("res://ui/menus/end_game_scene.tscn")
 
 func handle_progress_bar_limit_reached():
 	print("Progress bar reached its limit, game lost")
-	end_game.emit(3)
+	Globals.end_game_reason = 3
+	get_tree().change_scene_to_file("res://ui/menus/end_game_scene.tscn")
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

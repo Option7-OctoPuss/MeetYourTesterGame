@@ -13,8 +13,7 @@ func _ready():
 	var messages = JSON.parse_string(FileAccess.get_file_as_string("%s" % Globals.messages_file_path))
 
 	# TODO use the actual value from the signal inside the match
-	var signal_mock: int = 2 
-	match signal_mock:
+	match Globals.end_game_reason:
 		1:
 			titleLabel.text = messages.sabotage.title
 			bodyLabel.text = messages.sabotage.body
