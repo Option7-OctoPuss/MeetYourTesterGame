@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://xlf3saf5tm6e"]
+[gd_scene load_steps=18 format=3 uid="uid://xlf3saf5tm6e"]
 
 [ext_resource type="VideoStream" path="res://images/background/purple-nebula-background.ogv" id="1_latmh"]
 [ext_resource type="Texture2D" uid="uid://bqr3h3k41im03" path="res://images/start-scene/menu-title.svg" id="2_7cxd6"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dnx1jansete6u" path="res://images/start-scene/btn-icon-exit-select.svg" id="13_kxd7s"]
 [ext_resource type="Texture2D" uid="uid://cnj2hmbegy77i" path="res://images/start-scene/btn-label-quit-select.svg" id="14_2d5jb"]
 [ext_resource type="PackedScene" uid="uid://cl6vuu5nixgev" path="res://ui/menus/exit_menu_scene.tscn" id="15_eu3by"]
+[ext_resource type="PackedScene" uid="uid://bxnv8p8m4e5rk" path="res://ui/menus/tutorial_popup_scene.tscn" id="17_nfse2"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("5_wor2r")
@@ -97,13 +98,23 @@ texture_normal = ExtResource("10_ew0m2")
 texture_hover = ExtResource("14_2d5jb")
 
 [node name="ExitMenuControl" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="exit_menu" parent="ExitMenuControl" instance=ExtResource("15_eu3by")]
+position = Vector2(6, -1)
+
+[node name="TutorialPopup" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="tutorial_popup_scene" parent="TutorialPopup" instance=ExtResource("17_nfse2")]
+position = Vector2(-1, 2)
 
 [connection signal="mouse_entered" from="GridContainer/StartIcon" to="." method="_on_start_icon_mouse_entered"]
 [connection signal="mouse_exited" from="GridContainer/StartIcon" to="." method="_on_start_icon_mouse_exited"]

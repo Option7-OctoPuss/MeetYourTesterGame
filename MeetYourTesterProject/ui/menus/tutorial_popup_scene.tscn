@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://bxnv8p8m4e5rk"]
+
+[ext_resource type="Texture2D" uid="uid://duao0hfoktse2" path="res://images/tutorial-popup/tutorial_menu_overlay.svg" id="1_4gbib"]
+[ext_resource type="Script" path="res://ui/menus/tutorial_popup_scene.gd" id="1_7ta78"]
+[ext_resource type="Texture2D" uid="uid://byoeby0uc645u" path="res://images/tutorial-popup/skip-button.svg" id="2_t46xi"]
+[ext_resource type="Texture2D" uid="uid://dx78aqd0flypk" path="res://images/tutorial-popup/overlay.svg" id="2_v5s0c"]
+[ext_resource type="Texture2D" uid="uid://ckfdbx7qco0yt" path="res://images/tutorial-popup/skip-button-select.svg" id="3_d1tfq"]
+[ext_resource type="Texture2D" uid="uid://c4xoyvlqsix3k" path="res://images/tutorial-popup/start-button.svg" id="4_682jn"]
+[ext_resource type="Texture2D" uid="uid://cpe0fnfl6gxpr" path="res://images/tutorial-popup/start-button-select.svg" id="5_0bynm"]
+
+[node name="tutorial_popup_scene" type="Node2D"]
+script = ExtResource("1_7ta78")
+
+[node name="overlay" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_v5s0c")
+
+[node name="Popup" type="TextureRect" parent="."]
+offset_left = 333.0
+offset_top = 128.0
+offset_right = 1546.0
+offset_bottom = 921.0
+texture = ExtResource("1_4gbib")
+metadata/_edit_use_anchors_ = true
+
+[node name="Skip" type="TextureButton" parent="Popup"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.202
+anchor_top = 0.83
+anchor_right = 0.202
+anchor_bottom = 0.83
+offset_left = -0.026001
+offset_top = -0.190063
+offset_right = 294.974
+offset_bottom = 110.81
+texture_normal = ExtResource("2_t46xi")
+texture_hover = ExtResource("3_d1tfq")
+metadata/_edit_use_anchors_ = true
+
+[node name="Start" type="TextureButton" parent="Popup"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.614
+anchor_top = 0.83
+anchor_right = 0.614
+anchor_bottom = 0.83
+offset_left = 0.217896
+offset_top = -0.190063
+offset_right = 292.218
+offset_bottom = 110.81
+texture_normal = ExtResource("4_682jn")
+texture_hover = ExtResource("5_0bynm")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Popup/Skip" to="." method="_on_skip_pressed"]
+[connection signal="pressed" from="Popup/Start" to="." method="_on_start_pressed"]
