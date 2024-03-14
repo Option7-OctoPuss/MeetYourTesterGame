@@ -175,6 +175,7 @@ texture_disabled = ExtResource("8_8qqeu")
 script = ExtResource("18_nwfow")
 
 [node name="Label" type="Label" parent="MainControl/Database"]
+visible = false
 layout_mode = 0
 offset_left = 90.0
 offset_top = 198.0
@@ -198,6 +199,7 @@ texture_disabled = ExtResource("10_htyl8")
 script = ExtResource("18_nwfow")
 
 [node name="Label" type="Label" parent="MainControl/Delivery"]
+visible = false
 layout_mode = 0
 offset_left = 126.0
 offset_top = 88.0
@@ -221,6 +223,7 @@ texture_disabled = ExtResource("12_l01y6")
 script = ExtResource("18_nwfow")
 
 [node name="Label" type="Label" parent="MainControl/Business_Logic"]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
@@ -242,6 +245,7 @@ texture_disabled = ExtResource("14_0eftj")
 script = ExtResource("18_nwfow")
 
 [node name="Label" type="Label" parent="MainControl/Backend"]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
@@ -263,6 +267,7 @@ texture_disabled = ExtResource("16_ir080")
 script = ExtResource("18_nwfow")
 
 [node name="Label" type="Label" parent="MainControl/UI_UX"]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
@@ -359,6 +364,7 @@ text = "
 "
 
 [node name="DEBUG_BUTTON_PROGRESS_PLUS" type="Button" parent="ProgressBarControl"]
+visible = false
 layout_mode = 0
 offset_left = 422.0
 offset_top = -52.0
@@ -368,6 +374,7 @@ text = "ADD +1 PROGRESS"
 script = ExtResource("28_cxtu7")
 
 [node name="DEBUG_BUTTON_PROGRESS_MINUS" type="Button" parent="ProgressBarControl"]
+visible = false
 layout_mode = 0
 offset_left = 590.0
 offset_top = -52.0
@@ -377,6 +384,7 @@ text = "ADD -1 PROGRESS"
 script = ExtResource("28_cxtu7")
 
 [node name="DEBUG_BUTTON_ANON_PLUS" type="Button" parent="ProgressBarControl"]
+visible = false
 layout_mode = 0
 offset_left = 230.0
 offset_top = -52.0
@@ -385,6 +393,7 @@ offset_bottom = -15.0
 text = "ADD ANON VALUE + 20"
 
 [node name="DEBUG_BUTTON_ANON_MINUS" type="Button" parent="ProgressBarControl"]
+visible = false
 layout_mode = 0
 offset_left = 49.0
 offset_top = -52.0
