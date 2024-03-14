@@ -19,11 +19,32 @@ func _ready():
 	exitMenu = $ExitMenuControl
 	self.connect("quit_signal", disable_everything)
 	exitMenu.get_node("exit_menu").connect("resume_from_quit_prompt",enable_everything)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	
+	var config = ConfigFile.new()
+	var err = config.load("./settings.cfg")
+	if err == OK:
+		var show_popup = config.get_value("FirstStart", "show_popup")
+		if show_popup != false:
+			show_tutorial_popup()
+			config.set_value("FirstStart","show_popup", false)
+			config.save("./settings.cfg")
+	else:
+		# first time that the user play (file not present)
+		config.set_value("FirstStart","show_popup", false)
+		config.save("./settings.cfg")
+		show_tutorial_popup()
+
+	# when `don't show again` is pressed:
+	#config.set_value("startup", "show_popup", false)
+	# Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _process(delta):
 	pass
 
+func show_tutorial_popup():
+	$TutorialPopup.visible = true
+	
+	
 # for the start icon and lable 
 func disable_everything():
 	Utils.pause($GridContainer)
