@@ -17,6 +17,7 @@ func _ready():
 	quitIcon = $GridContainer/QuitIcon
 	quitLabel = $GridContainer/CenterQuitLabel/QuitLabel
 	exitMenu = $ExitMenuControl
+	exitMenu.visible = false
 	self.connect("quit_signal", disable_everything)
 	exitMenu.get_node("exit_menu").connect("resume_from_quit_prompt",enable_everything)
 	

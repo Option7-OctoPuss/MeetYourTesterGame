@@ -7,6 +7,7 @@ var charge_limit_reached = Signal()
 @onready var anonimity_node = get_parent().get_node("AnonymityBarControl")
 @onready var charge_one_node: TextureRect = get_node("Charge1")
 @onready var charge_two_node: TextureRect = get_node("Charge2")
+@onready var anon_bar = $SabotageButton/AnonymityBar
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,6 +16,7 @@ func _ready():
 	charge_count = 0
 
 func _handle_anon_value_update():
+	anon_bar.value = Globals.current_anonymity_value
 	if Globals.current_anonymity_value >= Globals.ANON_VALUE_SABOTAGE_TRIGGER:
 		if charge_count > 0:
 			$SabotageButton.disabled = false
