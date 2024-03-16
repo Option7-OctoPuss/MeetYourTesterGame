@@ -454,7 +454,7 @@ offset_left = 48.0
 offset_top = 37.0
 offset_right = 187.0
 offset_bottom = 198.0
-value = 50.0
+value = 100.0
 fill_mode = 3
 texture_progress = ExtResource("32_0d254")
 
