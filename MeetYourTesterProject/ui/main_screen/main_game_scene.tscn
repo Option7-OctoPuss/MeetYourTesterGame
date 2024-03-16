@@ -479,11 +479,6 @@ text = "0"
 [node name="exit_menu" parent="ExitPrompt" instance=ExtResource("34_n0pnv")]
 visible = false
 
-[node name="EndGamePrompt" type="Node2D" parent="."]
-
-[node name="end_game_menu" parent="EndGamePrompt" instance=ExtResource("34_n0pnv")]
-visible = false
-
 [connection signal="timeout" from="Sprite2D/TimerContainer/TimerLabel/TimerNode" to="Sprite2D/TimerContainer/TimerLabel" method="_on_timer_node_timeout"]
 [connection signal="pause_game" from="Sprite2D/TimerContainer/PlayPauseBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_pause"]
 [connection signal="unpause_game" from="Sprite2D/TimerContainer/PlayPauseBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_unpause"]
