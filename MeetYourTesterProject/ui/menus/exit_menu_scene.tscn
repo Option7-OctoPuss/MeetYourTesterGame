@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cl6vuu5nixgev"]
+[gd_scene load_steps=8 format=3 uid="uid://btqfn1y8mwiih"]
 
 [ext_resource type="Script" path="res://ui/menus/exit_menu_scene.gd" id="1_j2s58"]
 [ext_resource type="Texture2D" uid="uid://dfcianirloxhq" path="res://images/exit-menu/main-exit-menu.svg" id="1_qwbld"]
+[ext_resource type="Texture2D" uid="uid://0ly6ybhoh5ws" path="res://images/background/overlay.svg" id="2_1fmgy"]
 [ext_resource type="Texture2D" uid="uid://chnxxv7gxkphr" path="res://images/exit-menu/cancel-btn.svg" id="2_867fp"]
 [ext_resource type="Texture2D" uid="uid://cj5gshpacnna6" path="res://images/exit-menu/cancel-btn-hover.svg" id="3_iu81o"]
 [ext_resource type="Texture2D" uid="uid://b8dm5blt3gnfb" path="res://images/exit-menu/exit-btn.svg" id="4_q078e"]
@@ -10,8 +11,14 @@
 [node name="exit_menu" type="Node2D"]
 script = ExtResource("1_j2s58")
 
+[node name="overlay" type="TextureRect" parent="."]
+offset_left = -6.0
+offset_right = 1920.0
+offset_bottom = 1083.0
+texture = ExtResource("2_1fmgy")
+
 [node name="Main-exit-menu" type="Sprite2D" parent="."]
-position = Vector2(956, 542)
+position = Vector2(930, 554)
 texture = ExtResource("1_qwbld")
 
 [node name="cancel_btn" type="TextureButton" parent="."]
