@@ -15,10 +15,7 @@ func _ready():
 	tutorials_content = JSON.parse_string(FileAccess.get_file_as_string(tutorial_file_path))
 	current_tutorial_content_length = len(tutorials_content[current_tutorial_screen])
 	current_tutorial_content = tutorials_content[current_tutorial_screen][current_idx_text]
-	tutorial_current_text = current_tutorial_content.text
-	arrow_position = Vector2(current_tutorial_content.arrow_pos.x, current_tutorial_content.arrow_pos.y)
-	find_child(current_tutorial_screen).find_child("TutorialBody").set_text(tutorial_current_text)
-	find_child("HighlightIcon").position = arrow_position
+	change_tutorial_data()
 
 
 func _physics_process(delta: float) -> void:
@@ -35,7 +32,9 @@ func _physics_process(delta: float) -> void:
 	
 
 func _on_previous_pressed():
-	pass # Replace with function body.
+	if current_idx_text > 0:	
+		current_idx_text -= 1
+		change_tutorial_data()
 
 
 func _on_next_pressed():
@@ -46,6 +45,9 @@ func _on_next_pressed():
 		current_idx_text = 0
 		return
 	
+	change_tutorial_data()
+	
+func change_tutorial_data() -> void:
 	current_tutorial_content = tutorials_content[current_tutorial_screen][current_idx_text]
 	tutorial_current_text = current_tutorial_content.text
 	arrow_position = Vector2(current_tutorial_content.arrow_pos.x, current_tutorial_content.arrow_pos.y)
