@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dpyn1enbx4w7u"]
+[gd_scene load_steps=44 format=3 uid="uid://dpyn1enbx4w7u"]
 
 [ext_resource type="Script" path="res://ui/main_screen/main_script.gd" id="1_87vrv"]
 [ext_resource type="Texture2D" uid="uid://wgpfvhfu1oi6" path="res://images/game-map/time/timer.svg" id="1_lc3b6"]
@@ -40,8 +40,8 @@
 [ext_resource type="PackedScene" uid="uid://btqfn1y8mwiih" path="res://ui/menus/exit_menu_scene.tscn" id="34_n0pnv"]
 [ext_resource type="AudioStream" uid="uid://d044b2aeveg6j" path="res://sounds/spawnHexagon.mp3" id="38_nnwxb"]
 [ext_resource type="Texture2D" uid="uid://dm08vphfeq42v" path="res://images/music-sounds/SoundEffetcActivated.svg" id="40_46sr3"]
-[ext_resource type="Texture2D" uid="uid://cjv8slc8lv7yw" path="res://images/music-sounds/MusicActivated.svg" id="41_743m6"]
 [ext_resource type="PackedScene" uid="uid://le88qx40ttep" path="res://ui/menus/game_pause_menu_scene.tscn" id="40_ur83x"]
+[ext_resource type="Texture2D" uid="uid://cjv8slc8lv7yw" path="res://images/music-sounds/MusicActivated.svg" id="41_743m6"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wlhim"]
 load_path = "res://.godot/imported/pause.svg-09127f19c3b279e09b32f71d3249e6c1.ctex"
@@ -477,11 +477,6 @@ offset_right = 62.0
 offset_bottom = 944.0
 text = "0"
 
-[node name="ExitPrompt" type="Node2D" parent="."]
-
-[node name="exit_menu" parent="ExitPrompt" instance=ExtResource("34_n0pnv")]
-visible = false
-
 [node name="MusicControl" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -503,6 +498,11 @@ offset_left = 22.0
 offset_right = 62.0
 offset_bottom = 40.0
 texture_normal = ExtResource("41_743m6")
+
+[node name="ExitPrompt" type="Node2D" parent="."]
+
+[node name="exit_menu" parent="ExitPrompt" instance=ExtResource("34_n0pnv")]
+visible = false
 
 [node name="PauseMenu" parent="." instance=ExtResource("40_ur83x")]
 
