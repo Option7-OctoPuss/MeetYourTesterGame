@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://le88qx40ttep"]
+[gd_scene load_steps=16 format=3 uid="uid://le88qx40ttep"]
 
 [ext_resource type="Texture2D" uid="uid://bqr3h3k41im03" path="res://images/start-scene/menu-title.svg" id="1_3nvcc"]
-[ext_resource type="Texture2D" uid="uid://cryk5rr8wxfst" path="res://images/pause-menu/pause_menu_overlay.svg" id="1_ii8ci"]
+[ext_resource type="Script" path="res://ui/menus/game_pause_menu_scene.gd" id="1_u4a75"]
+[ext_resource type="Texture2D" uid="uid://0ly6ybhoh5ws" path="res://images/background/overlay.svg" id="2_vtisi"]
 [ext_resource type="Texture2D" uid="uid://w27os7k3qrmp" path="res://images/pause-menu/btn-icon-return.svg" id="3_sa71o"]
 [ext_resource type="Texture2D" uid="uid://d0g8yqomrsgts" path="res://images/pause-menu/btn-icon-return-select.svg" id="4_7pq77"]
 [ext_resource type="Texture2D" uid="uid://dtej8rucsh2ib" path="res://images/pause-menu/btn-label-return.svg" id="5_f7yr0"]
@@ -16,11 +17,12 @@
 [ext_resource type="Texture2D" uid="uid://bccyw10ba3mxn" path="res://images/pause-menu/btn-label-quit-select.svg" id="14_pa8al"]
 
 [node name="GamePauseMenuScene" type="Node2D"]
+script = ExtResource("1_u4a75")
 
 [node name="overlay" type="TextureRect" parent="."]
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("1_ii8ci")
+texture = ExtResource("2_vtisi")
 
 [node name="CenterTitle" type="CenterContainer" parent="."]
 offset_top = 50.0
@@ -80,3 +82,22 @@ layout_mode = 2
 layout_mode = 2
 texture_normal = ExtResource("13_inxye")
 texture_hover = ExtResource("14_pa8al")
+
+[connection signal="mouse_entered" from="GridContainer/StartIcon" to="." method="_on_start_icon_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/StartIcon" to="." method="_on_start_icon_mouse_exited"]
+[connection signal="pressed" from="GridContainer/StartIcon" to="." method="_on_resume_game_pressed"]
+[connection signal="mouse_entered" from="GridContainer/CenterStartLabel/StartLabel" to="." method="_on_start_label_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/CenterStartLabel/StartLabel" to="." method="_on_start_label_mouse_exited"]
+[connection signal="pressed" from="GridContainer/CenterStartLabel/StartLabel" to="." method="_on_resume_game_pressed"]
+[connection signal="mouse_entered" from="GridContainer/TutorialIcon" to="." method="_on_tutorial_icon_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/TutorialIcon" to="." method="_on_tutorial_icon_mouse_exited"]
+[connection signal="pressed" from="GridContainer/TutorialIcon" to="." method="_on_start_tutorial_pressed"]
+[connection signal="mouse_entered" from="GridContainer/CenterTutorialLabel/TutorialLabel" to="." method="_on_tutorial_label_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/CenterTutorialLabel/TutorialLabel" to="." method="_on_tutorial_label_mouse_exited"]
+[connection signal="pressed" from="GridContainer/CenterTutorialLabel/TutorialLabel" to="." method="_on_start_tutorial_pressed"]
+[connection signal="mouse_entered" from="GridContainer/QuitIcon" to="." method="_on_quit_icon_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/QuitIcon" to="." method="_on_quit_icon_mouse_exited"]
+[connection signal="pressed" from="GridContainer/QuitIcon" to="." method="_on_quit_pressed"]
+[connection signal="mouse_entered" from="GridContainer/CenterQuitLabel/QuitLabel" to="." method="_on_quit_label_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/CenterQuitLabel/QuitLabel" to="." method="_on_quit_label_mouse_exited"]
+[connection signal="pressed" from="GridContainer/CenterQuitLabel/QuitLabel" to="." method="_on_quit_pressed"]

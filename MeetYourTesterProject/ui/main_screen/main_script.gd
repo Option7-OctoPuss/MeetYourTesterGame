@@ -8,9 +8,8 @@ signal game_pause_changed
 @onready var terminal_control = $Terminal
 @onready var anonimity_control_node = $AnonymityBarControl
 @onready var progress_bar_control_node = $ProgressBarControl
-
+@onready var pause_menu = $PauseMenu
 signal end_game(type)
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,6 +17,23 @@ func _ready():
 	progress_bar_control_node.connect("last_deadline_missed", handle_last_deadline_missed)
 	anonimity_control_node.connect("anon_value_update", check_anonimity_value)
 	progress_bar_control_node.connect("progress_bar_limit_reached", handle_progress_bar_limit_reached)
+	pause_menu.visible = false
+	pause_menu.connect("resume_game", resume)
+	pause_menu.connect("open_tutorial", handle_open_tutorial)
+	pause_menu.connect("quit", handle_quit)
+	
+
+func handle_quit():
+	pause_menu.visible = false
+	exit_menu.visible = true
+	pass
+	
+func handle_open_tutorial():
+	pause_menu.visible = false
+	resume() # TODO: Show tutorial page
+	pass
+	
+
 
 func handle_last_deadline_missed():
 	print("Missed last deadline, you won the game")
@@ -42,7 +58,7 @@ func _process(delta):
 		Globals.gamePaused = true
 		print("Esc pressed signal emitted")
 		game_pause_changed.emit()
-		exit_menu.visible = true
+		pause_menu.visible = true
 		Utils.pause(main_control)
 		Utils.pause(timer_control)
 		Utils.pause(terminal_control)
@@ -52,6 +68,7 @@ func _process(delta):
 func resume():
 	Globals.gamePaused = false
 	exit_menu.visible = false
+	pause_menu.visible = false
 	game_pause_changed.emit()
 	Utils.unpause(main_control)
 	Utils.unpause(timer_control)
@@ -60,9 +77,10 @@ func resume():
 	pass
 
 func manageHoverNodes():
-	get_node("MainControl").get_node("Database").handle_game_exit(exit_menu.visible)
-	get_node("MainControl").get_node("Delivery").handle_game_exit(exit_menu.visible)
-	get_node("MainControl").get_node("Business_Logic").handle_game_exit(exit_menu.visible)
-	get_node("MainControl").get_node("Backend").handle_game_exit(exit_menu.visible)
-	get_node("MainControl").get_node("UI_UX").handle_game_exit(exit_menu.visible)
+	print("HoverNodes")
+	get_node("MainControl").get_node("Database").handle_game_exit(exit_menu.visible || pause_menu.visible)
+	get_node("MainControl").get_node("Delivery").handle_game_exit(exit_menu.visible || pause_menu.visible)
+	get_node("MainControl").get_node("Business_Logic").handle_game_exit(exit_menu.visible || pause_menu.visible)
+	get_node("MainControl").get_node("Backend").handle_game_exit(exit_menu.visible || pause_menu.visible)
+	get_node("MainControl").get_node("UI_UX").handle_game_exit(exit_menu.visible || pause_menu.visible)
 	
