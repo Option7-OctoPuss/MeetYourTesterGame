@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dpyn1enbx4w7u"]
+[gd_scene load_steps=43 format=3 uid="uid://dpyn1enbx4w7u"]
 
 [ext_resource type="Script" path="res://ui/main_screen/main_script.gd" id="1_87vrv"]
 [ext_resource type="Texture2D" uid="uid://wgpfvhfu1oi6" path="res://images/game-map/time/timer.svg" id="1_lc3b6"]
@@ -39,6 +39,8 @@
 [ext_resource type="Texture2D" uid="uid://dvgajhh78c4wt" path="res://images/sabotage-buttons/sabotage-icon.svg" id="32_tfymk"]
 [ext_resource type="PackedScene" uid="uid://cl6vuu5nixgev" path="res://ui/menus/exit_menu_scene.tscn" id="34_n0pnv"]
 [ext_resource type="AudioStream" uid="uid://d044b2aeveg6j" path="res://sounds/spawnHexagon.mp3" id="38_nnwxb"]
+[ext_resource type="Texture2D" uid="uid://dm08vphfeq42v" path="res://images/music-sounds/SoundEffetcActivated.svg" id="40_46sr3"]
+[ext_resource type="Texture2D" uid="uid://cjv8slc8lv7yw" path="res://images/music-sounds/MusicActivated.svg" id="41_743m6"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wlhim"]
 load_path = "res://.godot/imported/pause.svg-09127f19c3b279e09b32f71d3249e6c1.ctex"
@@ -478,6 +480,28 @@ text = "0"
 
 [node name="exit_menu" parent="ExitPrompt" instance=ExtResource("34_n0pnv")]
 visible = false
+
+[node name="MusicControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 242.0
+offset_top = 12.0
+offset_right = 282.0
+offset_bottom = 52.0
+
+[node name="SoundEffectControl" type="TextureButton" parent="MusicControl"]
+layout_mode = 0
+offset_left = -24.0
+offset_right = 16.0
+offset_bottom = 40.0
+texture_normal = ExtResource("40_46sr3")
+
+[node name="BackgroundMusicControl" type="TextureButton" parent="MusicControl"]
+layout_mode = 0
+offset_left = 22.0
+offset_right = 62.0
+offset_bottom = 40.0
+texture_normal = ExtResource("41_743m6")
 
 [connection signal="timeout" from="Sprite2D/TimerContainer/TimerLabel/TimerNode" to="Sprite2D/TimerContainer/TimerLabel" method="_on_timer_node_timeout"]
 [connection signal="pause_game" from="Sprite2D/TimerContainer/PlayPauseBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_pause"]
