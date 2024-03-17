@@ -1,0 +1,18 @@
+{
+	"global_timing": [
+		{
+			"text": "This is the global time. It represents the time spent in the current game.",
+			"arrow_pos": { 
+				"x": 45, 
+				"y": 105 
+			}
+		},
+		{
+			"text": "You can pause and resume the game at any time. With the arrows, you can increase the speed of global time scrolling by up to 3x.",
+			"arrow_pos": { 
+				"x": 130, 
+				"y": 105 
+			}
+		}
+	]
+}
