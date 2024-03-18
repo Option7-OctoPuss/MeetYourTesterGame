@@ -26,32 +26,4 @@ class TestExitGameFromGameScenePO:
 		#await get_tree().create_timer(1).timeout
 		main_game_scene.handle_quit()
 		assert_true(main_game_scene.get_node("ExitPrompt").get_child(0).visible)
-	# TODO: Move to test_pause_game
-	func test_popup_after_press_cancel():
-		gut.p("Testing if the exit game pop-up disappear after pressing the cancel button")
-		Input.action_press("show_prompt")
-		main_game_scene._process(0)
-		Input.action_release("show_prompt")
-		await get_tree().create_timer(1).timeout
-		main_game_scene.resume()
-		assert_false(main_game_scene.get_node("ExitPrompt").get_child(0).visible)
-	# TODO: Move to test_pause_game
-	func test_game_in_pause_after_popup():
-		gut.p("Testing if the game is paused after the popup is visible")
-		Input.action_press("show_prompt")
-		main_game_scene._process(0)
-		Input.action_release("show_prompt")
-		await get_tree().create_timer(1).timeout
-		assert_true(Globals.gamePaused)
-	# TODO: Move to test_pause_game
-	func test_game_in_resume_after_press_cancel():
-		gut.p("Testing if the game is resumed after the cancel button is pressed")
-		Input.action_press("show_prompt")
-		main_game_scene._process(0)
-		Input.action_release("show_prompt")
-		await get_tree().create_timer(1).timeout
-		main_game_scene.resume()
-		assert_false(Globals.gamePaused)
-	
-	
-	
+		
