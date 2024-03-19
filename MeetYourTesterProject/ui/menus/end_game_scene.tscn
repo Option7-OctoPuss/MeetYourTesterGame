@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://cp6cijgy2bnkw"]
+[gd_scene load_steps=13 format=3 uid="uid://l258rynkaodr"]
 
-[ext_resource type="Texture2D" uid="uid://kfssj07xa8ij" path="res://images/end-game/overlay.svg" id="1_gflwy"]
 [ext_resource type="Script" path="res://ui/menus/end_game_scene.gd" id="1_lykmd"]
+[ext_resource type="Texture2D" uid="uid://0ly6ybhoh5ws" path="res://images/background/overlay.svg" id="2_lodd5"]
 [ext_resource type="Texture2D" uid="uid://dibo524jg52dl" path="res://images/end-game/end-screen-sabotage.svg" id="3_tpfw7"]
 [ext_resource type="Texture2D" uid="uid://idhbnxbj0ri6" path="res://images/end-game/btn-retry.svg" id="5_25ceo"]
 [ext_resource type="Texture2D" uid="uid://6burqbf02n43" path="res://images/end-game/btn-retry-selected.svg" id="6_o4tx0"]
@@ -19,7 +19,7 @@ script = ExtResource("1_lykmd")
 [node name="overlay" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("1_gflwy")
+texture = ExtResource("2_lodd5")
 
 [node name="bg" type="TextureRect" parent="."]
 offset_left = 333.0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx78aqd0flypk"
-path="res://.godot/imported/overlay.svg-7262af1d59f6a37407a09fa0a869216a.ctex"
+uid="uid://c8dl7a5ghe0f0"
+path="res://.godot/imported/MusicDeactivated.svg-8559d87ada73ec8c65a29dca6c2d6476.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/tutorial-popup/overlay.svg"
-dest_files=["res://.godot/imported/overlay.svg-7262af1d59f6a37407a09fa0a869216a.ctex"]
+source_file="res://images/music-sounds/MusicDeactivated.svg"
+dest_files=["res://.godot/imported/MusicDeactivated.svg-8559d87ada73ec8c65a29dca6c2d6476.ctex"]
 
 [params]
 

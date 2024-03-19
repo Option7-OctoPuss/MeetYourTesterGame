@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kfssj07xa8ij"
-path="res://.godot/imported/overlay.svg-c2890484d7489b1ca33ce23f75aa0bff.ctex"
+uid="uid://j3qccbwkqkbp"
+path="res://.godot/imported/btn-icon-tutorial-select.svg-9b99e22f30a65073afd158ac5de133f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/end-game/overlay.svg"
-dest_files=["res://.godot/imported/overlay.svg-c2890484d7489b1ca33ce23f75aa0bff.ctex"]
+source_file="res://images/pause-menu/btn-icon-tutorial-select.svg"
+dest_files=["res://.godot/imported/btn-icon-tutorial-select.svg-9b99e22f30a65073afd158ac5de133f1.ctex"]
 
 [params]
 

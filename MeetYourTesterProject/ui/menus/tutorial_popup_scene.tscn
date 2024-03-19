@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxnv8p8m4e5rk"]
+[gd_scene load_steps=8 format=3 uid="uid://c5nasjdg5ntsi"]
 
 [ext_resource type="Texture2D" uid="uid://duao0hfoktse2" path="res://images/tutorial-popup/tutorial_menu_overlay.svg" id="1_4gbib"]
 [ext_resource type="Script" path="res://ui/menus/tutorial_popup_scene.gd" id="1_7ta78"]
+[ext_resource type="Texture2D" uid="uid://0ly6ybhoh5ws" path="res://images/background/overlay.svg" id="2_mn5fk"]
 [ext_resource type="Texture2D" uid="uid://byoeby0uc645u" path="res://images/tutorial-popup/skip-button.svg" id="2_t46xi"]
-[ext_resource type="Texture2D" uid="uid://dx78aqd0flypk" path="res://images/tutorial-popup/overlay.svg" id="2_v5s0c"]
 [ext_resource type="Texture2D" uid="uid://ckfdbx7qco0yt" path="res://images/tutorial-popup/skip-button-select.svg" id="3_d1tfq"]
 [ext_resource type="Texture2D" uid="uid://c4xoyvlqsix3k" path="res://images/tutorial-popup/start-button.svg" id="4_682jn"]
 [ext_resource type="Texture2D" uid="uid://cpe0fnfl6gxpr" path="res://images/tutorial-popup/start-button-select.svg" id="5_0bynm"]
@@ -14,7 +14,7 @@ script = ExtResource("1_7ta78")
 [node name="overlay" type="TextureRect" parent="."]
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("2_v5s0c")
+texture = ExtResource("2_mn5fk")
 
 [node name="Popup" type="TextureRect" parent="."]
 offset_left = 333.0

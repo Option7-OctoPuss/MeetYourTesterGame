@@ -1,0 +1,103 @@
+[gd_scene load_steps=16 format=3 uid="uid://le88qx40ttep"]
+
+[ext_resource type="Texture2D" uid="uid://bqr3h3k41im03" path="res://images/start-scene/menu-title.svg" id="1_3nvcc"]
+[ext_resource type="Script" path="res://ui/menus/game_pause_menu_scene.gd" id="1_u4a75"]
+[ext_resource type="Texture2D" uid="uid://0ly6ybhoh5ws" path="res://images/background/overlay.svg" id="2_vtisi"]
+[ext_resource type="Texture2D" uid="uid://w27os7k3qrmp" path="res://images/pause-menu/btn-icon-return.svg" id="3_sa71o"]
+[ext_resource type="Texture2D" uid="uid://d0g8yqomrsgts" path="res://images/pause-menu/btn-icon-return-select.svg" id="4_7pq77"]
+[ext_resource type="Texture2D" uid="uid://dtej8rucsh2ib" path="res://images/pause-menu/btn-label-return.svg" id="5_f7yr0"]
+[ext_resource type="Texture2D" uid="uid://b7gc5pjakmcbl" path="res://images/pause-menu/btn-label-return-select.svg" id="6_xgo2v"]
+[ext_resource type="Texture2D" uid="uid://doqr48rrbb2fh" path="res://images/pause-menu/btn-icon-tutorial.svg" id="7_km07j"]
+[ext_resource type="Texture2D" uid="uid://j3qccbwkqkbp" path="res://images/pause-menu/btn-icon-tutorial-select.svg" id="8_838cx"]
+[ext_resource type="Texture2D" uid="uid://bres7flf10gxb" path="res://images/pause-menu/btn-label-tutorial.svg" id="9_x7pfo"]
+[ext_resource type="Texture2D" uid="uid://wyyysmujopmh" path="res://images/pause-menu/btn-label-tutorial-select.svg" id="10_fjt16"]
+[ext_resource type="Texture2D" uid="uid://b83f03ngmmwjv" path="res://images/pause-menu/btn-icon-quit.svg" id="11_bd21y"]
+[ext_resource type="Texture2D" uid="uid://dfm5ipnjclgjj" path="res://images/pause-menu/btn-icon-quit-select.svg" id="12_1nxra"]
+[ext_resource type="Texture2D" uid="uid://damvhfx3ykwm6" path="res://images/pause-menu/btn-label-quit.svg" id="13_inxye"]
+[ext_resource type="Texture2D" uid="uid://bccyw10ba3mxn" path="res://images/pause-menu/btn-label-quit-select.svg" id="14_pa8al"]
+
+[node name="GamePauseMenuScene" type="Node2D"]
+script = ExtResource("1_u4a75")
+
+[node name="overlay" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_vtisi")
+
+[node name="CenterTitle" type="CenterContainer" parent="."]
+offset_top = 50.0
+offset_right = 1920.0
+offset_bottom = 436.0
+
+[node name="Title" type="TextureRect" parent="CenterTitle"]
+layout_mode = 2
+texture = ExtResource("1_3nvcc")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 54.0
+offset_top = 647.0
+offset_right = 662.0
+offset_bottom = 1039.0
+grow_vertical = 0
+columns = 2
+
+[node name="StartIcon" type="TextureButton" parent="GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_sa71o")
+texture_hover = ExtResource("4_7pq77")
+
+[node name="CenterStartLabel" type="CenterContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="StartLabel" type="TextureButton" parent="GridContainer/CenterStartLabel"]
+layout_mode = 2
+texture_normal = ExtResource("5_f7yr0")
+texture_hover = ExtResource("6_xgo2v")
+
+[node name="TutorialIcon" type="TextureButton" parent="GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_km07j")
+texture_hover = ExtResource("8_838cx")
+
+[node name="CenterTutorialLabel" type="CenterContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="TutorialLabel" type="TextureButton" parent="GridContainer/CenterTutorialLabel"]
+layout_mode = 2
+texture_normal = ExtResource("9_x7pfo")
+texture_hover = ExtResource("10_fjt16")
+
+[node name="QuitIcon" type="TextureButton" parent="GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("11_bd21y")
+texture_hover = ExtResource("12_1nxra")
+
+[node name="CenterQuitLabel" type="CenterContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="QuitLabel" type="TextureButton" parent="GridContainer/CenterQuitLabel"]
+layout_mode = 2
+texture_normal = ExtResource("13_inxye")
+texture_hover = ExtResource("14_pa8al")
+
+[connection signal="mouse_entered" from="GridContainer/StartIcon" to="." method="_on_start_icon_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/StartIcon" to="." method="_on_start_icon_mouse_exited"]
+[connection signal="pressed" from="GridContainer/StartIcon" to="." method="_on_resume_game_pressed"]
+[connection signal="mouse_entered" from="GridContainer/CenterStartLabel/StartLabel" to="." method="_on_start_label_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/CenterStartLabel/StartLabel" to="." method="_on_start_label_mouse_exited"]
+[connection signal="pressed" from="GridContainer/CenterStartLabel/StartLabel" to="." method="_on_resume_game_pressed"]
+[connection signal="mouse_entered" from="GridContainer/TutorialIcon" to="." method="_on_tutorial_icon_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/TutorialIcon" to="." method="_on_tutorial_icon_mouse_exited"]
+[connection signal="pressed" from="GridContainer/TutorialIcon" to="." method="_on_start_tutorial_pressed"]
+[connection signal="mouse_entered" from="GridContainer/CenterTutorialLabel/TutorialLabel" to="." method="_on_tutorial_label_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/CenterTutorialLabel/TutorialLabel" to="." method="_on_tutorial_label_mouse_exited"]
+[connection signal="pressed" from="GridContainer/CenterTutorialLabel/TutorialLabel" to="." method="_on_start_tutorial_pressed"]
+[connection signal="mouse_entered" from="GridContainer/QuitIcon" to="." method="_on_quit_icon_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/QuitIcon" to="." method="_on_quit_icon_mouse_exited"]
+[connection signal="pressed" from="GridContainer/QuitIcon" to="." method="_on_quit_pressed"]
+[connection signal="mouse_entered" from="GridContainer/CenterQuitLabel/QuitLabel" to="." method="_on_quit_label_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/CenterQuitLabel/QuitLabel" to="." method="_on_quit_label_mouse_exited"]
+[connection signal="pressed" from="GridContainer/CenterQuitLabel/QuitLabel" to="." method="_on_quit_pressed"]
