@@ -15,8 +15,9 @@ func _process(delta):
 
 func _on_skip_pressed():
 	popup_parent.visible = false
+	get_tree().change_scene_to_file("res://ui/menus/main_menu.tscn")
 
 
 func _on_start_pressed():
 	# should point to the tutorial
-	get_tree().change_scene_to_file("res://ui/menus/difficulty/diff_scene.tscn")
+	get_tree().change_scene_to_file("res://ui/menus/tutorial_scene.tscn")
