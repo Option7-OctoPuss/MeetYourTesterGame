@@ -105,7 +105,9 @@ func decrease_deadlines_timers():
 	if $FinalDeadlineLabel.get_text() == "00:00":
 		missed_last_deadline()
 		return
-		
+	
+	print(Globals.gameTime)
+	print(float(($GameProgressBar.max_value / Globals.progress_bar_speed) - Globals.gameTime))
 	$FinalDeadlineLabel.set_text(Utils.float_to_time(float(($GameProgressBar.max_value / Globals.progress_bar_speed) - Globals.gameTime)))
 	
 	for i in range(len($DeadlinesContainer.get_children())):

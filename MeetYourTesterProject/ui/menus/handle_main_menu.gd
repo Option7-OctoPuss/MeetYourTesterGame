@@ -11,7 +11,6 @@ signal quit_signal
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#BackgroundAudio.startSong() 
 	startIcon = $GridContainer/StartIcon
 	startLabel = $GridContainer/CenterStartLabel/StartLabel
 	quitIcon = $GridContainer/QuitIcon

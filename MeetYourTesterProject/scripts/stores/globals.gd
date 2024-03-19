@@ -6,8 +6,10 @@ var gamePaused = false
 var gameSpeed = 1
 var gameTime= 0
 
+var current_difficulty_level
+
 var deadlines_file_path = "res://deadlines/Deadlines.json"
-var deadlines:Array
+var deadlines:Array = []
 
 var questions_dir_path = "res://questions"
 var questions_file_path = "res://questions/example_question.json"
@@ -18,9 +20,9 @@ var questions:Dictionary = {}
 var terminalHistory = "";
 var currentAnswer:Dictionary = {}
 
-var current_anonymity_value = 100 # starting value
+var current_anonymity_value = 100 
 var anonymity_value_alert_threshold = 4
-var max_anonimity_value = 100
+var max_anonimity_value = 100 # starting value
 
 enum progress_bar_zone_length {
 	SMALL=1,
@@ -39,3 +41,6 @@ const SABOTAGE_ANON_DECREASE_VALUE = 20
 var DECREASE_FINAL_DEADLINE_AMOUNT = 10 # in seconds
 
 var end_game_reason = null
+
+var bg_music_volume = 0
+var sound_fx_volume = 0
