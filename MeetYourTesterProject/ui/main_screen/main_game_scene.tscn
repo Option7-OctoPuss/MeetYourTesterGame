@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://dpyn1enbx4w7u"]
+[gd_scene load_steps=48 format=3 uid="uid://dpyn1enbx4w7u"]
 
 [ext_resource type="Script" path="res://ui/main_screen/main_script.gd" id="1_87vrv"]
 [ext_resource type="Texture2D" uid="uid://wgpfvhfu1oi6" path="res://images/game-map/time/timer.svg" id="1_lc3b6"]
@@ -41,6 +41,7 @@
 [ext_resource type="AudioStream" uid="uid://d044b2aeveg6j" path="res://sounds/spawnHexagon.mp3" id="38_nnwxb"]
 [ext_resource type="Texture2D" uid="uid://cnevj1e8oqnrd" path="res://images/music-sounds/SoundEffetcDeactivated.svg" id="40_4xsgy"]
 [ext_resource type="Texture2D" uid="uid://dm08vphfeq42v" path="res://images/music-sounds/SoundEffetcActivated.svg" id="40_46sr3"]
+[ext_resource type="PackedScene" path="res://ui/menus/game_pause_menu_scene.tscn" id="40_ur83x"]
 [ext_resource type="Texture2D" uid="uid://cjv8slc8lv7yw" path="res://images/music-sounds/MusicActivated.svg" id="41_743m6"]
 [ext_resource type="Script" path="res://ui/main_screen/SoundEffectControl.gd" id="41_kxsxo"]
 [ext_resource type="Texture2D" uid="uid://c8dl7a5ghe0f0" path="res://images/music-sounds/MusicDeactivated.svg" id="42_eebn0"]
@@ -514,6 +515,8 @@ script = ExtResource("44_0e055")
 
 [node name="exit_menu" parent="ExitPrompt" instance=ExtResource("34_n0pnv")]
 visible = false
+
+[node name="PauseMenu" parent="." instance=ExtResource("40_ur83x")]
 
 [connection signal="timeout" from="Sprite2D/TimerContainer/TimerLabel/TimerNode" to="Sprite2D/TimerContainer/TimerLabel" method="_on_timer_node_timeout"]
 [connection signal="pause_game" from="Sprite2D/TimerContainer/PlayPauseBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_pause"]
