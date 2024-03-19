@@ -1,25 +1,28 @@
-[gd_scene load_steps=10 format=3 uid="uid://joo288j0m3hc"]
+[gd_scene load_steps=13 format=3 uid="uid://joo288j0m3hc"]
 
 [ext_resource type="Script" path="res://ui/menus/tutorial_scene.gd" id="1_4s16k"]
 [ext_resource type="Texture2D" uid="uid://bpf8815hj0hsr" path="res://images/tutorial/1_global_timing.svg" id="2_4k7k3"]
 [ext_resource type="Texture2D" uid="uid://duao0hfoktse2" path="res://images/tutorial-popup/tutorial_menu_overlay.svg" id="3_x266r"]
 [ext_resource type="FontFile" uid="uid://w2vy61sxp1ph" path="res://fonts/CascadiaCode.ttf" id="4_hxejs"]
+[ext_resource type="Texture2D" uid="uid://r4ldgxbnwy0m" path="res://images/tutorial-popup/tutorial_hex_2.svg" id="4_p1rrh"]
+[ext_resource type="Texture2D" uid="uid://i0iyf5205yrb" path="res://images/tutorial-popup/tutorial_hex_3.svg" id="5_cdqdu"]
 [ext_resource type="Texture2D" uid="uid://cdtlp25mgsc28" path="res://images/tutorial-popup/previous-button.svg" id="5_rany3"]
 [ext_resource type="Texture2D" uid="uid://dm5bo150taqhx" path="res://images/tutorial-popup/previous-button-select.svg" id="6_qxaqg"]
 [ext_resource type="Texture2D" uid="uid://bafily2ok20ut" path="res://images/tutorial-popup/next-button.svg" id="7_lytne"]
 [ext_resource type="Texture2D" uid="uid://b6oattrj5d0jm" path="res://images/tutorial-popup/next-button-select.svg" id="8_dj2d7"]
+[ext_resource type="Texture2D" uid="uid://bql0ep0hya4nm" path="res://images/tutorial-popup/tutorial_hex_1.svg" id="9_n1cyu"]
 [ext_resource type="Texture2D" uid="uid://d38arjf6r8a27" path="res://images/tutorial-popup/play-icon.svg" id="9_ofqi5"]
 
 [node name="TutorialScene" type="Node2D"]
 script = ExtResource("1_4s16k")
 
-[node name="global_timing" type="Control" parent="."]
+[node name="global_timing_1" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="GlobalTimingBackground" type="TextureRect" parent="global_timing"]
+[node name="GlobalTimingBackground" type="TextureRect" parent="global_timing_1"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,16 +36,94 @@ grow_vertical = 2
 size_flags_horizontal = 8
 texture = ExtResource("2_4k7k3")
 
-[node name="Popup" type="TextureRect" parent="global_timing"]
+[node name="global_timing_2" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GlobalTimingBackground" type="TextureRect" parent="global_timing_2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -3.0
+offset_right = 1926.0
+offset_bottom = 1086.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+texture = ExtResource("2_4k7k3")
+
+[node name="hexagon_1" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HexagonBackground" type="TextureRect" parent="hexagon_1"]
 layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_n1cyu")
+
+[node name="hexagon_2" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HexagonBackground" type="TextureRect" parent="hexagon_2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_n1cyu")
+
+[node name="hexagon_3" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HexagonBackground" type="TextureRect" parent="hexagon_3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_p1rrh")
+
+[node name="hexagon_4" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HexagonBackground" type="TextureRect" parent="hexagon_4"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_cdqdu")
+
+[node name="HighlightIcon" type="Sprite2D" parent="."]
+position = Vector2(130, 105)
+rotation = 3.14159
+texture = ExtResource("9_ofqi5")
+
+[node name="Popup" type="TextureRect" parent="."]
 offset_left = 333.0
 offset_top = 128.0
 offset_right = 1546.0
 offset_bottom = 921.0
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_x266r")
 metadata/_edit_use_anchors_ = true
 
-[node name="TutorialBody" type="Label" parent="global_timing/Popup"]
+[node name="TutorialBody" type="Label" parent="Popup"]
 layout_mode = 0
 offset_left = 156.0
 offset_top = 221.0
@@ -54,7 +135,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Previous" type="TextureButton" parent="global_timing/Popup"]
+[node name="Previous" type="TextureButton" parent="Popup"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.202
@@ -69,7 +150,7 @@ texture_normal = ExtResource("5_rany3")
 texture_hover = ExtResource("6_qxaqg")
 metadata/_edit_use_anchors_ = true
 
-[node name="Next" type="TextureButton" parent="global_timing/Popup"]
+[node name="Next" type="TextureButton" parent="Popup"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.614
@@ -84,10 +165,5 @@ texture_normal = ExtResource("7_lytne")
 texture_hover = ExtResource("8_dj2d7")
 metadata/_edit_use_anchors_ = true
 
-[node name="HighlightIcon" type="Sprite2D" parent="."]
-position = Vector2(130, 105)
-rotation = 3.14159
-texture = ExtResource("9_ofqi5")
-
-[connection signal="pressed" from="global_timing/Popup/Previous" to="." method="_on_previous_pressed"]
-[connection signal="pressed" from="global_timing/Popup/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Popup/Previous" to="." method="_on_previous_pressed"]
+[connection signal="pressed" from="Popup/Next" to="." method="_on_next_pressed"]

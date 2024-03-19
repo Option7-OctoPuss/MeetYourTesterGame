@@ -1,18 +1,86 @@
 {
-	"global_timing": [
-		{
-			"text": "This is the global time. It represents the time spent in the current game.",
-			"arrow_pos": { 
-				"x": 45, 
-				"y": 105 
-			}
+	"global_timing_1": {
+		"text": "This is the global time. It represents the time spent in the current game.",
+		"arrow_pos": { 
+			"x": 45, 
+			"y": 105
 		},
-		{
-			"text": "You can pause and resume the game at any time. With the arrows, you can increase the speed of global time scrolling by up to 3x.",
-			"arrow_pos": { 
-				"x": 130, 
-				"y": 105 
-			}
+		"popup": {
+			"pos": {
+				"x": 333,
+				"y": 128
+			},
+			"scale": 1
 		}
-	]
+	},
+	"global_timing_2": {
+		"text": "You can pause and resume the game at any time. With the arrows, you can increase the speed of global time scrolling by up to 3x.",
+		"arrow_pos": { 
+			"x": 130, 
+			"y": 105 
+		},
+		"popup": {
+			"pos": {
+				"x": 333,
+				"y": 128
+			},
+			"scale": 1
+		}
+	},
+	"hexagon_1": {
+		"text": "The hexagons represent each component of the project with which you can interact.",
+		"arrow_pos": { 
+			"x": 840, 
+			"y": 541 
+		},
+		"popup": {
+			"pos": {
+				"x": 1011,
+				"y": 190
+			},
+			"scale": 0.7
+		}
+	},
+	"hexagon_2": {
+		"text": "Hexagons, with no border, are NOT interacting.",
+		"arrow_pos": { 
+			"x": 840, 
+			"y": 541 
+		},
+		"popup": {
+			"pos": {
+				"x": 1011,
+				"y": 190
+			},
+			"scale": 0.7
+		}
+	},
+	"hexagon_3": {
+		"text": "If a hexagon has a white border you can click on it. There is a maximum time to click the hexagon before the border disappears. The click time changes each time.",
+		"arrow_pos": { 
+			"x": 840, 
+			"y": 541 
+		},
+		"popup": {
+			"pos": {
+				"x": 1011,
+				"y": 190
+			},
+			"scale": 0.7
+		}
+	},
+	"hexagon_4": {
+		"text": "When a hexagon is clicked the border turns yellow and the question to be answered is shown on the right terminal.",
+		"arrow_pos": { 
+			"x": 840, 
+			"y": 541 
+		},
+		"popup": {
+			"pos": {
+				"x": 1043,
+				"y": 442
+			},
+			"scale": 0.7
+		}
+	}
 }
