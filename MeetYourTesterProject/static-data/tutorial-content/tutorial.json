@@ -3,7 +3,8 @@
 		"text": "This is the global time. It represents the time spent in the current game.",
 		"arrow_pos": { 
 			"x": 45, 
-			"y": 105
+			"y": 105,
+			"rot": 180
 		},
 		"popup": {
 			"pos": {
@@ -17,7 +18,8 @@
 		"text": "You can pause and resume the game at any time. With the arrows, you can increase the speed of global time scrolling by up to 3x.",
 		"arrow_pos": { 
 			"x": 130, 
-			"y": 105 
+			"y": 105,
+			"rot": 180
 		},
 		"popup": {
 			"pos": {
@@ -31,7 +33,8 @@
 		"text": "The hexagons represent each component of the project with which you can interact.",
 		"arrow_pos": { 
 			"x": 840, 
-			"y": 541 
+			"y": 541,
+			"rot": 180
 		},
 		"popup": {
 			"pos": {
@@ -45,7 +48,8 @@
 		"text": "Hexagons, with no border, are NOT interacting.",
 		"arrow_pos": { 
 			"x": 840, 
-			"y": 541 
+			"y": 541,
+			"rot": 180
 		},
 		"popup": {
 			"pos": {
@@ -59,7 +63,8 @@
 		"text": "If a hexagon has a white border you can click on it. There is a maximum time to click the hexagon before the border disappears. The click time changes each time.",
 		"arrow_pos": { 
 			"x": 840, 
-			"y": 541 
+			"y": 541,
+			"rot": 180
 		},
 		"popup": {
 			"pos": {
@@ -73,7 +78,161 @@
 		"text": "When a hexagon is clicked the border turns yellow and the question to be answered is shown on the right terminal.",
 		"arrow_pos": { 
 			"x": 840, 
-			"y": 541 
+			"y": 541,
+			"rot": 180
+		},
+		"popup": {
+			"pos": {
+				"x": 1043,
+				"y": 442
+			},
+			"scale": 0.7
+		}
+	},
+	"progressbar_1": {
+		"text": "This the progress bar! The stages deadline should be missed before the countdown reaches zero.",
+		"arrow_pos": { 
+			"x": 614, 
+			"y": 840,
+			"rot": 0
+		},
+		"popup": {
+			"pos": {
+				"x": 1043,
+				"y": 442
+			},
+			"scale": 0.7
+		}
+	},
+	"progressbar_2": {
+		"text": "Now you can see the progress bar’s  increasing, the green deadline is missed(well done!) and the grey one is reached :(",
+		"arrow_pos": { 
+			"x": 614, 
+			"y": 840,
+			"rot": 0
+		},
+		"popup": {
+			"pos": {
+				"x": 1043,
+				"y": 442
+			},
+			"scale": 0.7
+		}
+	},
+	"progressbar_3": {
+		"text": "The zones will appear according to your answers, they have effects on the progress bar speed!",
+		"arrow_pos": { 
+			"x": 830, 
+			"y": 840,
+			"rot": 0
+		},
+		"popup": {
+			"pos": {
+				"x": 1043,
+				"y": 442
+			},
+			"scale": 0.7
+		}
+	},
+	"progressbar_4": {
+		"text": "You lose when the progress bar reaches the final deadline, and you win when you miss the final deadline.",
+		"arrow_pos": { 
+			"x": 1020, 
+			"y": 840,
+			"rot": 0
+		},
+		"popup": {
+			"pos": {
+				"x": 1043,
+				"y": 442
+			},
+			"scale": 0.7
+		}
+	},
+	"anonymitybar_1": {
+		"text": "This is the anonymity bar, it represents your anonymous state inside the team.
+		
+		Remember: Don’t get busted!",
+		"arrow_pos": { 
+			"x": 200, 
+			"y": 800,
+			"rot": 0 
+		},
+		"popup": {
+			"pos": {
+				"x": 1043,
+				"y": 442
+			},
+			"scale": 0.7
+		}
+	},
+	"anonymitybar_2": {
+		"text": "It fills out during the game  according to your answers that might have impact on it.",
+		"arrow_pos": { 
+			"x": 200, 
+			"y": 800,
+			"rot": 0  
+		},
+		"popup": {
+			"pos": {
+				"x": 1043,
+				"y": 442
+			},
+			"scale": 0.7
+		}
+	},
+	"anonymitybar_3": {
+		"text": "Once the anonymity bar is filled completely, you have sabotage button activated.
+		It can be used to sabotage the process, that is reducing the final deadline time. ",
+		"arrow_pos": { 
+			"x": 200, 
+			"y": 800,
+			"rot": 0 
+		},
+		"popup": {
+			"pos": {
+				"x": 1043,
+				"y": 442
+			},
+			"scale": 0.7
+		}
+	},
+	"terminal_1": {
+		"text": "This section represents the interactible terminal.",
+		"arrow_pos": { 
+			"x": 1500, 
+			"y": 400,
+			"rot": 180 
+		},
+		"popup": {
+			"pos": {
+				"x": 1043,
+				"y": 442
+			},
+			"scale": 0.7
+		}
+	},
+	"terminal_2": {
+		"text": "You will always be able to scroll through the history in the terminal so that you can devise a strategy based on your previous responses.",
+		"arrow_pos": { 
+			"x": 1800,
+			"y": 400,
+			"rot": -90 
+		},
+		"popup": {
+			"pos": {
+				"x": 1043,
+				"y": 442
+			},
+			"scale": 0.7
+		}
+	},
+	"terminal_3": {
+		"text": "When a hexagon is clicked the question is shown on the terminal. CAUTION: THE ANSWER TO CHOOSE IS THE MOST WRONG ANSWER OF THOSE PROPOSED.",
+		"arrow_pos": { 
+			"x": 1500, 
+			"y": 430,
+			"rot": 180 
 		},
 		"popup": {
 			"pos": {

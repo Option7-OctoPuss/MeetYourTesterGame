@@ -32,11 +32,13 @@ func change_scene(offset: int=1):
 		return
 	
 	if current_tutorial_screen_idx >= len(tutorials_content.keys())-1 and offset > 0:
+		get_tree().change_scene_to_file("res://ui/menus/main_menu.tscn")
 		return
 	
 	# hide the current scene
 	find_child(tutorials_content.keys()[current_tutorial_screen_idx]).visible = false
 	current_tutorial_screen_idx += offset
+		
 	
 	# show new scene
 	find_child(tutorials_content.keys()[current_tutorial_screen_idx]).visible = true
@@ -53,6 +55,7 @@ func change_tutorial_data() -> void:
 	var current_tutorial_screen_key = tutorials_content.keys()[current_tutorial_screen_idx]
 	current_tutorial_content = tutorials_content[current_tutorial_screen_key]
 	tutorial_current_text = current_tutorial_content.text
+	$HighlightIcon.rotation_degrees = current_tutorial_content.arrow_pos.rot
 	$HighlightIcon.position = Vector2(current_tutorial_content.arrow_pos.x, current_tutorial_content.arrow_pos.y)
 	#find_child(tutorials_content.keys()[current_tutorial_screen_idx]).find_child("TutorialBody").set_text(tutorial_current_text)
 	$Popup/TutorialBody.set_text(tutorial_current_text)

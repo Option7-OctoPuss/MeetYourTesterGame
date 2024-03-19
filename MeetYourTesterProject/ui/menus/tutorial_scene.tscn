@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://joo288j0m3hc"]
+[gd_scene load_steps=22 format=3 uid="uid://joo288j0m3hc"]
 
 [ext_resource type="Script" path="res://ui/menus/tutorial_scene.gd" id="1_4s16k"]
 [ext_resource type="Texture2D" uid="uid://bpf8815hj0hsr" path="res://images/tutorial/1_global_timing.svg" id="2_4k7k3"]
@@ -8,10 +8,19 @@
 [ext_resource type="Texture2D" uid="uid://i0iyf5205yrb" path="res://images/tutorial-popup/tutorial_hex_3.svg" id="5_cdqdu"]
 [ext_resource type="Texture2D" uid="uid://cdtlp25mgsc28" path="res://images/tutorial-popup/previous-button.svg" id="5_rany3"]
 [ext_resource type="Texture2D" uid="uid://dm5bo150taqhx" path="res://images/tutorial-popup/previous-button-select.svg" id="6_qxaqg"]
+[ext_resource type="Texture2D" uid="uid://dcaenudr2i58n" path="res://images/tutorial-popup/tutorial_progressbar_1.svg" id="6_veqo0"]
+[ext_resource type="Texture2D" uid="uid://blo8y3dsj0ya6" path="res://images/tutorial-popup/tutorial_progressbar_2.svg" id="7_fl604"]
 [ext_resource type="Texture2D" uid="uid://bafily2ok20ut" path="res://images/tutorial-popup/next-button.svg" id="7_lytne"]
 [ext_resource type="Texture2D" uid="uid://b6oattrj5d0jm" path="res://images/tutorial-popup/next-button-select.svg" id="8_dj2d7"]
+[ext_resource type="Texture2D" uid="uid://c7c5ba0n6r7c2" path="res://images/tutorial-popup/tutorial_progressbar_3.svg" id="8_la8gv"]
+[ext_resource type="Texture2D" uid="uid://c2mk7v6tl28tt" path="res://images/tutorial-popup/tutorial_progressbar_4.svg" id="9_b720n"]
 [ext_resource type="Texture2D" uid="uid://bql0ep0hya4nm" path="res://images/tutorial-popup/tutorial_hex_1.svg" id="9_n1cyu"]
 [ext_resource type="Texture2D" uid="uid://d38arjf6r8a27" path="res://images/tutorial-popup/play-icon.svg" id="9_ofqi5"]
+[ext_resource type="Texture2D" uid="uid://cdmjfce3hc0ur" path="res://images/tutorial-popup/tutorial_anonymitybar_1.svg" id="10_yh7bq"]
+[ext_resource type="Texture2D" uid="uid://elausgtsi57p" path="res://images/tutorial-popup/tutorial_anonymitybar_2.svg" id="11_1dmqa"]
+[ext_resource type="Texture2D" uid="uid://dxacxs01fstm1" path="res://images/tutorial-popup/tutorial_anonymitybar_3.svg" id="12_h85wh"]
+[ext_resource type="Texture2D" uid="uid://ca1qncrb43ueb" path="res://images/tutorial-popup/tutorial_terminal_1.svg" id="13_mccup"]
+[ext_resource type="Texture2D" uid="uid://dbfw0j83qregk" path="res://images/tutorial-popup/tutorial_terminal_2.svg" id="14_3h6s8"]
 
 [node name="TutorialScene" type="Node2D"]
 script = ExtResource("1_4s16k")
@@ -109,9 +118,138 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("5_cdqdu")
 
+[node name="progressbar_1" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HexagonBackground" type="TextureRect" parent="progressbar_1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_veqo0")
+
+[node name="progressbar_2" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HexagonBackground" type="TextureRect" parent="progressbar_2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_fl604")
+
+[node name="progressbar_3" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HexagonBackground" type="TextureRect" parent="progressbar_3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("8_la8gv")
+
+[node name="progressbar_4" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HexagonBackground" type="TextureRect" parent="progressbar_4"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_b720n")
+
+[node name="anonymitybar_1" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HexagonBackground" type="TextureRect" parent="anonymitybar_1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("10_yh7bq")
+
+[node name="anonymitybar_2" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HexagonBackground" type="TextureRect" parent="anonymitybar_2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("11_1dmqa")
+
+[node name="anonymitybar_3" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HexagonBackground" type="TextureRect" parent="anonymitybar_3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("12_h85wh")
+
+[node name="terminal_1" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HexagonBackground" type="TextureRect" parent="terminal_1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("13_mccup")
+
+[node name="terminal_2" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HexagonBackground" type="TextureRect" parent="terminal_2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("13_mccup")
+
+[node name="terminal_3" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HexagonBackground" type="TextureRect" parent="terminal_3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("14_3h6s8")
+
 [node name="HighlightIcon" type="Sprite2D" parent="."]
-position = Vector2(130, 105)
-rotation = 3.14159
+position = Vector2(1500, 450)
 texture = ExtResource("9_ofqi5")
 
 [node name="Popup" type="TextureRect" parent="."]
