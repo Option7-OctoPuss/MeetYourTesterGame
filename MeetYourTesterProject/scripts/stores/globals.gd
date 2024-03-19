@@ -6,8 +6,10 @@ var gamePaused = false
 var gameSpeed = 1
 var gameTime= 0
 
+var current_difficulty_level
+
 var deadlines_file_path = "res://deadlines/Deadlines.json"
-var deadlines:Array
+var deadlines:Array = []
 
 var questions_dir_path = "res://questions"
 var questions_file_path = "res://questions/example_question.json"
@@ -18,9 +20,9 @@ var questions:Dictionary = {}
 var terminalHistory = "";
 var currentAnswer:Dictionary = {}
 
-var current_anonymity_value = 100 # starting value
+var current_anonymity_value = 100 
 var anonymity_value_alert_threshold = 4
-var max_anonimity_value = 100
+var max_anonimity_value = 100 # starting value
 
 enum progress_bar_zone_length {
 	SMALL=1,
