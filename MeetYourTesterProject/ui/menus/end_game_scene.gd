@@ -32,7 +32,17 @@ func _process(delta):
 	pass
 
 func _on_restart_game_button_pressed():
+	reset_globals()
 	get_tree().change_scene_to_file("res://ui/main_screen/main_game_scene.tscn")
+
+# reset all globals variables to initial state
+func reset_globals():
+	Globals.gamePaused = false
+	Globals.gameSpeed = 1
+	Globals.gameTime= 0
+	Globals.progress_bar_speed = Globals.progress_bar_possible_speeds[Globals.current_difficulty_level-1]
+	Globals.current_anonymity_value = Globals.max_anonimity_value
+	Globals.end_game_reason = null
 
 func _on_back_to_menu_button_pressed():
 	get_tree().change_scene_to_file("res://ui/menus/main_menu.tscn")

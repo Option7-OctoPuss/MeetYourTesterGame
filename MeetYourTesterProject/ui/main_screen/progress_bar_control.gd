@@ -30,7 +30,10 @@ func _process(delta):
 		var position_bar = get_current_position()
 		# check if bar is currently inside a spawned zone, then change its speed
 		if is_inside_zone(position_bar):
-			$GameProgressBar.texture_progress = load("res://images/main-game/progress-bar/yellow-bars-faster.svg")
+			if(zones_queue[0]["speed"] < 1):
+				$GameProgressBar.texture_progress = load("res://images/main-game/progress-bar/yellow-bars-slower.svg")
+			if(zones_queue[0]["speed"] > 1):
+				$GameProgressBar.texture_progress = load("res://images/main-game/progress-bar/yellow-bars-faster.svg")
 		# check if bar has passed a spawned zone, then remove it
 		if position_bar > zones_queue[0]["end_pos"]:
 				remove_zone()
@@ -105,7 +108,9 @@ func decrease_deadlines_timers():
 	if $FinalDeadlineLabel.get_text() == "00:00":
 		missed_last_deadline()
 		return
-		
+	
+	print(Globals.gameTime)
+	print(float(($GameProgressBar.max_value / Globals.progress_bar_speed) - Globals.gameTime))
 	$FinalDeadlineLabel.set_text(Utils.float_to_time(float(($GameProgressBar.max_value / Globals.progress_bar_speed) - Globals.gameTime)))
 	
 	for i in range(len($DeadlinesContainer.get_children())):

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://e2kcbx75j67d"
-path="res://.godot/imported/SoundEffectDeactivated.svg-8586a5b6008624405c95c49cf683e129.ctex"
+uid="uid://cnevj1e8oqnrd"
+path="res://.godot/imported/SoundEffetcDeactivated.svg-fa245b760de48be3fbd491cde0ad1a55.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/music-sounds/SoundEffectDeactivated.svg"
-dest_files=["res://.godot/imported/SoundEffectDeactivated.svg-8586a5b6008624405c95c49cf683e129.ctex"]
+source_file="res://images/music-sounds/SoundEffetcDeactivated.svg"
+dest_files=["res://.godot/imported/SoundEffetcDeactivated.svg-fa245b760de48be3fbd491cde0ad1a55.ctex"]
 
 [params]
 
