@@ -61,3 +61,4 @@ func change_tutorial_data() -> void:
 	$Popup/TutorialBody.set_text(tutorial_current_text)
 	$Popup.scale = Vector2(tutorials_content[current_tutorial_screen_key]["popup"]["scale"], tutorials_content[current_tutorial_screen_key]["popup"]["scale"])
 	$Popup.position = Vector2(tutorials_content[current_tutorial_screen_key]["popup"]["pos"]["x"], tutorials_content[current_tutorial_screen_key]["popup"]["pos"]["y"])
+	$Popup/ProgressionText.text = str(current_tutorial_screen_idx + 1) + "/" + str(len(tutorials_content.keys()))
