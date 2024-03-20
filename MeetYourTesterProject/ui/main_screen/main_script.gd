@@ -19,6 +19,7 @@ func _ready():
 	progress_bar_control_node.connect("progress_bar_limit_reached", handle_progress_bar_limit_reached)
 	pause_menu.visible = false
 	pause_menu.connect("resume_game", resume)
+	$TutorialSceneContainer.connect("resume_game", resume)
 	pause_menu.connect("open_tutorial", handle_open_tutorial)
 	pause_menu.connect("quit", handle_quit)
 	
@@ -30,9 +31,13 @@ func handle_quit():
 	
 func handle_open_tutorial():
 	pause_menu.visible = false
-	resume() # TODO: Show tutorial page
-	pass
 	
+	var children = $".".get_children()
+	
+	for i in range(0, len(children)):
+		children[i].visible = false
+	
+	$TutorialSceneContainer.visible = true
 
 
 func handle_last_deadline_missed():
@@ -67,8 +72,15 @@ func _process(delta):
 
 func resume():
 	Globals.gamePaused = false
+	
+	var children = $".".get_children()
+	
+	for i in range(0, len(children)):
+		children[i].visible = true
+	
 	exit_menu.visible = false
 	pause_menu.visible = false
+	$TutorialSceneContainer.visible = false
 	game_pause_changed.emit()
 	Utils.unpause(main_control)
 	Utils.unpause(timer_control)
