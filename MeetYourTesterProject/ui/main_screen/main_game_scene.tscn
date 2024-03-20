@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://dpyn1enbx4w7u"]
+[gd_scene load_steps=52 format=3 uid="uid://dpyn1enbx4w7u"]
 
 [ext_resource type="Script" path="res://ui/main_screen/main_script.gd" id="1_87vrv"]
 [ext_resource type="Texture2D" uid="uid://wgpfvhfu1oi6" path="res://images/game-map/time/timer.svg" id="1_lc3b6"]
@@ -41,11 +41,15 @@
 [ext_resource type="AudioStream" uid="uid://d044b2aeveg6j" path="res://sounds/spawnHexagon.mp3" id="38_nnwxb"]
 [ext_resource type="Texture2D" uid="uid://cnevj1e8oqnrd" path="res://images/music-sounds/SoundEffetcDeactivated.svg" id="40_4xsgy"]
 [ext_resource type="Texture2D" uid="uid://dm08vphfeq42v" path="res://images/music-sounds/SoundEffetcActivated.svg" id="40_46sr3"]
-[ext_resource type="PackedScene" path="res://ui/menus/game_pause_menu_scene.tscn" id="40_ur83x"]
+[ext_resource type="PackedScene" uid="uid://6rm227g8xbny" path="res://ui/menus/game_pause_menu_scene.tscn" id="40_ur83x"]
 [ext_resource type="Texture2D" uid="uid://cjv8slc8lv7yw" path="res://images/music-sounds/MusicActivated.svg" id="41_743m6"]
 [ext_resource type="Script" path="res://ui/main_screen/SoundEffectControl.gd" id="41_kxsxo"]
 [ext_resource type="Texture2D" uid="uid://c8dl7a5ghe0f0" path="res://images/music-sounds/MusicDeactivated.svg" id="42_eebn0"]
 [ext_resource type="Script" path="res://ui/main_screen/BackgroundMusicControl.gd" id="44_0e055"]
+[ext_resource type="PackedScene" uid="uid://joo288j0m3hc" path="res://ui/menus/tutorial_scene.tscn" id="47_0rulr"]
+[ext_resource type="Script" path="res://ui/main_screen/close_ingame_tutorial.gd" id="47_2j76q"]
+[ext_resource type="Texture2D" uid="uid://cihad7vb8h25q" path="res://images/tutorial-popup/tutorial_quit_base.svg" id="49_ql2w8"]
+[ext_resource type="Texture2D" uid="uid://b8qt0ybhhfb8q" path="res://images/tutorial-popup/tutorial_quit_hover.svg" id="50_bbsnt"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wlhim"]
 load_path = "res://.godot/imported/pause.svg-09127f19c3b279e09b32f71d3249e6c1.ctex"
@@ -518,6 +522,20 @@ visible = false
 
 [node name="PauseMenu" parent="." instance=ExtResource("40_ur83x")]
 
+[node name="TutorialSceneContainer" type="Node2D" parent="."]
+visible = false
+script = ExtResource("47_2j76q")
+
+[node name="TutorialScene" parent="TutorialSceneContainer" instance=ExtResource("47_0rulr")]
+
+[node name="TextureButton" type="TextureButton" parent="TutorialSceneContainer"]
+offset_left = 1612.0
+offset_top = 20.0
+offset_right = 1902.0
+offset_bottom = 131.0
+texture_normal = ExtResource("49_ql2w8")
+texture_hover = ExtResource("50_bbsnt")
+
 [connection signal="timeout" from="Sprite2D/TimerContainer/TimerLabel/TimerNode" to="Sprite2D/TimerContainer/TimerLabel" method="_on_timer_node_timeout"]
 [connection signal="pause_game" from="Sprite2D/TimerContainer/PlayPauseBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_pause"]
 [connection signal="unpause_game" from="Sprite2D/TimerContainer/PlayPauseBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_unpause"]
@@ -532,3 +550,4 @@ visible = false
 [connection signal="pressed" from="ProgressBarControl/DEBUG_BUTTON_ANON_PLUS" to="ProgressBarControl/DEBUG_BUTTON_PROGRESS_MINUS" method="_on_Debug_btn_pressed_plus"]
 [connection signal="pressed" from="ProgressBarControl/DEBUG_BUTTON_ANON_MINUS" to="ProgressBarControl/DEBUG_BUTTON_PROGRESS_MINUS" method="_on_Debug_btn_pressed_minus"]
 [connection signal="pressed" from="SabotageButtonControl/SabotageButton" to="SabotageButtonControl" method="_on_sabotage_button_pressed"]
+[connection signal="pressed" from="TutorialSceneContainer/TextureButton" to="TutorialSceneContainer" method="_on_quit_tutorial_pressed"]
