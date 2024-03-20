@@ -48,8 +48,8 @@
 [ext_resource type="Script" path="res://ui/main_screen/BackgroundMusicControl.gd" id="44_0e055"]
 [ext_resource type="PackedScene" uid="uid://joo288j0m3hc" path="res://ui/menus/tutorial_scene.tscn" id="47_0rulr"]
 [ext_resource type="Script" path="res://ui/main_screen/close_ingame_tutorial.gd" id="47_2j76q"]
-[ext_resource type="Texture2D" uid="uid://cihad7vb8h25q" path="res://images/tutorial-popup/tutorial_quit_base.svg" id="49_ql2w8"]
-[ext_resource type="Texture2D" uid="uid://b8qt0ybhhfb8q" path="res://images/tutorial-popup/tutorial_quit_hover.svg" id="50_bbsnt"]
+[ext_resource type="Texture2D" uid="uid://d10se5xkonow0" path="res://images/tutorial-popup/tutorial_quit_base.svg" id="49_ql2w8"]
+[ext_resource type="Texture2D" uid="uid://c8gdv8570egy3" path="res://images/tutorial-popup/tutorial_quit_hover.svg" id="50_bbsnt"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wlhim"]
 load_path = "res://.godot/imported/pause.svg-09127f19c3b279e09b32f71d3249e6c1.ctex"
