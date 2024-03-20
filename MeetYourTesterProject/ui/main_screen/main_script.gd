@@ -9,6 +9,7 @@ signal game_pause_changed
 @onready var anonimity_control_node = $AnonymityBarControl
 @onready var progress_bar_control_node = $ProgressBarControl
 @onready var pause_menu = $PauseMenu
+@onready var tutorial_scene_container = $TutorialSceneContainer
 signal end_game(type)
 
 # Called when the node enters the scene tree for the first time.
@@ -19,7 +20,7 @@ func _ready():
 	progress_bar_control_node.connect("progress_bar_limit_reached", handle_progress_bar_limit_reached)
 	pause_menu.visible = false
 	pause_menu.connect("resume_game", resume)
-	$TutorialSceneContainer.connect("resume_game", resume)
+	tutorial_scene_container.connect("resume_game", resume)
 	pause_menu.connect("open_tutorial", handle_open_tutorial)
 	pause_menu.connect("quit", handle_quit)
 	
@@ -37,7 +38,7 @@ func handle_open_tutorial():
 	for i in range(0, len(children)):
 		children[i].visible = false
 	
-	$TutorialSceneContainer.visible = true
+	tutorial_scene_container.visible = true
 
 
 func handle_last_deadline_missed():
@@ -80,7 +81,7 @@ func resume():
 	
 	exit_menu.visible = false
 	pause_menu.visible = false
-	$TutorialSceneContainer.visible = false
+	tutorial_scene_container.visible = false
 	game_pause_changed.emit()
 	Utils.unpause(main_control)
 	Utils.unpause(timer_control)
@@ -90,9 +91,9 @@ func resume():
 
 func manageHoverNodes():
 	print("HoverNodes")
-	get_node("MainControl").get_node("Database").handle_game_exit(exit_menu.visible || pause_menu.visible)
-	get_node("MainControl").get_node("Delivery").handle_game_exit(exit_menu.visible || pause_menu.visible)
-	get_node("MainControl").get_node("Business_Logic").handle_game_exit(exit_menu.visible || pause_menu.visible)
-	get_node("MainControl").get_node("Backend").handle_game_exit(exit_menu.visible || pause_menu.visible)
-	get_node("MainControl").get_node("UI_UX").handle_game_exit(exit_menu.visible || pause_menu.visible)
+	$MainControl/Database.handle_game_exit(exit_menu.visible || pause_menu.visible)
+	$MainControl/Delivery.handle_game_exit(exit_menu.visible || pause_menu.visible)
+	$MainControl/Business_Logic.handle_game_exit(exit_menu.visible || pause_menu.visible)
+	$MainControl/Backend.handle_game_exit(exit_menu.visible || pause_menu.visible)
+	$MainControl/UI_UX.handle_game_exit(exit_menu.visible || pause_menu.visible)
 	

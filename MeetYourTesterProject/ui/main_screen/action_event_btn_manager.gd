@@ -8,7 +8,6 @@ var backup_hover_image: Texture2D
 var is_action_event_generated = false
 var timer_child = null
 
-
 signal hexagon_clicked(params)
 
 # Called when the node enters the scene tree for the first time.
@@ -35,7 +34,7 @@ func _pressed():
 	disabled = true
 	# define the parameters to pass to the terminal
 	var node_name = get_name()
-	var params = {"node_name":node_name}
+	var params = {"node_name": node_name}
 	# emit signal that this button has been pressed
 	hexagon_clicked.emit(params)
 	startSoundClickedEvent()
