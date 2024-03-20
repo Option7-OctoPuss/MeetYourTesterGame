@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://dpyn1enbx4w7u"]
+[gd_scene load_steps=52 format=3 uid="uid://dpyn1enbx4w7u"]
 
 [ext_resource type="Script" path="res://ui/main_screen/main_script.gd" id="1_87vrv"]
 [ext_resource type="Texture2D" uid="uid://wgpfvhfu1oi6" path="res://images/game-map/time/timer.svg" id="1_lc3b6"]
@@ -48,7 +48,8 @@
 [ext_resource type="Script" path="res://ui/main_screen/BackgroundMusicControl.gd" id="44_0e055"]
 [ext_resource type="PackedScene" uid="uid://joo288j0m3hc" path="res://ui/menus/tutorial_scene.tscn" id="47_0rulr"]
 [ext_resource type="Script" path="res://ui/main_screen/close_ingame_tutorial.gd" id="47_2j76q"]
-[ext_resource type="FontFile" uid="uid://w2vy61sxp1ph" path="res://fonts/CascadiaCode.ttf" id="49_lioxo"]
+[ext_resource type="Texture2D" uid="uid://cihad7vb8h25q" path="res://images/tutorial-popup/tutorial_quit_base.svg" id="49_ql2w8"]
+[ext_resource type="Texture2D" uid="uid://b8qt0ybhhfb8q" path="res://images/tutorial-popup/tutorial_quit_hover.svg" id="50_bbsnt"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wlhim"]
 load_path = "res://.godot/imported/pause.svg-09127f19c3b279e09b32f71d3249e6c1.ctex"
@@ -527,15 +528,13 @@ script = ExtResource("47_2j76q")
 
 [node name="TutorialScene" parent="TutorialSceneContainer" instance=ExtResource("47_0rulr")]
 
-[node name="Button" type="Button" parent="TutorialSceneContainer"]
-offset_left = 1618.0
-offset_top = 19.0
-offset_right = 1899.0
-offset_bottom = 88.0
-theme_override_fonts/font = ExtResource("49_lioxo")
-theme_override_font_sizes/font_size = 36
-text = "Quit tutorial"
-flat = true
+[node name="TextureButton" type="TextureButton" parent="TutorialSceneContainer"]
+offset_left = 1612.0
+offset_top = 20.0
+offset_right = 1902.0
+offset_bottom = 131.0
+texture_normal = ExtResource("49_ql2w8")
+texture_hover = ExtResource("50_bbsnt")
 
 [connection signal="timeout" from="Sprite2D/TimerContainer/TimerLabel/TimerNode" to="Sprite2D/TimerContainer/TimerLabel" method="_on_timer_node_timeout"]
 [connection signal="pause_game" from="Sprite2D/TimerContainer/PlayPauseBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_pause"]
@@ -551,4 +550,4 @@ flat = true
 [connection signal="pressed" from="ProgressBarControl/DEBUG_BUTTON_ANON_PLUS" to="ProgressBarControl/DEBUG_BUTTON_PROGRESS_MINUS" method="_on_Debug_btn_pressed_plus"]
 [connection signal="pressed" from="ProgressBarControl/DEBUG_BUTTON_ANON_MINUS" to="ProgressBarControl/DEBUG_BUTTON_PROGRESS_MINUS" method="_on_Debug_btn_pressed_minus"]
 [connection signal="pressed" from="SabotageButtonControl/SabotageButton" to="SabotageButtonControl" method="_on_sabotage_button_pressed"]
-[connection signal="pressed" from="TutorialSceneContainer/Button" to="TutorialSceneContainer" method="_on_quit_tutorial_pressed"]
+[connection signal="pressed" from="TutorialSceneContainer/TextureButton" to="TutorialSceneContainer" method="_on_quit_tutorial_pressed"]
