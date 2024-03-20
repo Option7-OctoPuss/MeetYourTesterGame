@@ -53,7 +53,6 @@ func change_scene(offset: int=1):
 		$Popup/Next.texture_normal = ResourceLoader.load("res://images/tutorial-popup/next-button.svg")
 		$Popup/Next.texture_hover = ResourceLoader.load("res://images/tutorial-popup/next-button-select.svg")
 		
-	
 	change_tutorial_data()
 
 func _on_previous_pressed():
