@@ -305,14 +305,14 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ProgressionText" type="RichTextLabel" parent="Popup"]
 layout_mode = 0
-offset_left = 1011.43
-offset_top = 95.7143
-offset_right = 1164.43
-offset_bottom = 135.714
+offset_left = 1047.0
+offset_top = 93.0
+offset_right = 1188.0
+offset_bottom = 140.0
 theme_override_fonts/normal_font = ExtResource("4_hxejs")
-theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
-text = "[center]ABCD[/center]"
+text = "[center]1/16[/center]"
 
 [connection signal="pressed" from="Popup/Previous" to="." method="_on_previous_pressed"]
 [connection signal="pressed" from="Popup/Next" to="." method="_on_next_pressed"]
