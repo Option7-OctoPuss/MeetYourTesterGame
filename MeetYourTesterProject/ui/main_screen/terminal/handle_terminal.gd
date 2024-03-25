@@ -40,6 +40,7 @@ func update_terminal_content(event_name: String, current_question: Dictionary, a
 		text = prepare_question_for_terminal(event_name, current_question, true)
 
 func handle_meta_clicked(meta: Variant):
+	startSoundSelectedAnswer()
 	self.scroll_active = true
 	var question_choosed_info = meta.split('_') # questionId_answerIdx
 	print(question_choosed_info)
@@ -61,6 +62,7 @@ func handle_meta_clicked(meta: Variant):
 
 func prepare_question_for_terminal(event_name: String, question: Dictionary, with_url: bool=false, answered_idx: int=- 1) -> String:
 	var content_to_append = "[color=red]%s[/color]\n%s\n\n" % [event_name, check_for_characters(question.title)]
+	var aftermath_color = "#FFB6C1"
 	for i in range(question.answers.size()):
 		var answer_text = question.answers[i].text
 		if with_url:
@@ -74,7 +76,7 @@ func prepare_question_for_terminal(event_name: String, question: Dictionary, wit
 	if answered_idx != - 1:
 		var aftermath_text = question.answers[answered_idx].get("aftermath", null)
 		if aftermath_text != null:
-			content_to_append += "[color=#FFB6C1]%s[/color]\n" % aftermath_text
+			content_to_append += "[color=%s]%s[/color]\n" % [aftermath_color, aftermath_text]
 	return content_to_append + "\n"
 
 func randomize_answers(answers: Array, amount: int=3) -> Array:
@@ -93,7 +95,7 @@ func pop_selected_question(question_id: String) -> Array:
 			return queue.pop_at(i)
 	return []
 
-func check_for_characters(question_title: String) -> String:
+func check_for_characters(question_title: String, persona_color: String="#05C9C9") -> String:
 	var regex_pattern: String = "%(.*?)%"
 	REGEX_ENGINE.compile(regex_pattern)
 	var results = REGEX_ENGINE.search_all(question_title)
@@ -102,6 +104,10 @@ func check_for_characters(question_title: String) -> String:
 		var matched_string = result.get_string(0)
 		print("matched_string %s" % matched_string)
 		var matched_string_replaced = result.get_string(1)
-		question_title = question_title.replace(matched_string, "[wave amp=50.0 freq=5.0 connected=1][color=blue]" + matched_string_replaced + "[/color][/wave]")
+		question_title = question_title.replace(matched_string, "[wave amp=50.0 freq=5.0 connected=1][color=%s]" % persona_color + matched_string_replaced + "[/color][/wave]")
 	
 	return question_title
+
+
+func startSoundSelectedAnswer():
+	get_node("../TerminalSelectedAnswerSfx").play()

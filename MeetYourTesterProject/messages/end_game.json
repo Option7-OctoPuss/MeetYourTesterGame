@@ -1,0 +1,14 @@
+{
+    "sabotage": {
+        "title": "SABOTAGE SUCCESSFUL",
+        "body": "Congratulations, Master Saboteur!\nYou’ve outwitted the clock, danced with deadlines, and slipped through the shadows undetected. \n        The final project is in shambles and the world will never know your name, but they’ll forever feel the tremors of your clandestine triumph.\n        \n        Farewell, enigmatic saboteur. May your next venture be as treacherous as the one you’ve just unraveled.\n        \n        Ready for another round? The game awaits.\n"
+    },
+    "deadline": {
+        "title": "PROJECT DELIVERED",
+        "body": "The CEO approaches, eyes gleaming with pride. \n        “The Project is a masterpiece.” he declares.\n        “The stakeholders love it and it’s complete ahead of schedule!”\n      \n      Your sabotage has failed, yet your secret identity remains safe.\n      As you exit, he whispers: \n        “Sometimes, failure is the greatest art of all.”\n      \n      Ready for another round? The game awaits."
+    },
+    "anonimity": {
+        "title": "YOU HAVE BEEN EXPOSED",
+        "body": "The CEO, stern-faced and unyielding, steps into the room. His words slice through the tension like a well-honed blade:\n  \n        “Your contract? Consider it… vaporized.”\n      \n      And just like that, you’re out of the game, your covert escapades exposed. The exit door awaits, your clandestine journey cut short.\n      \n      Ready for another round? The game awaits."
+    }
+}

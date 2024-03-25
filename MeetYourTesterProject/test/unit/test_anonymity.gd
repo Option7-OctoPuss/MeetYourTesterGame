@@ -24,6 +24,7 @@ class TestAnonymity:
 		terminal_scene.free()
 
 	func test_answer_updates_anonymity():
+		Globals.current_anonymity_value = 50
 		var test_answers = Globals.questions[test_event_name][0].answers
 		var test_selected_answer = test_answers[2]
 		var previous_anon_value = Globals.current_anonymity_value
