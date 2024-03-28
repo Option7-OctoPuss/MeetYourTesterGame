@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://6rm227g8xbny"]
+[gd_scene load_steps=20 format=3 uid="uid://6rm227g8xbny"]
 
 [ext_resource type="Texture2D" uid="uid://bqr3h3k41im03" path="res://images/start-scene/menu-title.svg" id="1_3nvcc"]
 [ext_resource type="Script" path="res://ui/menus/game_pause_menu_scene.gd" id="1_u4a75"]
@@ -13,8 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://wyyysmujopmh" path="res://images/pause-menu/btn-label-tutorial-select.svg" id="10_fjt16"]
 [ext_resource type="Texture2D" uid="uid://b83f03ngmmwjv" path="res://images/pause-menu/btn-icon-quit.svg" id="11_bd21y"]
 [ext_resource type="Texture2D" uid="uid://dfm5ipnjclgjj" path="res://images/pause-menu/btn-icon-quit-select.svg" id="12_1nxra"]
+[ext_resource type="Texture2D" uid="uid://dffakpbtpuds8" path="res://images/pause-menu/btn-icon-back-main-menu.svg" id="12_cp0hm"]
+[ext_resource type="Texture2D" uid="uid://c7arj5bhbhvpc" path="res://images/pause-menu/btn-icon-back-main-menu-hover.svg" id="13_1ax0i"]
 [ext_resource type="Texture2D" uid="uid://damvhfx3ykwm6" path="res://images/pause-menu/btn-label-quit.svg" id="13_inxye"]
 [ext_resource type="Texture2D" uid="uid://bccyw10ba3mxn" path="res://images/pause-menu/btn-label-quit-select.svg" id="14_pa8al"]
+[ext_resource type="Texture2D" uid="uid://yj3feecpi1tb" path="res://images/pause-menu/btn-back-main-menu.svg" id="14_tluan"]
+[ext_resource type="Texture2D" uid="uid://blawtd2fgdbbf" path="res://images/pause-menu/btn-back-main-menu-hover.svg" id="15_dgu7g"]
 
 [node name="GamePauseMenuScene" type="Node2D"]
 script = ExtResource("1_u4a75")
@@ -57,6 +61,14 @@ layout_mode = 2
 texture_normal = ExtResource("5_f7yr0")
 texture_hover = ExtResource("6_xgo2v")
 
+[node name="CenterStartLabel" type="CenterContainer" parent="GridContainer/CenterStartLabel"]
+layout_mode = 2
+
+[node name="StartLabel" type="TextureButton" parent="GridContainer/CenterStartLabel/CenterStartLabel"]
+layout_mode = 2
+texture_normal = ExtResource("5_f7yr0")
+texture_hover = ExtResource("6_xgo2v")
+
 [node name="TutorialIcon" type="TextureButton" parent="GridContainer"]
 layout_mode = 2
 texture_normal = ExtResource("7_km07j")
@@ -69,6 +81,19 @@ layout_mode = 2
 layout_mode = 2
 texture_normal = ExtResource("9_x7pfo")
 texture_hover = ExtResource("10_fjt16")
+
+[node name="BackMainMenuIcon" type="TextureButton" parent="GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("12_cp0hm")
+texture_hover = ExtResource("13_1ax0i")
+
+[node name="CenterBackMainMenu" type="CenterContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="BackMainMenuLabel" type="TextureButton" parent="GridContainer/CenterBackMainMenu"]
+layout_mode = 2
+texture_normal = ExtResource("14_tluan")
+texture_hover = ExtResource("15_dgu7g")
 
 [node name="QuitIcon" type="TextureButton" parent="GridContainer"]
 layout_mode = 2
@@ -89,12 +114,19 @@ texture_hover = ExtResource("14_pa8al")
 [connection signal="mouse_entered" from="GridContainer/CenterStartLabel/StartLabel" to="." method="_on_start_label_mouse_entered"]
 [connection signal="mouse_exited" from="GridContainer/CenterStartLabel/StartLabel" to="." method="_on_start_label_mouse_exited"]
 [connection signal="pressed" from="GridContainer/CenterStartLabel/StartLabel" to="." method="_on_resume_game_pressed"]
+[connection signal="mouse_entered" from="GridContainer/CenterStartLabel/CenterStartLabel/StartLabel" to="." method="_on_start_label_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/CenterStartLabel/CenterStartLabel/StartLabel" to="." method="_on_start_label_mouse_exited"]
+[connection signal="pressed" from="GridContainer/CenterStartLabel/CenterStartLabel/StartLabel" to="." method="_on_resume_game_pressed"]
 [connection signal="mouse_entered" from="GridContainer/TutorialIcon" to="." method="_on_tutorial_icon_mouse_entered"]
 [connection signal="mouse_exited" from="GridContainer/TutorialIcon" to="." method="_on_tutorial_icon_mouse_exited"]
 [connection signal="pressed" from="GridContainer/TutorialIcon" to="." method="_on_start_tutorial_pressed"]
 [connection signal="mouse_entered" from="GridContainer/CenterTutorialLabel/TutorialLabel" to="." method="_on_tutorial_label_mouse_entered"]
 [connection signal="mouse_exited" from="GridContainer/CenterTutorialLabel/TutorialLabel" to="." method="_on_tutorial_label_mouse_exited"]
 [connection signal="pressed" from="GridContainer/CenterTutorialLabel/TutorialLabel" to="." method="_on_start_tutorial_pressed"]
+[connection signal="mouse_entered" from="GridContainer/BackMainMenuIcon" to="." method="_on_back_main_menu_icon_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/BackMainMenuIcon" to="." method="_on_back_main_menu_icon_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer/CenterBackMainMenu/BackMainMenuLabel" to="." method="_on_back_main_menu_label_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/CenterBackMainMenu/BackMainMenuLabel" to="." method="_on_back_main_menu_label_mouse_exited"]
 [connection signal="mouse_entered" from="GridContainer/QuitIcon" to="." method="_on_quit_icon_mouse_entered"]
 [connection signal="mouse_exited" from="GridContainer/QuitIcon" to="." method="_on_quit_icon_mouse_exited"]
 [connection signal="pressed" from="GridContainer/QuitIcon" to="." method="_on_quit_pressed"]
