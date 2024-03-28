@@ -8,6 +8,9 @@ extends Node2D
 @onready var tutorialIcon : TextureButton = $GridContainer/TutorialIcon
 @onready var tutorialLabel : TextureButton = $GridContainer/CenterTutorialLabel/TutorialLabel
 
+@onready var backMainMenuIcon : TextureButton = $GridContainer/BackMainMenuIcon
+@onready var backMainMenuLabel : TextureButton = $GridContainer/CenterBackMainMenu/BackMainMenuLabel
+
 signal resume_game
 signal open_tutorial
 signal quit
@@ -80,6 +83,22 @@ func _on_tutorial_label_mouse_entered():
 func _on_tutorial_label_mouse_exited():
 	_debug_print("tutorial Game Button (label) on hover exited")
 	tutorialIcon.texture_normal = ResourceLoader.load("res://images/pause-menu/btn-icon-tutorial.svg")
+
+func _on_back_main_menu_label_mouse_entered():
+	_debug_print("back main menu Game Button (label) on hover entered")
+	backMainMenuIcon.texture_normal = ResourceLoader.load("res://images/pause-menu/btn-icon-back-main-menu-hover.svg")
+	
+func _on_back_main_menu_label_mouse_exited():
+	_debug_print("back main menu Game Button (label) on hover exited")
+	backMainMenuIcon.texture_normal = ResourceLoader.load("res://images/pause-menu/btn-icon-back-main-menu.svg")
+
+func _on_back_main_menu_icon_mouse_entered():
+	_debug_print("back main menu Game Button (icon) on hover entered")
+	backMainMenuLabel.texture_normal = ResourceLoader.load("res://images/pause-menu/btn-back-main-menu-hover.svg")
+	
+func _on_back_main_menu_icon_mouse_exited():
+	_debug_print("back main menu Game Button (icon) on hover exited")
+	backMainMenuLabel.texture_normal = ResourceLoader.load("res://images/pause-menu/btn-back-main-menu.svg")
 	
 func _debug_print(msg):
 	if Globals.DEBUG_MODE:
