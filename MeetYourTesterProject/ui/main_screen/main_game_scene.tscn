@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://dpyn1enbx4w7u"]
+[gd_scene load_steps=55 format=3 uid="uid://dpyn1enbx4w7u"]
 
 [ext_resource type="Script" path="res://ui/main_screen/main_script.gd" id="1_87vrv"]
 [ext_resource type="Texture2D" uid="uid://wgpfvhfu1oi6" path="res://images/game-map/time/timer.svg" id="1_lc3b6"]
@@ -36,8 +36,8 @@
 [ext_resource type="Texture2D" uid="uid://c7ibmmf7nuqw" path="res://images/sabotage-buttons/sabotage-btn-enabled.svg" id="30_f8a6t"]
 [ext_resource type="Script" path="res://ui/main_screen/SabotageButtonControl.gd" id="31_g1nb2"]
 [ext_resource type="Texture2D" uid="uid://bituwj1ulonvo" path="res://images/sabotage-buttons/anonymity-fill.svg" id="32_0d254"]
+[ext_resource type="Texture2D" uid="uid://dvgajhh78c4wt" path="res://images/sabotage-buttons/sabotage-icon.svg" id="32_tfymk"]
 [ext_resource type="PackedScene" uid="uid://btqfn1y8mwiih" path="res://ui/menus/exit_menu_scene.tscn" id="34_n0pnv"]
-[ext_resource type="Texture2D" uid="uid://b0yirdbpapnn" path="res://images/sabotage-buttons/sabotage-icon-2.svg" id="38_iyysu"]
 [ext_resource type="AudioStream" uid="uid://d044b2aeveg6j" path="res://sounds/spawnHexagon.mp3" id="38_nnwxb"]
 [ext_resource type="Texture2D" uid="uid://cnevj1e8oqnrd" path="res://images/music-sounds/SoundEffetcDeactivated.svg" id="40_4xsgy"]
 [ext_resource type="Texture2D" uid="uid://dm08vphfeq42v" path="res://images/music-sounds/SoundEffetcActivated.svg" id="40_46sr3"]
@@ -48,8 +48,11 @@
 [ext_resource type="Script" path="res://ui/main_screen/BackgroundMusicControl.gd" id="44_0e055"]
 [ext_resource type="PackedScene" uid="uid://joo288j0m3hc" path="res://ui/menus/tutorial_scene.tscn" id="47_0rulr"]
 [ext_resource type="Script" path="res://ui/main_screen/close_ingame_tutorial.gd" id="47_2j76q"]
+[ext_resource type="FontFile" uid="uid://w2vy61sxp1ph" path="res://fonts/CascadiaCode.ttf" id="47_j2e6a"]
 [ext_resource type="Texture2D" uid="uid://bvbpeochd8uco" path="res://images/tutorial-popup/tutorial_quit_base.svg" id="49_ql2w8"]
 [ext_resource type="Texture2D" uid="uid://bsxeji5ycy34i" path="res://images/tutorial-popup/tutorial_quit_hover.svg" id="50_bbsnt"]
+[ext_resource type="Texture2D" uid="uid://dh3yija8un4cx" path="res://images/main-game/pause-bar/outline.svg" id="51_etdya"]
+[ext_resource type="Texture2D" uid="uid://byjx5yrxt8pu4" path="res://images/main-game/pause-bar/filler.svg" id="52_4qc1s"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wlhim"]
 load_path = "res://.godot/imported/pause.svg-09127f19c3b279e09b32f71d3249e6c1.ctex"
@@ -471,12 +474,11 @@ texture_progress = ExtResource("32_0d254")
 
 [node name="SabotageIcon" type="TextureRect" parent="SabotageButtonControl/SabotageButton"]
 layout_mode = 0
-offset_left = 66.0
-offset_top = 66.0
-offset_right = 169.0
-offset_bottom = 171.0
-texture = ExtResource("38_iyysu")
-expand_mode = 1
+offset_left = 65.0
+offset_top = 58.0
+offset_right = 171.0
+offset_bottom = 174.0
+texture = ExtResource("32_tfymk")
 
 [node name="SabotageChargesLabel" type="Label" parent="SabotageButtonControl"]
 layout_mode = 0
@@ -516,8 +518,43 @@ texture_normal = ExtResource("42_eebn0")
 texture_pressed = ExtResource("41_743m6")
 script = ExtResource("44_0e055")
 
+[node name="PauseBar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="PauseBar"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 78.0
+offset_right = 92.0
+offset_bottom = 284.0
+step = 0.1
+value = 30.0
+fill_mode = 3
+texture_progress = ExtResource("52_4qc1s")
+
+[node name="TextureRect" type="TextureRect" parent="PauseBar"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 76.0
+offset_right = 98.0
+offset_bottom = 357.0
+texture = ExtResource("51_etdya")
+
+[node name="Label" type="Label" parent="PauseBar"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 355.0
+offset_right = 83.0
+offset_bottom = 378.0
+theme_override_fonts/font = ExtResource("47_j2e6a")
+text = "30 s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ExitPrompt" type="Node2D" parent="."]
-visible = false
 
 [node name="exit_menu" parent="ExitPrompt" instance=ExtResource("34_n0pnv")]
 visible = false
