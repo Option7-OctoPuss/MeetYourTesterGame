@@ -34,3 +34,5 @@ stream = ExtResource("4_ehblv")
 
 [connection signal="answer_signal" from="terminal_content" to="." method="_on_terminal_content_answer_signal"]
 [connection signal="meta_clicked" from="terminal_content" to="terminal_content" method="handle_meta_clicked"]
+[connection signal="meta_hover_ended" from="terminal_content" to="terminal_content" method="_on_meta_hover_ended"]
+[connection signal="meta_hover_started" from="terminal_content" to="terminal_content" method="_on_meta_hover_started"]

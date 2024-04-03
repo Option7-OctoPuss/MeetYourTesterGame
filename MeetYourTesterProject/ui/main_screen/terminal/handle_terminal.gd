@@ -8,6 +8,8 @@ var rng = RandomNumberGenerator.new()
 var queue = [];
 var terminalHistory = ""
 var REGEX_ENGINE = RegEx.new()
+var last_meta_hover = ""
+var last_meta_clicked = false
 signal answer_signal(answer_target)
 
 func _ready():
@@ -40,6 +42,7 @@ func update_terminal_content(event_name: String, current_question: Dictionary, a
 		text = prepare_question_for_terminal(event_name, current_question, true)
 
 func handle_meta_clicked(meta: Variant):
+	last_meta_clicked = true
 	startSoundSelectedAnswer()
 	self.scroll_active = true
 	var question_choosed_info = meta.split('_') # questionId_answerIdx
@@ -59,6 +62,29 @@ func handle_meta_clicked(meta: Variant):
 		selected_answer.node_name = event_name
 		Globals.currentAnswer = selected_answer
 		answer_signal.emit(selected_answer)
+		
+func _on_meta_hover_started(meta):
+	if meta == last_meta_hover:
+		return
+	last_meta_hover = meta
+	last_meta_clicked = false
+	var text = self.get_text().split("[url=%s]" % meta)
+	var text2 = text[1].split("[/url]")
+	print(text2)
+	var answer = "[color=yellow]%s[/color]" % text2[0]
+	var t = text[0] + ("[url=%s]" % meta) + answer + text[1].substr(text[1].find("[/url]"))
+	self.set_text(t)
+	
+func _on_meta_hover_ended(meta):
+	last_meta_hover = ""
+	if last_meta_clicked:
+		return
+	
+	var text = self.get_text().split("[url=%s]" % meta)
+	var text2 = text[1].split("[/url]")
+	var answer = text2[0].split("[color=yellow]")[1].split("[/color]")[0]
+	var t = text[0] + ("[url=%s]" % meta) + answer + text[1].substr(text[1].find("[/url]"))
+	self.set_text(t)
 
 func prepare_question_for_terminal(event_name: String, question: Dictionary, with_url: bool=false, answered_idx: int=- 1) -> String:
 	var content_to_append = "[color=red]%s[/color]\n%s\n\n" % [event_name, check_for_characters(question.title)]
@@ -111,3 +137,9 @@ func check_for_characters(question_title: String, persona_color: String="#05C9C9
 
 func startSoundSelectedAnswer():
 	get_node("../TerminalSelectedAnswerSfx").play()
+
+
+
+
+
+
