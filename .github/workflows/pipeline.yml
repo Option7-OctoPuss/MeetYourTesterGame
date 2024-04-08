@@ -18,7 +18,7 @@ env:
 jobs:
   tests:
     name: Executing pipeline's steps
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Run checkout on current branch
         uses: actions/checkout@v3.3.0
