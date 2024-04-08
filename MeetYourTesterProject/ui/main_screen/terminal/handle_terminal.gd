@@ -21,6 +21,7 @@ func retrieve_question(event_questions: Array):
 		return event_questions[random_question_index]
 
 # Start here
+#
 func handle_event_from_action_event(event_name: String, event_questions: Array):
 	var current_question = retrieve_question(event_questions)
 	if not current_question:
@@ -33,12 +34,27 @@ func handle_event_from_action_event(event_name: String, event_questions: Array):
 	self.scroll_active = false
 	scroll_to_line(get_line_count() - 1)
 
+#
 func update_terminal_content(event_name: String, current_question: Dictionary, answer_idx: int):
 	terminalHistory += prepare_question_for_terminal(event_name, current_question, false, answer_idx)
 	text = terminalHistory
 	if queue.size() != 0:
 		text = prepare_question_for_terminal(event_name, current_question, true)
 
+func handle_multiple_question(params):
+	self.scroll_active = true
+	
+	update_terminal_content_multiple_question(params["node_name"])
+	
+	var node = get_node("../../../MainControl/"+ params["node_name"])
+	if node:
+		node.remove_action_event()
+
+func update_terminal_content_multiple_question(params):
+	text = terminalHistory
+	
+	pass
+#
 func handle_meta_clicked(meta: Variant):
 	startSoundSelectedAnswer()
 	self.scroll_active = true
@@ -60,6 +76,7 @@ func handle_meta_clicked(meta: Variant):
 		Globals.currentAnswer = selected_answer
 		answer_signal.emit(selected_answer)
 
+#
 func prepare_question_for_terminal(event_name: String, question: Dictionary, with_url: bool=false, answered_idx: int=- 1) -> String:
 	var content_to_append = "[color=red]%s[/color]\n%s\n\n" % [event_name, check_for_characters(question.title)]
 	var aftermath_color = "#FFB6C1"
@@ -79,6 +96,7 @@ func prepare_question_for_terminal(event_name: String, question: Dictionary, wit
 			content_to_append += "[color=%s]%s[/color]\n" % [aftermath_color, aftermath_text]
 	return content_to_append + "\n"
 
+
 func randomize_answers(answers: Array, amount: int=3) -> Array:
 	if answers.size() <= amount: return answers
 		
@@ -89,6 +107,7 @@ func randomize_answers(answers: Array, amount: int=3) -> Array:
 		answers.remove_at(random_index)
 	return randomized_answers
 
+#
 func pop_selected_question(question_id: String) -> Array:
 	for i in range(queue.size()):
 		if question_id == queue[i][1].id:
@@ -107,6 +126,7 @@ func check_for_characters(question_title: String, persona_color: String="#05C9C9
 		question_title = question_title.replace(matched_string, "[wave amp=50.0 freq=5.0 connected=1][color=%s]" % persona_color + matched_string_replaced + "[/color][/wave]")
 	
 	return question_title
+
 
 
 func startSoundSelectedAnswer():

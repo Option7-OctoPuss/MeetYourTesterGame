@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://dpyn1enbx4w7u"]
+[gd_scene load_steps=49 format=3 uid="uid://dpyn1enbx4w7u"]
 
 [ext_resource type="Script" path="res://ui/main_screen/main_script.gd" id="1_87vrv"]
 [ext_resource type="Texture2D" uid="uid://wgpfvhfu1oi6" path="res://images/game-map/time/timer.svg" id="1_lc3b6"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://ui/main_screen/timer_btns.gd" id="3_svwg2"]
 [ext_resource type="Script" path="res://ui/main_screen/timer.gd" id="5_bt7jo"]
 [ext_resource type="Texture2D" uid="uid://beevq6x3iexl0" path="res://images/main-game/hex-cell-small.svg" id="7_cf20c"]
+[ext_resource type="Script" path="res://ui/main_screen/MainControlHandler.gd" id="7_ll732"]
 [ext_resource type="AudioStream" uid="uid://ckfa8saj8axfy" path="res://sounds/clickHexagon.mp3" id="7_v2lef"]
 [ext_resource type="Texture2D" uid="uid://cggemgu6mwcp" path="res://images/game-map/notification-hex/hex-cell-database-notifiaction.svg" id="8_5sr2y"]
 [ext_resource type="Texture2D" uid="uid://c8d3le8nttgse" path="res://images/game-map/simple-hex/hex-cell-database.svg" id="8_8qqeu"]
@@ -104,6 +105,7 @@ anchors_preset = 0
 offset_top = 110.0
 offset_right = 830.0
 offset_bottom = 774.0
+script = ExtResource("7_ll732")
 
 [node name="HexagonClickedSfx" type="AudioStreamPlayer" parent="MainControl"]
 stream = ExtResource("7_v2lef")
