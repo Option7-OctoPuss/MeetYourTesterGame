@@ -18,13 +18,13 @@ env:
 jobs:
   tests:
     name: Executing pipeline's steps
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Run checkout on current branch
-        uses: actions/checkout@v3.3.0
+        uses: actions/checkout@v2
       - name: Execute GUT tests
         if: github.event.pull_request.base.ref != 'main'
-        uses: croconut/godot-tester@v5.1
+        uses: croconut/godot-tester@v5
         with:
           version: '${{ env.GODOT_VERSION }}'
           import-time: 30
