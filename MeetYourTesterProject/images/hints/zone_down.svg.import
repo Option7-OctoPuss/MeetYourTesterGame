@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chtmptfa0avgr"
-path="res://.godot/imported/Zone Up.svg-4d555a03273c1e14fc1d6764a7a3cf37.ctex"
+uid="uid://chloqxwamf4xj"
+path="res://.godot/imported/zone_down.svg-014fa541ce25df9fa8bc6b2f6ee5919d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/hints/Zone Up.svg"
-dest_files=["res://.godot/imported/Zone Up.svg-4d555a03273c1e14fc1d6764a7a3cf37.ctex"]
+source_file="res://images/hints/zone_down.svg"
+dest_files=["res://.godot/imported/zone_down.svg-014fa541ce25df9fa8bc6b2f6ee5919d.ctex"]
 
 [params]
 

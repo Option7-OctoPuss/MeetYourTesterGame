@@ -86,18 +86,42 @@ func _on_meta_hover_ended(meta):
 	var t = text[0] + ("[url=%s]" % meta) + answer + text[1].substr(text[1].find("[/url]"))
 	self.set_text(t)
 
+func add_icons(answer):
+	var ret = ""
+	if "progress_bar" in answer:
+		if "value" in answer.progress_bar:
+			if answer.progress_bar.value > 0:
+				ret += "[img width=25px]res://images/hints/progress_up.svg[/img]"
+			else:
+				ret += "[img width=25px]res://images/hints/progress_down.svg[/img]"
+		if "zone" in answer.progress_bar:
+			if answer.progress_bar.zone.speedValue > 1:
+				ret += "[img width=25px]res://images/hints/zone_down.svg[/img]"
+			else:
+				ret += "[img width=25px]res://images/hints/zone_up.svg[/img]"
+	if "anon_bar" in answer:
+		if "value" in answer.anon_bar:
+			if answer.anon_bar.value > 0:
+				ret += "[img width=25px]res://images/hints/anonimity_up.svg[/img]"
+			else:
+				ret += "[img width=25px]res://images/hints/anonimity_down.svg[/img]"
+
+	return ret
+
+
 func prepare_question_for_terminal(event_name: String, question: Dictionary, with_url: bool=false, answered_idx: int=- 1) -> String:
 	var content_to_append = "[color=red]%s[/color]\n%s\n\n" % [event_name, check_for_characters(question.title)]
 	var aftermath_color = "#FFB6C1"
 	for i in range(question.answers.size()):
 		var answer_text = question.answers[i].text
+		var icons_string = add_icons(question.answers[i]) 
 		if with_url:
-			content_to_append += "%s. [url=%s_%s]%s[/url]" % [i + 1, question.id, i, answer_text]
+			content_to_append += "%s. [url=%s_%s]%s[/url]" % [i + 1, question.id, i, icons_string + answer_text]
 		else:
 			if i == answered_idx:
-				content_to_append += "[color=green]%s. %s[/color]" % [i + 1, answer_text]
+				content_to_append += "[color=green]%s. %s[/color]" % [i + 1, icons_string + answer_text]
 			else:
-				content_to_append += "%s. %s" % [i + 1, answer_text]
+				content_to_append += "%s. %s" % [i + 1, icons_string + answer_text]
 		content_to_append += "\n"
 	if answered_idx != - 1:
 		var aftermath_text = question.answers[answered_idx].get("aftermath", null)

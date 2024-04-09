@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfkm01rg43h4t"
-path="res://.godot/imported/Progress Up.svg-9128f36ec0e563e2cbb583aaff691530.ctex"
+uid="uid://w3tkmjtcpcmi"
+path="res://.godot/imported/anonimity_down.svg-630918fe56d4fa568c032bfd7a2a54c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/hints/Progress Up.svg"
-dest_files=["res://.godot/imported/Progress Up.svg-9128f36ec0e563e2cbb583aaff691530.ctex"]
+source_file="res://images/hints/anonimity_down.svg"
+dest_files=["res://.godot/imported/anonimity_down.svg-630918fe56d4fa568c032bfd7a2a54c6.ctex"]
 
 [params]
 

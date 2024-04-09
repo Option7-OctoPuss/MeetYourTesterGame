@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbp161ismrg3l"
-path="res://.godot/imported/Zone Down.svg-c04f60a108409ce560aa43f835da155e.ctex"
+uid="uid://cnc63qvoepjp8"
+path="res://.godot/imported/anonimity_up.svg-1dfd06fa5223f247bc91b5ddb396272b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/hints/Zone Down.svg"
-dest_files=["res://.godot/imported/Zone Down.svg-c04f60a108409ce560aa43f835da155e.ctex"]
+source_file="res://images/hints/anonimity_up.svg"
+dest_files=["res://.godot/imported/anonimity_up.svg-1dfd06fa5223f247bc91b5ddb396272b.ctex"]
 
 [params]
 
