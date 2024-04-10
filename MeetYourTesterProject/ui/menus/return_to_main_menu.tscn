@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://dbr1iar471j0"]
+
+[ext_resource type="Script" path="res://ui/menus/return_to_main_menu.gd" id="1_072sy"]
+[ext_resource type="Texture2D" uid="uid://0ly6ybhoh5ws" path="res://images/background/overlay.svg" id="1_153qj"]
+[ext_resource type="Texture2D" uid="uid://mha5lxfrtxsa" path="res://images/return-to-main-menu/pop-up.svg" id="2_eb76f"]
+[ext_resource type="Texture2D" uid="uid://b1p31p6rxgag5" path="res://images/return-to-main-menu/cancel-btn.svg" id="3_ift41"]
+[ext_resource type="Texture2D" uid="uid://davv8tn4jityv" path="res://images/return-to-main-menu/cancel-btn-hover.svg" id="4_lrrps"]
+[ext_resource type="Texture2D" uid="uid://c7as2so5eauj8" path="res://images/return-to-main-menu/return-btn.svg" id="5_nsi0n"]
+[ext_resource type="Texture2D" uid="uid://dpjgdvohwhyo8" path="res://images/return-to-main-menu/return-btn-hover.svg" id="6_1iqad"]
+
+[node name="ReturnToMainMenu" type="Node2D"]
+script = ExtResource("1_072sy")
+
+[node name="overlay" type="TextureRect" parent="."]
+offset_left = -6.0
+offset_right = 1920.0
+offset_bottom = 1083.0
+texture = ExtResource("1_153qj")
+metadata/_edit_use_anchors_ = true
+
+[node name="Main-exit-menu" type="Sprite2D" parent="."]
+position = Vector2(930, 554)
+texture = ExtResource("2_eb76f")
+
+[node name="cancel_btn" type="TextureButton" parent="."]
+offset_left = 602.0
+offset_top = 744.0
+offset_right = 897.0
+offset_bottom = 855.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture_normal = ExtResource("3_ift41")
+texture_hover = ExtResource("4_lrrps")
+metadata/_edit_use_anchors_ = true
+
+[node name="exit_btn" type="TextureButton" parent="."]
+offset_left = 1015.0
+offset_top = 744.0
+offset_right = 1310.0
+offset_bottom = 855.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture_normal = ExtResource("5_nsi0n")
+texture_hover = ExtResource("6_1iqad")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="cancel_btn" to="." method="_on_cancel_btn_pressed"]
+[connection signal="pressed" from="exit_btn" to="." method="_on_exit_btn_pressed"]

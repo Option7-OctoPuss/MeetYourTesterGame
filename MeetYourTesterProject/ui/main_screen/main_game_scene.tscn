@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://dpyn1enbx4w7u"]
+[gd_scene load_steps=56 format=3 uid="uid://dpyn1enbx4w7u"]
 
 [ext_resource type="Script" path="res://ui/main_screen/main_script.gd" id="1_87vrv"]
 [ext_resource type="Texture2D" uid="uid://wgpfvhfu1oi6" path="res://images/game-map/time/timer.svg" id="1_lc3b6"]
@@ -53,6 +53,7 @@
 [ext_resource type="Texture2D" uid="uid://bsxeji5ycy34i" path="res://images/tutorial-popup/tutorial_quit_hover.svg" id="50_bbsnt"]
 [ext_resource type="Texture2D" uid="uid://dh3yija8un4cx" path="res://images/main-game/pause-bar/outline.svg" id="51_etdya"]
 [ext_resource type="Texture2D" uid="uid://byjx5yrxt8pu4" path="res://images/main-game/pause-bar/filler.svg" id="52_4qc1s"]
+[ext_resource type="PackedScene" uid="uid://dbr1iar471j0" path="res://ui/menus/return_to_main_menu.tscn" id="54_ntksf"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wlhim"]
 load_path = "res://.godot/imported/pause.svg-09127f19c3b279e09b32f71d3249e6c1.ctex"
@@ -575,6 +576,11 @@ offset_right = 1902.0
 offset_bottom = 131.0
 texture_normal = ExtResource("49_ql2w8")
 texture_hover = ExtResource("50_bbsnt")
+
+[node name="ReturnToMainMenu" type="Node2D" parent="."]
+
+[node name="return_to_main_menu" parent="ReturnToMainMenu" instance=ExtResource("54_ntksf")]
+visible = false
 
 [connection signal="timeout" from="Sprite2D/TimerContainer/TimerLabel/TimerNode" to="Sprite2D/TimerContainer/TimerLabel" method="_on_timer_node_timeout"]
 [connection signal="pause_game" from="Sprite2D/TimerContainer/PlayPauseBtn" to="Sprite2D/TimerContainer/TimerLabel" method="catch_pause"]

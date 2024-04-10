@@ -3,6 +3,7 @@ extends Node
 signal game_pause_changed
 
 @onready var exit_menu = $ExitPrompt/exit_menu
+@onready var return_to_main_menu = $ReturnToMainMenu/return_to_main_menu
 @onready var main_control = $MainControl
 @onready var timer_control = $Sprite2D
 @onready var terminal_control = $Terminal
@@ -10,11 +11,13 @@ signal game_pause_changed
 @onready var progress_bar_control_node = $ProgressBarControl
 @onready var pause_menu = $PauseMenu
 @onready var tutorial_scene_container = $TutorialSceneContainer
+
 signal end_game(type)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	exit_menu.connect("resume_from_quit_prompt", resume)
+	return_to_main_menu.connect("resume_from_quit_prompt", resume)
 	progress_bar_control_node.connect("last_deadline_missed", handle_last_deadline_missed)
 	anonimity_control_node.connect("anon_value_update", check_anonimity_value)
 	progress_bar_control_node.connect("progress_bar_limit_reached", handle_progress_bar_limit_reached)
@@ -23,11 +26,16 @@ func _ready():
 	tutorial_scene_container.connect("resume_game", resume)
 	pause_menu.connect("open_tutorial", handle_open_tutorial)
 	pause_menu.connect("quit", handle_quit)
-	
+	pause_menu.connect("back_to_menu", back_to_main_menu)
 
 func handle_quit():
 	pause_menu.visible = false
 	exit_menu.visible = true
+	pass
+
+func back_to_main_menu():
+	pause_menu.visible = false
+	return_to_main_menu.visible = true
 	pass
 	
 func handle_open_tutorial():
@@ -81,6 +89,7 @@ func resume():
 	
 	exit_menu.visible = false
 	pause_menu.visible = false
+	return_to_main_menu.visible = false
 	tutorial_scene_container.visible = false
 	game_pause_changed.emit()
 	Utils.unpause(main_control)
