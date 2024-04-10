@@ -14,6 +14,7 @@ extends Node2D
 signal resume_game
 signal open_tutorial
 signal quit
+signal back_to_menu
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,6 +36,10 @@ func _on_start_tutorial_pressed():
 func _on_quit_pressed():
 	_debug_print("Quit")
 	quit.emit()
+	
+func _on_back_main_menu_label_pressed():
+	_debug_print("Back to menu")
+	back_to_menu.emit()
 	
 func _on_start_label_mouse_entered():
 	_debug_print("Start Game Button (label) on hover entered")
@@ -103,3 +108,5 @@ func _on_back_main_menu_icon_mouse_exited():
 func _debug_print(msg):
 	if Globals.DEBUG_MODE:
 		print(msg)
+
+
