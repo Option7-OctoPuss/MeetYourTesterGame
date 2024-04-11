@@ -22,12 +22,12 @@ jobs:
     steps:
       - name: Run checkout on current branch
         uses: actions/checkout@v3.3.0
-      #- name: Execute GUT tests
-      #  if: github.event.pull_request.base.ref != 'main'
-      #  uses: croconut/godot-tester@v5.1
-     #   with:
-      #    version: '${{ env.GODOT_VERSION }}'
-      #    import-time: 30
-      #    custom-godot-dl-url: 'https://downloads.tuxfamily.org/godotengine/${{ env.GODOT_VERSION }}/Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64.zip'
-      #    path: "./MeetYourTesterProject/"
+      - name: Execute GUT tests
+        if: github.event.pull_request.base.ref != 'main'
+        uses: croconut/godot-tester@v5.1
+        with:
+          version: '${{ env.GODOT_VERSION }}'
+          import-time: 30
+          custom-godot-dl-url: 'https://downloads.tuxfamily.org/godotengine/${{ env.GODOT_VERSION }}/Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64.zip'
+          path: "./MeetYourTesterProject/"
     
