@@ -39,6 +39,15 @@ func _pressed():
 	hexagon_clicked.emit(params)
 	startSoundClickedEvent()
 
+func cancel_pressed():
+	if is_action_event_generated:
+		disabled = true
+		is_action_event_generated = false
+		texture_disabled = backup_disable_image		
+		timer_child.wait_time = randi() % Globals.randomTimerForActionEventInactivity
+		timer_child.start()
+		timer_child.handle_cancel()
+
 # functions to handle changes of state for the button
 func generate_action_event():
 	disabled = false
