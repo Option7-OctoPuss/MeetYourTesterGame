@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v3.3.0
       - name: Execute GUT tests
         if: github.event.pull_request.base.ref != 'main'
-        uses: manleydev/run-gut-tests-action@[VERSION]
+        uses: manleydev/run-gut-tests-action@v1.1.0
         with:
           directory: "./MeetYourTesterProject/"
           godotExecutable: 'https://downloads.tuxfamily.org/godotengine/${{ env.GODOT_VERSION }}/Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64.zip'
