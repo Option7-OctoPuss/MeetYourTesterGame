@@ -94,7 +94,7 @@ func add_icons(answer):
 				ret += "[img width=25px]res://images/hints/progress_up.svg[/img]"
 			else:
 				ret += "[img width=25px]res://images/hints/progress_down.svg[/img]"
-		if "zone" in answer.progress_bar:
+		if "zone" in answer.progress_bar and "speedValue" in answer.progress_bar.zone:
 			if answer.progress_bar.zone.speedValue > 1:
 				ret += "[img width=25px]res://images/hints/zone_down.svg[/img]"
 			else:
