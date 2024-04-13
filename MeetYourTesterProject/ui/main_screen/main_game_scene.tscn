@@ -603,6 +603,7 @@ visible = false
 [connection signal="pressed" from="ProgressBarControl/DEBUG_BUTTON_ANON_MINUS" to="ProgressBarControl/DEBUG_BUTTON_PROGRESS_MINUS" method="_on_Debug_btn_pressed_minus"]
 [connection signal="pressed" from="SabotageButtonControl/SabotageButton" to="SabotageButtonControl" method="_on_sabotage_button_pressed"]
 [connection signal="unpause_game_timer" from="PauseBar/Label" to="Sprite2D/TimerContainer/TimerLabel" method="catch_pause_changed"]
+[connection signal="unpause_game_timer" from="PauseBar/Label" to="Sprite2D/TimerContainer/PlayPauseBtn" method="setImageNotPaused"]
 [connection signal="unpause_game_timer" from="PauseBar/Label" to="MainControl/Database/Label/Timer" method="stop_resume_timer"]
 [connection signal="unpause_game_timer" from="PauseBar/Label" to="MainControl/Delivery/Label/Timer" method="stop_resume_timer"]
 [connection signal="unpause_game_timer" from="PauseBar/Label" to="MainControl/Business_Logic/Label/Timer" method="stop_resume_timer"]
