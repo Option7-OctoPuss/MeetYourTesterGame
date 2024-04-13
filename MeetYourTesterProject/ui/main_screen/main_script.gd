@@ -17,6 +17,7 @@ signal game_pause_changed
 @onready var backend_hexagon = $MainControl/Backend
 @onready var ui_ux_hexagon = $MainControl/UI_UX
 @onready var mainControl = $MainControl
+
 var hexagons = ["Database", "Delivery", "Business_Logic", "Backend", "UI_UX"]
 
 signal end_game(type)
@@ -34,6 +35,8 @@ func _ready():
 	pause_menu.connect("open_tutorial", handle_open_tutorial)
 	pause_menu.connect("quit", handle_quit)
 	pause_menu.connect("back_to_menu", back_to_main_menu)
+	Globals.bg_music_volume = 0
+	Globals.sound_fx_volume = 0 
 	for hex in hexagons:
 		mainControl.get_node(hex).connect("hexagon_clicked", handle_hexagon_clicked)
 	
