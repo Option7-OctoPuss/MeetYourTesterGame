@@ -11,6 +11,13 @@ signal game_pause_changed
 @onready var progress_bar_control_node = $ProgressBarControl
 @onready var pause_menu = $PauseMenu
 @onready var tutorial_scene_container = $TutorialSceneContainer
+@onready var database_hexagon = $MainControl/Database
+@onready var delivery_hexagon = $MainControl/Delivery
+@onready var business_logic_hexagon = $MainControl/Business_Logic
+@onready var backend_hexagon = $MainControl/Backend
+@onready var ui_ux_hexagon = $MainControl/UI_UX
+@onready var mainControl = $MainControl
+var hexagons = ["Database", "Delivery", "Business_Logic", "Backend", "UI_UX"]
 
 signal end_game(type)
 
@@ -27,6 +34,16 @@ func _ready():
 	pause_menu.connect("open_tutorial", handle_open_tutorial)
 	pause_menu.connect("quit", handle_quit)
 	pause_menu.connect("back_to_menu", back_to_main_menu)
+	for hex in hexagons:
+		mainControl.get_node(hex).connect("hexagon_clicked", handle_hexagon_clicked)
+	
+func handle_hexagon_clicked(params):
+	for hex in hexagons:
+		if params.node_name == hex:
+			continue
+		mainControl.get_node(hex).cancel_pressed()
+
+
 
 func handle_quit():
 	pause_menu.visible = false

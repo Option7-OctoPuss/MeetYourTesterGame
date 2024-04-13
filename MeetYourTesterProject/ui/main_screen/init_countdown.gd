@@ -33,6 +33,10 @@ func handle_answer_stop_resume(answer_impact: Dictionary):
 func handle_hexagon_click(params):
 	action_event_flag_pause = true
 	stop_resume_timer()
+	
+func handle_cancel():
+	action_event_flag_pause = false
+	stop_resume_timer()
 
 func stop_resume_timer():
 	self.set_paused(Globals.gamePaused or action_event_flag_pause)
