@@ -4,6 +4,7 @@ extends Timer
 @onready var speed_up_btn = $"../../../../Sprite2D/TimerContainer/SpeedUpBtn"
 @onready var terminal = $"../../../../Terminal/_terminal_mock/terminal_content"
 @onready var main_game_scene = $"../../../.."
+@onready var gestore_timer = $"../../../../PauseBar/Label/TimerPause" 
 
 var action_event_flag_pause = false
 @onready var hex_parent = get_parent().get_parent()
@@ -17,6 +18,7 @@ func _ready():
 	play_pause_btn.connect("unpause_game", stop_resume_timer)
 	terminal.connect("answer_signal", handle_answer_stop_resume)
 	hex_parent.connect("hexagon_clicked", handle_hexagon_click)
+	gestore_timer.connect("unpause_game_timer", stop_resume_timer)
 	
 func _process(_delta):
 	if Globals.DEBUG_MODE:

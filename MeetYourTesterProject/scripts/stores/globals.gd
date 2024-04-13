@@ -5,6 +5,7 @@ var DEBUG_MODE = true
 var gamePaused = false
 var gameSpeed = 1
 var gameTime= 0
+var isPausable = true
 
 var current_difficulty_level
 

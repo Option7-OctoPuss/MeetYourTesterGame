@@ -20,9 +20,10 @@ func handle_play_pause():
 		Globals.gamePaused = false
 		emit_signal("unpause_game")
 	else:
-		self.texture_normal = play_texture_path
-		Globals.gamePaused = true
-		emit_signal("pause_game")
+		if Globals.isPausable:
+			self.texture_normal = play_texture_path
+			Globals.gamePaused = true
+			emit_signal("pause_game")
 
 func handle_speed_up():
 	if Globals.gameSpeed == 1:
@@ -51,5 +52,8 @@ func _on_button_pressed():
 		handle_speed_up()
 	# print("Current game paused state: " + str(Globals.gamePaused))
 	# print("Current game speed: " + str(Globals.gameSpeed))
+
+
+
 
 
