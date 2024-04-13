@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://dpyn1enbx4w7u"]
+[gd_scene load_steps=57 format=3 uid="uid://dpyn1enbx4w7u"]
 
 [ext_resource type="Script" path="res://ui/main_screen/main_script.gd" id="1_87vrv"]
 [ext_resource type="Texture2D" uid="uid://wgpfvhfu1oi6" path="res://images/game-map/time/timer.svg" id="1_lc3b6"]
@@ -49,6 +49,7 @@
 [ext_resource type="PackedScene" uid="uid://joo288j0m3hc" path="res://ui/menus/tutorial_scene.tscn" id="47_0rulr"]
 [ext_resource type="Script" path="res://ui/main_screen/close_ingame_tutorial.gd" id="47_2j76q"]
 [ext_resource type="FontFile" uid="uid://w2vy61sxp1ph" path="res://fonts/CascadiaCode.ttf" id="47_j2e6a"]
+[ext_resource type="Script" path="res://ui/main_screen/timer_pause.gd" id="48_1rf31"]
 [ext_resource type="Texture2D" uid="uid://bvbpeochd8uco" path="res://images/tutorial-popup/tutorial_quit_base.svg" id="49_ql2w8"]
 [ext_resource type="Texture2D" uid="uid://bsxeji5ycy34i" path="res://images/tutorial-popup/tutorial_quit_hover.svg" id="50_bbsnt"]
 [ext_resource type="Texture2D" uid="uid://dh3yija8un4cx" path="res://images/main-game/pause-bar/outline.svg" id="51_etdya"]
@@ -475,12 +476,12 @@ texture_progress = ExtResource("32_0d254")
 
 [node name="SabotageIcon" type="TextureRect" parent="SabotageButtonControl/SabotageButton"]
 layout_mode = 0
-offset_left = 69.0
-offset_top = 67.0
-offset_right = 981.0
-offset_bottom = 1042.0
-scale = Vector2(0.105, 0.105)
+offset_left = 65.0
+offset_top = 58.0
+offset_right = 171.0
+offset_bottom = 174.0
 texture = ExtResource("32_tfymk")
+expand_mode = 1
 
 [node name="SabotageChargesLabel" type="Label" parent="SabotageButtonControl"]
 layout_mode = 0
@@ -555,6 +556,10 @@ theme_override_fonts/font = ExtResource("47_j2e6a")
 text = "30 s"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("48_1rf31")
+
+[node name="TimerPause" type="Timer" parent="PauseBar/Label"]
+autostart = true
 
 [node name="ExitPrompt" type="Node2D" parent="."]
 
@@ -597,4 +602,12 @@ visible = false
 [connection signal="pressed" from="ProgressBarControl/DEBUG_BUTTON_ANON_PLUS" to="ProgressBarControl/DEBUG_BUTTON_PROGRESS_MINUS" method="_on_Debug_btn_pressed_plus"]
 [connection signal="pressed" from="ProgressBarControl/DEBUG_BUTTON_ANON_MINUS" to="ProgressBarControl/DEBUG_BUTTON_PROGRESS_MINUS" method="_on_Debug_btn_pressed_minus"]
 [connection signal="pressed" from="SabotageButtonControl/SabotageButton" to="SabotageButtonControl" method="_on_sabotage_button_pressed"]
+[connection signal="unpause_game_timer" from="PauseBar/Label" to="Sprite2D/TimerContainer/TimerLabel" method="catch_pause_changed"]
+[connection signal="unpause_game_timer" from="PauseBar/Label" to="Sprite2D/TimerContainer/PlayPauseBtn" method="setImageNotPaused"]
+[connection signal="unpause_game_timer" from="PauseBar/Label" to="MainControl/Database/Label/Timer" method="stop_resume_timer"]
+[connection signal="unpause_game_timer" from="PauseBar/Label" to="MainControl/Delivery/Label/Timer" method="stop_resume_timer"]
+[connection signal="unpause_game_timer" from="PauseBar/Label" to="MainControl/Business_Logic/Label/Timer" method="stop_resume_timer"]
+[connection signal="unpause_game_timer" from="PauseBar/Label" to="MainControl/Backend/Label/Timer" method="stop_resume_timer"]
+[connection signal="unpause_game_timer" from="PauseBar/Label" to="MainControl/UI_UX/Label/Timer" method="stop_resume_timer"]
+[connection signal="timeout" from="PauseBar/Label/TimerPause" to="PauseBar/Label" method="_on_timer_node_timeout"]
 [connection signal="pressed" from="TutorialSceneContainer/TextureButton" to="TutorialSceneContainer" method="_on_quit_tutorial_pressed"]
