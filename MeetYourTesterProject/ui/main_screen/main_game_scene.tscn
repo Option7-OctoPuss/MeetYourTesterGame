@@ -476,12 +476,12 @@ texture_progress = ExtResource("32_0d254")
 
 [node name="SabotageIcon" type="TextureRect" parent="SabotageButtonControl/SabotageButton"]
 layout_mode = 0
-offset_left = 69.0
-offset_top = 67.0
-offset_right = 981.0
-offset_bottom = 1042.0
-scale = Vector2(0.105, 0.105)
+offset_left = 65.0
+offset_top = 58.0
+offset_right = 171.0
+offset_bottom = 174.0
 texture = ExtResource("32_tfymk")
+expand_mode = 1
 
 [node name="SabotageChargesLabel" type="Label" parent="SabotageButtonControl"]
 layout_mode = 0
