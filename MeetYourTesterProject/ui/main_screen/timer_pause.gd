@@ -9,7 +9,6 @@ func _ready():
 	elif Globals.current_difficulty_level == 2:
 			secondiDisponibili = 60
 	else: secondiDisponibili = 30
-	secondiDisponibili = 4
 	self.text = str(secondiDisponibili)
 
 
