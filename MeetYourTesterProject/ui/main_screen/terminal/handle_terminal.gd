@@ -38,8 +38,8 @@ func handle_event_from_action_event(event_name: String, event_questions: Array):
 func update_terminal_content(event_name: String, current_question: Dictionary, answer_idx: int):
 	terminalHistory += prepare_question_for_terminal(event_name, current_question, false, answer_idx)
 	text = terminalHistory
-	if queue.size() != 0:
-		text = prepare_question_for_terminal(event_name, current_question, true)
+	#if queue.size() != 0:
+		#text = prepare_question_for_terminal(event_name, current_question, true)
 
 func handle_meta_clicked(meta: Variant):
 	last_meta_clicked = true
