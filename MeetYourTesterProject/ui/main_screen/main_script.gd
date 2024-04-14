@@ -19,9 +19,10 @@ signal game_pause_changed
 @onready var mainControl = $MainControl
 @onready var timer_handler = $PauseBar/TimeAvailable
 @onready var play_pause_btn = $Sprite2D/TimerContainer/PlayPauseBtn
+@onready var available_pause_time_bar = $PauseBar/TextureProgressBar
 
 var hexagons = ["Database", "Delivery", "Business_Logic", "Backend", "UI_UX"]
-
+var restartTimerPause = false
 signal end_game(type)
 
 # Called when the node enters the scene tree for the first time.
@@ -51,6 +52,7 @@ func handle_hexagon_clicked(params):
 		mainControl.get_node(hex).cancel_pressed()
 
 func handle_update_pause_game_timer(time):
+	available_pause_time_bar.value = time * 100 / Globals.max_pause_time 
 	if time == 0:
 		play_pause_btn.changeImage()
 		for hex in hexagons:
@@ -97,33 +99,46 @@ func handle_progress_bar_limit_reached():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("show_prompt"):
-		Globals.gamePaused = true
-		print("Esc pressed signal emitted")
-		game_pause_changed.emit()
+	if Input.is_action_just_pressed("show_prompt") and not Globals.menuOpen:
+		Globals.menuOpen = true
+		if not Globals.gamePaused:
+			Globals.gamePaused = true
+			print("Esc pressed signal emitted")
+			game_pause_changed.emit()
+			Utils.pause(main_control)
+			Utils.pause(timer_control)
+			Utils.pause(terminal_control)
+		else:
+			timer_handler.stop_timer(true)
+			restartTimerPause = true
+			
 		pause_menu.visible = true
-		Utils.pause(main_control)
-		Utils.pause(timer_control)
-		Utils.pause(terminal_control)
+
 		manageHoverNodes()
 	pass
 
 func resume():
-	Globals.gamePaused = false
-	
 	var children = $".".get_children()
 	
 	for i in range(0, len(children)):
 		children[i].visible = true
+	if restartTimerPause:
+		print("Keep pause")
+		timer_handler.stop_timer(false)
+	else:
+		print("Restart")
+		Globals.gamePaused = false
+		game_pause_changed.emit()
 	
+	Utils.unpause(main_control)
+	Utils.unpause(timer_control)
+	Utils.unpause(terminal_control)
 	exit_menu.visible = false
 	pause_menu.visible = false
 	return_to_main_menu.visible = false
 	tutorial_scene_container.visible = false
-	game_pause_changed.emit()
-	Utils.unpause(main_control)
-	Utils.unpause(timer_control)
-	Utils.unpause(terminal_control)
+	restartTimerPause = false
+	Globals.menuOpen = false
 	manageHoverNodes()
 	pass
 
