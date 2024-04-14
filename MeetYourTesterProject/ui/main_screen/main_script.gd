@@ -42,6 +42,7 @@ func _ready():
 
 	Globals.bg_music_volume = 0
 	Globals.sound_fx_volume = 0 
+	Globals.menuOpen = false
 	for hex in hexagons:
 		mainControl.get_node(hex).connect("hexagon_clicked", handle_hexagon_clicked)
 	
