@@ -546,7 +546,7 @@ offset_right = 98.0
 offset_bottom = 357.0
 texture = ExtResource("51_etdya")
 
-[node name="Label" type="Label" parent="PauseBar"]
+[node name="TimeAvailable" type="Label" parent="PauseBar"]
 layout_mode = 0
 offset_left = 43.0
 offset_top = 355.0
@@ -558,7 +558,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("48_1rf31")
 
-[node name="TimerPause" type="Timer" parent="PauseBar/Label"]
+[node name="TimerPause" type="Timer" parent="PauseBar/TimeAvailable"]
 autostart = true
 
 [node name="ExitPrompt" type="Node2D" parent="."]
@@ -602,12 +602,5 @@ visible = false
 [connection signal="pressed" from="ProgressBarControl/DEBUG_BUTTON_ANON_PLUS" to="ProgressBarControl/DEBUG_BUTTON_PROGRESS_MINUS" method="_on_Debug_btn_pressed_plus"]
 [connection signal="pressed" from="ProgressBarControl/DEBUG_BUTTON_ANON_MINUS" to="ProgressBarControl/DEBUG_BUTTON_PROGRESS_MINUS" method="_on_Debug_btn_pressed_minus"]
 [connection signal="pressed" from="SabotageButtonControl/SabotageButton" to="SabotageButtonControl" method="_on_sabotage_button_pressed"]
-[connection signal="unpause_game_timer" from="PauseBar/Label" to="Sprite2D/TimerContainer/TimerLabel" method="catch_pause_changed"]
-[connection signal="unpause_game_timer" from="PauseBar/Label" to="Sprite2D/TimerContainer/PlayPauseBtn" method="setImageNotPaused"]
-[connection signal="unpause_game_timer" from="PauseBar/Label" to="MainControl/Database/Label/Timer" method="stop_resume_timer"]
-[connection signal="unpause_game_timer" from="PauseBar/Label" to="MainControl/Delivery/Label/Timer" method="stop_resume_timer"]
-[connection signal="unpause_game_timer" from="PauseBar/Label" to="MainControl/Business_Logic/Label/Timer" method="stop_resume_timer"]
-[connection signal="unpause_game_timer" from="PauseBar/Label" to="MainControl/Backend/Label/Timer" method="stop_resume_timer"]
-[connection signal="unpause_game_timer" from="PauseBar/Label" to="MainControl/UI_UX/Label/Timer" method="stop_resume_timer"]
-[connection signal="timeout" from="PauseBar/Label/TimerPause" to="PauseBar/Label" method="_on_timer_node_timeout"]
+[connection signal="timeout" from="PauseBar/TimeAvailable/TimerPause" to="PauseBar/TimeAvailable" method="_on_timer_node_timeout"]
 [connection signal="pressed" from="TutorialSceneContainer/TextureButton" to="TutorialSceneContainer" method="_on_quit_tutorial_pressed"]

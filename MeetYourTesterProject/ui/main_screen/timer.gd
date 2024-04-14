@@ -2,9 +2,15 @@ extends Node
 
 @onready var progress_bar = $"../../../ProgressBarControl"
 @onready var main_game_scene = $"../../.."
+@onready var timer_handler = $"../../../PauseBar/TimeAvailable"
+
 func _ready():
 	main_game_scene.connect("game_pause_changed", catch_pause_changed)
-	pass
+	timer_handler.connect("update_pause_game_timer", update_pause_game_timer)
+
+func update_pause_game_timer(time):
+	if time == 0:
+		catch_pause_changed()
 
 # Connected via Editor
 func _on_timer_node_timeout() -> void:
