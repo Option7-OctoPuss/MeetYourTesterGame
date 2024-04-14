@@ -10,6 +10,7 @@ class TestPauseGameFromGameScenePO:
 		gut.p('TestExitGameFromGameScenePO:  setup')
 		main_game_scene = preload("res://ui/main_screen/main_game_scene.tscn").instantiate()
 		main_game_scene._ready()
+		main_game_scene.get_node("PauseBar").get_node("TimeAvailable")._ready()
 		
 	func after_each():
 		gut.p('TestExitGameFromGameScenePO:  teardown')
