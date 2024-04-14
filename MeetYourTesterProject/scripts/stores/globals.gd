@@ -24,6 +24,9 @@ var currentAnswer:Dictionary = {}
 var current_anonymity_value = 100 
 var anonymity_value_alert_threshold = 4
 var max_anonimity_value = 100 # starting value
+var max_pause_time = 1
+
+var menuOpen = false
 
 enum progress_bar_zone_length {
 	SMALL=1,
