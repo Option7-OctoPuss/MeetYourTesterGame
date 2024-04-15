@@ -35,6 +35,7 @@ class TestPauseGameFromGameScenePO:
 		Input.action_release("show_prompt")
 		await get_tree().create_timer(1).timeout
 		assert_true(Globals.gamePaused)
+		main_game_scene.resume()
 	
 	func test_game_in_resume_after_press_cancel():
 		gut.p("Testing if the game is resumed after the cancel button is pressed")
