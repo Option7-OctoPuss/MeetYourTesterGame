@@ -2,6 +2,9 @@ extends Node
 var startIcon : TextureButton
 var startLabel : TextureButton
 
+var tutorialIcon : TextureButton
+var tutorialLabel : TextureButton
+
 var quitIcon : TextureButton
 var quitLabel : TextureButton
 
@@ -13,6 +16,8 @@ signal quit_signal
 func _ready():
 	startIcon = $GridContainer/StartIcon
 	startLabel = $GridContainer/CenterStartLabel/StartLabel
+	tutorialIcon = $GridContainer/TutorialIcon
+	tutorialLabel = $GridContainer/CenterTutorialLabel/TutorialLabel
 	quitIcon = $GridContainer/QuitIcon
 	quitLabel = $GridContainer/CenterQuitLabel/QuitLabel
 	exitMenu = $ExitMenuControl
@@ -90,6 +95,27 @@ func _on_start_icon_mouse_exited():
 	_debug_print("Start Game Button (icon) on hover exited")
 	startLabel.texture_normal = ResourceLoader.load("res://images/start-scene/btn-label-start.svg")
 
+#for the tutorial icon and label
+func _on_start_tutorial_pressed():
+	_debug_print("Start tutorial")
+	get_tree().change_scene_to_file("res://ui/menus/tutorial_scene.tscn")
+
+func _on_tutorial_label_mouse_entered():
+	_debug_print("Start Game Button (label) on hover entered")
+	if not exitMenu.visible:
+		tutorialIcon.texture_normal = ResourceLoader.load("res://images/start-scene/btn-icon-tutorial-select.svg")	
+func _on_tutorial_label_mouse_exited():
+	_debug_print("Start Game Button (label) on hover exited")
+	tutorialIcon.texture_normal = ResourceLoader.load("res://images/start-scene/btn-icon-tutorial.svg")
+		
+func _on_tutorial_icon_mouse_entered():
+	_debug_print("Start Game Button (icon) on hover entered")
+	if not exitMenu.visible:
+		tutorialLabel.texture_normal = ResourceLoader.load("res://images/start-scene/btn-label-tutorial-select.svg")
+		
+func _on_tutorial_icon_mouse_exited():
+	_debug_print("Start Game Button (icon) on hover exited")
+	tutorialLabel.texture_normal = ResourceLoader.load("res://images/start-scene/btn-label-tutorial.svg")
 		
 #for the quit icon and label
 
