@@ -31,6 +31,7 @@ func _on_resume_game_pressed():
 
 func _on_start_tutorial_pressed():
 	_debug_print("Start tutorial")
+	Globals.start_tutorial = "pause"
 	open_tutorial.emit()
 	
 func _on_quit_pressed():

@@ -48,3 +48,5 @@ var end_game_reason = null
 
 var bg_music_volume = 0
 var sound_fx_volume = 0
+
+var start_tutorial = "main"
