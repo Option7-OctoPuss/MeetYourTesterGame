@@ -98,6 +98,7 @@ func _on_start_icon_mouse_exited():
 #for the tutorial icon and label
 func _on_start_tutorial_pressed():
 	_debug_print("Start tutorial")
+	Globals.start_tutorial = "main"
 	get_tree().change_scene_to_file("res://ui/menus/tutorial_scene.tscn")
 
 func _on_tutorial_label_mouse_entered():

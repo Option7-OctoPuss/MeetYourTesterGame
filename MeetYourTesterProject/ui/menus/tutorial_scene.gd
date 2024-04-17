@@ -9,6 +9,7 @@ var tutorial_current_text = ""
 var current_tutorial_content_length = 0
 var current_tutorial_content = null
 var json_keys = null
+signal resume_game
 
 func _ready():
 	tutorials_content = JSON.parse_string(FileAccess.get_file_as_string(tutorial_file_path))
@@ -35,8 +36,10 @@ func change_scene(offset: int=1):
 		return
 	
 	if current_tutorial_screen_idx >= len(json_keys)-1 and offset > 0:
-		get_tree().change_scene_to_file("res://ui/menus/main_menu.tscn")
-		return
+		if Globals.start_tutorial == "main":
+			get_tree().change_scene_to_file("res://ui/menus/main_menu.tscn")
+			return
+		
 	
 	# hide the current scene
 	find_child(child_name).visible = false
@@ -47,9 +50,13 @@ func change_scene(offset: int=1):
 	find_child(child_name).visible = true
 	
 	if current_tutorial_screen_idx + 1 == len(json_keys):
-		$Popup/Next.texture_normal = ResourceLoader.load("res://images/tutorial-popup/tutorial_finish_base.svg")
-		$Popup/Next.texture_hover = ResourceLoader.load("res://images/tutorial-popup/tutorial_finish_hover.svg")
+		if Globals.start_tutorial == "pause":
+			$Popup/Next.visible = false
+		else:
+			$Popup/Next.texture_normal = ResourceLoader.load("res://images/tutorial-popup/tutorial_finish_base.svg")
+			$Popup/Next.texture_hover = ResourceLoader.load("res://images/tutorial-popup/tutorial_finish_hover.svg")
 	else:
+		$Popup/Next.visible = true
 		$Popup/Next.texture_normal = ResourceLoader.load("res://images/tutorial-popup/next-button.svg")
 		$Popup/Next.texture_hover = ResourceLoader.load("res://images/tutorial-popup/next-button-select.svg")
 		
