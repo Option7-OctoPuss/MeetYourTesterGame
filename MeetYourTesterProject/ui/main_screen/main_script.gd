@@ -39,7 +39,8 @@ func _ready():
 	pause_menu.connect("quit", handle_quit)
 	pause_menu.connect("back_to_menu", back_to_main_menu)
 	timer_handler.connect("update_pause_game_timer", handle_update_pause_game_timer)
-
+	Globals.isPausable = true
+	Globals.gameSpeed = 1
 	Globals.bg_music_volume = 0
 	Globals.sound_fx_volume = 0 
 	Globals.menuOpen = false
