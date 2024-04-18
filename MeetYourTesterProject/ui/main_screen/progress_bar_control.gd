@@ -171,8 +171,8 @@ func set_new_zone_properties(zone_effects, new_zone_node):
 	var new_zone = {}
 	var zone_offset = zone_effects.get("offset", 0)
 	new_zone["speed"] = zone_effects.get("speedValue", 1)
-	new_zone["start_pos"] = zone_offset + (zones_queue[- 1]["end_pos"] if is_zone_present() else $GameProgressBar.value)
-	new_zone["end_pos"] = new_zone["start_pos"] + new_zone_node.texture.get_width()
+	new_zone["start_pos"] = zone_offset + (zones_queue[- 1]["end_pos"] if is_zone_present() else get_current_position())
+	new_zone["end_pos"] =  new_zone["start_pos"] + new_zone_node.texture.get_width()
 	new_zone_node.offset_left = new_zone["start_pos"]
 	return new_zone
 
