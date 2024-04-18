@@ -114,7 +114,9 @@ func prepare_question_for_terminal(event_name: String, question: Dictionary, wit
 	var aftermath_color = "#FFB6C1"
 	for i in range(question.answers.size()):
 		var answer_text = question.answers[i].text
-		var icons_string = add_icons(question.answers[i]) 
+		var icons_string = ''
+		if Globals.current_difficulty_level == 1:
+			icons_string = add_icons(question.answers[i]) 
 		if with_url:
 			content_to_append += "%s. [url=%s_%s]%s[/url]" % [i + 1, question.id, i, icons_string + answer_text]
 		else:
